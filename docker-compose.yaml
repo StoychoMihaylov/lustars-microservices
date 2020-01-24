@@ -1,0 +1,46 @@
+version: '3.7'
+
+services:
+
+  frontend:
+    container_name: ${FE_APP_NAME}
+    build:
+      context: ./${FE_APP_NAME}
+      dockerfile: Dockerfile
+    volumes:
+      - './${FE_APP_NAME}/:/app'
+      - '/app/node_modules'
+    ports:
+      - '3001:3000'
+    environment:
+      - NODE_ENV=NODE_ENV
+
+  api-gateway:
+    container_name: ${APIGWAY_NAME}
+    build:
+      context: ./${APIGWAY_NAME}/${APIGATEWAY_PATH}
+      dockerfile: Dockerfile
+    ports:
+      - '5000:80'
+
+  auth-backend:
+    container_name: ${AUTH_BACKEND_NAME}
+    build:
+      context: ./${AUTH_BACKEND_NAME}/${AUTH_BACKEND_NAME}.App
+      dockerfile: Dockerfile
+    ports:
+        - '5001:80'
+
+  lustar-auth-database:
+    image: postgres:latest
+    restart: on-failure
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - 5432:5432
+    volumes:
+     -  lustar-auth-db:/var/lib/postgresql/data
+volumes:
+  lustar-auth-db:

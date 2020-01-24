@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebGateway.App", "WebGateway.App\WebGateway.App.csproj", "{1330F0CA-D5F9-40A9-B94A-836E272DCE83}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1330F0CA-D5F9-40A9-B94A-836E272DCE83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1330F0CA-D5F9-40A9-B94A-836E272DCE83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1330F0CA-D5F9-40A9-B94A-836E272DCE83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1330F0CA-D5F9-40A9-B94A-836E272DCE83}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B70212EF-DF24-462F-A292-5B6B3D58DD52}
+	EndGlobalSection
+EndGlobal
