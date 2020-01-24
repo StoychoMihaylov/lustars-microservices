@@ -45,6 +45,10 @@
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.9.10, )"
+            },
+            "NSwag.AspNetCore": {
+              "target": "Package",
+              "version": "[13.2.2, )"
             }
           },
           "imports": [
