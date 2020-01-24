@@ -5,11 +5,11 @@
 
     [ApiController]
     [Route("home")]
-    public class WeatherForecastController : ControllerBase
+    public class HomeController : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> logger;
+        private readonly ILogger<HomeController> logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public HomeController(ILogger<HomeController> logger)
         {
             this.logger = logger;
         }

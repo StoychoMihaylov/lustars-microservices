@@ -4,18 +4,17 @@ namespace WebGateway.App
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Hosting;
+    using WebGateway.App.Infrastructure;
 
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -23,7 +22,6 @@ namespace WebGateway.App
             services.AddSwaggerDocument(); //Swagger
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseRouting();
@@ -31,16 +29,8 @@ namespace WebGateway.App
             app.UseSwaggerUi3();
             app.UseHealthChecks("/health", 9000); // Healtchecks info for the container
             app.UseHttpsRedirection();
-
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseControllerEndpoints();
+            app.UseExceptionHandling(env);
         }
     }
 }
