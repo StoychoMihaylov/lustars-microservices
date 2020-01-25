@@ -1,8 +1,10 @@
 namespace AuthAPI.App
 {
     using AuthAPI.App.Infrastructure;
+    using AuthAPI.Data.Context;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
 
@@ -20,6 +22,10 @@ namespace AuthAPI.App
             services.AddControllers();
             services.AddHealthChecks(); // Healtchecks info for the container
             services.AddSwaggerDocument(); //Swagger
+
+            // DB Connection init
+            var optionsBuilder = new DbContextOptionsBuilder<AuthDBContext>(); 
+            optionsBuilder.UseNpgsql($"Server=192.168.74.10;Port=5432;Database=DemoEFCore;User Id=postgres;Password = dbpass;");
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
