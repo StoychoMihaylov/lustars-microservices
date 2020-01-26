@@ -23,9 +23,10 @@ namespace AuthAPI.App
             services.AddHealthChecks(); // Healtchecks info for the container
             services.AddSwaggerDocument(); //Swagger
 
-            // DB Connection init
-            var optionsBuilder = new DbContextOptionsBuilder<AuthDBContext>(); 
-            optionsBuilder.UseNpgsql($"Server=192.168.74.10;Port=5432;Database=DemoEFCore;User Id=postgres;Password = dbpass;");
+            services
+                .AddEntityFrameworkNpgsql()
+                .AddDbContext<AuthDBContext>(opt =>
+                    opt.UseNpgsql(Configuration.GetConnectionString("LustarsAuthDB")));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

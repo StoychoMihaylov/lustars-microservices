@@ -5,8 +5,7 @@
 
     public class AuthDBContext : DbContext
     {
-        public AuthDBContext(DbContextOptions<AuthDBContext> options) 
-            : base(options) { }
+        public AuthDBContext(DbContextOptions<AuthDBContext> options) : base(options) { }
 
         public DbSet<Account> Accounts { get; set; }
 

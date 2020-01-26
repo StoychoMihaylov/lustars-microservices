@@ -1,0 +1,8 @@
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.Services\bin\Debug\netcoreapp3.1\AuthAPI.Services.deps.json
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.Services\bin\Debug\netcoreapp3.1\AuthAPI.Services.dll
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.Services\bin\Debug\netcoreapp3.1\AuthAPI.Services.pdb
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.Services\obj\Debug\netcoreapp3.1\AuthAPI.Services.csprojAssemblyReference.cache
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.Services\obj\Debug\netcoreapp3.1\AuthAPI.Services.AssemblyInfoInputs.cache
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.Services\obj\Debug\netcoreapp3.1\AuthAPI.Services.AssemblyInfo.cs
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.Services\obj\Debug\netcoreapp3.1\AuthAPI.Services.dll
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.Services\obj\Debug\netcoreapp3.1\AuthAPI.Services.pdb
