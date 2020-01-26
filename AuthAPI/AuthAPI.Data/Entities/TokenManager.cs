@@ -14,6 +14,6 @@
         [Required]
         public DateTime CreatedOn { get; set; }
 
-        public virtual Account User { get; set; }
+        public virtual User User { get; set; }
     }
 }
