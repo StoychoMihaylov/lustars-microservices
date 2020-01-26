@@ -20,7 +20,7 @@
             this.service = service;
         }
 
-        // api/account/register
+        // account/register
         [HttpPost]
         [Route("register")]
         public IActionResult RegisterAndLogin([FromBody] RegisterUserBindingModel bm)
@@ -58,7 +58,7 @@
             return Ok(userCredentials);
         }
 
-        // api/account/login
+        // account/login
         [HttpPost]
         [Route("login")]
         public IActionResult Login([FromBody] LoginUserBindingModel bm)
@@ -82,6 +82,7 @@
             return Ok(userCredentials);
         }
 
+        // account/logout
         [HttpPost]
         [Route("logout")]
         public IActionResult Logout([FromBody] LogoutBindingModel bm)

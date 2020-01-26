@@ -4,9 +4,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="BidingModels\" />
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
 </Project>

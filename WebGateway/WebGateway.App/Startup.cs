@@ -1,10 +1,14 @@
 namespace WebGateway.App
 {
+    using System.Net.Http;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using WebGateway.Services.Services;
+    using WebGateway.Services.Endpoints;
+    using WebGateway.App.Infrastructure;
+    using WebGateway.Services.Interfaces;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    using WebGateway.App.Infrastructure;
 
     public class Startup
     {
@@ -20,6 +24,11 @@ namespace WebGateway.App
             services.AddControllers();
             services.AddHealthChecks(); // Healtchecks info for the container
             services.AddSwaggerDocument(); //Swagger
+
+            // DI
+            services.AddSingleton<AuthAPIService>(new AuthAPIService());
+            services.AddSingleton<HttpClient>(new HttpClient());
+            services.AddTransient<IAccountService, AccountService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

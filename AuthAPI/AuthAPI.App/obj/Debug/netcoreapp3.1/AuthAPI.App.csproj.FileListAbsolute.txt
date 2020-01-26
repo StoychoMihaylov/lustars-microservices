@@ -1,4 +1,4 @@
-C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\nlog.config
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\NLog.config
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -16,8 +16,19 @@ C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netco
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Namotion.Reflection.dll
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\NJsonSchema.dll

@@ -1,4 +1,4 @@
-C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.UnitTests\bin\Debug\netcoreapp3.1\nlog.config
+C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.UnitTests\bin\Debug\netcoreapp3.1\NLog.config
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.UnitTests\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.UnitTests\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.UnitTests\bin\Debug\netcoreapp3.1\Properties\launchSettings.json

@@ -1,19 +1,38 @@
 namespace WebGateway.App
 {
+    using System;
+    using NLog.Extensions.Logging;
+    using Microsoft.Extensions.Logging;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
 
     public class Program
     {
         public static void Main(string[] args)
-            => CreateHostBuilder(args)
-                .Build()
-                .Run();
-        
+        {
+            var host = CreateHostBuilder(args).Build();
+            var logger = host.Services.GetRequiredService<ILogger<Program>>();
+            logger.LogInformation("WebGateway has been built at {time}", DateTime.UtcNow);
+            host.Run();
+            logger.LogInformation("WebGateway is running...");
+        }
+
         public static IHostBuilder CreateHostBuilder(string[] args) 
             => Host
                 .CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => webBuilder
-                    .UseStartup<Startup>());
+                .ConfigureLogging((context, logging) =>
+                {
+                    logging.ClearProviders();
+                    logging.AddConfiguration(context.Configuration.GetSection("Logging"));
+                    logging.AddDebug();
+                    logging.AddConsole();
+                    logging.AddNLog();
+                })
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
     }
 }

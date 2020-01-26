@@ -1792,9 +1792,6 @@
       "AuthAPI.Data/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "3.1.1",
-          "Microsoft.EntityFrameworkCore.Abstractions": "3.1.1",
-          "Microsoft.EntityFrameworkCore.Relational": "3.1.0",
-          "Npgsql": "4.1.2",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.0"
         },
         "runtime": {
