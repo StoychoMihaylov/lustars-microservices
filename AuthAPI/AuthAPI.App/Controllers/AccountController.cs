@@ -49,7 +49,7 @@
             if (userCredentials == null)
             {
                 logger.LogError("Error on registration token has been not returned");
-                return new BadRequestResult();
+                return BadRequest();
             }
 
             logger.LogInformation("User has been registered! {time}", DateTime.UtcNow);

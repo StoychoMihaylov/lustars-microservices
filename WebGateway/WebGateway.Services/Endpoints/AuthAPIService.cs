@@ -1,7 +1,7 @@
 ﻿namespace WebGateway.Services.Endpoints
 {
-    public class AuthAPIService
+    public static class AuthAPIService
     {
-        public string Endpoint = "http://localhost:5005/";
+        public static string Endpoint = "http://localhost:5005/";
     }
 }

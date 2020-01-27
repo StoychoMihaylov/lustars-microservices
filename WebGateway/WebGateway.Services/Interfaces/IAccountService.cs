@@ -8,6 +8,6 @@
     {
         Task<AccountCredentialsViewModel> CallAuthAPIAccountRegister(RegisterUserBindingModel bm);
         Task<AccountCredentialsViewModel> CallAuthAPIAccountLogin(LoginUserBindingModel bm);
-        void CallAuthAPIAccountLogout(LogoutBindingModel bm);
+        Task<bool> CallAuthAPIAccountLogout(LogoutBindingModel bm);
     }
 }

@@ -1,0 +1,12 @@
+2020-01-28 00:04:45.7466|ERROR|AuthAPI.App.Controllers.AccountController|registration fail the user already exist
+2020-01-28 00:08:15.5991|ERROR|AuthAPI.App.Controllers.AccountController|registration fail the user already exist
+2020-01-28 00:24:37.0027|ERROR|AuthAPI.App.Controllers.AccountController|registration fail the user already exist
+2020-01-28 00:26:05.8018|ERROR|AuthAPI.App.Controllers.AccountController|registration fail the user already exist
+2020-01-28 00:26:49.9954|INFO|AuthAPI.App.Controllers.AccountController|User has been registered! 01/27/2020 23:26:49
+2020-01-28 00:27:37.0426|ERROR|AuthAPI.App.Controllers.AccountController|registration fail the user already exist
+2020-01-28 00:28:00.9160|INFO|AuthAPI.App.Controllers.AccountController|User has been registered! 01/27/2020 23:28:00
+2020-01-28 00:32:05.7215|INFO|AuthAPI.App.Controllers.AccountController|User has been registered! 01/27/2020 23:32:05
+2020-01-28 00:47:03.4115|INFO|AuthAPI.App.Program|AuthAPI has been built at 01/27/2020 23:47:03
+2020-01-28 00:47:03.7041|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2020-01-28 00:47:03.7111|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2020-01-28 00:47:03.7111|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App

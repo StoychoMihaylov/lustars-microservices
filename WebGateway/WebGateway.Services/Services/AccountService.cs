@@ -1,5 +1,8 @@
 ﻿namespace WebGateway.Services.Services
 {
+    using System;
+    using System.Net;
+    using System.Text;
     using System.Net.Http;
     using Newtonsoft.Json;
     using System.Threading.Tasks;
@@ -8,32 +11,103 @@
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
 
+
     public class AccountService : IAccountService
     {
         private readonly HttpClient httpClient;
-        private readonly AuthAPIService authAPIService;
 
-        public AccountService(HttpClient httpClient, AuthAPIService authAPIService)
+        public AccountService(HttpClient httpClient)
         {
             this.httpClient = httpClient;
-            this.authAPIService = authAPIService;
         }
 
         public async Task<AccountCredentialsViewModel> CallAuthAPIAccountLogin(LoginUserBindingModel bm)
         {
-            var response = await httpClient.GetStringAsync(authAPIService.Endpoint + "account/login");
-            return JsonConvert.DeserializeObject<AccountCredentialsViewModel>(response);
+            var response = new HttpResponseMessage();
+            var dataJSON = JsonConvert.SerializeObject(bm);
+            var stringContent = new StringContent(dataJSON, UnicodeEncoding.UTF8, "application/json");
+
+            try
+            {
+                response = await httpClient.PostAsync(AuthAPIService.Endpoint + "account/login", stringContent);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("AuthAPI service does not responding: " + ex);
+            }
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var result = JsonConvert.DeserializeObject<AccountCredentialsViewModel>(response.Content.ReadAsStringAsync().Result);
+                return result;
+            }
+            else if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                var errorMessage = response.Content.ReadAsStringAsync().Result;
+
+                throw new Exception(errorMessage);
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        public async void CallAuthAPIAccountLogout(LogoutBindingModel bm)
+        public async Task<bool> CallAuthAPIAccountLogout(LogoutBindingModel bm)
         {
-            await httpClient.GetStringAsync(authAPIService.Endpoint + "account/logout");
+            var response = new HttpResponseMessage();
+            var dataJSON = JsonConvert.SerializeObject(bm);
+            var stringContent = new StringContent(dataJSON, UnicodeEncoding.UTF8, "application/json");
+
+            try
+            {
+                response = await httpClient.PostAsync(AuthAPIService.Endpoint + "account/logout", stringContent);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("AuthAPI service does not responding: " + ex);
+            }
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public async Task<AccountCredentialsViewModel> CallAuthAPIAccountRegister(RegisterUserBindingModel bm)
         {
-            var response = await httpClient.GetStringAsync(authAPIService.Endpoint + "account/register");
-            return JsonConvert.DeserializeObject<AccountCredentialsViewModel>(response);
+            var response = new HttpResponseMessage();
+            var dataJSON = JsonConvert.SerializeObject(bm);
+            var stringContent = new StringContent(dataJSON, UnicodeEncoding.UTF8, "application/json");
+
+            try
+            {
+                response = await httpClient.PostAsync(AuthAPIService.Endpoint + "account/register", stringContent);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("AuthAPI service does not responding: " + ex);
+            }
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var result = JsonConvert.DeserializeObject<AccountCredentialsViewModel>(response.Content.ReadAsStringAsync().Result);
+                return result;
+            }
+            else if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                var errorMessage = response.Content.ReadAsStringAsync().Result;
+
+                throw new Exception(errorMessage);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

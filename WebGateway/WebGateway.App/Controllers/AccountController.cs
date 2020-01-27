@@ -37,9 +37,15 @@
                 return BadRequest("Invalid credentials!");
             }
 
-            var response = await this.service.CallAuthAPIAccountRegister(bm);
-
-            return Ok(response);
+            try
+            {
+                var response = await this.service.CallAuthAPIAccountRegister(bm);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }  
         }
 
         // account/login
@@ -53,9 +59,21 @@
                 return BadRequest(ModelState);
             }
 
-            var response = await this.service.CallAuthAPIAccountLogin(bm);
+            try
+            {
+                var response = await this.service.CallAuthAPIAccountLogin(bm);
+                if (response == null)
+                {
+                    return BadRequest();
+                }
 
-            return Ok(response);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError("on login:" + ex.Message);
+                return BadRequest(ex.Message);
+            }
         }
 
         // account/logout
@@ -65,13 +83,21 @@
         {
             try
             {
-                this.service.CallAuthAPIAccountLogout(bm);
-                return Ok();
+                var response = await this.service.CallAuthAPIAccountLogout(bm);
+                if (response)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return NotFound();
+                }
+                
             }
             catch (Exception ex)
             {
                 logger.LogError(ex, "token for user with id:{userId} was not found on log-out", bm.UserId);
-                return NotFound();
+                return StatusCode(500);
             }
         }
     }

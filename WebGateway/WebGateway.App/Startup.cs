@@ -4,7 +4,6 @@ namespace WebGateway.App
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using WebGateway.Services.Services;
-    using WebGateway.Services.Endpoints;
     using WebGateway.App.Infrastructure;
     using WebGateway.Services.Interfaces;
     using Microsoft.Extensions.Configuration;
@@ -26,7 +25,6 @@ namespace WebGateway.App
             services.AddSwaggerDocument(); //Swagger
 
             // DI
-            services.AddSingleton<AuthAPIService>(new AuthAPIService());
             services.AddSingleton<HttpClient>(new HttpClient());
             services.AddTransient<IAccountService, AccountService>();
         }
