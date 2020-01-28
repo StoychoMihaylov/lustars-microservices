@@ -9,5 +9,6 @@
         AccountCredentialsViewModel CreateNewUserAccount(RegisterUserBindingModel bm);
         AccountCredentialsViewModel LoginUser(LoginUserBindingModel bm);
         void DeleteUserToken(LogoutBindingModel bm);
+        UserCredentials CheckIfTokenIsValidAndReturnUserCredentials(Token token);
     }
 }

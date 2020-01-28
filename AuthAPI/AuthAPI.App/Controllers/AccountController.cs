@@ -1,9 +1,9 @@
 ﻿namespace AuthAPI.App.Controllers
 {
     using System;
+    using Microsoft.AspNetCore.Mvc;
     using AuthAPI.Models.BidingModels;
     using AuthAPI.Services.Interfaces;
-    using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
 
     [ApiController]
@@ -12,7 +12,7 @@
     {
         private readonly ILogger<AccountController> logger;
 
-        private IAccountService service;
+        private readonly IAccountService service;
 
         public AccountController(ILogger<AccountController> logger, IAccountService service)
         {
@@ -100,6 +100,24 @@
             logger.LogInformation("user with id:{userId} successful log-outed", bm.UserId);
 
             return Ok();
+        }
+
+        [HttpPost]
+        [Route("authorized")]
+        public IActionResult CheckIfUserIsAuthorized([FromBody] Token token)
+        {
+            if (token == null)
+            {
+                return BadRequest("No token provided!");
+            }
+
+            var userCredentials = this.service.CheckIfTokenIsValidAndReturnUserCredentials(token);
+            if (userCredentials == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(userCredentials);
         }
     }
 }

@@ -3,9 +3,11 @@
     using System;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
+    using WebGateway.App.Utilities;
     using Microsoft.Extensions.Logging;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
+
 
     [ApiController]
     [Route("account")]
@@ -44,6 +46,7 @@
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "AuthAPIAccountRegister {time}", DateTime.UtcNow);
                 return BadRequest(ex.Message);
             }  
         }
@@ -78,6 +81,7 @@
 
         // account/logout
         [HttpPost]
+        [Authorize]
         [Route("logout")]
         public async Task<IActionResult> Logout([FromBody] LogoutBindingModel bm)
         {
@@ -97,7 +101,7 @@
             catch (Exception ex)
             {
                 logger.LogError(ex, "token for user with id:{userId} was not found on log-out", bm.UserId);
-                return StatusCode(500);
+                return BadRequest();
             }
         }
     }

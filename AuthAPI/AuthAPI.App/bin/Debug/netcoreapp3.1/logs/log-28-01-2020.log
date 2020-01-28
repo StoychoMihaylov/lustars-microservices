@@ -10,3 +10,28 @@
 2020-01-28 00:47:03.7041|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
 2020-01-28 00:47:03.7111|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
 2020-01-28 00:47:03.7111|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App
+2020-01-28 23:14:46.5032|INFO|AuthAPI.App.Program|AuthAPI has been built at 01/28/2020 22:14:46
+2020-01-28 23:14:46.8417|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2020-01-28 23:14:46.8417|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2020-01-28 23:14:46.8417|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App
+2020-01-28 23:18:11.3672|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2020-01-28 23:18:11.5029|WARN|Microsoft.EntityFrameworkCore.Infrastructure|'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Remove the 'AddEntityFramework*' call as in most cases it's not needed and might cause conflicts with other products and services registered in the same service provider.
+2020-01-28 23:18:13.2184|INFO|AuthAPI.App.Controllers.AccountController|User has been registered! 01/28/2020 22:18:13
+2020-01-28 23:21:34.4053|INFO|AuthAPI.App.Program|AuthAPI has been built at 01/28/2020 22:21:34
+2020-01-28 23:21:34.7482|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2020-01-28 23:21:34.7482|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2020-01-28 23:21:34.7612|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App
+2020-01-28 23:22:13.9200|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2020-01-28 23:22:14.0381|WARN|Microsoft.EntityFrameworkCore.Infrastructure|'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Remove the 'AddEntityFramework*' call as in most cases it's not needed and might cause conflicts with other products and services registered in the same service provider.
+2020-01-28 23:25:04.2951|INFO|AuthAPI.App.Program|AuthAPI has been built at 01/28/2020 22:25:04
+2020-01-28 23:25:04.5577|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2020-01-28 23:25:04.5730|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2020-01-28 23:25:04.5730|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App
+2020-01-28 23:26:49.5508|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2020-01-28 23:26:49.6690|WARN|Microsoft.EntityFrameworkCore.Infrastructure|'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Remove the 'AddEntityFramework*' call as in most cases it's not needed and might cause conflicts with other products and services registered in the same service provider.
+2020-01-28 23:28:50.4550|INFO|AuthAPI.App.Program|AuthAPI has been built at 01/28/2020 22:28:50
+2020-01-28 23:28:50.6998|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2020-01-28 23:28:50.6998|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2020-01-28 23:28:50.7172|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App
+2020-01-28 23:29:09.7049|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2020-01-28 23:29:09.8159|WARN|Microsoft.EntityFrameworkCore.Infrastructure|'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Remove the 'AddEntityFramework*' call as in most cases it's not needed and might cause conflicts with other products and services registered in the same service provider.
