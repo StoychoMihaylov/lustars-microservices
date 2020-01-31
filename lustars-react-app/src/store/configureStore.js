@@ -1,11 +1,12 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import { connectRouter, routerMiddleware } from 'connected-react-router'
+import accountReducer from './reducers/accountReducer'
 
 export default function configureStore (history, initialState) {
 
   const reducers = {
-    test: {}
+    account: accountReducer,
   }
 
   const middleware = [

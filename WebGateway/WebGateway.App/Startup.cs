@@ -13,6 +13,8 @@ namespace WebGateway.App
     {
         public IConfiguration Configuration { get; }
 
+        readonly string MyAllowSpecificOrigins = "myAllowSpecificOrigins"; // Configuring CROSS-ORIGIN
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,6 +26,22 @@ namespace WebGateway.App
             services.AddHealthChecks(); // Healtchecks info for the container
             services.AddSwaggerDocument(); //Swagger
 
+            // Cors
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.WithOrigins(
+                        "http://localhost:3000",
+                        "http://localhost:3001",
+                        "https://localhost:3000",
+                        "https://localhost:3001")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
+
             // DI
             services.AddSingleton<HttpClient>(new HttpClient());
             services.AddTransient<IAccountService, AccountService>();
@@ -31,6 +49,7 @@ namespace WebGateway.App
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseRouting();
             app.UseOpenApi(); //Swagger
             app.UseSwaggerUi3();
