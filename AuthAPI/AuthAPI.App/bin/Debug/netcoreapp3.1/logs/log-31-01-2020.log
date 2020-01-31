@@ -1,0 +1,8 @@
+2020-01-31 22:46:01.0295|INFO|AuthAPI.App.Program|AuthAPI has been built at 01/31/2020 21:46:01
+2020-01-31 22:46:01.6143|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2020-01-31 22:46:01.6321|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2020-01-31 22:46:01.6321|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App
+2020-01-31 22:46:13.3463|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2020-01-31 22:46:13.5050|WARN|Microsoft.EntityFrameworkCore.Infrastructure|'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Remove the 'AddEntityFramework*' call as in most cases it's not needed and might cause conflicts with other products and services registered in the same service provider.
+2020-01-31 22:46:15.2500|INFO|AuthAPI.App.Controllers.AccountController|User has been registered! 01/31/2020 21:46:15
+2020-01-31 23:08:25.4623|INFO|AuthAPI.App.Controllers.AccountController|User has been registered! 01/31/2020 22:08:25

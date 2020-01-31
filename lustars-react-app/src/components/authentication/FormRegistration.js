@@ -84,7 +84,7 @@ class FormRegistration extends Component {
                     localStorage.setItem('lustars_user_name', credentials.name)
 
                     //this.props.successfulNotification("You are succesfully registered!")
-                    this.props.history.push("/")
+                    this.props.push("/")
                 } else if (response.response.status === 400) {
                     //this.props.errorNotification(response.response.data)
                 } else {
@@ -140,13 +140,12 @@ class FormRegistration extends Component {
                     <button
                         type="button"
                         className="saveBtn"
-                        onClick={this.handleSubmit.bind(this)}>Register
-                    </button>
+                        onClick={this.handleSubmit.bind(this)}>Register</button>
+
                     <button
                         type="button"
                         className="backBtn"
-                        onClick={ this.props.goBack }>Go Back&nbsp;
-                    </button>
+                        onClick={ this.props.goBack }>Go Back</button>
                 </div>
             </div>
         )
@@ -156,7 +155,8 @@ class FormRegistration extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         registerAccount: (userData) => dispatch(registerAccount(userData)),
-        goBack: () => dispatch(goBack())
+        goBack: () => dispatch(goBack()),
+        push: (url) => dispatch(push(url))
     }
 }
 

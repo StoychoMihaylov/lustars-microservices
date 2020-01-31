@@ -11,34 +11,32 @@ namespace WebGateway.App
 
     public class Startup
     {
-        public IConfiguration Configuration { get; }
+        private IConfiguration configuration { get; }
 
-        readonly string MyAllowSpecificOrigins = "myAllowSpecificOrigins"; // Configuring CROSS-ORIGIN
+        private string ApiCorsPolicy = "ApiCorsPolicy";
 
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            this.configuration = configuration;
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddControllers();
             services.AddHealthChecks(); // Healtchecks info for the container
             services.AddSwaggerDocument(); //Swagger
 
-            // Cors
+            // Add CORS policy
             services.AddCors(options =>
             {
-                options.AddPolicy(MyAllowSpecificOrigins,
+                options.AddPolicy(ApiCorsPolicy,
                 builder =>
                 {
                     builder.WithOrigins(
-                        "http://localhost:3000",
-                        "http://localhost:3001",
                         "https://localhost:3000",
-                        "https://localhost:3001")
-                        .AllowAnyHeader()
-                        .AllowAnyMethod();
+                        "https://localhost:3001"
+                        );
                 });
             });
 
@@ -49,14 +47,16 @@ namespace WebGateway.App
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseCors(MyAllowSpecificOrigins);
+            app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseCors(ApiCorsPolicy);
             app.UseOpenApi(); //Swagger
             app.UseSwaggerUi3();
             app.UseHealthChecks("/health", 9000); // Healtchecks info for the container
             app.UseHttpsRedirection();
             app.UseControllerEndpoints();
             app.UseExceptionHandling(env);
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

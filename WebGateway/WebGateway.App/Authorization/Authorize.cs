@@ -18,13 +18,10 @@
 
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            if (context.HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues authToken))
+            if (context.HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues authToken)) // if counteins Auth header
             {
-                string brearer = authToken.First();
-                string token = brearer.Split(' ')[1];
-                var storedToken = false;
-
-                storedToken = CheckIfTokenExistInAuthAPIService(new Token() { Value = token });
+                var token = ExtraxtToken(authToken);       
+                var storedToken = CheckIfTokenExistInAuthAPIService(new Token() { Value = token });
 
                 if (storedToken == false)
                 {
@@ -37,26 +34,24 @@
             }
         }
 
+        private string ExtraxtToken(StringValues authToken)
+        {
+            string brearer = authToken.First();
+            return brearer.Split(' ')[1];
+        }
+
         private bool CheckIfTokenExistInAuthAPIService(Token token)
         {
             var response = new HttpResponseMessage();
             var dataJSON = JsonConvert.SerializeObject(token);
-            var stringContent = new StringContent(dataJSON, UnicodeEncoding.UTF8, "application/json");
+            var stringContent = new StringContent(dataJSON, Encoding.UTF8, "application/json");
 
-            try
-            {
-                response = httpClient.PostAsync(AuthAPIService.Endpoint + "account/authorized", stringContent).Result;
-            }
-            catch
-            {
-                return false;
-            }
-
+            response = httpClient.PostAsync(AuthAPIService.Endpoint + "account/authorized", stringContent).Result;
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 var userCredentials = JsonConvert.DeserializeObject<UserCredentials>(response.Content.ReadAsStringAsync().Result);
 
-                SetGlobalCurrentUser(userCredentials.UserId);
+                SetGlobalCurrentUser(userCredentials.UserId, userCredentials.Token); // Set Global User
 
                 return true;
             }
@@ -70,9 +65,10 @@
             }
         }
 
-        private void SetGlobalCurrentUser(Guid userId)
+        private void SetGlobalCurrentUser(Guid userId, string token)
         {
-            Identity.Id = userId;
+            Identity.SetCurrentUserId(userId);
+            Identity.SetCurrentUserToken(token);
         }
     }
 }

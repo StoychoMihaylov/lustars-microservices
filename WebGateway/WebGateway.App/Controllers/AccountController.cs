@@ -8,7 +8,6 @@
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
 
-
     [ApiController]
     [Route("account")]
     public class AccountController : ControllerBase
