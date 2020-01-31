@@ -1,26 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route } from 'react-router-dom';
+import Layout from './views/Layout';
+import HomePage from './views/HomePage'
+import AccountRegistration from './views/AccountRegistration';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <h1>KALA</h1>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+export default () => (
+  <Layout>
+    <Route exact path='/' component={HomePage} />
+    <Route exact path='/home' component={HomePage} />
+    <Route exact path='/account/registration' component={AccountRegistration} />
+  </Layout>
+);

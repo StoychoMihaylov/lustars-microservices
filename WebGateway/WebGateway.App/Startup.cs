@@ -1,51 +1,62 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
 namespace WebGateway.App
 {
+    using System.Net.Http;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using WebGateway.Services.Services;
+    using WebGateway.App.Infrastructure;
+    using WebGateway.Services.Interfaces;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
+        readonly string MyAllowSpecificOrigins = "myAllowSpecificOrigins"; // Configuring CROSS-ORIGIN
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddHealthChecks(); // Healtchecks info for the container
+            services.AddSwaggerDocument(); //Swagger
+
+            // Cors
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.WithOrigins(
+                        "http://localhost:3000",
+                        "http://localhost:3001",
+                        "https://localhost:3000",
+                        "https://localhost:3001")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
+
+            // DI
+            services.AddSingleton<HttpClient>(new HttpClient());
+            services.AddTransient<IAccountService, AccountService>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseHttpsRedirection();
-
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseOpenApi(); //Swagger
+            app.UseSwaggerUi3();
+            app.UseHealthChecks("/health", 9000); // Healtchecks info for the container
+            app.UseHttpsRedirection();
+            app.UseControllerEndpoints();
+            app.UseExceptionHandling(env);
         }
     }
 }

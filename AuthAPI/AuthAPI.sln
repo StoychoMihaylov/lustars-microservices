@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthAPI.App", "AuthAPI.App\AuthAPI.App.csproj", "{453A361A-B878-4B83-93E3-6A09EB814C7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthAPI.App", "AuthAPI.App\AuthAPI.App.csproj", "{453A361A-B878-4B83-93E3-6A09EB814C7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthAPI.Models", "AuthAPI.Models\AuthAPI.Models.csproj", "{53FA032B-535C-4427-B333-FB2057ABB797}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthAPI.Services", "AuthAPI.Services\AuthAPI.Services.csproj", "{D57E80E8-2BDA-436A-9704-800E45580690}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthAPI.Data", "AuthAPI.Data\AuthAPI.Data.csproj", "{76E27392-7AB9-441B-93C0-4445E9648B70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthAPI.UnitTests", "AuthAPI.UnitTests\AuthAPI.UnitTests.csproj", "{2F2F589F-37F7-43C2-BFA2-A3BDA949A2CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{453A361A-B878-4B83-93E3-6A09EB814C7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{453A361A-B878-4B83-93E3-6A09EB814C7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{453A361A-B878-4B83-93E3-6A09EB814C7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53FA032B-535C-4427-B333-FB2057ABB797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53FA032B-535C-4427-B333-FB2057ABB797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53FA032B-535C-4427-B333-FB2057ABB797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53FA032B-535C-4427-B333-FB2057ABB797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D57E80E8-2BDA-436A-9704-800E45580690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D57E80E8-2BDA-436A-9704-800E45580690}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D57E80E8-2BDA-436A-9704-800E45580690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D57E80E8-2BDA-436A-9704-800E45580690}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76E27392-7AB9-441B-93C0-4445E9648B70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76E27392-7AB9-441B-93C0-4445E9648B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76E27392-7AB9-441B-93C0-4445E9648B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76E27392-7AB9-441B-93C0-4445E9648B70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F2F589F-37F7-43C2-BFA2-A3BDA949A2CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F2F589F-37F7-43C2-BFA2-A3BDA949A2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F2F589F-37F7-43C2-BFA2-A3BDA949A2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F2F589F-37F7-43C2-BFA2-A3BDA949A2CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
