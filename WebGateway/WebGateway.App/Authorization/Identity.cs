@@ -6,7 +6,7 @@
 
     public static class Identity
     {
-        private static User user { get; set; }
+        private static User user = new User();
 
         public static User GetCurrentUser()
         {

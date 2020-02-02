@@ -49,8 +49,9 @@
                 this.Context.Users.Add(newUser);
                 this.Context.SaveChanges();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                var err = ex.Message;
                 return null;
             }
 
@@ -68,7 +69,14 @@
 
         public void DeleteUserToken(LogoutBindingModel bm)
         {
-            throw new System.NotImplementedException();
+            var token = this.Context
+                .Tokens
+                .AsNoTracking()
+                .Where(t => t.Value == bm.Token)
+                .First();
+
+            this.Context.Tokens.Remove(token);
+            this.Context.SaveChanges();
         }
 
         private byte[][] GenerateSaltedHash(string userPassword)

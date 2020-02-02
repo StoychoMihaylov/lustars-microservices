@@ -2,9 +2,14 @@ import {
     REQUEST_REGISTER_NEW_ACCOUNT,
     REQUEST_REGISTER_NEW_ACCOUNT_SUCCESS,
     REQUEST_REGISTER_NEW_ACCOUNT_FAIL,
+
     REQUEST_ACCOUNT_LOGIN,
     REQUEST_ACCOUNT_LOGIN_SUCCESS,
-    REQUEST_ACCOUNT_LOGIN_FAIL
+    REQUEST_ACCOUNT_LOGIN_FAIL,
+    
+    REQUEST_ACCOUNT_LOGOUT,
+    REQUEST_ACCOUNT_LOGOUT_SUCCESS,
+    REQUEST_ACCOUNT_LOGOUT_FAIL,
 } from '../../constants/accountActionTypes'
 import { api } from '../../constants/endpoints'
 import axios from 'axios'
@@ -79,6 +84,46 @@ export function requestLoginAccountSuccess(data) {
 export function requestLoginAccountFail(error) {
     return {
         type: REQUEST_ACCOUNT_LOGIN_FAIL,
+        payload: error
+    }
+}
+
+//*************************** Logout account actions ***************************
+
+export function logoutAccount(userModel) {
+    return dispatch => {
+        dispatch(requestLogoutAccount())
+        return axios.post(api.domain + 'account/logout', userModel, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token')
+            }
+        })
+        .then(response => {
+            dispatch(requestLogoutAccountSuccess(response))
+            return response
+        })
+        .catch(err => {
+            dispatch(requestLogoutAccountFail(err))
+            return err
+        })
+    }
+}
+
+export function requestLogoutAccount() {
+    return {
+        type: REQUEST_ACCOUNT_LOGOUT
+    }
+}
+
+export function requestLogoutAccountSuccess(data) {
+    return {
+        type: REQUEST_ACCOUNT_LOGOUT_SUCCESS
+    }
+}
+
+export function requestLogoutAccountFail(error) {
+    return {
+        type: REQUEST_ACCOUNT_LOGOUT_FAIL,
         payload: error
     }
 }

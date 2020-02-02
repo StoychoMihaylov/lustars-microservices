@@ -4,7 +4,10 @@ import {
     REQUEST_REGISTER_NEW_ACCOUNT_FAIL,
     REQUEST_ACCOUNT_LOGIN,
     REQUEST_ACCOUNT_LOGIN_SUCCESS,
-    REQUEST_ACCOUNT_LOGIN_FAIL
+    REQUEST_ACCOUNT_LOGIN_FAIL,
+    REQUEST_ACCOUNT_LOGOUT,
+    REQUEST_ACCOUNT_LOGOUT_SUCCESS,
+    REQUEST_ACCOUNT_LOGOUT_FAIL
 } from '../../constants/accountActionTypes'
 
 const initialState = {
@@ -46,6 +49,21 @@ const accountReducer = (state, action) => {
                     isLoading: false,
                 }
             case REQUEST_ACCOUNT_LOGIN_FAIL:
+                return {
+                    ...state,
+                    error: action.payload
+                }
+            case REQUEST_ACCOUNT_LOGOUT:
+                return {
+                    ...state,
+                    isLoading: true
+                }
+            case REQUEST_ACCOUNT_LOGOUT_SUCCESS:
+                return {
+                    ...state,
+                    isLoading: false,
+                }
+            case REQUEST_ACCOUNT_LOGOUT_FAIL:
                 return {
                     ...state,
                     error: action.payload
