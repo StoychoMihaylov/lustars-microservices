@@ -2,9 +2,10 @@
 {
     using System;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
+
     using AuthAPI.Models.BidingModels;
     using AuthAPI.Services.Interfaces;
-    using Microsoft.Extensions.Logging;
 
     [ApiController]
     [Route("account")]

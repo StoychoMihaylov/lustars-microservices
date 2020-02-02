@@ -1,29 +1,25 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from "react"
+import { connect } from "react-redux"
 import { push, goBack } from "connected-react-router"
-import { registerAccount } from '../../store/actions/accountActions'
 import {
     infoNotification,
     successfulNotification,
     errorNotification
 } from '../../store/actions/eventNotifications'
-import '../../styles/components/FormRegistration.css'
+import { loginAccount } from '../../store/actions/accountActions'
+import '../../styles/components/FormAccountLogin.css'
 
-class FormRegistration extends Component {
+class LoginAccount extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            name: "",
             email: "",
             password: "",
-            confirmPassword: "",
 
             // fields validation
-            nameValidation: "",
             emailValidation: "",
             passwordValidation: "",
-            confirmPasswordValidation: "",
         }
     }
 
@@ -34,13 +30,6 @@ class FormRegistration extends Component {
 
     formValidation() {
         let isFormValid = true;
-
-        if (this.state.name.length < 3) {
-            this.setState({ nameValidation: "Name must be more than 3 charaters long!"})
-            isFormValid = false
-        } else {
-            this.setState({ nameValidation: ""})
-        }
 
         let isMailValid = this.emailValidation(this.state.email)
         if (! isMailValid) {
@@ -57,13 +46,6 @@ class FormRegistration extends Component {
             this.setState({ passwordValidation: ""})
         }
 
-        if (this.state.password !== this.state.confirmPassword) {
-            this.setState({ confirmPasswordValidation: "Confirm password must be the same as your password!"})
-            isFormValid = false
-        } else {
-            this.setState({ confirmPasswordValidation: ""})
-        }
-
         return isFormValid
     }
 
@@ -74,13 +56,11 @@ class FormRegistration extends Component {
         }
 
         let userData = {
-            name: this.state.name,
             email: this.state.email,
             password: this.state.password,
-            confirmPassword: this.state.confirmPassword,
         }
 
-        this.props.registerAccount(userData)
+        this.props.loginAccount(userData)
             .then(response => {
                 console.log(response)
                 if (response.status === 200) {
@@ -89,29 +69,17 @@ class FormRegistration extends Component {
                     localStorage.setItem('lustars_user_id', credentials.userId)
                     localStorage.setItem('lustars_user_name', credentials.name)
 
-                    this.props.successfulNotification("You are succesfully registered!")
+                    this.props.successfulNotification("Loged in!")
                     this.props.push("/")
-                } else if (response.response != null && response.response.status === 400) { // Bad Reguest (User exist or wrong credentials)
-                    this.props.errorNotification(response.response.data)
                 } else {
-                    this.props.errorNotification("Something went wrong. Pleas try again!")
+                    this.props.errorNotification("Wrong credentials or this user doesn't exist!")
                 }
             })
-    }
+        }
 
     render() {
         return (
-            <div>
-                <div>
-                <div className="errorMessage">{this.state.nameValidation}</div>
-                    <input
-                        type="text"
-                        placeholder="Name..."
-                        name="name"
-                        className="registrationField"
-                        onChange={event => this.setState({ name: event.target.value })}
-                    />
-                </div>
+            <div className="loginFormContainer">
                 <div>
                     <div className="errorMessage">{this.state.emailValidation}</div>
                     <input
@@ -133,24 +101,13 @@ class FormRegistration extends Component {
                     />
                 </div>
                 <div>
-                    <div className="errorMessage">{this.state.confirmPasswordValidation}</div>
-                    <input
-                        type="password"
-                        placeholder="Confirm Password..."
-                        name="confirmPassword"
-                        className="registrationField"
-                        onChange={event => this.setState({ confirmPassword: event.target.value })}
-                    />
-                </div>
                 <div>
-                    <a href="/account/login">Log-in</a>
+                    <a href="/account/registration">Register</a>
                 </div>
-                <div>
                     <button
                         type="button"
                         className="saveBtn"
-                        onClick={this.handleSubmit.bind(this)}>Register</button>
-
+                        onClick={this.handleSubmit.bind(this)}>&nbsp;Log in&nbsp;</button>
                     <button
                         type="button"
                         className="backBtn"
@@ -163,15 +120,15 @@ class FormRegistration extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        registerAccount: (userData) => dispatch(registerAccount(userData)),
+        loginAccount: (userData) => dispatch(loginAccount(userData)),
         goBack: () => dispatch(goBack()),
         push: (url) => dispatch(push(url)),
 
          // Notifications
-         infoNotification: (message) => dispatch(infoNotification(message)),
-         successfulNotification: (message) => dispatch(successfulNotification(message)),
-         errorNotification: (message) => dispatch(errorNotification(message))
+        infoNotification: (message) => dispatch(infoNotification(message)),
+        successfulNotification: (message) => dispatch(successfulNotification(message)),
+        errorNotification: (message) => dispatch(errorNotification(message))
     }
 }
 
-export default connect(null, mapDispatchToProps)(FormRegistration)
+export default connect(null, mapDispatchToProps)(LoginAccount)

@@ -1,14 +1,15 @@
 ﻿namespace AuthAPI.UnitTests.Controllers
 {
+    using Moq;
+    using Xunit;
+    using System;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
+
     using AuthAPI.App.Controllers;
     using AuthAPI.Models.BidingModels;
     using AuthAPI.Models.ViewModels;
     using AuthAPI.Services.Interfaces;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using Moq;
-    using System;
-    using Xunit;
 
     public class AccountControllerTest
     {

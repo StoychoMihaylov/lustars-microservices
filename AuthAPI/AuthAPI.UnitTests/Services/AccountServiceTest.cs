@@ -3,12 +3,11 @@
     using Xunit;
     using System;
     using System.Linq;
+
     using AuthAPI.Data.Entities;
     using AuthAPI.Models.ViewModels;
     using AuthAPI.Services.Services;
     using AuthAPI.Models.BidingModels;
-
-
 
     public class AccountServiceTest : TestsInitializer
     {

@@ -3,8 +3,9 @@
     using System;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
-    using WebGateway.App.Utilities;
     using Microsoft.Extensions.Logging;
+
+    using WebGateway.App.Utilities;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
 

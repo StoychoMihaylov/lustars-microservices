@@ -1,6 +1,7 @@
 ﻿namespace WebGateway.App.Utilities
 {
     using System;
+
     using WebGateway.App.Authorization;
 
     public static class Identity
