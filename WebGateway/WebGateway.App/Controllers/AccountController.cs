@@ -85,6 +85,11 @@
         [Route("logout")]
         public async Task<IActionResult> Logout([FromBody] LogoutBindingModel bm)
         {
+            if (bm == null || bm.Token == null || bm.UserId == null)
+            {
+                return BadRequest("Token and user id can't be null!");
+            }
+
             try
             {
                 var response = await this.service.CallAuthAPIAccountLogout(bm);

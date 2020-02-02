@@ -90,7 +90,8 @@ class FormRegistration extends Component {
                     localStorage.setItem('lustars_user_name', credentials.name)
 
                     this.props.successfulNotification("You are succesfully registered!")
-                    this.props.push("/")
+                    this.props.push("/profile/home")
+                    window.location.reload(false); // refresh layout
                 } else if (response.response != null && response.response.status === 400) { // Bad Reguest (User exist or wrong credentials)
                     this.props.errorNotification(response.response.data)
                 } else {
