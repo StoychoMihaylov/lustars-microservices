@@ -2,13 +2,15 @@
 {
     using System;
     using System.Linq;
+    using System.Security.Cryptography;
+    using Microsoft.EntityFrameworkCore;
+
     using AuthAPI.Data.Entities;
     using AuthAPI.Data.Interfaces;
     using AuthAPI.Models.ViewModels;
     using AuthAPI.Services.Utilities;
     using AuthAPI.Models.BidingModels;
     using AuthAPI.Services.Interfaces;
-    using System.Security.Cryptography;
 
     public class AccountService : Service, IAccountService
     {
@@ -180,12 +182,14 @@
         {
             var token = this.Context
                 .Tokens
+                .AsNoTracking()
                 .Where(t => t.Value == bm.Value)
                 .Select(t => t.Value)
                 .FirstOrDefault();
 
             var userId = this.Context
                 .Users
+                .AsNoTracking()
                 .Where(u => u.Tokens.All(t => t.Value == token))
                 .Select(u => u.Id)
                 .FirstOrDefault();

@@ -1,10 +1,11 @@
 ﻿namespace AuthAPI.Data.Migrations
 {
     using System;
-    using AuthAPI.Data.Context;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Infrastructure;
     using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+
+    using AuthAPI.Data.Context;
 
     [DbContext(typeof(AuthDBContext))]
     partial class AuthDBContextModelSnapshot : ModelSnapshot

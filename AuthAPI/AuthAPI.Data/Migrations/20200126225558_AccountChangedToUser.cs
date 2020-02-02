@@ -1,8 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace AuthAPI.Data.Migrations
+﻿namespace AuthAPI.Data.Migrations
 {
+    using System;
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class AccountChangedToUser : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

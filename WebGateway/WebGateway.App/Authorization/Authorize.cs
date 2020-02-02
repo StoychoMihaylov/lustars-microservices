@@ -6,11 +6,12 @@
     using System.Text;
     using System.Net.Http;
     using Newtonsoft.Json;
-    using WebGateway.Models.DTOs;
     using Microsoft.AspNetCore.Mvc;
-    using WebGateway.Services.Endpoints;
     using Microsoft.Extensions.Primitives;
     using Microsoft.AspNetCore.Mvc.Filters;
+
+    using WebGateway.Models.DTOs;
+    using WebGateway.Services.Endpoints;
 
     public class Authorize : Attribute, IAuthorizationFilter
     {

@@ -1,7 +1,8 @@
 ﻿namespace AuthAPI.Data.Interfaces
-{
-    using AuthAPI.Data.Entities;
+{   
     using Microsoft.EntityFrameworkCore;
+
+    using AuthAPI.Data.Entities;
 
     public interface IAuthDBContext
     {
