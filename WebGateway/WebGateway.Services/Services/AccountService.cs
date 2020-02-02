@@ -12,7 +12,6 @@
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
 
-
     public class AccountService : IAccountService
     {
         private readonly HttpClient httpClient;
