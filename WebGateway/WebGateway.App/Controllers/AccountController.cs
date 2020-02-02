@@ -30,23 +30,27 @@
             if (!ModelState.IsValid)
             {
                 logger.LogWarning("invalid model state on registrations {time}", DateTime.UtcNow);
+
                 return BadRequest(ModelState);
             }
 
             if (bm.Password != bm.ConfirmPassword)
             {
                 logger.LogWarning("incorrect password and confirm password on registrations {time}", DateTime.UtcNow);
+
                 return BadRequest("Invalid credentials!");
             }
 
             try
             {
                 var response = await this.service.CallAuthAPIAccountRegister(bm);
+
                 return Ok(response);
             }
             catch (Exception ex)
             {
                 logger.LogError(ex, "AuthAPIAccountRegister {time}", DateTime.UtcNow);
+
                 return BadRequest(ex.Message);
             }  
         }
@@ -59,6 +63,7 @@
             if (!ModelState.IsValid)
             {
                 logger.LogWarning($"Invalid model state on log-in with email:{bm.Email}");
+
                 return BadRequest(ModelState);
             }
 
@@ -75,6 +80,7 @@
             catch (Exception ex)
             {
                 logger.LogError("on login:" + ex.Message);
+
                 return BadRequest(ex.Message);
             }
         }
@@ -106,6 +112,7 @@
             catch (Exception ex)
             {
                 logger.LogError(ex, "token for user with id:{userId} was not found on log-out", bm.UserId);
+
                 return BadRequest();
             }
         }
