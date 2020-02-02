@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push, goBack } from "connected-react-router"
 import { registerAccount } from '../../store/actions/accountActions'
+import {
+    infoNotification,
+    successfulNotification,
+    errorNotification
+} from '../../store/actions/eventNotifications'
+import '../../styles/components/authentication/FormRegistration.css'
 
 class FormRegistration extends Component {
     constructor(props) {
@@ -83,12 +89,12 @@ class FormRegistration extends Component {
                     localStorage.setItem('lustars_user_id', credentials.userId)
                     localStorage.setItem('lustars_user_name', credentials.name)
 
-                    //this.props.successfulNotification("You are succesfully registered!")
+                    this.props.successfulNotification("You are succesfully registered!")
                     this.props.push("/")
-                } else if (response.response.status === 400) {
-                    //this.props.errorNotification(response.response.data)
+                } else if (response.response != null && response.response.status === 400) { // Bad Reguest (User exist or wrong credentials)
+                    this.props.errorNotification(response.response.data)
                 } else {
-                    //this.props.errorNotification("Something went wrong. Pleas try again")
+                    this.props.errorNotification("Something went wrong. Pleas try again!")
                 }
             })
     }
@@ -156,7 +162,12 @@ const mapDispatchToProps = dispatch => {
     return {
         registerAccount: (userData) => dispatch(registerAccount(userData)),
         goBack: () => dispatch(goBack()),
-        push: (url) => dispatch(push(url))
+        push: (url) => dispatch(push(url)),
+
+         // Notifications
+         infoNotification: (message) => dispatch(infoNotification(message)),
+         successfulNotification: (message) => dispatch(successfulNotification(message)),
+         errorNotification: (message) => dispatch(errorNotification(message))
     }
 }
 

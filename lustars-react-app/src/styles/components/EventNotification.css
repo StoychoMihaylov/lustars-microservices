@@ -1,0 +1,29 @@
+.infoNotificationMessage {
+    right: 20%;
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    position: absolute;
+    background-color: #FFE5CC;
+}
+
+.successNotificationfulMessage {
+    right: 20%;
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    position: absolute;
+    background-color: #00CC00;
+}
+
+.errorNotificationMessage {
+    right: 20%;
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    position: absolute;
+    background-color: #FF0000;
+}

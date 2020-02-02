@@ -33,10 +33,7 @@ namespace WebGateway.App
                 options.AddPolicy(ApiCorsPolicy,
                 builder =>
                 {
-                    builder.WithOrigins(
-                        "https://localhost:3000",
-                        "https://localhost:3001"
-                        );
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
                 });
             });
 

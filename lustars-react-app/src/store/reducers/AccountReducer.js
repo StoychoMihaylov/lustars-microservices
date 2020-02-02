@@ -13,7 +13,7 @@ const initialState = {
 
 const accountReducer = (state, action) => {
     state = state || initialState
-
+    
     switch (action.type) {
         case REQUEST_REGISTER_NEW_ACCOUNT:
             return {
