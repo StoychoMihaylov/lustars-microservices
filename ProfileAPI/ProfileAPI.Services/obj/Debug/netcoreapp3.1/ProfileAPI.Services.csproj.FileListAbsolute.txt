@@ -1,0 +1,8 @@
+C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.Services\bin\Debug\netcoreapp3.1\ProfileAPI.Services.deps.json
+C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.Services\bin\Debug\netcoreapp3.1\ProfileAPI.Services.dll
+C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.Services\bin\Debug\netcoreapp3.1\ProfileAPI.Services.pdb
+C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.Services\obj\Debug\netcoreapp3.1\ProfileAPI.Services.csprojAssemblyReference.cache
+C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.Services\obj\Debug\netcoreapp3.1\ProfileAPI.Services.AssemblyInfoInputs.cache
+C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.Services\obj\Debug\netcoreapp3.1\ProfileAPI.Services.AssemblyInfo.cs
+C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.Services\obj\Debug\netcoreapp3.1\ProfileAPI.Services.dll
+C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.Services\obj\Debug\netcoreapp3.1\ProfileAPI.Services.pdb

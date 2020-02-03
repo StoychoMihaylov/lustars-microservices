@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>2d0b0929-3ef2-4b86-aa68-26f7510571c2</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProfileAPI.Data\ProfileAPI.Data.csproj" />
+    <ProjectReference Include="..\ProfileAPI.Models\ProfileAPI.Models.csproj" />
+    <ProjectReference Include="..\ProfileAPI.Services\ProfileAPI.Services.csproj" />
+  </ItemGroup>
+
+
+</Project>
