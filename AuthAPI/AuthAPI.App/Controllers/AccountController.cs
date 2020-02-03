@@ -20,8 +20,6 @@
             this.logger = logger;
             this.service = service;
         }
-
-        /// SOOOOOOOOOOOOOOOME CHANGE HERE!!!
        
         // account/register
         [HttpPost]
