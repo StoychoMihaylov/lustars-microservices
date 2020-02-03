@@ -26,6 +26,7 @@
                 Password = "P@ssl0rd",
                 ConfirmPassword = "P@ssl0rd"
             };
+
             var userCredentials = new AccountCredentialsViewModel()
             {
                 UserId = new Guid(userId),

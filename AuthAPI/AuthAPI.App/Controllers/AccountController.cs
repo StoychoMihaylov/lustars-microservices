@@ -21,6 +21,8 @@
             this.service = service;
         }
 
+        /// SOOOOOOOOOOOOOOOME CHANGE HERE!!!
+       
         // account/register
         [HttpPost]
         [Route("register")]
@@ -29,19 +31,23 @@
             if (!ModelState.IsValid)
             {
                 logger.LogWarning("invalid model state on registrations {time}", DateTime.UtcNow);
+
                 return BadRequest(ModelState);
             }
 
             if (bm.Password != bm.ConfirmPassword)
             {
                 logger.LogWarning("incorrect password and confirm password on registrations {time}", DateTime.UtcNow);
+
                 return BadRequest("Invalid credentials!");
             }
 
             var userAlreadyExist = this.service.CheckIfUserExist(bm);
+
             if (userAlreadyExist)
             {
                 logger.LogError($"registration fail the user already exist");
+
                 return BadRequest("User with this email already exist!");
             }
 
@@ -50,6 +56,7 @@
             if (userCredentials == null)
             {
                 logger.LogError("Error on registration token has been not returned");
+
                 return BadRequest();
             }
 
@@ -67,6 +74,7 @@
             if (!ModelState.IsValid)
             {
                 logger.LogWarning($"Invalid model state on log-in with email:{bm.Email}");
+
                 return BadRequest(ModelState);
             }
 
@@ -75,6 +83,7 @@
             if (userCredentials == null)
             {
                 logger.LogWarning($"Wrong credentials on log-on with email:{bm.Email}");
+
                 return BadRequest("Wrong credentials!");
             }
 
@@ -95,6 +104,7 @@
             catch (Exception ex)
             {
                 logger.LogError(ex, "token for user with id:{userId} was not found on log-out", bm.UserId);
+
                 return NotFound();
             }
 
@@ -103,6 +113,7 @@
             return Ok();
         }
 
+        // account/authorized
         [HttpPost]
         [Route("authorized")]
         public IActionResult CheckIfUserIsAuthorized([FromBody] Token token)
@@ -113,6 +124,7 @@
             }
 
             var userCredentials = this.service.CheckIfTokenIsValidAndReturnUserCredentials(token);
+
             if (userCredentials == null)
             {
                 return Unauthorized();

@@ -12,7 +12,6 @@
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
 
-
     public class AccountService : IAccountService
     {
         private readonly HttpClient httpClient;
@@ -22,11 +21,18 @@
             this.httpClient = httpClient;
         }
 
+        private StringContent SerializeObjectToStringContent(dynamic bm)
+        {
+            var dataJSON = JsonConvert.SerializeObject(bm);
+            var stringContent = new StringContent(dataJSON, UnicodeEncoding.UTF8, "application/json");
+
+            return stringContent;
+        }
+
         public async Task<AccountCredentialsViewModel> CallAuthAPIAccountLogin(LoginUserBindingModel bm)
         {
             var response = new HttpResponseMessage();
-            var dataJSON = JsonConvert.SerializeObject(bm);
-            var stringContent = new StringContent(dataJSON, UnicodeEncoding.UTF8, "application/json");
+            var stringContent = SerializeObjectToStringContent(bm);
 
             try
             {
@@ -57,8 +63,7 @@
         public async Task<bool> CallAuthAPIAccountLogout(LogoutBindingModel bm)
         {
             var response = new HttpResponseMessage();
-            var dataJSON = JsonConvert.SerializeObject(bm);
-            var stringContent = new StringContent(dataJSON, UnicodeEncoding.UTF8, "application/json");
+            var stringContent = SerializeObjectToStringContent(bm);
 
             try
             {
@@ -82,8 +87,7 @@
         public async Task<AccountCredentialsViewModel> CallAuthAPIAccountRegister(RegisterUserBindingModel bm)
         {
             var response = new HttpResponseMessage();
-            var dataJSON = JsonConvert.SerializeObject(bm);
-            var stringContent = new StringContent(dataJSON, UnicodeEncoding.UTF8, "application/json");
+            var stringContent = SerializeObjectToStringContent(bm);
 
             try
             {
