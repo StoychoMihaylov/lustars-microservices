@@ -26,26 +26,10 @@
         [Route("register")]
         public IActionResult RegisterAndLogin([FromBody] RegisterUserBindingModel bm)
         {
-            if (!ModelState.IsValid)
-            {
-                logger.LogWarning("invalid model state on registrations {time}", DateTime.UtcNow);
-
-                return BadRequest(ModelState);
-            }
-
-            if (bm.Password != bm.ConfirmPassword)
-            {
-                logger.LogWarning("incorrect password and confirm password on registrations {time}", DateTime.UtcNow);
-
-                return BadRequest("Invalid credentials!");
-            }
-
             var userAlreadyExist = this.service.CheckIfUserExist(bm);
 
             if (userAlreadyExist)
             {
-                logger.LogError($"registration fail the user already exist");
-
                 return BadRequest("User with this email already exist!");
             }
 
@@ -69,13 +53,6 @@
         [Route("login")]
         public IActionResult Login([FromBody] LoginUserBindingModel bm)
         {
-            if (!ModelState.IsValid)
-            {
-                logger.LogWarning($"Invalid model state on log-in with email:{bm.Email}");
-
-                return BadRequest(ModelState);
-            }
-
             var userCredentials = this.service.LoginUser(bm);
 
             if (userCredentials == null)
