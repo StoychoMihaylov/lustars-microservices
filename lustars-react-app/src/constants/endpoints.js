@@ -1,3 +1,3 @@
 export const api = {
-    domain: "https://localhost:44395/"
+    domain: "https://localhost:5000/"
 }

@@ -1,6 +1,8 @@
 version: '3.7'
 
 services:
+    
+#React Frontend service
 
   frontend:
     container_name: ${FE_APP_NAME}
@@ -15,10 +17,12 @@ services:
     environment:
       - NODE_ENV=NODE_ENV
 
+#DOTNET BACKEND SERVICES 
+
   api-gateway:
     container_name: ${APIGWAY_NAME}
     build:
-      context: ./${APIGWAY_NAME}/${APIGATEWAY_PATH}
+      context: ./${APIGWAY_NAME}
       dockerfile: Dockerfile
     ports:
       - '5000:80'
@@ -26,21 +30,45 @@ services:
   auth-backend:
     container_name: ${AUTH_BACKEND_NAME}
     build:
-      context: ./${AUTH_BACKEND_NAME}/${AUTH_BACKEND_NAME}.App
+      context: ./${AUTH_BACKEND_NAME}
       dockerfile: Dockerfile
     ports:
         - '5001:80'
+  
+  profile-backend:
+    container_name: ${PROFILE_BACKEND_NAME}
+    build: 
+      context: ./${PROFILE_BACKEND_NAME}
+      dockerfile: Dockerfile
+    ports:
+      - '5002:80'
+
+#Database Sections 
 
   lustar-auth-database:
     image: postgres:latest
     restart: on-failure
     environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${PG_AUTH_USER}
+      - POSTGRES_PASSWORD=${PG_AUTH_PASSWORD}
+      - POSTGRES_DB=${PG_AUTH_DB}
     ports:
       - 5432:5432
     volumes:
      -  lustar-auth-db:/var/lib/postgresql/data
+
+  lustar-profile-database:
+    image: postgres:latest
+    restart: on-failure
+    environment:
+      - POSTGRES_USER=${PG_PROFILE_USER}
+      - POSTGRES_PASSWORD=${PG_PROFILE_PASSWORD}
+      - POSTGRES_DB=${PG_PROFILE_DB}
+    ports:
+      - 5433:5432
+    volumes:
+     -  lustar-profile-db:/var/lib/postgresql/data
+
 volumes:
   lustar-auth-db:
+  lustar-profile-db:

@@ -6,8 +6,8 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["AuthAPI.App/AuthAPI.App.csproj", "AuthAPI.App/"]
-RUN dotnet restore "AuthAPI.App/AuthAPI.App.csproj"
 COPY . .
+RUN dotnet restore "AuthAPI.App/AuthAPI.App.csproj"
 WORKDIR "/src/AuthAPI.App"
 RUN dotnet build "AuthAPI.App.csproj" -c Release -o /app/build
 
