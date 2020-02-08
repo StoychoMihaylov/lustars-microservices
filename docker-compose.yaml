@@ -65,7 +65,7 @@ services:
       - POSTGRES_PASSWORD=${PG_PROFILE_PASSWORD}
       - POSTGRES_DB=${PG_PROFILE_DB}
     ports:
-      - 5433:5433
+      - 5433:5432
     volumes:
      -  lustar-profile-db:/var/lib/postgresql/data
 

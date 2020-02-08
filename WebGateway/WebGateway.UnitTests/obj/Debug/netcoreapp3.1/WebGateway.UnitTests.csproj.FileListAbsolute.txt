@@ -16,7 +16,6 @@ C:\Users\stmih\Desktop\lustars-microservices\WebGateway\WebGateway.UnitTests\bin
 C:\Users\stmih\Desktop\lustars-microservices\WebGateway\WebGateway.UnitTests\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.Common.dll
 C:\Users\stmih\Desktop\lustars-microservices\WebGateway\WebGateway.UnitTests\bin\Debug\netcoreapp3.1\testhost.dll
 C:\Users\stmih\Desktop\lustars-microservices\WebGateway\WebGateway.UnitTests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
-C:\Users\stmih\Desktop\lustars-microservices\WebGateway\WebGateway.UnitTests\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
 C:\Users\stmih\Desktop\lustars-microservices\WebGateway\WebGateway.UnitTests\bin\Debug\netcoreapp3.1\xunit.abstractions.dll
 C:\Users\stmih\Desktop\lustars-microservices\WebGateway\WebGateway.UnitTests\bin\Debug\netcoreapp3.1\xunit.assert.dll
 C:\Users\stmih\Desktop\lustars-microservices\WebGateway\WebGateway.UnitTests\bin\Debug\netcoreapp3.1\xunit.core.dll
@@ -92,3 +91,4 @@ C:\Users\stmih\Desktop\lustars-microservices\WebGateway\WebGateway.UnitTests\obj
 C:\Users\stmih\Desktop\lustars-microservices\WebGateway\WebGateway.UnitTests\obj\Debug\netcoreapp3.1\WebGateway.UnitTests.csproj.CopyComplete
 C:\Users\stmih\Desktop\lustars-microservices\WebGateway\WebGateway.UnitTests\obj\Debug\netcoreapp3.1\WebGateway.UnitTests.dll
 C:\Users\stmih\Desktop\lustars-microservices\WebGateway\WebGateway.UnitTests\obj\Debug\netcoreapp3.1\WebGateway.UnitTests.pdb
+C:\Users\stmih\Desktop\lustars-microservices\WebGateway\WebGateway.UnitTests\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
