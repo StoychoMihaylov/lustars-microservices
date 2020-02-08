@@ -798,11 +798,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj",
+      "projectUniqueName": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj",
       "projectName": "AuthAPI.Services",
-      "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj",
+      "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj",
       "packagesPath": "C:\\Users\\stmih\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\obj\\",
+      "outputPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -822,11 +822,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj": {
-              "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj"
+            "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj": {
+              "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj"
             },
-            "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj": {
-              "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj"
+            "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj": {
+              "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj"
             }
           }
         }

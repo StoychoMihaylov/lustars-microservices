@@ -1,8 +1,6 @@
 ﻿namespace AuthAPI.App.Controllers
 {
-    using System;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
 
     using AuthAPI.Models.BidingModels;
     using AuthAPI.Services.Interfaces;
@@ -11,13 +9,10 @@
     [Route("account")]
     public class AccountController : ControllerBase
     {
-        private readonly ILogger<AccountController> logger;
-
         private readonly IAccountService service;
 
-        public AccountController(ILogger<AccountController> logger, IAccountService service)
+        public AccountController( IAccountService service)
         {
-            this.logger = logger;
             this.service = service;
         }
        
@@ -35,15 +30,6 @@
 
             var userCredentials = this.service.CreateNewUserAccount(bm); // User created, will return token(loged-in automaticaly)
 
-            if (userCredentials == null)
-            {
-                logger.LogError("Error on registration token has been not returned");
-
-                return BadRequest();
-            }
-
-            logger.LogInformation("User has been registered! {time}", DateTime.UtcNow);
-
             // created!
             return Ok(userCredentials);
         }
@@ -57,12 +43,8 @@
 
             if (userCredentials == null)
             {
-                logger.LogWarning($"Wrong credentials on log-on with email:{bm.Email}");
-
                 return BadRequest("Wrong credentials!");
             }
-
-            logger.LogInformation($"User loged-in with email:{bm.Email}");
 
             return Ok(userCredentials);
         }
@@ -76,14 +58,10 @@
             {
                 this.service.DeleteUserToken(bm);
             }
-            catch (Exception ex)
+            catch
             {
-                logger.LogError(ex, "token for user with id:{userId} was not found on log-out", bm.UserId);
-
                 return NotFound();
             }
-
-            logger.LogInformation("user with id:{userId} successful log-outed", bm.UserId);
 
             return Ok();
         }
@@ -93,11 +71,6 @@
         [Route("authorized")]
         public IActionResult CheckIfUserIsAuthorized([FromBody] Token token)
         {
-            if (token == null)
-            {
-                return BadRequest("No token provided!");
-            }
-
             var userCredentials = this.service.CheckIfTokenIsValidAndReturnUserCredentials(token);
 
             if (userCredentials == null)

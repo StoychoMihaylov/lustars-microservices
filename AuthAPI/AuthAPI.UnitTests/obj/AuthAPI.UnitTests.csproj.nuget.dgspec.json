@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.UnitTests\\AuthAPI.UnitTests.csproj": {}
+    "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.UnitTests\\AuthAPI.UnitTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.App\\AuthAPI.App.csproj": {
+    "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.App\\AuthAPI.App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.App\\AuthAPI.App.csproj",
+        "projectUniqueName": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.App\\AuthAPI.App.csproj",
         "projectName": "AuthAPI.App",
-        "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.App\\AuthAPI.App.csproj",
+        "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.App\\AuthAPI.App.csproj",
         "packagesPath": "C:\\Users\\stmih\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.App\\obj\\",
+        "outputPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.App\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -31,14 +31,14 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj": {
-                "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj"
+              "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj": {
+                "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj"
               },
-              "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj": {
-                "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj"
+              "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj": {
+                "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj"
               },
-              "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj": {
-                "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj"
+              "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj": {
+                "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj"
               }
             }
           }
@@ -61,10 +61,6 @@
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.9.10, )"
-            },
-            "NLog.Web.AspNetCore": {
-              "target": "Package",
-              "version": "[4.9.0, )"
             },
             "NSwag.AspNetCore": {
               "target": "Package",
@@ -93,14 +89,14 @@
         }
       }
     },
-    "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj": {
+    "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj",
+        "projectUniqueName": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj",
         "projectName": "AuthAPI.Data",
-        "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj",
+        "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj",
         "packagesPath": "C:\\Users\\stmih\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\obj\\",
+        "outputPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -165,14 +161,14 @@
         }
       }
     },
-    "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj": {
+    "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj",
+        "projectUniqueName": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj",
         "projectName": "AuthAPI.Models",
-        "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj",
+        "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj",
         "packagesPath": "C:\\Users\\stmih\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\obj\\",
+        "outputPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -221,14 +217,14 @@
         }
       }
     },
-    "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj": {
+    "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj",
+        "projectUniqueName": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj",
         "projectName": "AuthAPI.Services",
-        "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj",
+        "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj",
         "packagesPath": "C:\\Users\\stmih\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\obj\\",
+        "outputPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -248,11 +244,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj": {
-                "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj"
+              "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj": {
+                "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj"
               },
-              "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj": {
-                "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj"
+              "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj": {
+                "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj"
               }
             }
           }
@@ -284,14 +280,14 @@
         }
       }
     },
-    "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.UnitTests\\AuthAPI.UnitTests.csproj": {
+    "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.UnitTests\\AuthAPI.UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.UnitTests\\AuthAPI.UnitTests.csproj",
+        "projectUniqueName": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.UnitTests\\AuthAPI.UnitTests.csproj",
         "projectName": "AuthAPI.UnitTests",
-        "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.UnitTests\\AuthAPI.UnitTests.csproj",
+        "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.UnitTests\\AuthAPI.UnitTests.csproj",
         "packagesPath": "C:\\Users\\stmih\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.UnitTests\\obj\\",
+        "outputPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.UnitTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -311,14 +307,14 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.App\\AuthAPI.App.csproj": {
-                "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.App\\AuthAPI.App.csproj"
+              "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.App\\AuthAPI.App.csproj": {
+                "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.App\\AuthAPI.App.csproj"
               },
-              "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj": {
-                "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj"
+              "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj": {
+                "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj"
               },
-              "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj": {
-                "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj"
+              "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj": {
+                "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj"
               }
             }
           }
