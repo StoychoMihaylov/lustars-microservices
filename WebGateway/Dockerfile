@@ -2,13 +2,11 @@
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["WebGateway.App/WebGateway.App.csproj", "WebGateway.App/"]
-RUN dotnet restore "WebGateway.App/WebGateway.App.csproj"
+COPY ["../WebGateway.App/WebGateway.App.csproj", "WebGateway.App/"]
+RUN dotnet restore "../WebGateway.App/WebGateway.App.csproj"
 COPY . .
 WORKDIR "/src/WebGateway.App"
 RUN dotnet build "WebGateway.App.csproj" -c Release -o /app/build

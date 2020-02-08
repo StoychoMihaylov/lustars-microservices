@@ -31,16 +31,30 @@ services:
     ports:
         - '5001:80'
 
+#Database Sections 
   lustar-auth-database:
     image: postgres:latest
     restart: on-failure
     environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${PG_AUTH_USER}
+      - POSTGRES_PASSWORD=${PG_AUTH_PASSWORD}
+      - POSTGRES_DB=${PG_AUTH_DB}
     ports:
       - 5432:5432
     volumes:
      -  lustar-auth-db:/var/lib/postgresql/data
+
+  lustar-profile-database:
+    image: postgres:latest
+    restart: on-failure
+    environment:
+      - POSTGRES_USER=${PG_PROFILE_USER}
+      - POSTGRES_PASSWORD=${PG_PROFILE_PASSWORD}
+      - POSTGRES_DB=${PG_PROFILE_DB}
+    ports:
+      - 5433:5432
+    volumes:
+     -  lustar-profile-db:/var/lib/postgresql/data
 volumes:
   lustar-auth-db:
+  lustar-profile-db:
