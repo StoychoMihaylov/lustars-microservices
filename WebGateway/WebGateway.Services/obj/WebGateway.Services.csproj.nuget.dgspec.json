@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\stmih\\Desktop\\lustars-microservices\\WebGateway\\WebGateway.Services\\WebGateway.Services.csproj": {}
+    "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\WebGateway\\WebGateway.Services\\WebGateway.Services.csproj": {}
   },
   "projects": {
-    "C:\\Users\\stmih\\Desktop\\lustars-microservices\\WebGateway\\WebGateway.Models\\WebGateway.Models.csproj": {
+    "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\WebGateway\\WebGateway.Models\\WebGateway.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\WebGateway\\WebGateway.Models\\WebGateway.Models.csproj",
+        "projectUniqueName": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\WebGateway\\WebGateway.Models\\WebGateway.Models.csproj",
         "projectName": "WebGateway.Models",
-        "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\WebGateway\\WebGateway.Models\\WebGateway.Models.csproj",
+        "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\WebGateway\\WebGateway.Models\\WebGateway.Models.csproj",
         "packagesPath": "C:\\Users\\stmih\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\WebGateway\\WebGateway.Models\\obj\\",
+        "outputPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\WebGateway\\WebGateway.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -60,14 +60,14 @@
         }
       }
     },
-    "C:\\Users\\stmih\\Desktop\\lustars-microservices\\WebGateway\\WebGateway.Services\\WebGateway.Services.csproj": {
+    "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\WebGateway\\WebGateway.Services\\WebGateway.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\WebGateway\\WebGateway.Services\\WebGateway.Services.csproj",
+        "projectUniqueName": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\WebGateway\\WebGateway.Services\\WebGateway.Services.csproj",
         "projectName": "WebGateway.Services",
-        "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\WebGateway\\WebGateway.Services\\WebGateway.Services.csproj",
+        "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\WebGateway\\WebGateway.Services\\WebGateway.Services.csproj",
         "packagesPath": "C:\\Users\\stmih\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\WebGateway\\WebGateway.Services\\obj\\",
+        "outputPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\WebGateway\\WebGateway.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -87,8 +87,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\stmih\\Desktop\\lustars-microservices\\WebGateway\\WebGateway.Models\\WebGateway.Models.csproj": {
-                "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\WebGateway\\WebGateway.Models\\WebGateway.Models.csproj"
+              "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\WebGateway\\WebGateway.Models\\WebGateway.Models.csproj": {
+                "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\WebGateway\\WebGateway.Models\\WebGateway.Models.csproj"
               }
             }
           }

@@ -4,7 +4,6 @@
     using Xunit;
     using System;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
 
     using AuthAPI.App.Controllers;
     using AuthAPI.Models.BidingModels;
@@ -39,9 +38,7 @@
                 .Setup(s => s.CreateNewUserAccount(bidingModel))
                 .Returns(userCredentials);
 
-            var loggerMock = new Mock<ILogger<AccountController>>();
-
-            var controller = new AccountController(loggerMock.Object, serviceMock.Object);
+            var controller = new AccountController(serviceMock.Object);
 
             // Act
             var response = controller.RegisterAndLogin(bidingModel);

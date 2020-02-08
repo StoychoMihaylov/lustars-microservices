@@ -51,8 +51,7 @@
             }
             catch (Exception ex)
             {
-                var err = ex.Message;
-                return null;
+                throw new Exception(ex.Message);
             }
 
             // After user has been created login the user (return token)
@@ -111,6 +110,7 @@
 
         public AccountCredentialsViewModel LoginUser(LoginUserBindingModel bm)
         {
+            var user = new User();
             string tokenBearer = string.Empty;
             Guid userId = Guid.Empty;
             string name = string.Empty;
@@ -118,41 +118,42 @@
 
             try
             {
-                var user = this.Context
-                .Users
-                .Where(u => u.Email == bm.Email)
-                .First();
-
-                // taking the user data to send it to the client
-                userId = user.Id; 
-                name = user.Name;
-                email = user.Email;
-
-                var passwordHash = GenerateHashOfPassword(bm.Password, user.Salt);
-
-                if (user.PasswordHash == passwordHash)
-                {
-                    tokenBearer = GenerateToken();
-                    TokenManager newToken = new TokenManager()
-                    {
-
-                        Value = tokenBearer,
-                        CreatedOn = DateTime.Now,
-                    };
-                    newToken.User = user;
-
-                    this.Context.Tokens.Add(newToken);
-                    this.Context.SaveChanges();
-                }
-                else
-                {
-                    return null;
-                }
+                user = this.Context
+                    .Users
+                    .Where(u => u.Email == bm.Email)
+                    .First();
             }
-            catch (Exception)
+            catch
+            {
+                throw new Exception("User not found!");
+            }
+            
+            // taking the user data to send it to the client
+            userId = user.Id; 
+            name = user.Name;
+            email = user.Email;
+
+            var passwordHash = GenerateHashOfPassword(bm.Password, user.Salt);
+
+            if (user.PasswordHash == passwordHash)
+            {
+                tokenBearer = GenerateToken();
+                TokenManager newToken = new TokenManager()
+                {
+
+                    Value = tokenBearer,
+                    CreatedOn = DateTime.Now,
+                };
+                newToken.User = user;
+
+                this.Context.Tokens.Add(newToken);
+                this.Context.SaveChanges();
+            }
+            else
             {
                 return null;
             }
+      
 
             AccountCredentialsViewModel viewModel = new AccountCredentialsViewModel()
             {

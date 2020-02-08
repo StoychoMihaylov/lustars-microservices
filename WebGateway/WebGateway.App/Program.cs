@@ -1,7 +1,6 @@
 namespace WebGateway.App
 {
     using System;
-    using NLog.Extensions.Logging;
     using Microsoft.Extensions.Logging;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;
@@ -28,7 +27,6 @@ namespace WebGateway.App
                     logging.AddConfiguration(context.Configuration.GetSection("Logging"));
                     logging.AddDebug();
                     logging.AddConsole();
-                    logging.AddNLog();
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

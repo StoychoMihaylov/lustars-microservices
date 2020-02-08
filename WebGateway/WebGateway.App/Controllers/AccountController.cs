@@ -3,7 +3,6 @@
     using System;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
 
     using WebGateway.App.Utilities;
     using WebGateway.Services.Interfaces;
@@ -13,12 +12,10 @@
     [Route("account")]
     public class AccountController : ControllerBase
     {
-        private readonly ILogger<AccountController> logger;
         private readonly IAccountService service;
 
-        public AccountController(ILogger<AccountController> logger, IAccountService service)
+        public AccountController(IAccountService service)
         {
-            this.logger = logger;
             this.service = service;
         }
 
@@ -29,15 +26,11 @@
         {
             if (!ModelState.IsValid)
             {
-                logger.LogWarning("invalid model state on registrations {time}", DateTime.UtcNow);
-
                 return BadRequest(ModelState);
             }
 
             if (bm.Password != bm.ConfirmPassword)
             {
-                logger.LogWarning("incorrect password and confirm password on registrations {time}", DateTime.UtcNow);
-
                 return BadRequest("Invalid credentials!");
             }
 
@@ -49,8 +42,6 @@
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, "AuthAPIAccountRegister {time}", DateTime.UtcNow);
-
                 return BadRequest(ex.Message);
             }  
         }
@@ -62,8 +53,6 @@
         {
             if (!ModelState.IsValid)
             {
-                logger.LogWarning($"Invalid model state on log-in with email:{bm.Email}");
-
                 return BadRequest(ModelState);
             }
 
@@ -79,8 +68,6 @@
             }
             catch (Exception ex)
             {
-                logger.LogError("on login:" + ex.Message);
-
                 return BadRequest(ex.Message);
             }
         }
@@ -109,10 +96,8 @@
                 }
                 
             }
-            catch (Exception ex)
+            catch
             {
-                logger.LogError(ex, "token for user with id:{userId} was not found on log-out", bm.UserId);
-
                 return BadRequest();
             }
         }

@@ -62,10 +62,6 @@
               "target": "Package",
               "version": "[1.9.10, )"
             },
-            "NLog.Web.AspNetCore": {
-              "target": "Package",
-              "version": "[4.9.0, )"
-            },
             "NSwag.AspNetCore": {
               "target": "Package",
               "version": "[13.2.2, )"
