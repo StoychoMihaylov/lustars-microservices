@@ -13,3 +13,4 @@ C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.Models\obj\Deb
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.Models\obj\Debug\netcoreapp3.1\AuthAPI.Models.AssemblyInfo.cs
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.Models\obj\Debug\netcoreapp3.1\AuthAPI.Models.dll
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.Models\obj\Debug\netcoreapp3.1\AuthAPI.Models.pdb
+C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.Models\obj\Debug\netcoreapp3.1\AuthAPI.Models.csprojAssemblyReference.cache
