@@ -45,13 +45,10 @@ namespace WebGateway.App
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors(ApiCorsPolicy);
             app.UseOpenApi(); //Swagger
             app.UseSwaggerUi3();
-            app.UseHealthChecks("/health", 9000); // Healtchecks info for the container
-            app.UseHttpsRedirection();
             app.UseControllerEndpoints();
             app.UseExceptionHandling(env);
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });

@@ -6,3 +6,11 @@ C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.Data\obj\Debu
 C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.Data\obj\Debug\netcoreapp3.1\ProfileAPI.Data.AssemblyInfo.cs
 C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.Data\obj\Debug\netcoreapp3.1\ProfileAPI.Data.dll
 C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.Data\obj\Debug\netcoreapp3.1\ProfileAPI.Data.pdb
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Data\bin\Debug\netcoreapp3.1\ProfileAPI.Data.deps.json
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Data\bin\Debug\netcoreapp3.1\ProfileAPI.Data.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Data\bin\Debug\netcoreapp3.1\ProfileAPI.Data.pdb
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Data\obj\Debug\netcoreapp3.1\ProfileAPI.Data.csprojAssemblyReference.cache
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Data\obj\Debug\netcoreapp3.1\ProfileAPI.Data.AssemblyInfoInputs.cache
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Data\obj\Debug\netcoreapp3.1\ProfileAPI.Data.AssemblyInfo.cs
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Data\obj\Debug\netcoreapp3.1\ProfileAPI.Data.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Data\obj\Debug\netcoreapp3.1\ProfileAPI.Data.pdb

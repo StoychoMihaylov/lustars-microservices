@@ -95,7 +95,7 @@ class FormRegistration extends Component {
                 } else if (response.response != null && response.response.status === 400) { // Bad Reguest (User exist or wrong credentials)
                     this.props.errorNotification(response.response.data)
                 } else {
-                    this.props.errorNotification("Something went wrong. Pleas try again!")
+                    this.props.errorNotification("Connection problem! Please try again")
                 }
             })
     }

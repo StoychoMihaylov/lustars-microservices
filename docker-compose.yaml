@@ -46,6 +46,7 @@ services:
 #Database Sections 
 
   lustar-auth-database:
+    container_name: pg-auth-srv
     image: postgres:latest
     restart: on-failure
     environment:
@@ -58,6 +59,7 @@ services:
      -  lustar-auth-db:/var/lib/postgresql/data
 
   lustar-profile-database:
+    container_name: pg-profile-srv
     image: postgres:latest
     restart: on-failure
     environment:

@@ -59,7 +59,6 @@ C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\obj\Debug\netco
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\obj\Debug\netcoreapp3.1\AuthAPI.App.csproj.CopyComplete
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\obj\Debug\netcoreapp3.1\AuthAPI.App.dll
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\obj\Debug\netcoreapp3.1\AuthAPI.App.pdb
-C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\nlog.config
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Properties\launchSettings.json

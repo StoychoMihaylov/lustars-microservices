@@ -1,5 +1,6 @@
 namespace AuthAPI.App
 {
+    using System.Diagnostics;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,7 @@ namespace AuthAPI.App
     using AuthAPI.Services.Services;
     using AuthAPI.App.Infrastructure;
     using AuthAPI.Services.Interfaces;
-
+   
 
     public class Startup
     {
@@ -30,8 +31,19 @@ namespace AuthAPI.App
 
             services
                 .AddEntityFrameworkNpgsql()
-                .AddDbContext<AuthDBContext>(opt =>
-                    opt.UseNpgsql(Configuration.GetConnectionString("LustarsAuthDB")));
+                .AddDbContext<AuthDBContext>((sp, opt) =>
+                {
+                    if (Debugger.IsAttached)
+                    {
+                        opt.UseNpgsql(Configuration.GetConnectionString("LustarsAuthDBDebug"))
+                           .UseInternalServiceProvider(sp);
+                    }
+                    else
+                    {
+                        opt.UseNpgsql(Configuration.GetConnectionString("LustarsAuthDBRelease"))
+                           .UseInternalServiceProvider(sp);
+                    }
+                });
 
             // DI
             services.AddTransient<IAuthDBContext, AuthDBContext>();
@@ -44,7 +56,6 @@ namespace AuthAPI.App
             app.UseOpenApi(); //Swagger
             app.UseSwaggerUi3();
             app.UseHealthChecks("/health", 9000); // Healtchecks info for the container
-            app.UseHttpsRedirection();
             app.UseControllerEndpoints();
             app.UseExceptionHandling(env);
         }
