@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\stmih\\Desktop\\lustars-microservices\\ProfileAPI\\ProfileAPI.Models\\ProfileAPI.Models.csproj": {}
+    "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Models\\ProfileAPI.Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\stmih\\Desktop\\lustars-microservices\\ProfileAPI\\ProfileAPI.Models\\ProfileAPI.Models.csproj": {
+    "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Models\\ProfileAPI.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\ProfileAPI\\ProfileAPI.Models\\ProfileAPI.Models.csproj",
+        "projectUniqueName": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Models\\ProfileAPI.Models.csproj",
         "projectName": "ProfileAPI.Models",
-        "projectPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\ProfileAPI\\ProfileAPI.Models\\ProfileAPI.Models.csproj",
+        "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Models\\ProfileAPI.Models.csproj",
         "packagesPath": "C:\\Users\\stmih\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stmih\\Desktop\\lustars-microservices\\ProfileAPI\\ProfileAPI.Models\\obj\\",
+        "outputPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
