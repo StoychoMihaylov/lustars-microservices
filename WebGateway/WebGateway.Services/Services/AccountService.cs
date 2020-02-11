@@ -1,6 +1,5 @@
 ﻿namespace WebGateway.Services.Services
 {
-    using System;
     using System.Net;
     using System.Text;
     using System.Net.Http;
@@ -31,28 +30,15 @@
 
         public async Task<AccountCredentialsViewModel> CallAuthAPIAccountLogin(LoginUserBindingModel bm)
         {
-            var response = new HttpResponseMessage();
             var stringContent = SerializeObjectToStringContent(bm);
-
-            try
-            {
-                response = await httpClient.PostAsync(AuthAPIService.Endpoint + "account/login", stringContent);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("AuthAPI service does not responding: " + ex);
-            }
-
+            var response = await httpClient.PostAsync(AuthAPIService.Endpoint + "account/login", stringContent);
+       
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                var result = JsonConvert.DeserializeObject<AccountCredentialsViewModel>(response.Content.ReadAsStringAsync().Result);
-                return result;
-            }
-            else if (response.StatusCode == HttpStatusCode.BadRequest)
-            {
-                var errorMessage = response.Content.ReadAsStringAsync().Result;
+                var accountCredentialsVm = JsonConvert
+                    .DeserializeObject<AccountCredentialsViewModel>(response.Content.ReadAsStringAsync().Result);
 
-                throw new Exception(errorMessage);
+                return accountCredentialsVm;
             }
             else
             {
@@ -62,18 +48,9 @@
 
         public async Task<bool> CallAuthAPIAccountLogout(LogoutBindingModel bm)
         {
-            var response = new HttpResponseMessage();
             var stringContent = SerializeObjectToStringContent(bm);
-
-            try
-            {
-                response = await httpClient.PostAsync(AuthAPIService.Endpoint + "account/logout", stringContent);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("AuthAPI service does not responding: " + ex);
-            }
-
+            var response = await httpClient.PostAsync(AuthAPIService.Endpoint + "account/logout", stringContent);
+      
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 return true;
@@ -85,29 +62,16 @@
         }
 
         public async Task<AccountCredentialsViewModel> CallAuthAPIAccountRegister(RegisterUserBindingModel bm)
-        {
-            var response = new HttpResponseMessage();
+        { 
             var stringContent = SerializeObjectToStringContent(bm);
+            var response = await httpClient.PostAsync(AuthAPIService.Endpoint + "account/register", stringContent);
 
-            try
+            if (response.StatusCode == HttpStatusCode.Created)
             {
-                response = await httpClient.PostAsync(AuthAPIService.Endpoint + "account/register", stringContent);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("AuthAPI service does not responding: " + ex);
-            }
+                var accountCredentialsVm = JsonConvert
+                    .DeserializeObject<AccountCredentialsViewModel>(response.Content.ReadAsStringAsync().Result);
 
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                var result = JsonConvert.DeserializeObject<AccountCredentialsViewModel>(response.Content.ReadAsStringAsync().Result);
-                return result;
-            }
-            else if (response.StatusCode == HttpStatusCode.BadRequest)
-            {
-                var errorMessage = response.Content.ReadAsStringAsync().Result;
-
-                throw new Exception(errorMessage);
+                return accountCredentialsVm;
             }
             else
             {

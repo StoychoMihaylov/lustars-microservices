@@ -25,13 +25,12 @@
 
             if (userAlreadyExist)
             {
-                return BadRequest("User with this email already exist!");
+                return StatusCode(400, "User with this email already exist!"); // BadRequest!
             }
 
             var userCredentials = this.service.CreateNewUserAccount(bm); // User created, will return token(loged-in automaticaly)
 
-            // created!
-            return Ok(userCredentials);
+            return StatusCode(201, userCredentials); // Created!
         }
 
         // account/login
@@ -43,10 +42,10 @@
 
             if (userCredentials == null)
             {
-                return BadRequest("Wrong credentials!");
+                return StatusCode(400, "Wrong credentials!"); // BadRequest!
             }
 
-            return Ok(userCredentials);
+            return StatusCode(200, userCredentials); // Ok!
         }
 
         // account/logout
@@ -60,10 +59,10 @@
             }
             catch
             {
-                return NotFound();
+                return StatusCode(404); // NotFound!
             }
 
-            return Ok();
+            return StatusCode(200); // Ok!
         }
 
         // account/authorized
@@ -75,10 +74,10 @@
 
             if (userCredentials == null)
             {
-                return Unauthorized();
+                return StatusCode(401); // Unauthorized!
             }
 
-            return Ok(userCredentials);
+            return StatusCode(200, userCredentials); // Ok!
         }
     }
 }

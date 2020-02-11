@@ -83,7 +83,7 @@ class FormRegistration extends Component {
         this.props.registerAccount(userData)
             .then(response => {
                 console.log(response)
-                if (response.status === 200) {
+                if (response.status === 201) {
                     let credentials = response.data
                     localStorage.setItem('lustars_token', credentials.token)
                     localStorage.setItem('lustars_user_id', credentials.userId)
