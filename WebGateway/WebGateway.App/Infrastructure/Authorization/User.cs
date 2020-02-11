@@ -1,4 +1,4 @@
-﻿namespace WebGateway.App.Authorization
+﻿namespace WebGateway.App.Infrastructure.Authorization
 {
     using System;
 

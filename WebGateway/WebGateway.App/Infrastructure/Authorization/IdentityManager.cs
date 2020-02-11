@@ -1,10 +1,8 @@
-﻿namespace WebGateway.App.Utilities
+﻿namespace WebGateway.App.Infrastructure.Authorization
 {
     using System;
 
-    using WebGateway.App.Authorization;
-
-    public static class Identity
+    public static class IdentityManager
     {
         private static User user = new User();
 
