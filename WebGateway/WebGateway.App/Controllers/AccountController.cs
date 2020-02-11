@@ -26,23 +26,31 @@
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return StatusCode(400, ModelState); // BadRequest!
             }
 
             if (bm.Password != bm.ConfirmPassword)
             {
-                return BadRequest("Invalid credentials!");
+                return StatusCode(400, "Invalid credentials!"); // BadRequest!
             }
 
             try
             {
-                var response = await this.service.CallAuthAPIAccountRegister(bm);
-
-                return Ok(response);
+                var accountCredentials = await this.service.CallAuthAPIAccountRegister(bm);
+                if (accountCredentials != null)
+                {
+                    return StatusCode(201, accountCredentials); // Created!
+                }
+                else
+                {
+                    return StatusCode(400, "Email already exists or wrong credentials!"); // BadRequest!
+                }
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                // TO DO: log the exeption here
+
+                return StatusCode(503); // ServiceUnavailable!
             }  
         }
 
@@ -53,22 +61,24 @@
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return StatusCode(400, ModelState); // BadRequest!
             }
 
             try
             {
-                var response = await this.service.CallAuthAPIAccountLogin(bm);
-                if (response == null)
+                var accountCredentials = await this.service.CallAuthAPIAccountLogin(bm);
+                if (accountCredentials == null)
                 {
-                    return BadRequest();
+                    return StatusCode(400, "Wrong credentials or this user doesn't exist!"); // BadRequest!
                 }
 
-                return Ok(response);
+                return StatusCode(200, accountCredentials); // Ok!
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                // TO DO: log the exeption here
+
+                return StatusCode(503); // ServiceUnavailable!
             }
         }
 
@@ -88,17 +98,19 @@
                 var response = await this.service.CallAuthAPIAccountLogout(bm);
                 if (response)
                 {
-                    return Ok();
+                    return StatusCode(200); // Ok!
                 }
                 else
                 {
-                    return NotFound();
+                    return StatusCode(404); // NotFound!
                 }
                 
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                // TO DO: log the exeption here
+
+                return StatusCode(503); // ServiceUnavailable!
             }
         }
     }
