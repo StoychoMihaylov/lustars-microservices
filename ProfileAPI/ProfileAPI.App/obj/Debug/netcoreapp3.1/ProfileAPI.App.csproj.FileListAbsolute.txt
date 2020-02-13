@@ -32,6 +32,18 @@ C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\ProfileAPI.App.runtimeconfig.dev.json
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\ProfileAPI.App.dll
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\ProfileAPI.App.pdb
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\Microsoft.DotNet.InternalAbstractions.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\Namotion.Reflection.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\NJsonSchema.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\NSwag.Annotations.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\NSwag.AspNetCore.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\NSwag.Core.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\NSwag.Generation.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\NSwag.Generation.AspNetCore.dll
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\ProfileAPI.Data.dll
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\ProfileAPI.Models.dll
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\ProfileAPI.Services.dll
@@ -41,6 +53,7 @@ C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\obj\Debug\netcoreapp3.1\ProfileAPI.App.csprojAssemblyReference.cache
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\obj\Debug\netcoreapp3.1\staticwebassets\ProfileAPI.App.StaticWebAssets.Manifest.cache
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\obj\Debug\netcoreapp3.1\staticwebassets\ProfileAPI.App.StaticWebAssets.xml
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\obj\Debug\netcoreapp3.1\ProfileAPI.App.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\obj\Debug\netcoreapp3.1\ProfileAPI.App.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\obj\Debug\netcoreapp3.1\ProfileAPI.App.AssemblyInfoInputs.cache
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\obj\Debug\netcoreapp3.1\ProfileAPI.App.AssemblyInfo.cs

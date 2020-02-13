@@ -3,7 +3,7 @@ using Xunit;
 
 namespace ProfileAPI.UnitTests
 {
-    public class UnitTest1
+    public class TestsInitializer
     {
         [Fact]
         public void Test1()
