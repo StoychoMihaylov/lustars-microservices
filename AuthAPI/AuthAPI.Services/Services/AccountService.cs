@@ -18,18 +18,13 @@
             : base (context) { }
 
         public bool CheckIfUserExist(RegisterUserBindingModel bm)
-        {
-            try
-            {
-                this.Context
-                    .Users
-                    .Where(user => user.Email == bm.Email)
-                    .First();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+        {   
+            var user = this.Context
+                .Users
+                .Where(user => user.Email == bm.Email)
+                .FirstOrDefault();
+
+            if (user == null) return false; 
 
             return true;
         }
@@ -49,9 +44,9 @@
                 this.Context.Users.Add(newUser);
                 this.Context.SaveChanges();
             }
-            catch (Exception ex)
+            catch
             {
-                throw new Exception(ex.Message);
+                return null;
             }
 
             // After user has been created login the user (return token)
@@ -61,9 +56,9 @@
                 Password = bm.Password
             };
 
-            var tokenBearer = LoginUser(loginBm);
+            var accountCredentialsVm = LoginUser(loginBm);
 
-            return tokenBearer;
+            return accountCredentialsVm;
         }
 
         public void DeleteUserToken(LogoutBindingModel bm)
@@ -110,37 +105,27 @@
 
         public AccountCredentialsViewModel LoginUser(LoginUserBindingModel bm)
         {
-            var user = new User();
             string tokenBearer = string.Empty;
-            Guid userId = Guid.Empty;
-            string name = string.Empty;
-            string email = string.Empty;
 
-            try
-            {
-                user = this.Context
-                    .Users
-                    .Where(u => u.Email == bm.Email)
-                    .First();
-            }
-            catch
-            {
-                throw new Exception("User not found!");
-            }
-            
+            var user = this.Context
+                .Users
+                .Where(u => u.Email == bm.Email)
+                .FirstOrDefault();
+
+            if (user == null ) return null;
+        
             // taking the user data to send it to the client
-            userId = user.Id; 
-            name = user.Name;
-            email = user.Email;
+            var userId = user.Id; 
+            var name = user.Name;
+            var email = user.Email;
 
             var passwordHash = GenerateHashOfPassword(bm.Password, user.Salt);
 
             if (user.PasswordHash == passwordHash)
             {
-                tokenBearer = GenerateToken();
+                tokenBearer = TokenGenerator.Generate(30);
                 TokenManager newToken = new TokenManager()
                 {
-
                     Value = tokenBearer,
                     CreatedOn = DateTime.Now,
                 };
@@ -154,7 +139,6 @@
                 return null;
             }
       
-
             AccountCredentialsViewModel viewModel = new AccountCredentialsViewModel()
             {
                 UserId = userId,
@@ -180,11 +164,6 @@
 
                 return Convert.ToBase64String(saltedPasswordHash);
             }
-        }
-
-        private string GenerateToken()
-        {
-            return Guid.NewGuid().ToString() + TokenGenerator.Generate(30);
         }
 
         public UserCredentials CheckIfTokenIsValidAndReturnUserCredentials(Token bm)

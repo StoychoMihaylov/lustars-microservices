@@ -30,6 +30,11 @@
 
             var userCredentials = this.service.CreateNewUserAccount(bm); // User created, will return token(loged-in automaticaly)
 
+            if (userCredentials == null)
+            {
+                return StatusCode(501, "User Registered! Failed to log-in"); // Not Implemented!
+            }
+
             return StatusCode(201, userCredentials); // Created!
         }
 

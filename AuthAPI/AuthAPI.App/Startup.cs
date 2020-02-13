@@ -12,8 +12,7 @@ namespace AuthAPI.App
     using AuthAPI.Services.Services;
     using AuthAPI.App.Infrastructure;
     using AuthAPI.Services.Interfaces;
-   
-
+ 
     public class Startup
     {
         public IConfiguration Configuration { get; }
@@ -26,7 +25,6 @@ namespace AuthAPI.App
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddHealthChecks(); // Healtchecks info for the container
             services.AddSwaggerDocument(); //Swagger
 
             services
@@ -55,7 +53,6 @@ namespace AuthAPI.App
             app.UseRouting();
             app.UseOpenApi(); //Swagger
             app.UseSwaggerUi3();
-            app.UseHealthChecks("/health", 9000); // Healtchecks info for the container
             app.UseControllerEndpoints();
             app.UseExceptionHandling(env);
         }
