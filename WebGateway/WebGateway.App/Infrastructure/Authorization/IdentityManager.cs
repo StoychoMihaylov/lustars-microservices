@@ -6,19 +6,41 @@
     {
         private static User user = new User();
 
-        public static User GetCurrentUser()
+        public static Guid CurrentUserId
         {
-            return user;
+            get 
+            {
+                if (user.Id == Guid.Empty)
+                {
+                    throw new Exception("User 'id' need to be set before try to access it!");
+                }
+
+                return user.Id;
+            }
         }
 
-        public static void SetCurrentUserId(Guid id)
+        public static string CurrentUserToken
         {
-            user.Id = id;
+            get
+            {
+                if (user.Token == string.Empty)
+                {
+                    throw new Exception("User 'token' need to be set before try to access it!");
+                }
+
+                return user.Token; 
+            }
         }
 
-        public static void SetCurrentUserToken(string token)
+        public static void SetCurrentUser(Guid userId, string userToken)
         {
-            user.Token = token;
+            if (userId == Guid.Empty || userToken == string.Empty)
+            {
+                throw new Exception("Current 'user' data input is not valid!");
+            }
+
+            user.Id = userId;
+            user.Token = userToken;
         }
     }
 }

@@ -27,6 +27,7 @@ namespace WebGateway.App
             services.AddControllers();
             services.AddHealthChecks(); // Healtchecks info for the container
             services.AddSwaggerDocument(); //Swagger
+            services.AddMemoryCache();
 
             // Add CORS policy
             services.AddCors(options =>
