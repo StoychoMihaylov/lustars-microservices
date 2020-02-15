@@ -11,19 +11,18 @@
     using WebGateway.Models.DTOs;
     using WebGateway.Services.Endpoints;
 
-    public class AuthService
+    public class AuthAttributeService
     {
         private HttpClient httpClient;
 
-        public AuthService()
+        public AuthAttributeService()
         {
             this.httpClient = new HttpClient();
         }
 
         private void SetGlobalCurrentUser(Guid userId, string token)
         {
-            IdentityManager.SetCurrentUserId(userId);
-            IdentityManager.SetCurrentUserToken(token);
+            IdentityManager.SetCurrentUser(userId, token);
         }
 
         private StringContent SetStringContent(string stringToken)
@@ -36,11 +35,14 @@
         public bool CheckIfTokenExistInAuthAPIService(string stringToken)
         {
             var stringContent = SetStringContent(stringToken);
-            var response = httpClient.PostAsync(AuthAPIService.Endpoint + "account/authorized", stringContent).Result;
+            var response = httpClient
+                .PostAsync(AuthAPIService.Endpoint + "account/authorized", stringContent).Result;
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                var userCredentials = JsonConvert.DeserializeObject<UserCredentials>(response.Content.ReadAsStringAsync().Result);
+                var userCredentials = JsonConvert
+                    .DeserializeObject<UserCredentials>(response.Content.ReadAsStringAsync().Result);
+
                 SetGlobalCurrentUser(userCredentials.UserId, userCredentials.Token); // Set Global User
 
                 return true;
