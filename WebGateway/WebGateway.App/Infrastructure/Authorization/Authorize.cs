@@ -23,7 +23,7 @@
             if (context.HttpContext.Request.Headers.TryGetValue("Authorization", out StringValues authToken))
             {
                 var token = authService.ExtraxtToken(authToken);
-                var isUserAuthorized = CheckIfToeknIsCachedIfNotCheckAuthAPIAndCacheIt(token);
+                var isUserAuthorized = CheckIfTokenIsCachedIfNotCheckAuthAPIAndCacheIt(token);
                 
                 if (isUserAuthorized == false)
                 {
@@ -36,7 +36,7 @@
             }
         }
 
-        private bool CheckIfToeknIsCachedIfNotCheckAuthAPIAndCacheIt(string token)
+        private bool CheckIfTokenIsCachedIfNotCheckAuthAPIAndCacheIt(string token)
         {
             MemoryCacheEntryOptions cacheExpirationOptions = new MemoryCacheEntryOptions();
             cacheExpirationOptions.SlidingExpiration = TimeSpan.FromMinutes(30);

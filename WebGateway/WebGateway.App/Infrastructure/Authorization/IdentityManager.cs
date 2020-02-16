@@ -2,20 +2,23 @@
 {
     using System;
 
+    // Every time when AuthAttributeService is executed it will set the current user id and token in cache
     public static class IdentityManager
     {
-        private static User user = new User();
+        private static Guid userId;
+
+        private static string userToken;
 
         public static Guid CurrentUserId
         {
             get 
             {
-                if (user.Id == Guid.Empty)
+                if (userId == Guid.Empty)
                 {
                     throw new Exception("User 'id' need to be set before try to access it!");
                 }
 
-                return user.Id;
+                return userId;
             }
         }
 
@@ -23,24 +26,24 @@
         {
             get
             {
-                if (user.Token == string.Empty)
+                if (userToken == string.Empty)
                 {
                     throw new Exception("User 'token' need to be set before try to access it!");
                 }
 
-                return user.Token; 
+                return userToken; 
             }
         }
 
-        public static void SetCurrentUser(Guid userId, string userToken)
+        public static void SetCurrentUser(Guid id, string token)
         {
-            if (userId == Guid.Empty || userToken == string.Empty)
+            if (id == Guid.Empty || token == string.Empty)
             {
                 throw new Exception("Current 'user' data input is not valid!");
             }
 
-            user.Id = userId;
-            user.Token = userToken;
+            userId = id;
+            userToken = token;
         }
     }
 }

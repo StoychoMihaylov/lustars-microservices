@@ -9,7 +9,8 @@
       "ProfileAPI.Data/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "3.1.1",
-          "Microsoft.EntityFrameworkCore.Tools": "3.1.1"
+          "Microsoft.EntityFrameworkCore.Tools": "3.1.1",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.1.2"
         },
         "runtime": {
           "ProfileAPI.Data.dll": {}
@@ -208,9 +209,35 @@
           }
         }
       },
+      "Npgsql/4.1.3": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.6.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Npgsql.dll": {
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.1.3.0"
+          }
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.1.2": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.1.1",
+          "Microsoft.EntityFrameworkCore.Abstractions": "3.1.1",
+          "Microsoft.EntityFrameworkCore.Relational": "3.1.1",
+          "Npgsql": "4.1.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "assemblyVersion": "3.1.1.2",
+            "fileVersion": "3.1.1.2"
+          }
+        }
+      },
       "System.Collections.Immutable/1.7.0": {},
       "System.ComponentModel.Annotations/4.7.0": {},
-      "System.Diagnostics.DiagnosticSource/4.7.0": {}
+      "System.Diagnostics.DiagnosticSource/4.7.0": {},
+      "System.Runtime.CompilerServices.Unsafe/4.6.0": {}
     }
   },
   "libraries": {
@@ -359,6 +386,20 @@
       "path": "microsoft.extensions.primitives/3.1.1",
       "hashPath": "microsoft.extensions.primitives.3.1.1.nupkg.sha512"
     },
+    "Npgsql/4.1.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sWTXCb6WPPO7WEw4+1XoRqE49EdWmuyMA15LVbzV6jZgRxYWK8TbdniWMjguzmAgOZVYTmrCf+jsqPYoSqACvA==",
+      "path": "npgsql/4.1.3",
+      "hashPath": "npgsql.4.1.3.nupkg.sha512"
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OixINKGdvN2ldF3/niiiqUaB4ccIT2ShV76HPZrxcY9NiHAybVgIJSYL4jRzi0vcjh/iRflDDoWRSXdBXElRwQ==",
+      "path": "npgsql.entityframeworkcore.postgresql/3.1.1.2",
+      "hashPath": "npgsql.entityframeworkcore.postgresql.3.1.1.2.nupkg.sha512"
+    },
     "System.Collections.Immutable/1.7.0": {
       "type": "package",
       "serviceable": true,
@@ -379,6 +420,13 @@
       "sha512": "sha512-oJjw3uFuVDJiJNbCD8HB4a2p3NYLdt1fiT5OGsPLw+WTOuG0KpP4OXelMmmVKpClueMsit6xOlzy4wNKQFiBLg==",
       "path": "system.diagnostics.diagnosticsource/4.7.0",
       "hashPath": "system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HxozeSlipUK7dAroTYwIcGwKDeOVpQnJlpVaOkBz7CM4TsE5b/tKlQBZecTjh6FzcSbxndYaxxpsBMz+wMJeyw==",
+      "path": "system.runtime.compilerservices.unsafe/4.6.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
     }
   }
 }
