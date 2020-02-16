@@ -20,10 +20,12 @@
             this.httpClient = new HttpClient();
         }
 
+        // Set Global Current User Here!!!
         private void SetGlobalCurrentUser(Guid userId, string token)
         {
             IdentityManager.SetCurrentUser(userId, token);
         }
+        //************************************************************8
 
         private StringContent SetStringContent(string stringToken)
         {
