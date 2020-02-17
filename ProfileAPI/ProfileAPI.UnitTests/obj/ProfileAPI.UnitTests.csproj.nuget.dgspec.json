@@ -243,7 +243,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Data\\ProfileAPI.Data.csproj": {
+                "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Data\\ProfileAPI.Data.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -321,9 +325,21 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[5.10.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.2.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.13.1, )"
             },
             "coverlet.collector": {
               "target": "Package",

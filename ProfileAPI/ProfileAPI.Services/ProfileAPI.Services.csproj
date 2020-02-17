@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\ProfileAPI.Data\ProfileAPI.Data.csproj" />
   </ItemGroup>
 
 </Project>
