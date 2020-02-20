@@ -6,7 +6,6 @@
     using ProfileAPI.Data.Interfaces;
     using ProfileAPI.Services.Interfaces;
 
-
     public class ProfileService : Service, IProfileService
     {
         public ProfileService(IProfileDBContext context)
@@ -18,7 +17,8 @@
             {
                 UserProfile newProfile = new UserProfile()
                 {
-                    Id = accountId
+                    Id = accountId,
+                    CreatedOn = DateTime.UtcNow
                 };
 
                 this.Context.UserProfiles.Add(newProfile);

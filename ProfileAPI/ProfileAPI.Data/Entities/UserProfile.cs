@@ -19,6 +19,8 @@
 
         public DateTime DateOfBirth { get; set; }
 
+        public DateTime CreatedOn { get; set; }
+
         public int AgeRange { get; set; }
 
         [MaxLength(2500)]
