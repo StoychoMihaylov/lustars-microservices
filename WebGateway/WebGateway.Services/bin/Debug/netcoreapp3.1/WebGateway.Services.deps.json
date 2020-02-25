@@ -8,11 +8,20 @@
     ".NETCoreApp,Version=v3.1": {
       "WebGateway.Services/1.0.0": {
         "dependencies": {
+          "Microsoft.Extensions.Primitives": "3.1.2",
           "Newtonsoft.Json": "12.0.3",
           "WebGateway.Models": "1.0.0"
         },
         "runtime": {
           "WebGateway.Services.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Primitives/3.1.2": {
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {
+            "assemblyVersion": "3.1.2.0",
+            "fileVersion": "3.100.220.6706"
+          }
         }
       },
       "Newtonsoft.Json/12.0.3": {
@@ -35,6 +44,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.Extensions.Primitives/3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WGtoFWY9yc9HGMG6ObDNQPz9dBP+xz/GqFe2dKjdE/cSdXFEKxCFTyYCzL/e8kxVkc/Bq9qjOsXRWydvn0g9Uw==",
+      "path": "microsoft.extensions.primitives/3.1.2",
+      "hashPath": "microsoft.extensions.primitives.3.1.2.nupkg.sha512"
     },
     "Newtonsoft.Json/12.0.3": {
       "type": "package",

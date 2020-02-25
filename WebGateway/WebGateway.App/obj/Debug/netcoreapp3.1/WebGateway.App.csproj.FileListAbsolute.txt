@@ -73,3 +73,4 @@ C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\obj\
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\obj\Debug\netcoreapp3.1\WebGateway.App.csproj.CopyComplete
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\obj\Debug\netcoreapp3.1\WebGateway.App.dll
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\obj\Debug\netcoreapp3.1\WebGateway.App.pdb
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll

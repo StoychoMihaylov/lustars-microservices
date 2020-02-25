@@ -1,6 +1,7 @@
 ﻿namespace WebGateway.App.Infrastructure.Authorization
 {
     using System;
+    using System.Net.Http;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Primitives;
     using Microsoft.AspNetCore.Mvc.Filters;
@@ -8,12 +9,13 @@
 
     public class Authorize : Attribute, IAuthorizationFilter
     {
-        private readonly AuthAttributeService authService;
         private readonly MemoryCache cache;
+
+        private readonly IAuthorizeAttributeService authService;
 
         public Authorize()
         {
-            this.authService = new AuthAttributeService();
+            this.authService = new AuthorizeAttributeService(new HttpClient());
             this.cache = new MemoryCache(new MemoryCacheOptions());
         }
 
@@ -38,17 +40,16 @@
 
         private bool CheckIfTokenIsCachedIfNotCheckAuthAPIAndCacheIt(string token)
         {
-            MemoryCacheEntryOptions cacheExpirationOptions = new MemoryCacheEntryOptions();
-            cacheExpirationOptions.SlidingExpiration = TimeSpan.FromMinutes(30);
-            cacheExpirationOptions.Priority = CacheItemPriority.Normal;
-
-            string cachedToken = string.Empty;
-            if (!cache.TryGetValue(token, out cachedToken))
+            string cachedCredentials = string.Empty;
+            if (!cache.TryGetValue(token, out cachedCredentials))
             {
-                var IsTokenExistingInAuthAPI = authService.CheckIfTokenExistInAuthAPIService(token);
-                if (IsTokenExistingInAuthAPI)
+                var userCredentials = authService.CheckIfTokenExistInAuthAPIService(token);
+                if (userCredentials != null)
                 {
-                    cache.Set<string>(token, token, cacheExpirationOptions);
+                    this.authService.SetGlobalCurrentUser(userCredentials.UserId, userCredentials.Token); // Set Global User
+
+                    var cacheExpirationOptions = SetCacheExpirationOptions();
+                    cache.Set<string>(token, userCredentials.UserId.ToString() + "::" + userCredentials.Token, cacheExpirationOptions);
 
                     return true;
                 }
@@ -58,7 +59,19 @@
                 }
             }
 
+            var credentialsArray = cachedCredentials.Split("::");
+            this.authService.SetGlobalCurrentUser(new Guid(credentialsArray[0]), credentialsArray[1]); // Set Global User
+
             return true;
+        }
+
+        private MemoryCacheEntryOptions SetCacheExpirationOptions()
+        {
+            MemoryCacheEntryOptions cacheExpirationOptions = new MemoryCacheEntryOptions();
+            cacheExpirationOptions.SlidingExpiration = TimeSpan.FromMinutes(1);
+            cacheExpirationOptions.Priority = CacheItemPriority.Normal;
+
+            return cacheExpirationOptions;
         }
     }
 }

@@ -11,14 +11,10 @@
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
 
-    public class AccountService : IAccountService
+    public class AccountService : Service, IAccountService
     {
-        private readonly HttpClient httpClient;
-
         public AccountService(HttpClient httpClient)
-        {
-            this.httpClient = httpClient;
-        }
+            : base(httpClient) { }
 
         private StringContent SerializeObjectToStringContent(dynamic bm)
         {
@@ -31,7 +27,7 @@
         public async Task<AccountCredentialsViewModel> CallAuthAPIAccountLogin(LoginUserBindingModel bm)
         {
             var stringContent = SerializeObjectToStringContent(bm);
-            var response = await httpClient.PostAsync(AuthAPIService.Endpoint + "account/login", stringContent);
+            var response = await this.HttpClient.PostAsync(AuthAPIService.Endpoint + "account/login", stringContent);
        
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -49,7 +45,7 @@
         public async Task<bool> CallAuthAPIAccountLogout(LogoutBindingModel bm)
         {
             var stringContent = SerializeObjectToStringContent(bm);
-            var response = await httpClient.PostAsync(AuthAPIService.Endpoint + "account/logout", stringContent);
+            var response = await this.HttpClient.PostAsync(AuthAPIService.Endpoint + "account/logout", stringContent);
       
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -64,7 +60,7 @@
         public async Task<AccountCredentialsViewModel> CallAuthAPIAccountRegister(RegisterUserBindingModel bm)
         { 
             var stringContent = SerializeObjectToStringContent(bm);
-            var response = await httpClient.PostAsync(AuthAPIService.Endpoint + "account/register", stringContent);
+            var response = await this.HttpClient.PostAsync(AuthAPIService.Endpoint + "account/register", stringContent);
 
             if (response.StatusCode == HttpStatusCode.Created)
             {
