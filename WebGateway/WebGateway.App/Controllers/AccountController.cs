@@ -113,5 +113,13 @@
                 return StatusCode(503); // ServiceUnavailable!
             }
         }
+
+        [HttpGet]
+        [Authorize]
+        [Route("test")]
+        public IActionResult test()
+        {
+            return Ok();
+        }
     }
 }
