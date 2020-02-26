@@ -10,5 +10,6 @@
         AccountCredentialsViewModel LoginUser(LoginUserBindingModel bm);
         void DeleteUserToken(LogoutBindingModel bm);
         UserCredentials CheckIfTokenIsValidAndReturnUserCredentials(Token token);
+        bool DeleteUser(AccountCredentialsViewModel accountCredentialsVm);
     }
 }

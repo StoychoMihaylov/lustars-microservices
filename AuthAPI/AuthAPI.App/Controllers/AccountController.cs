@@ -1,7 +1,9 @@
 ﻿namespace AuthAPI.App.Controllers
 {
+    using System;
     using Microsoft.AspNetCore.Mvc;
 
+    using AuthAPI.Models.ViewModels;
     using AuthAPI.Models.BidingModels;
     using AuthAPI.Services.Interfaces;
 
@@ -83,6 +85,29 @@
             }
 
             return StatusCode(200, userCredentials); // Ok!
+        }
+
+        [HttpPost]
+        [Route("delete")]
+        public IActionResult DeleteUser([FromBody] AccountCredentialsViewModel accountCredentialsVm)
+        {
+            if (accountCredentialsVm.UserId == Guid.Empty)
+            {
+                return StatusCode(400, "Invalid data input format! user id can't be empty guid!");
+            }
+
+            if (accountCredentialsVm == null)
+            {
+                return StatusCode(400, "Invalid data input format!");
+            }
+
+            var isUserDeleted = this.service.DeleteUser(accountCredentialsVm);
+            if (!isUserDeleted)
+            {
+                return StatusCode(501); //  NotImplemented!
+            }
+
+            return StatusCode(202); // Accepted!
         }
     }
 }

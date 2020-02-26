@@ -7,16 +7,19 @@
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
     using WebGateway.App.Infrastructure.Authorization;
+    using WebGateway.Models.DTOs;
 
     [ApiController]
     [Route("account")]
     public class AccountController : ControllerBase
     {
-        private readonly IAccountService service;
+        private readonly IAccountService accountService;
+        private readonly IProfileService profileService;
 
-        public AccountController(IAccountService service)
+        public AccountController(IAccountService accountService, IProfileService profileService)
         {
-            this.service = service;
+            this.accountService = accountService;
+            this.profileService = profileService;
         }
 
         // account/register
@@ -36,15 +39,22 @@
 
             try
             {
-                var accountCredentials = await this.service.CallAuthAPIAccountRegister(bm);
-                if (accountCredentials != null)
-                {
-                    return StatusCode(201, accountCredentials); // Created!
-                }
-                else
+                var accountCredentials = await this.accountService.CallAuthAPIAccountRegister(bm);
+                if (accountCredentials == null)
                 {
                     return StatusCode(400, "Email already exists or wrong credentials!"); // BadRequest!
                 }
+
+                var userProfile = new UserProfile() { Id = accountCredentials.UserId };
+                var isCreated = await this.profileService.CallProfileAPICreateUserProfile(userProfile);
+
+                if (!isCreated)
+                {
+                    this.accountService.CallAuthAPIDeleteAccount(accountCredentials);
+                    return StatusCode(503); // ServiceUnavailable!
+                }
+
+                return StatusCode(201, accountCredentials); // Created!
             }
             catch (Exception ex)
             {
@@ -66,7 +76,7 @@
 
             try
             {
-                var accountCredentials = await this.service.CallAuthAPIAccountLogin(bm);
+                var accountCredentials = await this.accountService.CallAuthAPIAccountLogin(bm);
                 if (accountCredentials == null)
                 {
                     return StatusCode(400, "Wrong credentials or this user doesn't exist!"); // BadRequest!
@@ -95,7 +105,7 @@
 
             try
             {
-                var response = await this.service.CallAuthAPIAccountLogout(bm);
+                var response = await this.accountService.CallAuthAPIAccountLogout(bm);
                 if (response)
                 {
                     return StatusCode(200); // Ok!

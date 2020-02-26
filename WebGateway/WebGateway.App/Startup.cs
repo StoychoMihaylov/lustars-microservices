@@ -42,6 +42,7 @@ namespace WebGateway.App
             // DI
             services.AddSingleton<HttpClient>(new HttpClient());
             services.AddTransient<IAccountService, AccountService>();
+            services.AddTransient<IProfileService, ProfileService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

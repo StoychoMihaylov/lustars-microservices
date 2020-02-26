@@ -189,5 +189,24 @@
 
             return null;
         }
+
+        public bool DeleteUser(AccountCredentialsViewModel accountCredentialsVm)
+        {
+            try
+            {
+                var user = this.Context
+                .Users
+                .Find(accountCredentialsVm.UserId);
+
+                this.Context.Users.Remove(user);
+                this.Context.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

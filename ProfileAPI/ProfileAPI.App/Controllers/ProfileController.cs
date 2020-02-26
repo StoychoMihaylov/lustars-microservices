@@ -1,7 +1,8 @@
 ﻿namespace ProfileAPI.App.Controllers
 {
-    using System;
     using Microsoft.AspNetCore.Mvc;
+
+    using ProfileAPI.Models.BidingModels;
     using ProfileAPI.Services.Interfaces;
 
     [ApiController]
@@ -17,21 +18,14 @@
 
         [HttpPost]
         [Route("create")]
-        public IActionResult CreateUserProfile(string stringId)
+        public IActionResult CreateUserProfile([FromBody] UserProfileBindngModel userProfile)
         {
-            if (stringId == string.Empty)
+            if (userProfile == null)
             {
                 return StatusCode(400, "Id can't be empty!"); // BadRequest
             }
 
-            var accountId = Guid.Empty;
-            var isParsed = Guid.TryParse(stringId, out accountId);
-            if (!isParsed)
-            {
-                return StatusCode(400, "The Id should be string in GUID format!");
-            }
-
-            var isCreated = this.profileService.CreateNewUserProfile(accountId);
+            var isCreated = this.profileService.CreateNewUserProfile(userProfile.Id);
             if (!isCreated)
             {
                 return StatusCode(501); // NotImplemented
