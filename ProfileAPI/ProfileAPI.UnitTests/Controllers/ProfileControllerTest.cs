@@ -4,8 +4,10 @@
     using Xunit;
     using System;
     using Microsoft.AspNetCore.Mvc;
+
     using ProfileAPI.App.Controllers;
     using ProfileAPI.Services.Interfaces;
+    using ProfileAPI.Models.BidingModels;
 
     public class ProfileControllerTest
     {
@@ -30,7 +32,10 @@
             var profileController = new ProfileController(profileSericeMock.Object);
 
             // Act
-            var response = profileController.CreateUserProfile("e9166940-f14b-491c-99ba-cfc6cf13f662");
+            var response = profileController.CreateUserProfile(new UserProfileBindngModel()
+            { 
+                Id = new Guid("e9166940-f14b-491c-99ba-cfc6cf13f662")
+            });
 
             // Assert
             Assert.NotNull(response);
@@ -39,7 +44,7 @@
         }
 
         [Fact]
-        public void Post_CreateNewUserProfileByWrongStringFormatId_ShouldReturnStatusCode400BadRequest()
+        public void Post_CreateNewUserProfileByNullInput_ShouldReturnStatusCode400BadRequest()
         {
             // Arrange
             var profileSericeMock = MockCreateNewUserProfileService();
@@ -47,25 +52,7 @@
             var profileController = new ProfileController(profileSericeMock.Object);
 
             // Act
-            var response = profileController.CreateUserProfile("wrongStringGuid-wrongStringGuid-wrongStringGuid");
-
-            // Assert
-            Assert.NotNull(response);
-            var result = response as ObjectResult;
-            Assert.Equal(400, result.StatusCode);
-            Assert.Equal("The Id should be string in GUID format!", result.Value);
-        }
-
-        [Fact]
-        public void Post_CreateNewUserProfileByEmptyStringFormatId_ShouldReturnStatusCode400BadRequest()
-        {
-            // Arrange
-            var profileSericeMock = MockCreateNewUserProfileService();
-
-            var profileController = new ProfileController(profileSericeMock.Object);
-
-            // Act
-            var response = profileController.CreateUserProfile("");
+            var response = profileController.CreateUserProfile(null);
 
             // Assert
             Assert.NotNull(response);
