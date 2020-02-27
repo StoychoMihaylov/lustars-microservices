@@ -51,5 +51,7 @@
         public bool IsActivated { get; set; }
 
         public ICollection<Image> Images { get; set; }
+
+        public ICollection<GeoLocation> GeoLocations { get; set; }
     }
 }
