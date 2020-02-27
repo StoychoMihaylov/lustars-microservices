@@ -8,6 +8,8 @@
     {
         DbSet<UserProfile> UserProfiles { get; set; }
 
+        DbSet<GeoLocation> GeoLocations { get; set; }
+
         DbSet<Image> Images { get; set; }
 
         int SaveChanges();

@@ -277,6 +277,16 @@
         "runtime": {
           "bin/placeholder/ProfileAPI.Data.dll": {}
         }
+      },
+      "ProfileAPI.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/ProfileAPI.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProfileAPI.Models.dll": {}
+        }
       }
     }
   },
@@ -768,11 +778,17 @@
       "type": "project",
       "path": "../ProfileAPI.Data/ProfileAPI.Data.csproj",
       "msbuildProject": "../ProfileAPI.Data/ProfileAPI.Data.csproj"
+    },
+    "ProfileAPI.Models/1.0.0": {
+      "type": "project",
+      "path": "../ProfileAPI.Models/ProfileAPI.Models.csproj",
+      "msbuildProject": "../ProfileAPI.Models/ProfileAPI.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "ProfileAPI.Data >= 1.0.0"
+      "ProfileAPI.Data >= 1.0.0",
+      "ProfileAPI.Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -808,6 +824,9 @@
           "projectReferences": {
             "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Data\\ProfileAPI.Data.csproj": {
               "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Data\\ProfileAPI.Data.csproj"
+            },
+            "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Models\\ProfileAPI.Models.csproj": {
+              "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Models\\ProfileAPI.Models.csproj"
             }
           }
         }

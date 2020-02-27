@@ -2054,7 +2054,8 @@
       },
       "ProfileAPI.Services/1.0.0": {
         "dependencies": {
-          "ProfileAPI.Data": "1.0.0"
+          "ProfileAPI.Data": "1.0.0",
+          "ProfileAPI.Models": "1.0.0"
         },
         "runtime": {
           "ProfileAPI.Services.dll": {}

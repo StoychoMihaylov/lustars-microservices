@@ -22,8 +22,4 @@
     <ProjectReference Include="..\ProfileAPI.Models\ProfileAPI.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>
