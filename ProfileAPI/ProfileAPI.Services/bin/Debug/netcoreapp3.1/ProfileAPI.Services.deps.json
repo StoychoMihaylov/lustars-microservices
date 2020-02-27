@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v3.1": {
       "ProfileAPI.Services/1.0.0": {
         "dependencies": {
-          "ProfileAPI.Data": "1.0.0"
+          "ProfileAPI.Data": "1.0.0",
+          "ProfileAPI.Models": "1.0.0"
         },
         "runtime": {
           "ProfileAPI.Services.dll": {}
@@ -226,6 +227,11 @@
         "runtime": {
           "ProfileAPI.Data.dll": {}
         }
+      },
+      "ProfileAPI.Models/1.0.0": {
+        "runtime": {
+          "ProfileAPI.Models.dll": {}
+        }
       }
     }
   },
@@ -397,6 +403,11 @@
       "hashPath": "system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
     },
     "ProfileAPI.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ProfileAPI.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,13 +1,10 @@
-﻿namespace ProfileAPI.Data.Entities
+﻿namespace ProfileAPI.Models.BidingModels
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
-    public class UserProfile
+    public class UserProfileBindingModel
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public Guid Id { get; set; }
 
         [MaxLength(15)]
@@ -19,16 +16,10 @@
 
         public DateTime DateOfBirth { get; set; }
 
-        public DateTime CreatedOn { get; set; }
-
         [MaxLength(3000)]
         public string Biography { get; set; }
 
         public string City { get; set; }
-
-        public int Credits { get; set; }
-
-        public int Superlikes { get; set; }
 
         public string LookingFor { get; set; }
 
@@ -49,7 +40,5 @@
         public bool EmailNotificationsSubscribe { get; set; }
 
         public bool IsActivated { get; set; }
-
-        public ICollection<Image> Images { get; set; }
     }
 }

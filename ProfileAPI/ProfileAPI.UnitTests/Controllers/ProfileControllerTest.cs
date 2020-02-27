@@ -32,7 +32,7 @@
             var profileController = new ProfileController(profileSericeMock.Object);
 
             // Act
-            var response = profileController.CreateUserProfile(new UserProfileBindngModel()
+            var response = profileController.CreateUserProfile(new UserProfileBindingModel()
             { 
                 Id = new Guid("e9166940-f14b-491c-99ba-cfc6cf13f662")
             });
@@ -59,6 +59,36 @@
             var result = response as ObjectResult;
             Assert.Equal(400, result.StatusCode);
             Assert.Equal("Id can't be empty!", result.Value);
+        }
+
+        [Fact]
+        public void Post_EditUserProfile_ShouldReturnStatusCode200Ok()
+        {
+            // Arrange
+            UserProfileBindingModel bm = new UserProfileBindingModel()
+            {
+                Name = "Goshko",
+                Email = "goshko@abv.bg",
+                Gender = "man",
+                DateOfBirth = DateTime.UtcNow,
+                AgeRangeFrom = 18,
+                AgeRangeTo = 30
+            }; 
+
+            var profileService = new Mock<IProfileService>();
+            profileService
+                .Setup(p => p.EditUserProfile(bm))
+                .Returns(true);
+
+            var profileController = new ProfileController(profileService.Object);
+
+            // Act
+            var response = profileController.EditUserProfile(bm);
+
+            // Assert
+            Assert.NotNull(response);
+            var result = response as StatusCodeResult;
+            Assert.Equal(200, result.StatusCode);
         }
     }
 }
