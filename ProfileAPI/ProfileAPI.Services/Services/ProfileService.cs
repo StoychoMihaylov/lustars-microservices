@@ -5,6 +5,7 @@
     using Microsoft.EntityFrameworkCore;
 
     using ProfileAPI.Data.Entities;
+    using System.Collections.Generic;
     using ProfileAPI.Data.Interfaces;
     using ProfileAPI.Models.ViewModels;
     using ProfileAPI.Models.BidingModels;
@@ -151,6 +152,37 @@
             userProfileViewModel.GeoLocations = geoLocation;
 
             return userProfileViewModel;
+        }
+
+        public bool CreateNewUserProfileImage(Guid userId, string imageUrl)
+        {
+            try
+            {
+                var img = new List<Image>()
+                {
+                    new Image()
+                    {
+                        Url = imageUrl,
+                        UploadedOn = DateTime.UtcNow
+                    }
+                };
+
+                var user = this.Context
+                    .UserProfiles
+                    .Where(u => u.Id == userId)
+                    .FirstOrDefault();
+
+                user.Images = img;
+
+                this.Context.UserProfiles.Update(user);
+                this.Context.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

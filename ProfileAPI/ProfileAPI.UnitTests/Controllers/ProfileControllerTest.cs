@@ -124,5 +124,51 @@
             Assert.Equal(200, result.StatusCode);
             Assert.IsType<UserProfileViewModel>(result.Value);
         }
+
+        [Fact]
+        public void Post_SaveImageUrl_ShouldReturnStatusCode201()
+        { 
+            // Arrange
+            var userId = "e9166940-f14b-491c-99ba-cfc6cf13f662";
+            var imageUrl = "images/mimi_sexy/e2166920-f54b-131c-88ba-cdc6cd13d662.jpg";
+
+            var profileService = new Mock<IProfileService>();
+            profileService
+                .Setup(p => p.CreateNewUserProfileImage(new Guid(userId), imageUrl))
+                .Returns(true);
+
+            var profileController = new ProfileController(profileService.Object);
+
+            // Act
+            var response = profileController.SaveImageUrl(userId, imageUrl);
+
+            // Assert
+            Assert.NotNull(response);
+            var result = response as StatusCodeResult;
+            Assert.Equal(201, result.StatusCode);
+        }
+
+        [Fact]
+        public void Post_SaveImageUrlWithInvalidGuidFormat_ShouldReturnStatusCode201()
+        {
+            // Arrange
+            var userId = "wrongGuidFormar-f14b-491c-99ba-wrongGuidFormar";
+            var imageUrl = "images/mimi_sexy/e2166920-f54b-131c-88ba-cdc6cd13d662.jpg";
+
+            var profileService = new Mock<IProfileService>();
+            profileService
+                .Setup(p => p.CreateNewUserProfileImage(Guid.NewGuid(), imageUrl))
+                .Returns(true);
+
+            var profileController = new ProfileController(profileService.Object);
+
+            // Act
+            var response = profileController.SaveImageUrl(userId, imageUrl);
+
+            // Assert
+            Assert.NotNull(response);
+            var result = response as ObjectResult;
+            Assert.Equal(400, result.StatusCode);
+        }
     }
 }
