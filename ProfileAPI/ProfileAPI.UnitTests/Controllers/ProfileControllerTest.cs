@@ -8,6 +8,7 @@
     using ProfileAPI.App.Controllers;
     using ProfileAPI.Services.Interfaces;
     using ProfileAPI.Models.BidingModels;
+    using ProfileAPI.Models.ViewModels;
 
     public class ProfileControllerTest
     {
@@ -89,6 +90,39 @@
             Assert.NotNull(response);
             var result = response as StatusCodeResult;
             Assert.Equal(200, result.StatusCode);
+        }
+
+        [Fact]
+        public void Get_GetUserProfileById_ShouldReturnCurrentUserAndStatusCode200()
+        {
+            // Arrange
+            var userId = "e9166940-f14b-491c-99ba-cfc6cf13f662";
+
+            var userProfile = new UserProfileViewModel() 
+            {
+                Name = "Goshko",
+                Email = "goshko@abv.bg",
+                Gender = "man",
+                DateOfBirth = DateTime.UtcNow,
+                AgeRangeFrom = 18,
+                AgeRangeTo = 30
+            };
+
+            var profileService = new Mock<IProfileService>();
+            profileService
+                .Setup(p => p.GetUserProfileById(new Guid(userId)))
+                .Returns(userProfile);
+
+            var profileController = new ProfileController(profileService.Object);
+
+            // Act
+            var response = profileController.GetUserProfile(userId);
+
+            // Assert
+            Assert.NotNull(response);
+            var result = response as ObjectResult;
+            Assert.Equal(200, result.StatusCode);
+            Assert.IsType<UserProfileViewModel>(result.Value);
         }
     }
 }

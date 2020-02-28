@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <ProjectReference Include="..\ProfileAPI.Data\ProfileAPI.Data.csproj" />
   </ItemGroup>
 
 </Project>
