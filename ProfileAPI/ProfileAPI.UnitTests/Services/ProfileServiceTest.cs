@@ -6,6 +6,7 @@
     using ProfileAPI.Data.Entities;
     using ProfileAPI.Services.Services;
     using ProfileAPI.Models.BidingModels;
+    using System.Linq;
 
     public class ProfileServiceTest : TestsInitializer
     {
@@ -107,6 +108,32 @@
             Assert.Equal("goshko@abv.bg", response.Email);
             Assert.Equal(18, response.AgeRangeFrom);
             Assert.Equal(30, response.AgeRangeTo);
+        }
+
+        [Fact]
+        public void CreateNewUserProfileImage_ShouldReturnTrue()
+        {
+            // Arrange
+            var userId = Guid.NewGuid();
+            var imageUrl = "images/mimi_sexy/e2166920-f54b-131c-88ba-cdc6cd13d662.jpg";
+            var user = new UserProfile() { Id = userId, Email = "test@test.com" };
+
+            var db = this.GetDatabase();
+            db.UserProfiles.Add(user);
+            db.SaveChanges();
+
+            var profileService = new ProfileService(db);
+
+            // Act
+            var response = profileService.CreateNewUserProfileImage(userId, imageUrl);
+            var createdImg = db.Images
+                .Where(i => i.UserProfile.Id == userId)
+                .FirstOrDefault();
+
+            // Assert
+            Assert.True(response);
+            Assert.NotNull(createdImg);
+            Assert.Equal(imageUrl, createdImg.Url);
         }
     }
 }

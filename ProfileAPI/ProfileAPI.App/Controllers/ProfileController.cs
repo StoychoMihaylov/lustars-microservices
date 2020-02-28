@@ -1,10 +1,10 @@
 ﻿namespace ProfileAPI.App.Controllers
 {
+    using System;
     using Microsoft.AspNetCore.Mvc;
 
     using ProfileAPI.Models.BidingModels;
     using ProfileAPI.Services.Interfaces;
-    using System;
 
     [ApiController]
     [Route("profile")]
@@ -54,14 +54,14 @@
         }
 
         [HttpGet]
-        [Route("{id}")]
+        [Route("{userId}")]
         public IActionResult GetUserProfile(string userId)
         {
             var guidOutput = Guid.Empty;
             bool isValid = Guid.TryParse(userId, out guidOutput);
             if (!isValid)
             {
-                return StatusCode(400, "the id is not in valid Guid format!");
+                return StatusCode(400, "The user id is not a in valid Guid format!");
             }
 
             var userProfileVm = this.profileService.GetUserProfileById(guidOutput);
@@ -71,6 +71,31 @@
             }
 
             return StatusCode(200, userProfileVm);
+        }
+
+        [HttpPost]
+        [Route("{userId}/image-url")]
+        public IActionResult SaveImageUrl(string userId, string imageUrl)
+        {
+            var userIdGuid = Guid.Empty;
+            bool isValid = Guid.TryParse(userId, out userIdGuid);
+            if (!isValid)
+            {
+                return StatusCode(400, "The user id is not in a valid Guid format!");
+            }
+
+            if (imageUrl == string.Empty)
+            {
+                return StatusCode(400, "Image url can't be empty string");
+            }
+
+            var isImageCreated = this.profileService.CreateNewUserProfileImage(userIdGuid, imageUrl);
+            if (!isImageCreated)
+            {
+                return StatusCode(501); // NotImplemented!
+            }
+
+            return StatusCode(201); // Created!
         }
     }
 }

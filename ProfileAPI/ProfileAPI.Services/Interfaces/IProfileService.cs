@@ -10,5 +10,6 @@
         bool EditUserProfile(UserProfileBindingModel userProfile);
         bool CreateNewUserProfile(Guid accountId);
         UserProfileViewModel GetUserProfileById(Guid userId);
+        bool CreateNewUserProfileImage(Guid userId, string imageUrl);
     }
 }
