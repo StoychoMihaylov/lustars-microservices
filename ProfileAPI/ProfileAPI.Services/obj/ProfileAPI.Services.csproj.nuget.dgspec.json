@@ -102,7 +102,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Data\\ProfileAPI.Data.csproj": {
+                "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Data\\ProfileAPI.Data.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

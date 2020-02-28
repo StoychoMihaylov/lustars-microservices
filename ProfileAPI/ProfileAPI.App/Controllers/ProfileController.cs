@@ -52,5 +52,25 @@
 
             return StatusCode(200); // Ok!
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        public IActionResult GetUserProfile(string userId)
+        {
+            var guidOutput = Guid.Empty;
+            bool isValid = Guid.TryParse(userId, out guidOutput);
+            if (!isValid)
+            {
+                return StatusCode(400, "the id is not in valid Guid format!");
+            }
+
+            var userProfileVm = this.profileService.GetUserProfileById(guidOutput);
+            if (userProfileVm == null)
+            {
+                return StatusCode(404); // NotFound!
+            }
+
+            return StatusCode(200, userProfileVm);
+        }
     }
 }
