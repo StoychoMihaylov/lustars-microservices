@@ -168,26 +168,23 @@
 
         public UserCredentials CheckIfTokenIsValidAndReturnUserCredentials(Token bm)
         {
-            var token = this.Context
-                .Tokens
-                .AsNoTracking()
-                .Where(t => t.Value == bm.Value)
-                .Select(t => t.Value)
-                .FirstOrDefault();
+            var userId = Guid.Empty;
 
-            var userId = this.Context
-                .Users
-                .AsNoTracking()
-                .Where(u => u.Tokens.All(t => t.Value == token))
-                .Select(u => u.Id)
-                .FirstOrDefault();
-
-            if (token != null && userId != null)
+            try
             {
-                return new UserCredentials() { UserId = userId, Token = token };
+                userId = this.Context
+                   .Tokens
+                   .AsNoTracking()
+                   .Where(t => t.Value == bm.Value)
+                   .Select(t => t.User.Id)
+                   .First();
             }
-
-            return null;
+            catch
+            {
+                return null;
+            }
+     
+            return new UserCredentials() { UserId = userId, Token = bm.Value };
         }
 
         public bool DeleteUser(AccountCredentialsViewModel accountCredentialsVm)
@@ -201,7 +198,7 @@
                 this.Context.Users.Remove(user);
                 this.Context.SaveChanges();
             }
-            catch
+            catch(Exception ex)
             {
                 return false;
             }

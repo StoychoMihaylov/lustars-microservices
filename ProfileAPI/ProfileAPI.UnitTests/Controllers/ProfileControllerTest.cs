@@ -33,33 +33,12 @@
             var profileController = new ProfileController(profileSericeMock.Object);
 
             // Act
-            var response = profileController.CreateUserProfile(new UserProfileBindingModel()
-            { 
-                Id = new Guid("e9166940-f14b-491c-99ba-cfc6cf13f662")
-            });
+            var response = profileController.CreateUserProfile("e9166940-f14b-491c-99ba-cfc6cf13f662");
 
             // Assert
             Assert.NotNull(response);
             var result = response as StatusCodeResult;
             Assert.Equal(201, result.StatusCode);
-        }
-
-        [Fact]
-        public void Post_CreateNewUserProfileByNullInput_ShouldReturnStatusCode400BadRequest()
-        {
-            // Arrange
-            var profileSericeMock = MockCreateNewUserProfileService();
-
-            var profileController = new ProfileController(profileSericeMock.Object);
-
-            // Act
-            var response = profileController.CreateUserProfile(null);
-
-            // Assert
-            Assert.NotNull(response);
-            var result = response as ObjectResult;
-            Assert.Equal(400, result.StatusCode);
-            Assert.Equal("Id can't be empty!", result.Value);
         }
 
         [Fact]
@@ -130,11 +109,11 @@
         { 
             // Arrange
             var userId = "e9166940-f14b-491c-99ba-cfc6cf13f662";
-            var imageUrl = "images/mimi_sexy/e2166920-f54b-131c-88ba-cdc6cd13d662.jpg";
+            var imageUrl = new ImageUrlBindingModel() { Url = "images/mimi_sexy/e2166920-f54b-131c-88ba-cdc6cd13d662.jpg" };
 
             var profileService = new Mock<IProfileService>();
             profileService
-                .Setup(p => p.CreateNewUserProfileImage(new Guid(userId), imageUrl))
+                .Setup(p => p.CreateNewUserProfileImage(new Guid(userId), imageUrl.Url))
                 .Returns(true);
 
             var profileController = new ProfileController(profileService.Object);
@@ -153,11 +132,11 @@
         {
             // Arrange
             var userId = "wrongGuidFormar-f14b-491c-99ba-wrongGuidFormar";
-            var imageUrl = "images/mimi_sexy/e2166920-f54b-131c-88ba-cdc6cd13d662.jpg";
+            var imageUrl = new ImageUrlBindingModel() { Url = "images/mimi_sexy/e2166920-f54b-131c-88ba-cdc6cd13d662.jpg" };
 
             var profileService = new Mock<IProfileService>();
             profileService
-                .Setup(p => p.CreateNewUserProfileImage(Guid.NewGuid(), imageUrl))
+                .Setup(p => p.CreateNewUserProfileImage(Guid.NewGuid(), imageUrl.Url))
                 .Returns(true);
 
             var profileController = new ProfileController(profileService.Object);

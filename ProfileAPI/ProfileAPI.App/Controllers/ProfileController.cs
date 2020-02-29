@@ -18,15 +18,17 @@
         }
 
         [HttpPost]
-        [Route("create")]
-        public IActionResult CreateUserProfile([FromBody] UserProfileBindingModel userProfile)
+        [Route("create/{userId}")]
+        public IActionResult CreateUserProfile(string userId)
         {
-            if (userProfile == null)
+            var guidUserId = Guid.Empty;
+            bool isValid = Guid.TryParse(userId, out guidUserId);
+            if (!isValid)
             {
-                return StatusCode(400, "Id can't be empty!"); // BadRequest!
+                return StatusCode(400, "The user id is not a in valid Guid format!");
             }
 
-            var isCreated = this.profileService.CreateNewUserProfile(userProfile.Id);
+            var isCreated = this.profileService.CreateNewUserProfile(guidUserId);
             if (!isCreated)
             {
                 return StatusCode(501); // NotImplemented!
@@ -37,13 +39,8 @@
 
         [HttpPost]
         [Route("edit")]
-        public IActionResult EditUserProfile(UserProfileBindingModel bm)
+        public IActionResult EditUserProfile([FromBody] UserProfileBindingModel bm)
         {
-            if (!ModelState.IsValid)
-            {
-                return StatusCode(400, "Model state is not valid!");
-            }
-
             var isCraeted = this.profileService.EditUserProfile(bm);
             if (!isCraeted)
             {
@@ -75,7 +72,7 @@
 
         [HttpPost]
         [Route("{userId}/image-url")]
-        public IActionResult SaveImageUrl(string userId, string imageUrl)
+        public IActionResult SaveImageUrl(string userId, [FromBody] ImageUrlBindingModel imageUrl)
         {
             var userIdGuid = Guid.Empty;
             bool isValid = Guid.TryParse(userId, out userIdGuid);
@@ -84,12 +81,12 @@
                 return StatusCode(400, "The user id is not in a valid Guid format!");
             }
 
-            if (imageUrl == string.Empty)
+            if (imageUrl.Url == string.Empty)
             {
                 return StatusCode(400, "Image url can't be empty string");
             }
 
-            var isImageCreated = this.profileService.CreateNewUserProfileImage(userIdGuid, imageUrl);
+            var isImageCreated = this.profileService.CreateNewUserProfileImage(userIdGuid, imageUrl.Url);
             if (!isImageCreated)
             {
                 return StatusCode(501); // NotImplemented!

@@ -7,7 +7,6 @@
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
     using WebGateway.App.Infrastructure.Authorization;
-    using WebGateway.Models.DTOs;
 
     [ApiController]
     [Route("account")]
@@ -45,12 +44,11 @@
                     return StatusCode(400, "Email already exists or wrong credentials!"); // BadRequest!
                 }
 
-                var userProfile = new UserProfile() { Id = accountCredentials.UserId };
-                var isCreated = await this.profileService.CallProfileAPICreateUserProfile(userProfile);
+                var isCreated = await this.profileService.CallProfileAPICreateUserProfile(accountCredentials.UserId); // Call to ProfileAPI
 
                 if (!isCreated)
                 {
-                    this.accountService.CallAuthAPIDeleteAccount(accountCredentials);
+                    this.accountService.CallAuthAPIDeleteAccount(accountCredentials); // Revert account creation(delete it)
                     return StatusCode(503); // ServiceUnavailable!
                 }
 
@@ -122,14 +120,6 @@
 
                 return StatusCode(503); // ServiceUnavailable!
             }
-        }
-
-        [HttpGet]
-        [Authorize]
-        [Route("test")]
-        public IActionResult test()
-        {
-            return Ok();
         }
     }
 }

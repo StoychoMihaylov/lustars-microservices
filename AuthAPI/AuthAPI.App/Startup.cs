@@ -11,8 +11,9 @@ namespace AuthAPI.App
     using AuthAPI.Data.Interfaces;
     using AuthAPI.Services.Services;
     using AuthAPI.App.Infrastructure;
+    using AuthAPI.Data.DBInitializer;
     using AuthAPI.Services.Interfaces;
- 
+
     public class Startup
     {
         public IConfiguration Configuration { get; }
@@ -48,13 +49,15 @@ namespace AuthAPI.App
             services.AddTransient<IAccountService, AccountService>();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AuthDBContext context)
         {
             app.UseRouting();
             app.UseOpenApi(); //Swagger
             app.UseSwaggerUi3();
             app.UseControllerEndpoints();
             app.UseExceptionHandling(env);
+
+            DBInitializer.SeedDb(context); // Seed the DB on Start
         }
     }
 }

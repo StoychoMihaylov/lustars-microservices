@@ -21,9 +21,9 @@ namespace ProfileAPI.Data.Migrations
 
             modelBuilder.Entity("ProfileAPI.Data.Entities.GeoLocation", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
+                        .HasColumnType("bigint")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("City")
@@ -59,10 +59,13 @@ namespace ProfileAPI.Data.Migrations
 
             modelBuilder.Entity("ProfileAPI.Data.Entities.Image", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
+                        .HasColumnType("bigint")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<DateTime>("UploadedOn")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Url")
                         .HasColumnType("text");
