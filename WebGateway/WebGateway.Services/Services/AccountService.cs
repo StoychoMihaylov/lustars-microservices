@@ -1,6 +1,5 @@
 ﻿namespace WebGateway.Services.Services
 {
-    using System;
     using System.Net;
     using System.Text;
     using System.Net.Http;
@@ -11,7 +10,6 @@
     using WebGateway.Services.Endpoints;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
-    using WebGateway.Models.DTOs;
 
     public class AccountService : Service, IAccountService
     {
@@ -80,16 +78,7 @@
         public async void CallAuthAPIDeleteAccount(AccountCredentialsViewModel userProfile)
         {
             var stringContent = SerializeObjectToStringContent(userProfile);
-            var response = await this.HttpClient.PostAsync(AuthAPIService.Endpoint + "account/delete", stringContent);
-
-            if (response.StatusCode == HttpStatusCode.NotFound)
-            {
-                throw new Exception($"NotFound: failed trying to delete account with id:{userProfile.UserId}");
-            }
-            else if (response.StatusCode == HttpStatusCode.NotImplemented)
-            {
-                throw new Exception($"NotImplemented: failed trying to delete account with id:{userProfile.UserId}");
-            }
+            await this.HttpClient.PostAsync(AuthAPIService.Endpoint + "account/delete", stringContent);
         }
     }
 }
