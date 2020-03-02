@@ -4,7 +4,6 @@
 
     using WebGateway.Models.ViewModels;
     using WebGateway.Models.BidingModels.Account;
-    using WebGateway.Models.DTOs;
 
     public interface IAccountService
     {

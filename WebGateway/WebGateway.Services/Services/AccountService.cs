@@ -1,11 +1,11 @@
 ﻿namespace WebGateway.Services.Services
 {
     using System.Net;
-    using System.Text;
     using System.Net.Http;
     using Newtonsoft.Json;
     using System.Threading.Tasks;
 
+    using WebGateway.Services.Common;
     using WebGateway.Models.ViewModels;
     using WebGateway.Services.Endpoints;
     using WebGateway.Services.Interfaces;
@@ -13,20 +13,12 @@
 
     public class AccountService : Service, IAccountService
     {
-        public AccountService(HttpClient httpClient)
-            : base(httpClient) { }
-
-        private StringContent SerializeObjectToStringContent(dynamic bm)
-        {
-            var dataJSON = JsonConvert.SerializeObject(bm);
-            var stringContent = new StringContent(dataJSON, Encoding.UTF8, "application/json");
-
-            return stringContent;
-        }
+        public AccountService(HttpClient httpClient, StringContentSerializer stringContentSerializer)
+            : base(httpClient, stringContentSerializer) { }
 
         public async Task<AccountCredentialsViewModel> CallAuthAPIAccountLogin(LoginUserBindingModel bm)
         {
-            var stringContent = SerializeObjectToStringContent(bm);
+            var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(bm);
             var response = await this.HttpClient.PostAsync(AuthAPIService.Endpoint + "account/login", stringContent);
        
             if (response.StatusCode == HttpStatusCode.OK)
@@ -44,7 +36,7 @@
 
         public async Task<bool> CallAuthAPIAccountLogout(LogoutBindingModel bm)
         {
-            var stringContent = SerializeObjectToStringContent(bm);
+            var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(bm);
             var response = await this.HttpClient.PostAsync(AuthAPIService.Endpoint + "account/logout", stringContent);
       
             if (response.StatusCode == HttpStatusCode.OK)
@@ -59,7 +51,7 @@
 
         public async Task<AccountCredentialsViewModel> CallAuthAPIAccountRegister(RegisterUserBindingModel bm)
         { 
-            var stringContent = SerializeObjectToStringContent(bm);
+            var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(bm);
             var response = await this.HttpClient.PostAsync(AuthAPIService.Endpoint + "account/register", stringContent);
 
             if (response.StatusCode == HttpStatusCode.Created)
@@ -77,7 +69,7 @@
 
         public async void CallAuthAPIDeleteAccount(AccountCredentialsViewModel userProfile)
         {
-            var stringContent = SerializeObjectToStringContent(userProfile);
+            var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(userProfile);
             await this.HttpClient.PostAsync(AuthAPIService.Endpoint + "account/delete", stringContent);
         }
     }
