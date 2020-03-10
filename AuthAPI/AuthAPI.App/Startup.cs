@@ -16,37 +16,19 @@ namespace AuthAPI.App
 
     public class Startup
     {
-        public IConfiguration Configuration { get; }
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        private IConfiguration Configuration { get; }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
             services.AddSwaggerDocument(); //Swagger
-
-            services
-                .AddEntityFrameworkNpgsql()
-                .AddDbContext<AuthDBContext>((sp, opt) =>
-                {
-                    if (Debugger.IsAttached)
-                    {
-                        opt.UseNpgsql(Configuration.GetConnectionString("LustarsAuthDBDebug"))
-                           .UseInternalServiceProvider(sp);
-                    }
-                    else
-                    {
-                        opt.UseNpgsql(Configuration.GetConnectionString("LustarsAuthDBRelease"))
-                           .UseInternalServiceProvider(sp);
-                    }
-                });
-
-            // DI
-            services.AddTransient<IAuthDBContext, AuthDBContext>();
-            services.AddTransient<IAccountService, AccountService>();
+            services.AddPosgreSQLWithEntityFramework(Configuration);
+            services.AddDependanciInjectionResolver(); // DI
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AuthDBContext context)

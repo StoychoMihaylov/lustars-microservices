@@ -139,9 +139,6 @@ C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.UnitTests\obj\Debug
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.UnitTests\obj\Debug\netcoreapp3.1\AuthAPI.UnitTests.csproj.CopyComplete
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.UnitTests\obj\Debug\netcoreapp3.1\AuthAPI.UnitTests.dll
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.UnitTests\obj\Debug\netcoreapp3.1\AuthAPI.UnitTests.pdb
-C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\obj\Debug\netcoreapp3.1\AuthAPI.UnitTests.csprojAssemblyReference.cache
-C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\obj\Debug\netcoreapp3.1\AuthAPI.UnitTests.AssemblyInfoInputs.cache
-C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\obj\Debug\netcoreapp3.1\AuthAPI.UnitTests.AssemblyInfo.cs
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -273,6 +270,9 @@ C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\bin\
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\bin\Debug\netcoreapp3.1\AuthAPI.Models.pdb
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\bin\Debug\netcoreapp3.1\AuthAPI.Services.pdb
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\bin\Debug\netcoreapp3.1\AuthAPI.Data.pdb
+C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\obj\Debug\netcoreapp3.1\AuthAPI.UnitTests.csprojAssemblyReference.cache
+C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\obj\Debug\netcoreapp3.1\AuthAPI.UnitTests.AssemblyInfoInputs.cache
+C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\obj\Debug\netcoreapp3.1\AuthAPI.UnitTests.AssemblyInfo.cs
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\obj\Debug\netcoreapp3.1\AuthAPI.UnitTests.csproj.CopyComplete
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\obj\Debug\netcoreapp3.1\AuthAPI.UnitTests.dll
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.UnitTests\obj\Debug\netcoreapp3.1\AuthAPI.UnitTests.pdb

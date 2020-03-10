@@ -1,21 +1,23 @@
-﻿namespace WebGateway.App.Infrastructure.Authorization
+﻿namespace WebGateway.App.Authorization
 {
     using System;
     using System.Net;
     using System.Text;
     using System.Linq;
-    using Newtonsoft.Json;
     using System.Net.Http;
+
+    using Newtonsoft.Json;
     using Microsoft.Extensions.Primitives;
 
     using WebGateway.Models.DTOs;
+    using WebGateway.Services.Common;
     using WebGateway.Services.Services;
     using WebGateway.Services.Endpoints;
 
     public class AuthorizeAttributeService : Service, IAuthorizeAttributeService
     {
-        public AuthorizeAttributeService(HttpClient httpClient)
-           : base(httpClient) { }
+        public AuthorizeAttributeService(HttpClient httpClient, StringContentSerializer stringContentSerializer)
+           : base(httpClient, stringContentSerializer) { }
 
         public UserCredentials CheckIfTokenExistInAuthAPIService(string stringToken)
         {

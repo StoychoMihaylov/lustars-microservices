@@ -1,4 +1,4 @@
-﻿namespace WebGateway.App.Infrastructure.Authorization
+﻿namespace WebGateway.App.Authorization
 {
     using System;
     using Microsoft.Extensions.Primitives;
