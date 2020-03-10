@@ -6,7 +6,7 @@
 
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
-    using WebGateway.App.Infrastructure.Authorization;
+    using WebGateway.App.Authorization;
 
     [ApiController]
     [Route("account")]

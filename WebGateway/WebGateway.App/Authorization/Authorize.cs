@@ -1,4 +1,4 @@
-﻿namespace WebGateway.App.Infrastructure.Authorization
+﻿namespace WebGateway.App.Authorization
 {
     using System;
     using System.Net.Http;
@@ -6,6 +6,8 @@
     using Microsoft.Extensions.Primitives;
     using Microsoft.AspNetCore.Mvc.Filters;
     using Microsoft.Extensions.Caching.Memory;
+
+    using WebGateway.Services.Common;
 
     public class Authorize : Attribute, IAuthorizationFilter
     {
@@ -15,7 +17,7 @@
 
         public Authorize()
         {
-            this.authService = new AuthorizeAttributeService(new HttpClient());
+            this.authService = new AuthorizeAttributeService(new HttpClient(), new StringContentSerializer());
             this.cache = new MemoryCache(new MemoryCacheOptions());
         }
 
