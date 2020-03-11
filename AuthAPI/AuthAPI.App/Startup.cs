@@ -1,18 +1,13 @@
 namespace AuthAPI.App
 {
-    using System.Diagnostics;
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-
     using AuthAPI.Data.Context;
-    using AuthAPI.Data.Interfaces;
-    using AuthAPI.Services.Services;
     using AuthAPI.App.Infrastructure;
     using AuthAPI.Data.DBInitializer;
-    using AuthAPI.Services.Interfaces;
+
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
 
     public class Startup
     {
