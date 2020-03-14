@@ -1,15 +1,35 @@
 ﻿namespace ImageAPI.App.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Http;
+    using ImageAPI.Services.Interfaces;
+    using System;
 
-    [ApiController]
     [Route("image")]
+    [ApiController]
     public class ImageController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Get()
+        private readonly IImageService imageService;
+
+        public ImageController(IImageService imageService)
         {
-            return Ok();
+            this.imageService = imageService;
+        }
+
+        [HttpPost]
+        [Route("upload")]
+        public IActionResult UploadImage([FromForm]IFormFile formData)
+        {
+            try
+            {
+                var imageUrl = this.imageService.SaveImageAsFileAsync(formData).Result;
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(501, ex.Message);
+            }
+            
+            return StatusCode(200);
         }
     }
 }

@@ -7,6 +7,7 @@
     using WebGateway.Models.BidingModels.UserProfile;
     using WebGateway.App.Authorization;
     using WebGateway.Models.ViewModels;
+    using Microsoft.AspNetCore.Http;
 
     [ApiController]
     [Route("user-profile")]
@@ -55,23 +56,41 @@
 
         [HttpPost]
         [Authorize]
-        [Route("image-url")]
-        public async Task<IActionResult> SaveImageUrl([FromBody] ImageUrlBindingModel imageUrl)
+        [Route("image/upload")]
+        public async Task<IActionResult> SaveImageUrl([FromForm]IFormFile formData)
         {
             var userId = IdentityManager.CurrentUserId;
 
-            if (imageUrl.Url == string.Empty)
+            if (formData == null) { return StatusCode(400); }
+            var isImageInValidFormat = CheckIfImageIsInValidFormat(formData);
+            if (!isImageInValidFormat) { return StatusCode(400, "The image must be in jpg(jpeg) format!"); }
+
+            var imageUrl = this.profileService.CallImageAPIUploadImage(formData);
+            if (imageUrl == null)
             {
-                return StatusCode(400, "Image url can't be empty string");
+                return StatusCode(501);
             }
 
-            var isImageCreated = await this.profileService.CreateNewUserProfileImage(userId, imageUrl);
+            var isImageCreated = await this.profileService
+                .CreateNewUserProfileImage(userId, new ImageUrlBindingModel() { Url = imageUrl });
+
             if (!isImageCreated)
             {
                 return StatusCode(501); // NotImplemented!
             }
 
             return StatusCode(201); // Created!
+        }
+
+        private bool CheckIfImageIsInValidFormat(IFormFile image)
+        {
+            if (image.ContentType == "image/jpg" ||
+                image.ContentType == "image/jpeg")
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
