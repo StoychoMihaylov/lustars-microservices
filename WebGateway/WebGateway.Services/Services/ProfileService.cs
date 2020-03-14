@@ -1,6 +1,7 @@
 ﻿namespace WebGateway.Services.Services
 {
     using System;
+    using System.IO;
     using System.Net;
     using System.Net.Http;
     using Newtonsoft.Json;
@@ -12,15 +13,13 @@
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.UserProfile;
     using WebGateway.Models.ViewModels.UserProfileViewModel;
-    using System.IO;
-    using System.Text;
 
     public class ProfileService : Service, IProfileService
     {
         public ProfileService(HttpClient httpClient, StringContentSerializer stringContentSerializer)
             : base(httpClient, stringContentSerializer) { }
 
-        public async string CallImageAPIUploadImage(IFormFile formData)
+        public async Task<string> CallImageAPIUploadImage(IFormFile formData)
         {
             var ms = new MemoryStream();
             formData
@@ -30,7 +29,15 @@
             var payload = ms.ToArray();
             var multipartContent = new MultipartFormDataContent();
             multipartContent.Add(new ByteArrayContent(payload), "files", formData.Name);
+
             var response = await this.HttpClient.PostAsync(ImageAPIService.Endpoint + "image/upload", multipartContent);
+
+            if (response.StatusCode == HttpStatusCode.Created)
+            {
+                return response.Content.ToString();
+            }
+
+            return null;
         }
 
         public async Task<bool> CallProfileAPICreateUserProfile(Guid userId)
