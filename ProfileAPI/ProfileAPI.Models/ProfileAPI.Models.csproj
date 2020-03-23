@@ -8,4 +8,8 @@
     <ProjectReference Include="..\ProfileAPI.Data\ProfileAPI.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
 </Project>

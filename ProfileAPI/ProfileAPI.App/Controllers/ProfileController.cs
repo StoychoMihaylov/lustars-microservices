@@ -38,7 +38,7 @@
         }
 
         [HttpPost]
-        [Route("edit")]
+        [Route("my-user-profile/edit")]
         public IActionResult EditUserProfile([FromBody] UserProfileBindingModel bm)
         {
             var isCraeted = this.profileService.EditUserProfile(bm);
@@ -51,8 +51,8 @@
         }
 
         [HttpGet]
-        [Route("{userId}")]
-        public IActionResult GetUserProfile(string userId)
+        [Route("my-user-profile/{userId}")]
+        public IActionResult GetMyUserProfile(string userId)
         {
             var guidOutput = Guid.Empty;
             bool isValid = Guid.TryParse(userId, out guidOutput);

@@ -5,10 +5,10 @@
     using System;
     using Microsoft.AspNetCore.Mvc;
 
+    using ProfileAPI.Data.Entities;
     using ProfileAPI.App.Controllers;
     using ProfileAPI.Services.Interfaces;
     using ProfileAPI.Models.BidingModels;
-    using ProfileAPI.Models.ViewModels;
 
     public class ProfileControllerTest
     {
@@ -48,11 +48,11 @@
             UserProfileBindingModel bm = new UserProfileBindingModel()
             {
                 Name = "Goshko",
-                Email = "goshko@abv.bg",
+
                 Gender = "man",
                 DateOfBirth = DateTime.UtcNow,
-                AgeRangeFrom = 18,
-                AgeRangeTo = 30
+                PartnerIncomeFrom = 18,
+                PartnerIncomeTo = 30
             }; 
 
             var profileService = new Mock<IProfileService>();
@@ -77,14 +77,14 @@
             // Arrange
             var userId = "e9166940-f14b-491c-99ba-cfc6cf13f662";
 
-            var userProfile = new UserProfileViewModel() 
+            var userProfile = new UserProfile() 
             {
                 Name = "Goshko",
                 Email = "goshko@abv.bg",
                 Gender = "man",
                 DateOfBirth = DateTime.UtcNow,
-                AgeRangeFrom = 18,
-                AgeRangeTo = 30
+                PartnerIncomeFrom = 18,
+                PartnerIncomeTo = 30
             };
 
             var profileService = new Mock<IProfileService>();
@@ -95,13 +95,13 @@
             var profileController = new ProfileController(profileService.Object);
 
             // Act
-            var response = profileController.GetUserProfile(userId);
+            var response = profileController.GetMyUserProfile(userId);
 
             // Assert
             Assert.NotNull(response);
             var result = response as ObjectResult;
             Assert.Equal(200, result.StatusCode);
-            Assert.IsType<UserProfileViewModel>(result.Value);
+            Assert.IsType<UserProfile>(result.Value);
         }
 
         [Fact]

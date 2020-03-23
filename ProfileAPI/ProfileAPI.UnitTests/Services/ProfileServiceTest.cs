@@ -2,11 +2,11 @@
 {
     using Xunit;
     using System;
+    using System.Linq;
 
     using ProfileAPI.Data.Entities;
     using ProfileAPI.Services.Services;
     using ProfileAPI.Models.BidingModels;
-    using System.Linq;
 
     public class ProfileServiceTest : TestsInitializer
     {
@@ -43,8 +43,8 @@
                 Email = "goshko@abv.bg",
                 Gender = "man",
                 DateOfBirth = DateTime.UtcNow,
-                AgeRangeFrom = 20,
-                AgeRangeTo = 25
+                PartnerIncomeFrom = 20,
+                PartnerIncomeTo = 25
             };
 
             var db = this.GetDatabase();
@@ -55,11 +55,10 @@
             {
                 Id = new Guid("e9166940-f14b-491c-99ba-cfc6cf13f662"),
                 Name = "Goshko",                     // Changed!!!
-                Email = "goshko@abv.bg",
                 Gender = "man",
                 DateOfBirth = DateTime.UtcNow,
-                AgeRangeFrom = 18,                   // Changed!!!
-                AgeRangeTo = 30                      // Changed!!!   
+                PartnerIncomeFrom = 18,                   // Changed!!!
+                PartnerIncomeTo = 30                      // Changed!!!   
             };
 
             var profileService = new ProfileService(db);
@@ -73,8 +72,8 @@
             Assert.True(response);
             Assert.Equal("Goshko", updatedUserProfile.Name);
             Assert.Equal("goshko@abv.bg", updatedUserProfile.Email);
-            Assert.Equal(18, updatedUserProfile.AgeRangeFrom);
-            Assert.Equal(30, updatedUserProfile.AgeRangeTo);
+            Assert.Equal(18, updatedUserProfile.PartnerIncomeFrom);
+            Assert.Equal(30, updatedUserProfile.PartnerIncomeTo);
         }
 
         [Fact]
@@ -90,8 +89,8 @@
                 Email = "goshko@abv.bg",
                 Gender = "man",
                 DateOfBirth = DateTime.UtcNow,
-                AgeRangeFrom = 18,
-                AgeRangeTo = 30
+                PartnerIncomeFrom = 18,
+                PartnerIncomeTo = 30
             };
 
             var db = this.GetDatabase();
@@ -106,8 +105,8 @@
             // Assert
             Assert.NotNull(response);
             Assert.Equal("goshko@abv.bg", response.Email);
-            Assert.Equal(18, response.AgeRangeFrom);
-            Assert.Equal(30, response.AgeRangeTo);
+            Assert.Equal(18, response.PartnerIncomeFrom);
+            Assert.Equal(30, response.PartnerIncomeTo);
         }
 
         [Fact]

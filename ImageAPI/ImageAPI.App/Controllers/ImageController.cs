@@ -1,11 +1,11 @@
 ﻿namespace ImageAPI.App.Controllers
 {
+    using System;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Http;
     using ImageAPI.Services.Interfaces;
-    using System;
 
-    [Route("image")]
+    [Route("user")]
     [ApiController]
     public class ImageController : ControllerBase
     {
@@ -17,19 +17,21 @@
         }
 
         [HttpPost]
-        [Route("upload")]
-        public IActionResult UploadImage([FromForm]IFormFile formData)
+        [Route("{userId}/image/upload")]
+        public IActionResult UploadImage(string userId, [FromForm]IFormFile formData)
         {
+            var imageUrl = string.Empty;
+
             try
             {
-                var imageUrl = this.imageService.SaveImageAsFileAsync(formData).Result;
+                imageUrl = this.imageService.SaveImageAsFileAsync(userId, formData).Result;
             }
             catch (Exception ex)
             {
                 return StatusCode(501, ex.Message);
             }
             
-            return StatusCode(200);
+            return StatusCode(201, imageUrl);
         }
     }
 }

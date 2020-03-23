@@ -5,8 +5,8 @@
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Hosting;
-    using ImageAPI.Services.Interfaces;
 
+    using ImageAPI.Services.Interfaces;
 
     class ImageService : IImageService
     {
@@ -17,13 +17,13 @@
             this.env = env;
         }
 
-        public async Task<string> SaveImageAsFileAsync(IFormFile formData)
+        public async Task<string> SaveImageAsFileAsync(string userId, IFormFile formData)
         {
             var imgUrl = string.Empty;
-
+            
             try
             {
-                string path = Path.Combine(this.env.ContentRootPath + "\\wwwroot\\Images");
+                string path = Path.Combine(this.env.ContentRootPath + $"\\wwwroot\\Images\\{userId}");
                 var newImgName = Guid.NewGuid().ToString() + (formData.FileName.Substring(formData.FileName.LastIndexOf('.')));
                 imgUrl = path + newImgName;
                 using (var img = new FileStream(Path.Combine(path, newImgName), FileMode.Create))

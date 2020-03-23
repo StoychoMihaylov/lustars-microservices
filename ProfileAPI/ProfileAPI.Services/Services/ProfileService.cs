@@ -3,11 +3,9 @@
     using System;
     using System.Linq;
     using Microsoft.EntityFrameworkCore;
-
     using ProfileAPI.Data.Entities;
     using System.Collections.Generic;
     using ProfileAPI.Data.Interfaces;
-    using ProfileAPI.Models.ViewModels;
     using ProfileAPI.Models.BidingModels;
     using ProfileAPI.Services.Interfaces;
 
@@ -24,22 +22,39 @@
                     .UserProfiles
                     .Find(bm.Id);
 
+                userProfile.EmailNotificationsSubscribed = bm.EmailNotificationsSubscribed;
+                userProfile.IsUserProfileActivated = bm.IsUserProfileActivated;
                 userProfile.Name = bm.Name;
-                userProfile.Email = bm.Email;
+                userProfile.LastName = bm.Name;
+                userProfile.Title = bm.Title;
                 userProfile.Gender = bm.Gender;
                 userProfile.DateOfBirth = bm.DateOfBirth;
-                userProfile.Biography = bm.Biography;
-                userProfile.City = bm.City;
                 userProfile.LookingFor = bm.LookingFor;
-                userProfile.AgeRangeFrom = bm.AgeRangeFrom;
-                userProfile.AgeRangeTo = bm.AgeRangeTo;
-                userProfile.WantToHaveKids = bm.WantToHaveKids;
+                userProfile.Biography = bm.Biography;
                 userProfile.EducationDegree = bm.EducationDegree;
                 userProfile.University = bm.University;
                 userProfile.Work = bm.Work;
                 userProfile.Languages = bm.Languages;
-                userProfile.EmailNotificationsSubscribe = bm.EmailNotificationsSubscribe;
-                userProfile.IsActivated = bm.IsActivated;
+                userProfile.WantToHaveKids = bm.WantToHaveKids;
+                userProfile.Height = bm.Height;
+                userProfile.Weight = bm.Weight;
+                userProfile.Figure = bm.Figure;
+                userProfile.WantKids = bm.WantKids;
+                userProfile.HaveKids = bm.HaveKids;
+                userProfile.DrinkAlcohol = bm.DrinkAlcohol;
+                userProfile.HowOftenDrinkAlcohol = bm.HowOftenDrinkAlcohol;
+                userProfile.Smoker = bm.Smoker;
+                userProfile.HowOftenSmoke = bm.HowOftenSmoke;
+                userProfile.Income = bm.Income;
+                userProfile.MeritalStatus = bm.MeritalStatus;
+                userProfile.PartnerAgeRangeFrom = bm.PartnerAgeRangeFrom;
+                userProfile.PartnerAgeRangeTo = bm.PartnerAgeRangeTo;
+                userProfile.PartnerIncomeFrom = bm.PartnerIncomeFrom;
+                userProfile.PartnerIncomeTo = bm.PartnerIncomeTo;
+                userProfile.PartnerSmoke = bm.PartnerSmoke;
+                userProfile.PartnerDrinkAlcohol = bm.PartnerDrinkAlcohol;
+                userProfile.PartnerHaveKids = bm.PartnerHaveKids;
+                userProfile.PartnerFigure = bm.PartnerFigure;
 
                 this.Context.UserProfiles.Update(userProfile);
                 this.Context.SaveChanges();
@@ -73,34 +88,12 @@
             return true;
         }
 
-        public UserProfileViewModel GetUserProfileById(Guid userId)
+        public UserProfile GetUserProfileById(Guid userId)
         {
             var userProfile = this.Context
                 .UserProfiles
                 .AsNoTracking()
                 .Where(u => u.Id == userId)
-                .Select(user => new UserProfile
-                {
-                    Name = user.Name,
-                    Email = user.Email,
-                    Gender = user.Gender,
-                    DateOfBirth = user.DateOfBirth,
-                    CreatedOn = user.CreatedOn,
-                    Biography = user.Biography,
-                    City = user.City,
-                    Credits = user.Credits,
-                    Superlikes = user.Superlikes,
-                    LookingFor = user.LookingFor,
-                    AgeRangeFrom = user.AgeRangeFrom,
-                    AgeRangeTo = user.AgeRangeTo,
-                    WantToHaveKids = user.WantToHaveKids,
-                    EducationDegree = user.EducationDegree,
-                    University = user.University,
-                    Work = user.Work,
-                    Languages = user.Languages,
-                    EmailNotificationsSubscribe = user.EmailNotificationsSubscribe,
-                    IsActivated = user.IsActivated
-                })
                 .FirstOrDefault();
 
             if (userProfile == null) { return null; }
@@ -128,30 +121,10 @@
                 })
                 .ToList();
 
-            var userProfileViewModel = new UserProfileViewModel();
-            userProfileViewModel.Name = userProfile.Name;
-            userProfileViewModel.Email = userProfile.Email;
-            userProfileViewModel.Gender = userProfile.Gender;
-            userProfileViewModel.DateOfBirth = userProfile.DateOfBirth;
-            userProfileViewModel.CreatedOn = userProfile.CreatedOn;
-            userProfileViewModel.Biography = userProfile.Biography;
-            userProfileViewModel.City = userProfile.City;
-            userProfileViewModel.Credits = userProfile.Credits;
-            userProfileViewModel.Superlikes = userProfile.Superlikes;
-            userProfileViewModel.LookingFor = userProfile.LookingFor;
-            userProfileViewModel.AgeRangeFrom = userProfile.AgeRangeFrom;
-            userProfileViewModel.AgeRangeTo = userProfile.AgeRangeTo;
-            userProfileViewModel.WantToHaveKids = userProfile.WantToHaveKids;
-            userProfileViewModel.EducationDegree = userProfile.EducationDegree;
-            userProfileViewModel.University = userProfile.University;
-            userProfileViewModel.Work = userProfile.Work;
-            userProfileViewModel.Languages = userProfile.Languages;
-            userProfileViewModel.EmailNotificationsSubscribe = userProfile.EmailNotificationsSubscribe;
-            userProfileViewModel.IsActivated = userProfile.IsActivated;
-            userProfileViewModel.Images = userImages;
-            userProfileViewModel.GeoLocations = geoLocation;
+            userProfile.Images = userImages;
+            userProfile.GeoLocations = geoLocation;
 
-            return userProfileViewModel;
+            return userProfile;
         }
 
         public bool CreateNewUserProfileImage(Guid userId, string imageUrl)
