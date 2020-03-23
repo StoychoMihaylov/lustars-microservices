@@ -7,6 +7,7 @@
     using Newtonsoft.Json;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Http;
+
     using WebGateway.Services.Common;
     using WebGateway.Models.ViewModels;
     using WebGateway.Services.Endpoints;
@@ -18,27 +19,6 @@
     {
         public ProfileService(HttpClient httpClient, StringContentSerializer stringContentSerializer)
             : base(httpClient, stringContentSerializer) { }
-
-        public async Task<string> CallImageAPIUploadImage(IFormFile formData)
-        {
-            var ms = new MemoryStream();
-            formData
-                .OpenReadStream()
-                .CopyTo(ms);
-
-            var payload = ms.ToArray();
-            var multipartContent = new MultipartFormDataContent();
-            multipartContent.Add(new ByteArrayContent(payload), "files", formData.Name);
-
-            var response = await this.HttpClient.PostAsync(ImageAPIService.Endpoint + "image/upload", multipartContent);
-
-            if (response.StatusCode == HttpStatusCode.Created)
-            {
-                return response.Content.ToString();
-            }
-
-            return null;
-        }
 
         public async Task<bool> CallProfileAPICreateUserProfile(Guid userId)
         {  
@@ -55,7 +35,7 @@
         public async Task<bool> CallProfileAPIEditUserProfile(UserProfileBindingModel bm)
         {
             var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(bm);
-            var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + "profile/edit", stringContent);
+            var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + "profile/my-user-profile/edit", stringContent);
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 return true;
@@ -66,7 +46,7 @@
 
         public async Task<UserProfileViewModel> CallProfileAPIGetUserProfileById(Guid guidUserId)
         {
-            var response = await this.HttpClient.GetAsync(ProfileAPIService.Endpoint + $"profile/{guidUserId.ToString()}");
+            var response = await this.HttpClient.GetAsync(ProfileAPIService.Endpoint + $"profile/my-user-profile/{guidUserId.ToString()}");
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -91,6 +71,27 @@
             }
 
             return false;
+        }
+
+        public async Task<string> CallImageAPIUploadImage(Guid userId, IFormFile formData)
+        {
+            var ms = new MemoryStream();
+            formData
+                .OpenReadStream()
+                .CopyTo(ms);
+
+            var payload = ms.ToArray();
+            var multipartContent = new MultipartFormDataContent();
+            multipartContent.Add(new ByteArrayContent(payload), "files", formData.Name);
+
+            var response = await this.HttpClient.PostAsync(ImageAPIService.Endpoint + $"user/{userId}/image/upload", multipartContent);
+
+            if (response.StatusCode == HttpStatusCode.Created)
+            {
+                return response.Content.ToString();
+            }
+
+            return null;
         }
     }
 }

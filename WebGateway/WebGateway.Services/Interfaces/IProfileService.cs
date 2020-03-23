@@ -3,7 +3,6 @@
     using System;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Http;
-
     using WebGateway.Models.ViewModels;
     using WebGateway.Models.BidingModels.UserProfile;
     using WebGateway.Models.ViewModels.UserProfileViewModel;
@@ -14,6 +13,6 @@
         Task<bool> CallProfileAPIEditUserProfile(UserProfileBindingModel bm);
         Task<UserProfileViewModel> CallProfileAPIGetUserProfileById(Guid guidUserId);
         Task<bool> CreateNewUserProfileImage(Guid userId, ImageUrlBindingModel url);
-        Task<string> CallImageAPIUploadImage(IFormFile formData);
+        Task<string> CallImageAPIUploadImage(Guid userId, IFormFile formData);
     }
 }

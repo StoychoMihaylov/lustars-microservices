@@ -65,7 +65,8 @@
             var isImageInValidFormat = CheckIfImageIsInValidFormat(formData);
             if (!isImageInValidFormat) { return StatusCode(400, "The image must be in jpg(jpeg) format!"); }
 
-            var imageUrl = this.profileService.CallImageAPIUploadImage(formData);
+            var imageUrl = await this.profileService.CallImageAPIUploadImage(userId, formData);
+
             if (imageUrl == null)
             {
                 return StatusCode(501);
