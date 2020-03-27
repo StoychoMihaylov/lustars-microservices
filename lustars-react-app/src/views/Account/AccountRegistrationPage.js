@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import FormRegistration from '../components/authentication/FormRegistration'
-import '../styles/views/AccountRegistration.css'
+import FormRegistration from '../../components/authentication/FormRegistration'
+import '../../styles/views/AccountRegistration.css'
 
 class AccountRegistrationPage extends Component {
     render() {

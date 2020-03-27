@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import FormAccountLogin from '../components/authentication/FormAccountLogin'
-import '../styles/views/AccountLoginPage.css'
+import FormAccountLogin from '../../components/authentication/FormAccountLogin'
+import '../../styles/views/AccountLoginPage.css'
 
 class AccountLoginPage extends Component {
     render() {

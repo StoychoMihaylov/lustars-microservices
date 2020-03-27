@@ -50,10 +50,10 @@
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                var accountCredentialsVm = JsonConvert
+                var userProfileVm = JsonConvert
                     .DeserializeObject<UserProfileViewModel>(response.Content.ReadAsStringAsync().Result);
 
-                return accountCredentialsVm;
+                return userProfileVm;
             }
             else
             {

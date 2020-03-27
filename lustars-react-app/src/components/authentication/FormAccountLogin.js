@@ -70,7 +70,7 @@ class LoginAccount extends Component {
                     localStorage.setItem('lustars_user_name', credentials.name)
 
                     this.props.successfulNotification("Loged in!")
-                    this.props.push("/profile/home")
+                    this.props.push("/profile") // redirection!
                     window.location.reload(false); // refresh layout
                 } else {
                     this.props.errorNotification("Wrong credentials or this user doesn't exist!")
@@ -122,6 +122,8 @@ class LoginAccount extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         loginAccount: (userData) => dispatch(loginAccount(userData)),
+
+        // Navigation
         goBack: () => dispatch(goBack()),
         push: (url) => dispatch(push(url)),
 
