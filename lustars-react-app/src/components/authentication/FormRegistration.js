@@ -82,7 +82,6 @@ class FormRegistration extends Component {
 
         this.props.registerAccount(userData)
             .then(response => {
-                console.log(response)
                 if (response.status === 201) {
                     let credentials = response.data
                     localStorage.setItem('lustars_token', credentials.token)
@@ -92,7 +91,7 @@ class FormRegistration extends Component {
                     this.props.successfulNotification("You are succesfully registered!")
                     this.props.push("/profile/home")
                     window.location.reload(false); // refresh layout
-                } else if (response.response != null && response.response.status === 400) { // Bad Reguest (User exist or wrong credentials)
+                } else if (response.response != null && response.response.status === 400) { // Bad Reguest (User already exist or wrong credentials)
                     this.props.errorNotification(response.response.data)
                 } else {
                     this.props.errorNotification("Connection problem! Please try again")
@@ -165,6 +164,8 @@ class FormRegistration extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         registerAccount: (userData) => dispatch(registerAccount(userData)),
+
+        // Navigation
         goBack: () => dispatch(goBack()),
         push: (url) => dispatch(push(url)),
 

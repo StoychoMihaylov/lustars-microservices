@@ -1,11 +1,12 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import "../styles/components/EventNotification.css"
+import "../../styles/components/EventNotification.css"
 
 class EventNotification extends Component {
     render () {
         return(
             <div>
+
                 {
                     this.props.infoMessage.length > 0
                     ?

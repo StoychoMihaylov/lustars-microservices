@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from 'reactstrap'
-import NavMenu from '../components/NavMenu'
-import EventNotifications from '../components/EventNotifications'
+import NavMenu from '../components/common/NavMenu'
+import EventNotifications from '../components/common/EventNotifications'
 
 export default props => (
   <div>

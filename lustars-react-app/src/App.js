@@ -1,10 +1,11 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
+
 import Layout from './views/Layout'
 import HomePage from './views/HomePage'
-import AccountRegistrationPage from './views/AccountRegistrationPage'
 import ProfileHomePage from './views/ProfileHomePage'
-import AccountLoginPage from './views/AccountLoginPage'
+import AccountRegistrationPage from './views/Account/AccountRegistrationPage'
+import AccountLoginPage from './views/Account/AccountLoginPage'
 
 // Custom private route (if your is not auth via token redirect to login page)
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -22,6 +23,7 @@ export default () => (
     <Route exact path='/home' component={HomePage} />
     <Route exact path='/account/login' component={AccountLoginPage} />
     <Route exact path='/account/registration' component={AccountRegistrationPage} />
-    <PrivateRoute exact path='/profile/home' component={ProfileHomePage} />
+
+    <PrivateRoute exact path='/profile' component={ProfileHomePage} />
   </Layout>
 );

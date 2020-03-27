@@ -2,15 +2,17 @@
 {
     using System.Net.Http;
     using Microsoft.Extensions.DependencyInjection;
-    
-    using WebGateway.Services.Interfaces;
+
+    using WebGateway.Services.Common;
     using WebGateway.Services.Services;
+    using WebGateway.Services.Interfaces;
 
     public static class ServiceCollectionExtensions
     {
         public static IServiceCollection AddDependanciInjectionResolver(this IServiceCollection services)
         {
             services.AddSingleton<HttpClient>(new HttpClient());
+            services.AddTransient<StringContentSerializer>();
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<IProfileService, ProfileService>();
 

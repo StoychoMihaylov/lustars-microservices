@@ -80,8 +80,9 @@
                 this.Context.UserProfiles.Add(newProfile);
                 this.Context.SaveChanges();
             }
-            catch
+            catch (Exception ex)
             {
+                // LOG Exeption
                 return false;
             }
 
