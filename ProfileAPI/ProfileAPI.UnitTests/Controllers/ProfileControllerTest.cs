@@ -80,7 +80,6 @@
             var userProfile = new UserProfile() 
             {
                 Name = "Goshko",
-                Email = "goshko@abv.bg",
                 Gender = "man",
                 DateOfBirth = DateTime.UtcNow,
                 PartnerIncomeFrom = 18,

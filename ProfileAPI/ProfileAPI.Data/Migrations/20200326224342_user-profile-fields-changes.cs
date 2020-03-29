@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace ProfileAPI.Data.Migrations
+﻿namespace ProfileAPI.Data.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class userprofilefieldschanges : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
