@@ -1,14 +1,14 @@
 import React, { Component } from "react"
 import { connect } from 'react-redux'
 import { NavItem, NavLink } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import { logoutAccount } from '../../store/actions/accountActions'
+import { push, goBack } from "connected-react-router"
 import {
     infoNotification,
     successfulNotification,
     errorNotification
 } from '../../store/actions/eventNotifications'
-import '../../styles/components/FormAccountLogout.css'
+import { logoutAccount } from '../../store/actions/accountActions'
+import '../../styles/components/authentication/FormAccountLogout.css'
 
 class FormAccountLogout extends Component {
 
@@ -19,7 +19,6 @@ class FormAccountLogout extends Component {
         }
         this.props.logoutAccount(userToken)
           .then(response => {
-            console.log(response)
               if (response.status === 200) {
                   localStorage.clear()
                   this.props.successfulNotification("Loged out!")
@@ -37,24 +36,14 @@ class FormAccountLogout extends Component {
                     localStorage.getItem('lustars_token') !== null
                     ?
                     <ul className="navbar-nav flex-grow">
-                        <NavItem className="cursorPointer">
-                        <NavLink className="text-dark">Hello {localStorage.getItem("lustars_user_name")}!</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink className="logoutBtn" onClick={this.logoutUser.bind(this)}>LogOut</NavLink>
-                        </NavItem>
+                        <NavLink className="cursorPointer navbarLink" onClick={ () => this.props.push("/profile") }>Hello { localStorage.getItem("lustars_user_name") }!</NavLink>
+                        <NavLink className="logoutBtn cursorPointer navbarLink" onClick={ this.logoutUser.bind(this) }>LogOut</NavLink>
                     </ul>
                     :
                     <ul className="navbar-nav flex-grow">
-                        <NavItem>
-                            <NavLink tag={Link} className="text-dark" to="/account/login" >login</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink className='cursorPointer'>/</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink tag={Link} className="text-dark" to="/account/registration" >Register</NavLink>
-                        </NavItem>
+                        <NavLink className='cursorPointer navbarLink' onClick={ () => this.props.push("/account/login") }>login</NavLink>
+                        <NavLink>/</NavLink>
+                        <NavLink className='cursorPointer navbarLink' onClick={ () => this.props.push("/account/registration") }>Register</NavLink>
                     </ul>
                 }
             </NavItem>
@@ -65,6 +54,10 @@ class FormAccountLogout extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         logoutAccount: (userToken) => dispatch(logoutAccount(userToken)),
+
+        // Navigation
+        goBack: () => dispatch(goBack()),
+        push: (url) => dispatch(push(url)),
 
         // Notifications
         infoNotification: (message) => dispatch(infoNotification(message)),

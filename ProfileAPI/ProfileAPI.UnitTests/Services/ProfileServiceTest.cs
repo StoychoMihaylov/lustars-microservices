@@ -40,7 +40,6 @@
             {
                 Id = new Guid("e9166940-f14b-491c-99ba-cfc6cf13f662"),
                 Name = "Pesho",
-                Email = "goshko@abv.bg",
                 Gender = "man",
                 DateOfBirth = DateTime.UtcNow,
                 PartnerIncomeFrom = 20,
@@ -71,7 +70,6 @@
             // Assert
             Assert.True(response);
             Assert.Equal("Goshko", updatedUserProfile.Name);
-            Assert.Equal("goshko@abv.bg", updatedUserProfile.Email);
             Assert.Equal(18, updatedUserProfile.PartnerIncomeFrom);
             Assert.Equal(30, updatedUserProfile.PartnerIncomeTo);
         }
@@ -86,7 +84,6 @@
             {
                 Id = userId,
                 Name = "Goshko",
-                Email = "goshko@abv.bg",
                 Gender = "man",
                 DateOfBirth = DateTime.UtcNow,
                 PartnerIncomeFrom = 18,
@@ -104,7 +101,6 @@
 
             // Assert
             Assert.NotNull(response);
-            Assert.Equal("goshko@abv.bg", response.Email);
             Assert.Equal(18, response.PartnerIncomeFrom);
             Assert.Equal(30, response.PartnerIncomeTo);
         }
@@ -115,7 +111,7 @@
             // Arrange
             var userId = Guid.NewGuid();
             var imageUrl = "images/mimi_sexy/e2166920-f54b-131c-88ba-cdc6cd13d662.jpg";
-            var user = new UserProfile() { Id = userId, Email = "test@test.com" };
+            var user = new UserProfile() { Id = userId };
 
             var db = this.GetDatabase();
             db.UserProfiles.Add(user);

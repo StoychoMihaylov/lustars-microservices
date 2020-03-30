@@ -7,13 +7,17 @@ import {
     errorNotification
 } from '../../store/actions/eventNotifications'
 import { getMyUserProfileDetails } from '../../store/actions/profileActions'
-import { api } from '../../constants/endpoints'
+import YesNoInputField from '../../components/profile/YesNoInputField'
+import NumbersField from '../../components/profile/NumbersField'
+import Avatar from '../../components/profile/Avatar'
+import { editMyUserProfileDetails } from '../../store/actions/profileActions'
 
 class ProfileInfo extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
+            updatedProfile: {}
         }
     }
 
@@ -21,13 +25,67 @@ class ProfileInfo extends Component {
         this.props.getMyUserProfileDetails()
     }
 
+    updateIsProfileActive = (newValue) => {
+        var newState = this.props.profile
+        newState.isUserProfileActivated = newValue
+
+        this.setState({
+            updatedProfile: newState
+        })
+    }
+
+    updateIsEmailSubscribed = (newValue) => {
+        var newState = this.props.profile
+        newState.emailNotificationsSubscribed = newValue
+
+        this.setState({
+            updatedProfile: newState
+        })
+    }
+
     render() {
-        console.log(this.props.profile)
+        console.log(this.state)
+        console.log(this.props)
         return (
             <div>
                 <div>
-                    { this.props.profile.avatarImage !== null ? <img src={api + this.props.profile.avatarImage } alt="avatar image" /> : "" }
+                    <div>
+                        <Avatar
+                            imageUrl={ this.props.profile.avatarImage }
+                        />
+                    </div>
+                    <br/>
+                    <span>
+                        <YesNoInputField
+                            label="Profile Active"
+                            value={ this.props.profile.isUserProfileActivated }
+                            switchValue={this.updateIsProfileActive.bind(this)}
+                        />
+                    </span>
+                    <br/>
+                    <span>
+                        <NumbersField
+                            label="Credits"
+                            value={ this.props.profile.credits }
+                        />
+                    </span>
+                    <br/>
+                    <span>
+                        <NumbersField
+                            label="Super likes"
+                            value={ this.props.profile.superlikes }
+                        />
+                    </span>
+                    <br/>
+                    <span>
+                        <YesNoInputField
+                            label="Email subscribed"
+                            value={ this.props.profile.emailNotificationsSubscribed }
+                            switchValue={this.updateIsEmailSubscribed.bind(this)}
+                        />
+                    </span>
                 </div>
+                <br/>
                 <div>
                     <label>
                         Biography
@@ -50,12 +108,6 @@ class ProfileInfo extends Component {
                     <label>
                         Created on
                         <input type="text" defaultValue={ this.props.profile.createdOn !== null ? this.props.profile.createdOn : "" } />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Credits
-                        <input type="text" defaultValue={ this.props.profile.credits !== null ? this.props.profile.credits : "" } />
                     </label>
                 </div>
                 <div>
@@ -90,12 +142,6 @@ class ProfileInfo extends Component {
                 </div>
                 <div>
                     <label>
-                        Email
-                        <input type="text" defaultValue={ this.props.profile.email !== null ? this.props.profile.email : "" } />
-                    </label>
-                </div>
-                <div>
-                    <label>
                         Figure
                         <input type="text" defaultValue={ this.props.profile.figure !== null ? this.props.profile.figure : "" } />
                     </label>
@@ -124,6 +170,138 @@ class ProfileInfo extends Component {
                         <input type="text" defaultValue={ this.props.profile.howOftenSmoke !== null ? this.props.profile.howOftenSmoke : "" } />
                     </label>
                 </div>
+                <div>
+                    <label>
+                        Income
+                        <input type="text" defaultValue={ this.props.profile.income !== null ? this.props.profile.income : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Profie Activated
+                        <input type="text" defaultValue={ this.props.profile.isUserProfileActivated !== null ? this.props.profile.isUserProfileActivated : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Languages
+                        <input type="text" defaultValue={ this.props.profile.languages !== null ? this.props.profile.languages : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Last Name
+                        <input type="text" defaultValue={ this.props.profile.lastName !== null ? this.props.profile.lastName : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Looking for
+                        <input type="text" defaultValue={ this.props.profile.lookingFor !== null ? this.props.profile.lookingFor : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Merial status
+                        <input type="text" defaultValue={ this.props.profile.meritalStatus !== null ? this.props.profile.meritalStatus : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Name
+                        <input type="text" defaultValue={ this.props.profile.name !== null ? this.props.profile.name : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Partner age range from
+                        <input type="text" defaultValue={ this.props.profile.partnerAgeRangeFrom !== null ? this.props.profile.partnerAgeRangeFrom : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Partner age range to
+                        <input type="text" defaultValue={ this.props.profile.partnerAgeRangeTo !== null ? this.props.profile.partnerAgeRangeTo : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Partner Drink Alcohol
+                        <input type="text" defaultValue={ this.props.profile.partnerDrinkAlcohol !== null ? this.props.profile.partnerDrinkAlcohol : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Partner Figurel
+                        <input type="text" defaultValue={ this.props.profile.partnerFigure !== null ? this.props.profile.partnerFigure : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        partnerHaveKids
+                        <input type="text" defaultValue={ this.props.profile.partnerHaveKids !== null ? this.props.profile.partnerHaveKids : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        partnerIncomeFrom
+                        <input type="text" defaultValue={ this.props.profile.partnerIncomeFrom !== null ? this.props.profile.partnerIncomeFrom : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        partnerIncomeTo
+                        <input type="text" defaultValue={ this.props.profile.partnerIncomeTo !== null ? this.props.profile.partnerIncomeTo : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        partnerSmoke
+                        <input type="text" defaultValue={ this.props.profile.partnerSmoke !== null ? this.props.profile.partnerSmoke : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        smoker
+                        <input type="text" defaultValue={ this.props.profile.smoker !== null ? this.props.profile.smoker : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        superlikes
+                        <input type="text" defaultValue={ this.props.profile.superlikes !== null ? this.props.profile.superlikes : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        title
+                        <input type="text" defaultValue={ this.props.profile.title !== null ? this.props.profile.title : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        university
+                        <input type="text" defaultValue={ this.props.profile.university !== null ? this.props.profile.university : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                    wantToHaveKids
+                        <input type="text" defaultValue={ this.props.profile.wantToHaveKids !== null ? this.props.profile.wantToHaveKids : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        weight
+                        <input type="text" defaultValue={ this.props.profile.weight !== null ? this.props.profile.weight : "" } />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        work
+                        <input type="text" defaultValue={ this.props.profile.work !== null ? this.props.profile.work : "" } />
+                    </label>
+                </div>
             </div>
         )
     }
@@ -140,6 +318,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getMyUserProfileDetails: () => dispatch(getMyUserProfileDetails()),
+        editMyUserProfileDetails: () => dispatch(editMyUserProfileDetails()),
 
         // Navigation
         goBack: () => dispatch(goBack()),

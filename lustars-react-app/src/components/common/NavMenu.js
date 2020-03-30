@@ -1,8 +1,8 @@
-import React from 'react';
-import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import FormAccountLogout from '../authentication/FormAccountLogout';
-import '../../styles/components/NavMenu.css';
+import React from 'react'
+import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap'
+import FormAccountLogout from '../authentication/FormAccountLogout'
+import NavbarLinks from './NavbarLinks'
+import '../../styles/components/common/NavMenu.css'
 
 
 export default class NavMenu extends React.Component {
@@ -24,14 +24,15 @@ export default class NavMenu extends React.Component {
   render () {
     return (
       <header>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" light >
+        <Navbar className="navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3 navbar">
           <Container>
-            <NavbarBrand tag={Link} to="/">Lustars logo!</NavbarBrand>
+            <NavbarBrand to="/">Lustars logo!</NavbarBrand>
             <NavbarToggler onClick={this.toggle} className="mr-2" />
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={this.state.isOpen} navbar>
               <ul className="navbar-nav flex-grow">
+                <NavbarLinks />
                 <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/home">Home</NavLink>
+                  <NavLink>|</NavLink>
                 </NavItem>
                 <FormAccountLogout />
               </ul>

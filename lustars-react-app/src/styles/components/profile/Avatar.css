@@ -1,0 +1,9 @@
+.avatarImage {
+    cursor: pointer;
+    border-radius: 2px;
+    max-width: 250px;
+}
+
+.avatarImgUpload {
+    display: none;
+}

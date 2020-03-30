@@ -1,0 +1,12 @@
+.profileSwitchField {
+    border: 0;
+    max-width: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.profileSwitchField:hover {
+    color: white;
+    background-color:  rgb(255, 0, 102);
+}

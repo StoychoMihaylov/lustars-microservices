@@ -104,6 +104,9 @@ C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj
 C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.csproj.CopyComplete
 C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.dll
 C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.pdb
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.csprojAssemblyReference.cache
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.AssemblyInfoInputs.cache
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.AssemblyInfo.cs
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -240,9 +243,6 @@ C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTest
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\ProfileAPI.Data.pdb
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\ProfileAPI.Models.pdb
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\ProfileAPI.Services.pdb
-C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.csprojAssemblyReference.cache
-C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.AssemblyInfoInputs.cache
-C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.AssemblyInfo.cs
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.csproj.CopyComplete
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.dll
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.pdb
