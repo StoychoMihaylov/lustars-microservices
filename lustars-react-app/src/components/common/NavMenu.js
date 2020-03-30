@@ -2,7 +2,7 @@ import React from 'react'
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap'
 import FormAccountLogout from '../authentication/FormAccountLogout'
 import NavbarLinks from './NavbarLinks'
-import '../../styles/components/NavMenu.css'
+import '../../styles/components/common/NavMenu.css'
 
 
 export default class NavMenu extends React.Component {
@@ -24,7 +24,7 @@ export default class NavMenu extends React.Component {
   render () {
     return (
       <header>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3 navbar"  >
+        <Navbar className="navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3 navbar">
           <Container>
             <NavbarBrand to="/">Lustars logo!</NavbarBrand>
             <NavbarToggler onClick={this.toggle} className="mr-2" />

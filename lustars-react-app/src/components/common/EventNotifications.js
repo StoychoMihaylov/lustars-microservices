@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import "../../styles/components/EventNotification.css"
+import "../../styles/components/common/EventNotification.css"
 
 class EventNotification extends Component {
     render () {
@@ -9,26 +9,20 @@ class EventNotification extends Component {
 
                 {
                     this.props.infoMessage.length > 0
-                    ?
-                    <div className="infoNotificationMessage">{this.props.infoMessage}</div>
-                    :
-                    null
+                    ? <div className="infoNotificationMessage">{this.props.infoMessage}</div>
+                    : null
                 }
 
                 {
                     this.props.successfulMessage.length > 0
-                    ?
-                    <div className="successNotificationfulMessage">{this.props.successfulMessage}</div>
-                    :
-                    null
+                    ? <div className="successNotificationfulMessage">{this.props.successfulMessage}</div>
+                    : null
                 }
 
                 {
                     this.props.errorMessage.length > 0
-                    ?
-                    <div className="errorNotificationMessage">{this.props.errorMessage}</div>
-                    :
-                    null
+                    ? <div className="errorNotificationMessage">{this.props.errorMessage}</div>
+                    : null
                 }
 
             </div>

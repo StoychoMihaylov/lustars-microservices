@@ -7,7 +7,7 @@ import {
     errorNotification
 } from '../../store/actions/eventNotifications'
 import { loginAccount } from '../../store/actions/accountActions'
-import '../../styles/components/FormAccountLogin.css'
+import '../../styles/components/authentication/FormAccountLogin.css'
 
 class LoginAccount extends Component {
     constructor(props) {

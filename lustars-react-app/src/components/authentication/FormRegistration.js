@@ -7,7 +7,7 @@ import {
     successfulNotification,
     errorNotification
 } from '../../store/actions/eventNotifications'
-import '../../styles/components/FormRegistration.css'
+import '../../styles/components/authentication/FormRegistration.css'
 
 class FormRegistration extends Component {
     constructor(props) {
