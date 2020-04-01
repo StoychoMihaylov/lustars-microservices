@@ -18,6 +18,7 @@ class Avatar extends Component {
                 aspect: 14/16
             },
             croppedImageUrl: null,
+            showImageCropper: false
         }
     }
 
@@ -86,7 +87,7 @@ class Avatar extends Component {
         let croppedImage = new File([u8arr], filename, {type:mime});
 
         this.setState({
-            croppedImage: croppedImage
+            croppedImage: croppedImage,
         })
     }
 
@@ -96,7 +97,8 @@ class Avatar extends Component {
         var imgUrl = URL.createObjectURL(this.state.croppedImage)
 
         this.setState({
-            croppedImageUrl: imgUrl
+            croppedImageUrl: imgUrl,
+            showImageCropper: false
         })
     }
 
@@ -110,6 +112,10 @@ class Avatar extends Component {
             }
 
             fileReader.readAsDataURL(image.target.files[0])
+
+            this.setState({
+                showImageCropper: true
+            })
         }
 
         // TO DO: show format error
@@ -121,12 +127,15 @@ class Avatar extends Component {
         let url = this.props.imageUrl
         let imageUser =  url !== null && url !== undefined ? url : null
 
-        let emptyImage =
-        <div>
+        let imageCropper = this.state.showImageCropper === true
+            ?
+            <div className="overlay">
                 <Form onSubmit={this.handleSubmit}>
                     <label htmlFor="profile_pic"></label>
+                    <div>
                         {src && (
                             <ReactCrop
+                            className="imageToCrop"
                             src={src}
                             crop={crop}
                             onImageLoaded={this.onImageLoaded}
@@ -134,15 +143,21 @@ class Avatar extends Component {
                             onChange={this.onCropChange}
                             />)
                         }
-                    <button type="submit" >save</button>
+                    </div>
+                    <button type="submit" className="cropImgBtn" >Crop image</button>
                 </Form>
+            </div>
+            : ""
+
+        let emptyImage =
+            <div>
                 <label>
                     <input
                         type="file"
                         multiple={false}
                         id='profile_pic'
                         value={profile_pic}
-                        className="avatarImgUpload"
+                        className="avatarImgUploadBtn"
                         onChange={ this.chooseImageToUpload.bind(this) }
                     />
 
@@ -153,10 +168,12 @@ class Avatar extends Component {
                     }
 
                 </label>
-        </div>
+            </div>
 
         return (
             <div>
+                { imageCropper }
+
                 {
                     imageUser === null
                     ? emptyImage
