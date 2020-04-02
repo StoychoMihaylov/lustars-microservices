@@ -175,9 +175,9 @@ class Avatar extends Component {
                 { imageCropper }
 
                 {
-                    imageUser === null
+                    imageUser === null || imageUser === ""
                     ? emptyImage
-                    : <img className="avatarImage" src={require(api + '../content/tagIcons/' + imageUser)} alt="" />
+                    : <img className="avatarImage" src={require(api + imageUser)} alt="" />
                 }
             </div>
         )

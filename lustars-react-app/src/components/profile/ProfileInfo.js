@@ -7,10 +7,9 @@ import {
     errorNotification
 } from '../../store/actions/eventNotifications'
 import { getMyUserProfileDetails } from '../../store/actions/profileActions'
-import YesNoInputField from '../../components/profile/YesNoInputField'
-import NumbersField from '../../components/profile/NumbersField'
-import Avatar from '../../components/profile/Avatar'
 import { editMyUserProfileDetails } from '../../store/actions/profileActions'
+import ProfileMainSettings from '../../components/profile/ProfileMainSettings'
+import { changeIsUserActive, changeUserEmailSubsribed } from '../../store/actions/profileActions'
 
 class ProfileInfo extends Component {
     constructor(props) {
@@ -26,6 +25,22 @@ class ProfileInfo extends Component {
     }
 
     updateIsProfileActive = (newValue) => {
+        var oldState = this.props.profile
+        oldState.isUserProfileActivated = newValue
+        var newState = oldState
+
+        this.props.changeIsUserActive(newState)
+    }
+
+    updateIsEmailSubscribed = (newValue) => {
+        var oldState = this.props.profile
+        oldState.emailNotificationsSubscribed = newValue
+        var newState = oldState
+
+        this.props.changeUserEmailSubsribed(newState)
+    }
+
+    /* updateIsProfileActive = (newValue) => {
         var newState = this.props.profile
         newState.isUserProfileActivated = newValue
 
@@ -42,13 +57,13 @@ class ProfileInfo extends Component {
             updatedProfile: newState
         })
     }
-
+ */
     render() {
-        console.log(this.state)
-        console.log(this.props)
+        console.log(this.props.profile)
+        let isProfileDifined = this.props.profile !== undefined ? true : false
         return (
             <div>
-                <div>
+               {/*  <div>
                     <div>
                         <Avatar
                             imageUrl={ this.props.profile.avatarImage }
@@ -84,222 +99,221 @@ class ProfileInfo extends Component {
                             switchValue={this.updateIsEmailSubscribed.bind(this)}
                         />
                     </span>
-                </div>
+                </div> */}
+                <ProfileMainSettings
+                    profile={ isProfileDifined !== undefined ? this.props.profile : undefined }
+                    updateIsProfileActive={ this.updateIsProfileActive.bind(this)}
+                    updateIsEmailSubscribed={ this.updateIsEmailSubscribed.bind(this) }
+                />
                 <br/>
                 <div>
                     <label>
                         Biography
-                        <textarea defaultValue={ this.props.profile.biography !== null ? this.props.profile.biography : "" }></textarea>
+                        <textarea defaultValue={ isProfileDifined ? this.props.profile.biography : "" }></textarea>
                     </label>
                 </div>
                 <div>
                     <label>
                         City:
-                        <input type="text" defaultValue={ this.props.profile.city !== null ? this.props.profile.city : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.city : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Country
-                        <input type="text" defaultValue={ this.props.profile.country !== null ? this.props.profile.country : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.country : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Created on
-                        <input type="text" defaultValue={ this.props.profile.createdOn !== null ? this.props.profile.createdOn : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.createdOn : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Birth date
-                        <input type="text" defaultValue={ this.props.profile.dateOfBirth !== null ? this.props.profile.dateOfBirth : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.dateOfBirth : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Drink Alcohol
-                        <input type="text" defaultValue={ this.props.profile.drinkAlcohol !== null ? this.props.profile.drinkAlcohol : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.drinkAlcohol : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         How often Drink
-                        <input type="text" defaultValue={ this.props.profile.howOftenDrinkAlcohol !== null ? this.props.profile.howOftenDrinkAlcohol : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.howOftenDrinkAlcohol : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Education degree
-                        <input type="text" defaultValue={ this.props.profile.educationDegree !== null ? this.props.profile.educationDegree : "" } />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Subscribed for email notification
-                        <input type="text" defaultValue={ this.props.profile.emailNotificationsSubscribed != null ? this.props.profile.emailNotificationsSubscribed : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.educationDegree : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Figure
-                        <input type="text" defaultValue={ this.props.profile.figure !== null ? this.props.profile.figure : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.figure : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Gender
-                        <input type="text" defaultValue={ this.props.profile.gender !== null ? this.props.profile.gender : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.gender : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         kids
-                        <input type="text" defaultValue={ this.props.profile.haveKids !== null ? this.props.profile.haveKids : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.haveKids : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Height
-                        <input type="text" defaultValue={ this.props.profile.height !== null ? this.props.profile.height : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.height : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         How often smoke
-                        <input type="text" defaultValue={ this.props.profile.howOftenSmoke !== null ? this.props.profile.howOftenSmoke : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.howOftenSmoke : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Income
-                        <input type="text" defaultValue={ this.props.profile.income !== null ? this.props.profile.income : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.income : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Profie Activated
-                        <input type="text" defaultValue={ this.props.profile.isUserProfileActivated !== null ? this.props.profile.isUserProfileActivated : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.isUserProfileActivated : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Languages
-                        <input type="text" defaultValue={ this.props.profile.languages !== null ? this.props.profile.languages : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.languages : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Last Name
-                        <input type="text" defaultValue={ this.props.profile.lastName !== null ? this.props.profile.lastName : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.lastName : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Looking for
-                        <input type="text" defaultValue={ this.props.profile.lookingFor !== null ? this.props.profile.lookingFor : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.lookingFor : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Merial status
-                        <input type="text" defaultValue={ this.props.profile.meritalStatus !== null ? this.props.profile.meritalStatus : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.meritalStatus : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Name
-                        <input type="text" defaultValue={ this.props.profile.name !== null ? this.props.profile.name : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.name : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Partner age range from
-                        <input type="text" defaultValue={ this.props.profile.partnerAgeRangeFrom !== null ? this.props.profile.partnerAgeRangeFrom : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerAgeRangeFrom : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Partner age range to
-                        <input type="text" defaultValue={ this.props.profile.partnerAgeRangeTo !== null ? this.props.profile.partnerAgeRangeTo : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerAgeRangeTo : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Partner Drink Alcohol
-                        <input type="text" defaultValue={ this.props.profile.partnerDrinkAlcohol !== null ? this.props.profile.partnerDrinkAlcohol : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerDrinkAlcohol : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         Partner Figurel
-                        <input type="text" defaultValue={ this.props.profile.partnerFigure !== null ? this.props.profile.partnerFigure : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerFigure : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         partnerHaveKids
-                        <input type="text" defaultValue={ this.props.profile.partnerHaveKids !== null ? this.props.profile.partnerHaveKids : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerHaveKids : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         partnerIncomeFrom
-                        <input type="text" defaultValue={ this.props.profile.partnerIncomeFrom !== null ? this.props.profile.partnerIncomeFrom : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerIncomeFrom : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         partnerIncomeTo
-                        <input type="text" defaultValue={ this.props.profile.partnerIncomeTo !== null ? this.props.profile.partnerIncomeTo : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerIncomeTo : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         partnerSmoke
-                        <input type="text" defaultValue={ this.props.profile.partnerSmoke !== null ? this.props.profile.partnerSmoke : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerSmoke : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         smoker
-                        <input type="text" defaultValue={ this.props.profile.smoker !== null ? this.props.profile.smoker : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.smoker : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         superlikes
-                        <input type="text" defaultValue={ this.props.profile.superlikes !== null ? this.props.profile.superlikes : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.superlikes : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         title
-                        <input type="text" defaultValue={ this.props.profile.title !== null ? this.props.profile.title : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.title : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         university
-                        <input type="text" defaultValue={ this.props.profile.university !== null ? this.props.profile.university : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.university : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                     wantToHaveKids
-                        <input type="text" defaultValue={ this.props.profile.wantToHaveKids !== null ? this.props.profile.wantToHaveKids : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.wantToHaveKids : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         weight
-                        <input type="text" defaultValue={ this.props.profile.weight !== null ? this.props.profile.weight : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.weight : "" } />
                     </label>
                 </div>
                 <div>
                     <label>
                         work
-                        <input type="text" defaultValue={ this.props.profile.work !== null ? this.props.profile.work : "" } />
+                        <input type="text" defaultValue={ isProfileDifined ? this.props.profile.work : "" } />
                     </label>
                 </div>
             </div>
@@ -317,6 +331,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        changeIsUserActive: (newValue) => dispatch(changeIsUserActive(newValue)),
+        changeUserEmailSubsribed: (newValue) => dispatch(changeUserEmailSubsribed(newValue)),
         getMyUserProfileDetails: () => dispatch(getMyUserProfileDetails()),
         editMyUserProfileDetails: () => dispatch(editMyUserProfileDetails()),
 
