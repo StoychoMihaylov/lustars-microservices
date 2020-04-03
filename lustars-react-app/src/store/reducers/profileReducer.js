@@ -4,7 +4,11 @@ import {
     REQUEST_MY_PROFILE_DETAILS_FAIL,
     REQUEST_EDIT_MY_PROFILE_DETAILS,
     REQUEST_EDIT_MY_PROFILE_DETAILS_SUCCESS,
-    REQUEST_EDIT_MY_PROFILE_DETAILS_FAIL
+    REQUEST_EDIT_MY_PROFILE_DETAILS_FAIL,
+    CHANGE_USER_PROFILE_ACTIVE_ON_OFF,
+    CHANGE_USER_PROFILE_ACTIVE_ON_OFF_SUCCESS,
+    CHANGE_USER_EMAIL_SUBSCRIBED,
+    CHANGE_USER_EMAIL_SUBSCRIBED_SUCCESS
 } from '../../constants/profileActionTypes'
 
 const initialState = {
@@ -16,7 +20,6 @@ const initialState = {
 
 const profileReducer = (state, action) => {
     state = state || initialState
-    console.log(state)
 
     switch (action.type) {
         case REQUEST_MY_PROFILE_DETAILS:
@@ -50,6 +53,23 @@ const profileReducer = (state, action) => {
             return {
                 ...state,
                 error: action.payload
+            }
+        case CHANGE_USER_PROFILE_ACTIVE_ON_OFF:
+            return {
+                ...state,
+                userProfileDetails: action.payload
+            }
+        case CHANGE_USER_PROFILE_ACTIVE_ON_OFF:
+        case CHANGE_USER_PROFILE_ACTIVE_ON_OFF_SUCCESS:
+            return {
+                ...state,
+                userProfileDetails: action.payload
+            }
+        case CHANGE_USER_EMAIL_SUBSCRIBED:
+        case CHANGE_USER_EMAIL_SUBSCRIBED_SUCCESS:
+            return {
+                ...state,
+                userProfileDetails: action.payload
             }
 
         default:
