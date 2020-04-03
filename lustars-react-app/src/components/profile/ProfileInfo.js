@@ -40,66 +40,11 @@ class ProfileInfo extends Component {
         this.props.changeUserEmailSubsribed(newState)
     }
 
-    /* updateIsProfileActive = (newValue) => {
-        var newState = this.props.profile
-        newState.isUserProfileActivated = newValue
-
-        this.setState({
-            updatedProfile: newState
-        })
-    }
-
-    updateIsEmailSubscribed = (newValue) => {
-        var newState = this.props.profile
-        newState.emailNotificationsSubscribed = newValue
-
-        this.setState({
-            updatedProfile: newState
-        })
-    }
- */
     render() {
         console.log(this.props.profile)
         let isProfileDifined = this.props.profile !== undefined ? true : false
         return (
             <div>
-               {/*  <div>
-                    <div>
-                        <Avatar
-                            imageUrl={ this.props.profile.avatarImage }
-                        />
-                    </div>
-                    <br/>
-                    <span>
-                        <YesNoInputField
-                            label="Profile Active"
-                            value={ this.props.profile.isUserProfileActivated }
-                            switchValue={this.updateIsProfileActive.bind(this)}
-                        />
-                    </span>
-                    <br/>
-                    <span>
-                        <NumbersField
-                            label="Credits"
-                            value={ this.props.profile.credits }
-                        />
-                    </span>
-                    <br/>
-                    <span>
-                        <NumbersField
-                            label="Super likes"
-                            value={ this.props.profile.superlikes }
-                        />
-                    </span>
-                    <br/>
-                    <span>
-                        <YesNoInputField
-                            label="Email subscribed"
-                            value={ this.props.profile.emailNotificationsSubscribed }
-                            switchValue={this.updateIsEmailSubscribed.bind(this)}
-                        />
-                    </span>
-                </div> */}
                 <ProfileMainSettings
                     profile={ isProfileDifined !== undefined ? this.props.profile : undefined }
                     updateIsProfileActive={ this.updateIsProfileActive.bind(this)}

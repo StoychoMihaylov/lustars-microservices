@@ -17,7 +17,6 @@ class ProfileMainSettings extends Component {
     }
 
     render() {
-        console.log(this.props.profile)
         return (
             <div>
                 <div>
