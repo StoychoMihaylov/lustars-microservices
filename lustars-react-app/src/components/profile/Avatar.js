@@ -93,12 +93,6 @@ class Avatar extends Component {
 
         let croppedImage = new File([u8arr], filename, {type:mime})
 
-        let formData = new FormData();
-        formData.append("image", croppedImage)
-        var response = this.props.uploadAvatarImage(formData)
-
-        // TO DO: if response Ok show the cropped Image if not skipp setState and show notivifation err
-
         this.setState({
             croppedImage: croppedImage,
         })
@@ -108,6 +102,12 @@ class Avatar extends Component {
         e.preventDefault()
 
         var imgUrl = URL.createObjectURL(this.state.croppedImage)
+
+        let formData = new FormData();
+        formData.append("image", this.state.croppedImage)
+        var response = this.props.uploadAvatarImage(formData)
+
+        // TO DO: if response Ok show cropped image if not show notification err msg
 
         this.setState({
             croppedImageUrl: imgUrl,

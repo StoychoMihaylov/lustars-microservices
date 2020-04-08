@@ -150,7 +150,7 @@ export function changeWetherUserIsEmailSubscribedSuccess(newProfileData) {
 export function uploadAvatarImage(formdData) {
     return dispatch => {
         dispatch(requestUploadAvatarImage(formdData))
-        axios.post(api.domain + 'image/upload', formdData, {
+        axios.post(api.domain + 'user-profile/image/upload', formdData, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('lustars_token')
             }

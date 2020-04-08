@@ -57,15 +57,15 @@
         [HttpPost]
         [Authorize]
         [Route("image/upload")]
-        public async Task<IActionResult> SaveImageUrl([FromForm]IFormFile formData)
+        public async Task<IActionResult> SaveImageUrl([FromForm]IFormFile image)
         {
             var userId = IdentityManager.CurrentUserId;
 
-            if (formData == null) { return StatusCode(400); }
-            var isImageInValidFormat = CheckIfImageIsInValidFormat(formData);
+            if (image == null) { return StatusCode(400); }
+            var isImageInValidFormat = CheckIfImageIsInValidFormat(image);
             if (!isImageInValidFormat) { return StatusCode(400, "The image must be in jpg(jpeg) format!"); }
 
-            var imageUrl = await this.profileService.CallImageAPIUploadImage(userId, formData);
+            var imageUrl = await this.profileService.CallImageAPIUploadImage(userId, image);
 
             if (imageUrl == null)
             {
