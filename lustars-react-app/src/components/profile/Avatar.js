@@ -1,7 +1,14 @@
 import React, { Component } from "react"
+import { connect } from "react-redux"
 import { Form } from 'reactstrap'
 import { api } from '../../constants/endpoints'
 import ReactCrop from 'react-image-crop'
+import {
+    infoNotification,
+    successfulNotification,
+    errorNotification
+} from '../../store/actions/eventNotifications'
+import { uploadAvatarImage } from '../../store/actions/profileActions'
 import 'react-image-crop/dist/ReactCrop.css'
 import '../../styles/components/profile/Avatar.css'
 
@@ -23,7 +30,7 @@ class Avatar extends Component {
     }
 
     onCropChange = (crop) => {
-        this.setState({ crop });
+        this.setState({ crop })
     }
 
     onImageLoaded = image => {
@@ -31,7 +38,7 @@ class Avatar extends Component {
     }
 
     onChange = (crop) => {
-        this.setState({ crop });
+        this.setState({ crop })
     }
 
     onCropComplete = crop => {
@@ -42,12 +49,12 @@ class Avatar extends Component {
     }
 
     getCroppedImg(image, crop) {
-        const canvas = document.createElement("canvas");
-        const scaleX = image.naturalWidth / image.width;
-        const scaleY = image.naturalHeight / image.height;
-        canvas.width = crop.width;
-        canvas.height = crop.height;
-        const ctx = canvas.getContext("2d");
+        const canvas = document.createElement("canvas")
+        const scaleX = image.naturalWidth / image.width
+        const scaleY = image.naturalHeight / image.height
+        canvas.width = crop.width
+        canvas.height = crop.height
+        const ctx = canvas.getContext("2d")
 
         ctx.drawImage(
             image,
@@ -65,7 +72,7 @@ class Avatar extends Component {
         // As a blob
         const reader  = new FileReader()
         canvas.toBlob(blob => {
-            blob.name = 'cropped.jpeg';
+            blob.name = 'cropped.jpeg'
             reader.readAsDataURL(blob)
             reader.onloadend = () => {
                 this.dataURLtoFile(reader.result, 'cropped.jpg')
@@ -78,13 +85,19 @@ class Avatar extends Component {
             mime = arr[0].match(/:(.*?);/)[1],
             bstr = atob(arr[1]),
             n = bstr.length,
-            u8arr = new Uint8Array(n);
+            u8arr = new Uint8Array(n)
 
         while(n--){
-            u8arr[n] = bstr.charCodeAt(n);
+            u8arr[n] = bstr.charCodeAt(n)
         }
 
-        let croppedImage = new File([u8arr], filename, {type:mime});
+        let croppedImage = new File([u8arr], filename, {type:mime})
+
+        let formData = new FormData();
+        formData.append("image", croppedImage)
+        var response = this.props.uploadAvatarImage(formData)
+
+        // TO DO: if response Ok show the cropped Image if not skipp setState and show notivifation err
 
         this.setState({
             croppedImage: croppedImage,
@@ -184,4 +197,15 @@ class Avatar extends Component {
     }
 }
 
-export default Avatar
+const mapDispatchToProps = dispatch => {
+    return {
+        uploadAvatarImage: (imageFile) => dispatch(uploadAvatarImage(imageFile)),
+
+         // Notifications
+        infoNotification: (message) => dispatch(infoNotification(message)),
+        successfulNotification: (message) => dispatch(successfulNotification(message)),
+        errorNotification: (message) => dispatch(errorNotification(message))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Avatar)

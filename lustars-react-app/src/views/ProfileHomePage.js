@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ProfileInfo from '../components/profile/ProfileInfo'
+import ProfileDetailedInfo from '../components/profile/ProfileDetailedInfo'
 
 class ProfileHomePage extends Component {
     render() {
@@ -8,7 +8,7 @@ class ProfileHomePage extends Component {
                 <h1>My profile</h1>
                 <div>
                     <div>
-                        <ProfileInfo />
+                        <ProfileDetailedInfo />
                     </div>
                 </div>
             </div>
