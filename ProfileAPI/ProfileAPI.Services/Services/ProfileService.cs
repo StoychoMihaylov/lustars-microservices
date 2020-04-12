@@ -158,5 +158,27 @@
 
             return true;
         }
+
+        public bool SaveUserProfileAvatarImage(Guid userId, string imageUrl)
+        {
+            try
+            {
+                var user = this.Context
+                .UserProfiles
+                .Where(u => u.Id == userId)
+                .First();
+
+                user.AvatarImage = imageUrl;
+
+                this.Context.UserProfiles.Update(user);
+                this.Context.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

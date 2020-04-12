@@ -19,22 +19,21 @@
 
         public async Task<string> SaveImageAsFileAsync(string userId, IFormFile image)
         {
-            var imgUrl = string.Empty;
-            var wwwrootDir = "wwwroot\\Images\\";
-
+            var imgNameUrl = string.Empty;
+            
             try
             {
-                string path = Path.Combine(this.env.ContentRootPath + "\\" + wwwrootDir + userId);
+                string path = Path.Combine(this.env.ContentRootPath + $"\\wwwroot\\Images\\{userId}");
 
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
                 }
 
-                var newImgName = Guid.NewGuid().ToString() + ".jpeg";
-                imgUrl = wwwrootDir + newImgName;
+                var imgName = Guid.NewGuid().ToString() + ".jpeg";
+                imgNameUrl = userId + "/" + imgName;
 
-                using (var img = new FileStream(Path.Combine(path, newImgName), FileMode.Create))
+                using (var img = new FileStream(Path.Combine(path, imgName), FileMode.Create))
                 {
                     await image.CopyToAsync(img);
                 }
@@ -44,7 +43,7 @@
                 throw ex;
             }
 
-            return imgUrl;
+            return imgNameUrl;
         }
     }
 }

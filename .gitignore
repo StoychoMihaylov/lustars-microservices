@@ -6,6 +6,8 @@
 .pnp.js
 /logs
 
+ImageAPI.App/Images
+
 # testing
 /coverage
 /logs
