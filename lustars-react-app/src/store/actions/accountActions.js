@@ -9,7 +9,7 @@ import {
 
     REQUEST_ACCOUNT_LOGOUT,
     REQUEST_ACCOUNT_LOGOUT_SUCCESS,
-    REQUEST_ACCOUNT_LOGOUT_FAIL,
+    REQUEST_ACCOUNT_LOGOUT_FAIL
 } from '../../constants/accountActionTypes'
 import { api } from '../../constants/endpoints'
 import axios from 'axios'

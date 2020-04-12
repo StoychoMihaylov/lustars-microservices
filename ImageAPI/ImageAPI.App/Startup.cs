@@ -20,6 +20,7 @@ namespace ImageAPI.App
         {
             services.AddControllers();
             services.AddSwaggerDocument(); //Swagger
+            services.AddDependanciInjectionResolver(); // DI
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

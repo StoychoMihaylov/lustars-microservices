@@ -6,9 +6,9 @@ import {
     successfulNotification,
     errorNotification
 } from '../../store/actions/eventNotifications'
+import ProfileMainSettings from './ProfileMainSettings'
 import { getMyUserProfileDetails } from '../../store/actions/profileActions'
 import { editMyUserProfileDetails } from '../../store/actions/profileActions'
-import ProfileMainSettings from '../../components/profile/ProfileMainSettings'
 import { changeIsUserActive, changeUserEmailSubsribed } from '../../store/actions/profileActions'
 
 class ProfileInfo extends Component {
