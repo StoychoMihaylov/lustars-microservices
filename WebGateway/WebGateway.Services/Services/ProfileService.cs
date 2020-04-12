@@ -81,12 +81,12 @@
                 .CopyTo(ms);
 
             var payload = ms.ToArray();
-            var multipartContent = new MultipartFormDataContent();
-            multipartContent.Add(new ByteArrayContent(payload), "files", formData.Name);
+            var form = new MultipartFormDataContent();
+            form.Add(new ByteArrayContent(payload), "image", formData.Name);
 
-            var response = await this.HttpClient.PostAsync(ImageAPIService.Endpoint + $"user/{userId}/image/upload", multipartContent);
+            var response = this.HttpClient.PostAsync(ImageAPIService.Endpoint + $"image/{userId.ToString()}/upload", form).Result;
 
-            if (response.StatusCode == HttpStatusCode.Created)
+            if (response.StatusCode == HttpStatusCode.OK)
             {
                 return response.Content.ToString();
             }
