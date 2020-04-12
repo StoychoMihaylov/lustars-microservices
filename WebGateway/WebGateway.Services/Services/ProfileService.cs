@@ -64,7 +64,7 @@
         public async Task<bool> CreateNewUserProfileImage(Guid userId, ImageUrlBindingModel url)
         {
             var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(url);
-            var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + $"profile/{userId.ToString()}/image-url", stringContent);
+            var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + $"profile/{userId.ToString()}/avatar-image-url", stringContent);
             if (response.StatusCode == HttpStatusCode.Created)
             {
                 return true;
@@ -84,11 +84,11 @@
             var form = new MultipartFormDataContent();
             form.Add(new ByteArrayContent(payload), "image", formData.Name);
 
-            var response = this.HttpClient.PostAsync(ImageAPIService.Endpoint + $"image/{userId.ToString()}/upload", form).Result;
+            var response = await this.HttpClient.PostAsync(ImageAPIService.Endpoint + $"image/{userId.ToString()}/upload", form);
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                return response.Content.ToString();
+                return response.Content.ReadAsStringAsync().Result;
             }
 
             return null;

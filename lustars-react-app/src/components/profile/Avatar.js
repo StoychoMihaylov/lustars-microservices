@@ -137,7 +137,7 @@ class Avatar extends Component {
     render() {
         const { crop, profile_pic, src } = this.state
 
-        let url = this.props.imageUrl
+        let url = this.props.avatarImage
         let imageUser =  url !== null && url !== undefined ? url : null
 
         let imageCropper = this.state.showImageCropper === true
@@ -190,7 +190,7 @@ class Avatar extends Component {
                 {
                     imageUser === null || imageUser === ""
                     ? emptyImage
-                    : <img className="avatarImage" src={require(api + imageUser)} alt="" />
+                    : <img className="avatarImage" src={"http:/localhost:5003/Images/" + imageUser} alt="" />
                 }
             </div>
         )
