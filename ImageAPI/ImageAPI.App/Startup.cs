@@ -30,7 +30,10 @@ namespace ImageAPI.App
             app.UseSwaggerUi3();
             app.UseControllerEndpoints();
             app.UseExceptionHandling(env);
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseEndpoints(endpoints 
+                => { endpoints.MapControllers(); });  
+            
+            app.UseStaticFiles(); // Enable static files
         }
     }
 }

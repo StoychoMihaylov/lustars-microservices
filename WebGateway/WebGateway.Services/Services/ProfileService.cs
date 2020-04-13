@@ -20,7 +20,7 @@
         public ProfileService(HttpClient httpClient, StringContentSerializer stringContentSerializer)
             : base(httpClient, stringContentSerializer) { }
 
-        public async Task<bool> CallProfileAPICreateUserProfile(Guid userId)
+        public async Task<bool> CallProfileAPI_CreateUserProfile(Guid userId)
         {  
             var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + $"profile/create/{userId.ToString()}", null);
 
@@ -32,7 +32,7 @@
             return false;
         }
 
-        public async Task<bool> CallProfileAPIEditUserProfile(UserProfileBindingModel bm)
+        public async Task<bool> CallProfileAPI_EditUserProfile(UserProfileBindingModel bm)
         {
             var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(bm);
             var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + "profile/my-user-profile/edit", stringContent);
@@ -44,7 +44,7 @@
             return false;
         }
 
-        public async Task<UserProfileViewModel> CallProfileAPIGetUserProfileById(Guid guidUserId)
+        public async Task<UserProfileViewModel> CallProfileAPI_GetUserProfileById(Guid guidUserId)
         {
             var response = await this.HttpClient.GetAsync(ProfileAPIService.Endpoint + $"profile/my-user-profile/{guidUserId.ToString()}");
 
@@ -61,10 +61,12 @@
             }
         }
 
-        public async Task<bool> CreateNewUserProfileImage(Guid userId, ImageUrlBindingModel url)
+        public async Task<bool> CallProfileAPI_CreateNewUserProfileImage(Guid userId, ImageUrlBindingModel url)
         {
             var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(url);
-            var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + $"profile/{userId.ToString()}/avatar-image-url", stringContent);
+
+            var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + $"profile/{userId.ToString()}/image-url", stringContent);
+
             if (response.StatusCode == HttpStatusCode.Created)
             {
                 return true;
@@ -73,7 +75,21 @@
             return false;
         }
 
-        public async Task<string> CallImageAPIUploadImage(Guid userId, IFormFile formData)
+        public async Task<bool> CallProfileAPI_SaveAvatarImageURL(Guid userId, ImageUrlBindingModel url)
+        {
+            var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(url);
+
+            var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + $"profile/{userId.ToString()}/avatar-image-url", stringContent);
+
+            if (response.StatusCode == HttpStatusCode.Created)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<string> CallImageAPI_UploadImage(Guid userId, IFormFile formData)
         {
             var ms = new MemoryStream();
             formData

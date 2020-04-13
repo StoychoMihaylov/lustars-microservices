@@ -30,7 +30,7 @@
                 return StatusCode(400, "Model state is not valid!");
             }
 
-            var isCraeted = await this.profileService.CallProfileAPIEditUserProfile(bm);
+            var isCraeted = await this.profileService.CallProfileAPI_EditUserProfile(bm);
             if (!isCraeted)
             {
                 return StatusCode(501); // NotImplemented!
@@ -45,7 +45,7 @@
         {
             var userId = IdentityManager.CurrentUserId;
 
-            var userProfileVm = await this.profileService.CallProfileAPIGetUserProfileById(userId);
+            var userProfileVm = await this.profileService.CallProfileAPI_GetUserProfileById(userId);
             if (userProfileVm == null)
             {
                 return StatusCode(404); // NotFound!
@@ -57,15 +57,15 @@
         [HttpPost]
         [Authorize]
         [Route("image/upload")]
-        public async Task<IActionResult> SaveImageUrl([FromForm]IFormFile image)
+        public async Task<IActionResult> uploadImage([FromForm]IFormFile image)
         {
             var userId = IdentityManager.CurrentUserId;
 
             if (image == null) { return StatusCode(400); }
             var isImageInValidFormat = CheckIfImageIsInValidFormat(image);
-            if (!isImageInValidFormat) { return StatusCode(400, "The image must be in jpg(jpeg) format!"); }
+            if (!isImageInValidFormat) { return StatusCode(400, "The image must be in 'jpeg' format!"); }
 
-            var imageUrl = await this.profileService.CallImageAPIUploadImage(userId, image);
+            var imageUrl = await this.profileService.CallImageAPI_UploadImage(userId, image);
 
             if (imageUrl == null)
             {
@@ -73,7 +73,36 @@
             }
 
             var isImageCreated = await this.profileService
-                .CreateNewUserProfileImage(userId, new ImageUrlBindingModel() { Url = imageUrl });
+                .CallProfileAPI_CreateNewUserProfileImage(userId, new ImageUrlBindingModel() { Url = imageUrl });
+
+            if (!isImageCreated)
+            {
+                return StatusCode(501); // NotImplemented!
+            }
+
+            return StatusCode(201); // Created!
+        }
+
+        [HttpPost]
+        [Authorize]
+        [Route("avatar-image/upload")]
+        public async Task<IActionResult> avatarImageUpload([FromForm]IFormFile image)
+        {
+            var userId = IdentityManager.CurrentUserId;
+
+            if (image == null) { return StatusCode(400); }
+            var isImageInValidFormat = CheckIfImageIsInValidFormat(image);
+            if (!isImageInValidFormat) { return StatusCode(400, "The image must be in 'jpeg' format!"); }
+
+            var imageUrl = await this.profileService.CallImageAPI_UploadImage(userId, image);
+
+            if (imageUrl == null)
+            {
+                return StatusCode(501);
+            }
+
+            var isImageCreated = await this.profileService
+                .CallProfileAPI_SaveAvatarImageURL(userId, new ImageUrlBindingModel() { Url = imageUrl });
 
             if (!isImageCreated)
             {

@@ -129,15 +129,15 @@ class Avatar extends Component {
             this.setState({
                 showImageCropper: true
             })
+        } else {
+            this.props.errorNotification('The image should be in "jpeg" format!')
         }
-
-        // TO DO: show format error
     }
 
     render() {
         const { crop, profile_pic, src } = this.state
 
-        let url = this.props.avatarImage
+        let url = this.props.imageUrl
         let imageUser =  url !== null && url !== undefined ? url : null
 
         let imageCropper = this.state.showImageCropper === true
@@ -183,6 +183,27 @@ class Avatar extends Component {
                 </label>
             </div>
 
+        let avatarImage =
+            <div>
+                <label>
+                    <input
+                        type="file"
+                        multiple={false}
+                        id='profile_pic'
+                        value={profile_pic}
+                        className="avatarImgUploadBtn"
+                        onChange={ this.chooseImageToUpload.bind(this) }
+                    />
+
+                    {
+                        this.state.croppedImageUrl !== null
+                            ? <img className="avatarImage" src={this.state.croppedImageUrl} alt="" />
+                            : <img className="avatarImage" src={ api.imageAPI + imageUser } alt="" />
+                    }
+
+                </label>
+            </div>
+
         return (
             <div>
                 { imageCropper }
@@ -190,7 +211,7 @@ class Avatar extends Component {
                 {
                     imageUser === null || imageUser === ""
                     ? emptyImage
-                    : <img className="avatarImage" src={"http:/localhost:5003/Images/" + imageUser} alt="" />
+                    : avatarImage
                 }
             </div>
         )

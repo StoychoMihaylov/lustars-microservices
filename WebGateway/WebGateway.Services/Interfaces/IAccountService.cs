@@ -7,9 +7,9 @@
 
     public interface IAccountService
     {
-        Task<AccountCredentialsViewModel> CallAuthAPIAccountRegister(RegisterUserBindingModel bm);
-        Task<AccountCredentialsViewModel> CallAuthAPIAccountLogin(LoginUserBindingModel bm);
-        Task<bool> CallAuthAPIAccountLogout(LogoutBindingModel bm);
-        void CallAuthAPIDeleteAccount(AccountCredentialsViewModel userProfile);
+        Task<AccountCredentialsViewModel> CallAuthAPI_AccountRegister(RegisterUserBindingModel bm);
+        Task<AccountCredentialsViewModel> CallAuthAPI_AccountLogin(LoginUserBindingModel bm);
+        Task<bool> CallAuthAPI_AccountLogout(LogoutBindingModel bm);
+        void CallAuthAPI_DeleteAccount(AccountCredentialsViewModel userProfile);
     }
 }
