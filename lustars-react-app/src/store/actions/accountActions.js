@@ -19,15 +19,16 @@ import axios from 'axios'
 export function registerAccount(userModel) {
     return dispatch => {
         dispatch(requestRegisterAccount())
+
         return axios.post(api.domain + 'account/register', userModel)
-        .then(response => {
-            dispatch(requestRegisterAccountSuccess(response))
-            return response
-        })
-        .catch(err => {
-            dispatch(requestRegisterAccountFail(err))
-            return err
-        })
+            .then(response => {
+                dispatch(requestRegisterAccountSuccess(response))
+                return response
+            })
+            .catch(err => {
+                dispatch(requestRegisterAccountFail(err))
+                return err
+            })
     }
 }
 

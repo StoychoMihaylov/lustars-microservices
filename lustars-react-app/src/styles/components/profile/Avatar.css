@@ -30,6 +30,7 @@
 .cropImgBtn {
     color: white;
     padding: 10px;
+    margin-bottom: 20px;
     border-radius: 50px;
     border-color:  rgb(255, 0, 102);
     background-color: rgb(255, 0, 102);

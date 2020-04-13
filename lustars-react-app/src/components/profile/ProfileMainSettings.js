@@ -1,4 +1,6 @@
 import React, { Component } from "react"
+import { connect } from "react-redux"
+import { changeIsUserActive, changeUserEmailSubsribed } from '../../store/actions/profileActions'
 import YesNoInputField from '../../components/profile/YesNoInputField'
 import NumbersField from '../../components/profile/NumbersField'
 import Avatar from '../../components/profile/Avatar'
@@ -9,16 +11,28 @@ class ProfileMainSettings extends Component {
     }
 
     updateIsProfileActive = (newValue) => {
-        this.props.updateIsProfileActive(newValue)
+        let oldState = this.props.profile
+        let newState = Object.assign({}, oldState)
+        newState.isUserProfileActivated = newValue
+
+        this.props.changeIsUserActive(newState)
     }
 
     updateIsEmailSubscribed = (newValue) => {
-        this.props.updateIsEmailSubscribed(newValue)
+        let oldState = this.props.profile
+        let newState = Object.assign({}, oldState)
+        newState.emailNotificationsSubscribed = newValue
+
+        this.props.changeUserEmailSubsribed(newState)
     }
 
     render() {
         return (
             <div>
+                <div>
+                    <input type="text" defaultValue={ this.props.profile.name } />
+                    <input type="text" defaultValue={ this.props.profile.lastName } />
+                </div>
                 <div>
                     <Avatar
                         imageUrl={ this.props.profile.avatarImage }
@@ -59,4 +73,11 @@ class ProfileMainSettings extends Component {
     }
 }
 
-export default ProfileMainSettings
+const mapDispatchToProps = dispatch => {
+    return {
+        changeIsUserActive: (newValue) => dispatch(changeIsUserActive(newValue)),
+        changeUserEmailSubsribed: (newValue) => dispatch(changeUserEmailSubsribed(newValue)),
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ProfileMainSettings)

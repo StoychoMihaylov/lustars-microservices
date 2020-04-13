@@ -41,8 +41,8 @@
         [Route("my-user-profile/edit")]
         public IActionResult EditUserProfile([FromBody] UserProfileBindingModel bm)
         {
-            var isCraeted = this.profileService.EditUserProfile(bm);
-            if (!isCraeted)
+            var isUpdated = this.profileService.EditUserProfile(bm);
+            if (!isUpdated)
             {
                 return StatusCode(501); // NotImplemented!
             }
