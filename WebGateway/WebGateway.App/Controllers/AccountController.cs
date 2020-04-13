@@ -38,17 +38,17 @@
 
             try
             {
-                var accountCredentials = await this.accountService.CallAuthAPIAccountRegister(bm);
+                var accountCredentials = await this.accountService.CallAuthAPI_AccountRegister(bm);
                 if (accountCredentials == null)
                 {
                     return StatusCode(400, "Email already exists or wrong credentials!"); // BadRequest!
                 }
 
-                var isCreated = await this.profileService.CallProfileAPICreateUserProfile(accountCredentials.UserId); // Call to ProfileAPI
+                var isCreated = await this.profileService.CallProfileAPI_CreateUserProfile(accountCredentials.UserId); // Call to ProfileAPI
 
                 if (!isCreated)
                 {
-                    this.accountService.CallAuthAPIDeleteAccount(accountCredentials); // Revert account creation(delete it)
+                    this.accountService.CallAuthAPI_DeleteAccount(accountCredentials); // Revert account creation(delete it)
                     return StatusCode(503); // ServiceUnavailable!
                 }
 
@@ -74,7 +74,7 @@
 
             try
             {
-                var accountCredentials = await this.accountService.CallAuthAPIAccountLogin(bm);
+                var accountCredentials = await this.accountService.CallAuthAPI_AccountLogin(bm);
                 if (accountCredentials == null)
                 {
                     return StatusCode(400, "Wrong credentials or this user doesn't exist!"); // BadRequest!
@@ -103,7 +103,7 @@
 
             try
             {
-                var response = await this.accountService.CallAuthAPIAccountLogout(bm);
+                var response = await this.accountService.CallAuthAPI_AccountLogout(bm);
                 if (response)
                 {
                     return StatusCode(200); // Ok!

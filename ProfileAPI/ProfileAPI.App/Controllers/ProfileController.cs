@@ -72,7 +72,7 @@
 
         [HttpPost]
         [Route("{userId}/image-url")]
-        public IActionResult SaveImageUrl(string userId, [FromBody]ImageUrlBindingModel imageUrl)
+        public IActionResult CreateNewUserProfileImage(string userId, [FromBody]ImageUrlBindingModel imageUrl)
         {
             var userIdGuid = Guid.Empty;
             bool isValid = Guid.TryParse(userId, out userIdGuid);

@@ -16,7 +16,7 @@
         public AccountService(HttpClient httpClient, StringContentSerializer stringContentSerializer)
             : base(httpClient, stringContentSerializer) { }
 
-        public async Task<AccountCredentialsViewModel> CallAuthAPIAccountLogin(LoginUserBindingModel bm)
+        public async Task<AccountCredentialsViewModel> CallAuthAPI_AccountLogin(LoginUserBindingModel bm)
         {
             var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(bm);
             var response = await this.HttpClient.PostAsync(AuthAPIService.Endpoint + "account/login", stringContent);
@@ -34,7 +34,7 @@
             }
         }
 
-        public async Task<bool> CallAuthAPIAccountLogout(LogoutBindingModel bm)
+        public async Task<bool> CallAuthAPI_AccountLogout(LogoutBindingModel bm)
         {
             var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(bm);
             var response = await this.HttpClient.PostAsync(AuthAPIService.Endpoint + "account/logout", stringContent);
@@ -49,7 +49,7 @@
             }
         }
 
-        public async Task<AccountCredentialsViewModel> CallAuthAPIAccountRegister(RegisterUserBindingModel bm)
+        public async Task<AccountCredentialsViewModel> CallAuthAPI_AccountRegister(RegisterUserBindingModel bm)
         { 
             var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(bm);
             var response = await this.HttpClient.PostAsync(AuthAPIService.Endpoint + "account/register", stringContent);
@@ -67,7 +67,7 @@
             }
         }
 
-        public async void CallAuthAPIDeleteAccount(AccountCredentialsViewModel userProfile)
+        public async void CallAuthAPI_DeleteAccount(AccountCredentialsViewModel userProfile)
         {
             var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(userProfile);
             await this.HttpClient.PostAsync(AuthAPIService.Endpoint + "account/delete", stringContent);

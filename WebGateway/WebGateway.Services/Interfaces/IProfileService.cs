@@ -9,10 +9,11 @@
 
     public interface IProfileService
     {
-        Task<bool> CallProfileAPICreateUserProfile(Guid userId);
-        Task<bool> CallProfileAPIEditUserProfile(UserProfileBindingModel bm);
-        Task<UserProfileViewModel> CallProfileAPIGetUserProfileById(Guid guidUserId);
-        Task<bool> CreateNewUserProfileImage(Guid userId, ImageUrlBindingModel url);
-        Task<string> CallImageAPIUploadImage(Guid userId, IFormFile formData);
+        Task<bool> CallProfileAPI_CreateUserProfile(Guid userId);
+        Task<bool> CallProfileAPI_EditUserProfile(UserProfileBindingModel bm);
+        Task<UserProfileViewModel> CallProfileAPI_GetUserProfileById(Guid guidUserId);
+        Task<bool> CallProfileAPI_SaveAvatarImageURL(Guid userId, ImageUrlBindingModel url);
+        Task<bool> CallProfileAPI_CreateNewUserProfileImage(Guid userId, ImageUrlBindingModel url);
+        Task<string> CallImageAPI_UploadImage(Guid userId, IFormFile formData);
     }
 }
