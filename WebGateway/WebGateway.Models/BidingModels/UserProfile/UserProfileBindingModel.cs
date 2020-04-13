@@ -23,9 +23,9 @@
 
         public string LookingFor { get; set; }
 
-        public int AgeRangeFrom { get; set; }
+        public int PartnerAgeRangeFrom { get; set; }
 
-        public int AgeRangeTo { get; set; }
+        public int PartnerAgeRangeTo { get; set; }
 
         public bool WantToHaveKids { get; set; }
 
@@ -37,8 +37,8 @@
 
         public string Languages { get; set; }
 
-        public bool EmailNotificationsSubscribe { get; set; }
+        public bool EmailNotificationsSubscribed { get; set; }
 
-        public bool IsActivated { get; set; }
+        public bool IsUserProfileActivated { get; set; }
     }
 }

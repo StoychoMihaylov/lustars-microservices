@@ -30,8 +30,8 @@
                 return StatusCode(400, "Model state is not valid!");
             }
 
-            var isCraeted = await this.profileService.CallProfileAPI_EditUserProfile(bm);
-            if (!isCraeted)
+            var isUpdated = await this.profileService.CallProfileAPI_EditUserProfile(bm);
+            if (!isUpdated)
             {
                 return StatusCode(501); // NotImplemented!
             }

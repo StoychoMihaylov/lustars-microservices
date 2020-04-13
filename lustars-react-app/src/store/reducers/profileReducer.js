@@ -46,7 +46,6 @@ const profileReducer = (state, action) => {
         case REQUEST_EDIT_MY_PROFILE_DETAILS_SUCCESS:
             return {
                 ...state,
-                userProfileDetails: action.payload,
                 isLoading: false,
             }
         case REQUEST_EDIT_MY_PROFILE_DETAILS_FAIL:

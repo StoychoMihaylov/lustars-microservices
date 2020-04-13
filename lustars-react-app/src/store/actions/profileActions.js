@@ -62,22 +62,26 @@ export function requestMyUserProfileDetailsFail(error) {
 
 //*************************** Edit my profile details ***************************
 
-export function editMyUserProfileDetails(newState) {
+export function editMyUserProfileDetails(userProfileDetails) {
     return dispatch => {
-       /*  dispatch(requestEditMyUserProfileDetails())
-        axios.get(api.domain + 'user-profile', {
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token')
-            }
-        })
-        .then(response => {
-            dispatch(requestEditMyUserProfileDetailsSuccess(response.data))
-        })
-        .catch(err => {
-            dispatch(requestEditMyUserProfileDetailsFail(err))
-        }) */
-
-        dispatch(requestEditMyUserProfileDetailsSuccess(newState))
+        dispatch(requestEditMyUserProfileDetails())
+        console.log("ddddddddddddddddddd")
+        console.log(userProfileDetails)
+        console.log("ddddddddddddddddddd")
+        return axios.post(api.domain + 'user-profile/edit', userProfileDetails, {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('lustars_token')
+                }
+            })
+            .then(response => {
+                console.log(response)
+                dispatch(requestEditMyUserProfileDetailsSuccess())
+                return response
+            })
+            .catch(err => {
+                dispatch(requestEditMyUserProfileDetailsFail(err))
+                return err
+            })
     }
 }
 
@@ -87,10 +91,9 @@ export function requestEditMyUserProfileDetails() {
     }
 }
 
-export function requestEditMyUserProfileDetailsSuccess(data) {
+export function requestEditMyUserProfileDetailsSuccess() {
     return {
-        type: REQUEST_EDIT_MY_PROFILE_DETAILS_SUCCESS,
-        payload: data
+        type: REQUEST_EDIT_MY_PROFILE_DETAILS_SUCCESS
     }
 }
 
