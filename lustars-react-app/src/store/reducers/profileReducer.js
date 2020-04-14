@@ -5,10 +5,10 @@ import {
     REQUEST_EDIT_MY_PROFILE_DETAILS,
     REQUEST_EDIT_MY_PROFILE_DETAILS_SUCCESS,
     REQUEST_EDIT_MY_PROFILE_DETAILS_FAIL,
-    CHANGE_USER_PROFILE_ACTIVE_ON_OFF,
-    CHANGE_USER_PROFILE_ACTIVE_ON_OFF_SUCCESS,
-    CHANGE_USER_EMAIL_SUBSCRIBED,
-    CHANGE_USER_EMAIL_SUBSCRIBED_SUCCESS
+    UPDATE_USER_PROFILE_BOOLEAN_FIELD,
+    UPDATE_USER_PROFILE_BOOLEAN_FIELD_SUCCESS,
+    UPDATE_USER_PROFILE_TEXT_FIELD,
+    UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS
 } from '../../constants/profileActionTypes'
 
 const initialState = {
@@ -53,19 +53,14 @@ const profileReducer = (state, action) => {
                 ...state,
                 error: action.payload
             }
-        case CHANGE_USER_PROFILE_ACTIVE_ON_OFF:
+        case UPDATE_USER_PROFILE_BOOLEAN_FIELD:
+        case UPDATE_USER_PROFILE_BOOLEAN_FIELD_SUCCESS:
             return {
                 ...state,
                 userProfileDetails: action.payload
             }
-        case CHANGE_USER_PROFILE_ACTIVE_ON_OFF:
-        case CHANGE_USER_PROFILE_ACTIVE_ON_OFF_SUCCESS:
-            return {
-                ...state,
-                userProfileDetails: action.payload
-            }
-        case CHANGE_USER_EMAIL_SUBSCRIBED:
-        case CHANGE_USER_EMAIL_SUBSCRIBED_SUCCESS:
+        case UPDATE_USER_PROFILE_TEXT_FIELD:
+        case UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS:
             return {
                 ...state,
                 userProfileDetails: action.payload

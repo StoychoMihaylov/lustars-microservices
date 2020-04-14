@@ -2,20 +2,16 @@ import {
     REQUEST_MY_PROFILE_DETAILS,
     REQUEST_MY_PROFILE_DETAILS_SUCCESS,
     REQUEST_MY_PROFILE_DETAILS_FAIL,
-
     REQUEST_EDIT_MY_PROFILE_DETAILS,
     REQUEST_EDIT_MY_PROFILE_DETAILS_SUCCESS,
     REQUEST_EDIT_MY_PROFILE_DETAILS_FAIL,
-
-    CHANGE_USER_PROFILE_ACTIVE_ON_OFF,
-    CHANGE_USER_PROFILE_ACTIVE_ON_OFF_SUCCESS,
-
-    CHANGE_USER_EMAIL_SUBSCRIBED,
-    CHANGE_USER_EMAIL_SUBSCRIBED_SUCCESS,
-
+    UPDATE_USER_PROFILE_BOOLEAN_FIELD,
+    UPDATE_USER_PROFILE_BOOLEAN_FIELD_SUCCESS,
     REQUEST_UPLOAD_AVATAR_IMAGE,
     REQUEST_UPLOAD_AVATAR_IMAGE_SUCCESS,
-    REQUEST_UPLOAD_AVATAR_IMAGE_FAIL
+    REQUEST_UPLOAD_AVATAR_IMAGE_FAIL,
+    UPDATE_USER_PROFILE_TEXT_FIELD,
+    UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS
 } from '../../constants/profileActionTypes'
 import { api } from '../../constants/endpoints'
 import axios from 'axios'
@@ -104,44 +100,22 @@ export function requestEditMyUserProfileDetailsFail(error) {
 
 //*************************** Change wheter user profile is active on/off ***************************
 
-export function changeIsUserActive(newProfileData) {
+export function updateUserProfileBoleanField(newProfileData) {
     return dispatch => {
-        dispatch(changeWetherUserIsActiveOrNot())
-        dispatch(changeWetherUserIsActiveOrNotSuccess(newProfileData))
+        dispatch(updateBoleanField())
+        dispatch(updateBoleanFieldSuccess(newProfileData))
     }
 }
 
-export function changeWetherUserIsActiveOrNot() {
+export function updateBoleanField() {
     return {
-        type: CHANGE_USER_PROFILE_ACTIVE_ON_OFF
+        type: UPDATE_USER_PROFILE_BOOLEAN_FIELD
     }
 }
 
-export function changeWetherUserIsActiveOrNotSuccess(newProfileData) {
+export function updateBoleanFieldSuccess(newProfileData) {
     return {
-        type: CHANGE_USER_PROFILE_ACTIVE_ON_OFF_SUCCESS,
-        payload: newProfileData
-    }
-}
-
-//*************************** Change wheter user is email subscribed on/off ***************************
-
-export function changeUserEmailSubsribed(newProfileData) {
-    return dispatch => {
-        dispatch(changeWetherUserIsEmailSubscribed())
-        dispatch(changeWetherUserIsEmailSubscribedSuccess(newProfileData))
-    }
-}
-
-export function changeWetherUserIsEmailSubscribed() {
-    return {
-        type: CHANGE_USER_EMAIL_SUBSCRIBED
-    }
-}
-
-export function changeWetherUserIsEmailSubscribedSuccess(newProfileData) {
-    return {
-        type: CHANGE_USER_EMAIL_SUBSCRIBED_SUCCESS,
+        type: UPDATE_USER_PROFILE_BOOLEAN_FIELD_SUCCESS,
         payload: newProfileData
     }
 }
@@ -181,5 +155,27 @@ export function requestUploadAvatarImageFail(error) {
     return {
         type: REQUEST_UPLOAD_AVATAR_IMAGE_FAIL,
         payload: error
+    }
+}
+
+//*************************** Update user profile text field ***************************
+
+export function updateuserProfileTextField(newProfileData) {
+    return dispatch => {
+        dispatch(editTextField())
+        dispatch(editTextFieldSuccess(newProfileData))
+    }
+}
+
+export function editTextField() {
+    return {
+        type: UPDATE_USER_PROFILE_TEXT_FIELD
+    }
+}
+
+export function editTextFieldSuccess(newProfileData) {
+    return {
+        type: UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS,
+        payload: newProfileData
     }
 }
