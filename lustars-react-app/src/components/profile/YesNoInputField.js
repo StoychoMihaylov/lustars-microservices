@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import '../../styles/components/profile/YesNoInputField.css'
 
 class YesNoInputField extends Component {
-    
+
     switchValue() {
         var userActive = this.props.value
 

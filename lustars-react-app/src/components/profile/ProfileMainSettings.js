@@ -10,6 +10,24 @@ class ProfileMainSettings extends Component {
         super(props)
     }
 
+    updateProfileTextField(params) {
+        let field = params.target.id
+        let value = params.target.value
+        let oldState = this.props.profile
+        let newState = Object.assign({}, oldState)
+
+        switch (field) {
+            case 'name':
+                newState.name = value
+                // TO DO: Call reduc function to update global state
+            case 'lastName':
+                newState.lastName = value
+                // TO DO: Call reduc function to update global state
+            default:
+                return
+        }
+    }
+
     updateIsProfileActive = (newValue) => {
         let oldState = this.props.profile
         let newState = Object.assign({}, oldState)
@@ -30,8 +48,8 @@ class ProfileMainSettings extends Component {
         return (
             <div>
                 <div>
-                    <input type="text" defaultValue={ this.props.profile.name } />
-                    <input type="text" defaultValue={ this.props.profile.lastName } />
+                    <input type="text" id="name" defaultValue={ this.props.profile.name } onChange={this.updateProfileTextField.bind(this)} />
+                    <input type="text" id="lastName" defaultValue={ this.props.profile.lastName } onChange={this.updateProfileTextField.bind(this)}/>
                 </div>
                 <div>
                     <Avatar

@@ -25,27 +25,6 @@ class ProfileInfo extends Component {
     }
 
     updateUsedProfileDetails() {
-        //let props = this.props.profile
-        /* let userProfileDetails = {
-            id: props.id,
-            name: props.name,
-            email: props.email,
-            gender: props.gender,
-            dateOfBirth: props.dateOfBirth,
-            biography: props.biography,
-            city: props.city,
-            lookingFor: props.lookingFor,
-            partnerAgeRangeFrom: props.partnerAgeRangeFrom,
-            partnerAgeRangeTo: props.partnerAgeRangeTo,
-            wantToHaveKids: props.wantToHaveKids,
-            educationDegree: props.educationDegree,
-            university: props.university,
-            work: props.work,
-            languages: props.languages,
-            emailNotificationsSubscribed: props.emailNotificationsSubscribed,
-            isUserProfileActivated: props.isUserProfileActivated
-        } */
-
         this.props.editMyUserProfileDetails(this.props.profile)
             .then(response => {
                 if (response.status === 200) {
@@ -57,7 +36,6 @@ class ProfileInfo extends Component {
     }
 
     render() {
-        console.log(this.props.profile)
         let isProfileDifined = this.props.profile !== undefined ? true : false
         return (
             <div className="userProfileContainer">
