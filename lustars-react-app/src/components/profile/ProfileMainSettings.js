@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { changeIsUserActive, changeUserEmailSubsribed } from '../../store/actions/profileActions'
+import { updateUserProfileBoleanField, updateuserProfileTextField } from '../../store/actions/profileActions'
 import YesNoInputField from '../../components/profile/YesNoInputField'
 import NumbersField from '../../components/profile/NumbersField'
 import Avatar from '../../components/profile/Avatar'
@@ -10,46 +10,56 @@ class ProfileMainSettings extends Component {
         super(props)
     }
 
-    updateProfileTextField(params) {
-        let field = params.target.id
-        let value = params.target.value
+    updateProfileTextField(field, value) {
         let oldState = this.props.profile
         let newState = Object.assign({}, oldState)
 
         switch (field) {
             case 'name':
                 newState.name = value
-                // TO DO: Call reduc function to update global state
+                this.props.updateuserProfileTextField(newState)
+                return
             case 'lastName':
                 newState.lastName = value
-                // TO DO: Call reduc function to update global state
+                this.props.updateuserProfileTextField(newState)
+                return
             default:
                 return
         }
     }
 
-    updateIsProfileActive = (newValue) => {
+    updateIsProfileActive = (field, newValue) => {
         let oldState = this.props.profile
         let newState = Object.assign({}, oldState)
-        newState.isUserProfileActivated = newValue
 
-        this.props.changeIsUserActive(newState)
-    }
-
-    updateIsEmailSubscribed = (newValue) => {
-        let oldState = this.props.profile
-        let newState = Object.assign({}, oldState)
-        newState.emailNotificationsSubscribed = newValue
-
-        this.props.changeUserEmailSubsribed(newState)
+        switch (field) {
+            case 'isProfileActive':
+                newState.isUserProfileActivated = newValue
+                this.props.updateUserProfileBoleanField(newState)
+                return
+            case 'isEmailSubscribed':
+                newState.emailNotificationsSubscribed = newValue
+                this.props.updateUserProfileBoleanField(newState)
+                return
+            default:
+                return
+        }
     }
 
     render() {
         return (
             <div>
                 <div>
-                    <input type="text" id="name" defaultValue={ this.props.profile.name } onChange={this.updateProfileTextField.bind(this)} />
-                    <input type="text" id="lastName" defaultValue={ this.props.profile.lastName } onChange={this.updateProfileTextField.bind(this)}/>
+                    <input
+                        type="text"
+                        defaultValue={ this.props.profile.name }
+                        onChange={(e) => this.updateProfileTextField("name", e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        defaultValue={ this.props.profile.lastName }
+                        onChange={(e) => this.updateProfileTextField("lastName", e.target.value)}
+                    />
                 </div>
                 <div>
                     <Avatar
@@ -61,7 +71,7 @@ class ProfileMainSettings extends Component {
                     <YesNoInputField
                         label="Profile Active"
                         value={ this.props.profile.isUserProfileActivated }
-                        switchValue={this.updateIsProfileActive.bind(this)}
+                        switchValue={(newValue) => this.updateIsProfileActive('isProfileActive', newValue)}
                     />
                 </span>
                 <br/>
@@ -83,7 +93,7 @@ class ProfileMainSettings extends Component {
                     <YesNoInputField
                         label="Email subscribed"
                         value={ this.props.profile.emailNotificationsSubscribed }
-                        switchValue={this.updateIsEmailSubscribed.bind(this)}
+                        switchValue={(newValue) => this.updateIsProfileActive("isEmailSubscribed", newValue)}
                     />
                 </span>
             </div>
@@ -93,8 +103,8 @@ class ProfileMainSettings extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        changeIsUserActive: (newValue) => dispatch(changeIsUserActive(newValue)),
-        changeUserEmailSubsribed: (newValue) => dispatch(changeUserEmailSubsribed(newValue)),
+        updateUserProfileBoleanField: (newValue) => dispatch(updateUserProfileBoleanField(newValue)),
+        updateuserProfileTextField: (newValue) => dispatch(updateuserProfileTextField(newValue))
     }
 }
 
