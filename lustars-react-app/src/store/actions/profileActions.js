@@ -65,9 +65,7 @@ export function requestMyUserProfileDetailsFail(error) {
 export function editMyUserProfileDetails(userProfileDetails) {
     return dispatch => {
         dispatch(requestEditMyUserProfileDetails())
-        console.log("ddddddddddddddddddd")
-        console.log(userProfileDetails)
-        console.log("ddddddddddddddddddd")
+
         return axios.post(api.domain + 'user-profile/edit', userProfileDetails, {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('lustars_token')
