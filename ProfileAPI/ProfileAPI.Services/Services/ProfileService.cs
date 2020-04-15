@@ -25,7 +25,9 @@
                 userProfile.EmailNotificationsSubscribed = bm.EmailNotificationsSubscribed;
                 userProfile.IsUserProfileActivated = bm.IsUserProfileActivated;
                 userProfile.Name = bm.Name;
-                userProfile.LastName = bm.Name;
+                userProfile.LastName = bm.LastName;
+                userProfile.City = bm.City;
+                userProfile.Country = bm.Country;
                 userProfile.Title = bm.Title;
                 userProfile.Gender = bm.Gender;
                 userProfile.DateOfBirth = bm.DateOfBirth;

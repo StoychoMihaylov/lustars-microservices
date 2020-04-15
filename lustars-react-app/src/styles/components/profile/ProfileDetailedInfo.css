@@ -9,6 +9,8 @@
     width: 500px;
     margin: 20px;
     overflow: hidden;
+    text-align: left;
+    padding-left: 100px;
     display: inline-block;
 }
 
