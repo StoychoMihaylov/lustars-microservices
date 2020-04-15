@@ -36,6 +36,7 @@ class ProfileInfo extends Component {
     }
 
     render() {
+        console.log(this.props.profile)
         let isProfileDifined = this.props.profile !== undefined ? true : false
         return (
             <div className="userProfileContainer">
@@ -46,202 +47,180 @@ class ProfileInfo extends Component {
 
                 <div className="userProfileInfoDetails">
                     <div>
-                        <label>
-                            Biography
-                            <textarea defaultValue={ isProfileDifined ? this.props.profile.biography : "" }></textarea>
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            City:
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.city : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Country
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.country : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Created on
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.createdOn : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Birth date
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.dateOfBirth : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Drink Alcohol
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.drinkAlcohol : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            How often Drink
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.howOftenDrinkAlcohol : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Education degree
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.educationDegree : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Figure
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.figure : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Gender
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.gender : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            kids
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.haveKids : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Height
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.height : "" } />
-                        </label>
-                    </div>
+                        <h2>About me</h2>
+                        <div>
+                            <label>
+                                Mood
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.title : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Birth date
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.dateOfBirth : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Gender
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.gender : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Merial status
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.meritalStatus : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Looking for
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.lookingFor : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Languages
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.languages : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Education degree
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.educationDegree : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                University
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.university : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Work
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.work : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Income
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.income : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Biography
+                                <textarea defaultValue={ isProfileDifined ? this.props.profile.biography : "" }></textarea>
+                            </label>
+                        </div>
+                        <br/>
+                        <div>
+                            <label>
+                                kids
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.haveKids : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                            wantToHaveKids
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.wantToHaveKids : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Height
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.height : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Weight
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.weight : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Figure
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.figure : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Drink Alcohol
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.drinkAlcohol : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                How often Drink
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.howOftenDrinkAlcohol : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Smoker
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.smoker : "" } />
+                            </label>
+                        </div>
                     <div>
                         <label>
                             How often smoke
                             <input type="text" defaultValue={ isProfileDifined ? this.props.profile.howOftenSmoke : "" } />
                         </label>
                     </div>
-                    <div>
-                        <label>
-                            Income
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.income : "" } />
-                        </label>
                     </div>
+                    <br/>
                     <div>
-                        <label>
-                            Profie Activated
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.isUserProfileActivated : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Languages
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.languages : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Looking for
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.lookingFor : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Merial status
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.meritalStatus : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Partner age range from
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerAgeRangeFrom : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Partner age range to
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerAgeRangeTo : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Partner Drink Alcohol
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerDrinkAlcohol : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Partner Figurel
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerFigure : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            partnerHaveKids
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerHaveKids : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            partnerIncomeFrom
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerIncomeFrom : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            partnerIncomeTo
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerIncomeTo : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            partnerSmoke
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerSmoke : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            smoker
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.smoker : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            superlikes
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.superlikes : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            title
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.title : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            university
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.university : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                        wantToHaveKids
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.wantToHaveKids : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            weight
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.weight : "" } />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            work
-                            <input type="text" defaultValue={ isProfileDifined ? this.props.profile.work : "" } />
-                        </label>
+                        <h2>Partner info</h2>
+                        <div>
+                            <label>
+                                Partner age range from
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerAgeRangeFrom : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Partner age range to
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerAgeRangeTo : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Partner Figure
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerFigure : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                PartnerHaveKids
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerHaveKids : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                PartnerSmoke
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerSmoke : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Partner Drink Alcohol
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerDrinkAlcohol : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                PartnerIncomeFrom
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerIncomeFrom : "" } />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                PartnerIncomeTo
+                                <input type="text" defaultValue={ isProfileDifined ? this.props.profile.partnerIncomeTo : "" } />
+                            </label>
+                        </div>
                     </div>
                 </div>
 

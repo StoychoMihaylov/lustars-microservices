@@ -4,6 +4,7 @@ import { updateUserProfileBoleanField, updateuserProfileTextField } from '../../
 import YesNoInputField from '../../components/profile/YesNoInputField'
 import NumbersField from '../../components/profile/NumbersField'
 import Avatar from '../../components/profile/Avatar'
+import '../../styles/components/profile/ProfileMainSettings.css'
 
 class ProfileMainSettings extends Component {
     constructor(props) {
@@ -21,6 +22,14 @@ class ProfileMainSettings extends Component {
                 return
             case 'lastName':
                 newState.lastName = value
+                this.props.updateuserProfileTextField(newState)
+                return
+            case 'city':
+                newState.city = value
+                this.props.updateuserProfileTextField(newState)
+                return
+            case 'country':
+                newState.country = value
                 this.props.updateuserProfileTextField(newState)
                 return
             default:
@@ -48,7 +57,7 @@ class ProfileMainSettings extends Component {
 
     render() {
         return (
-            <div>
+            <div className="profileMainSettings">
                 <div>
                     <input
                         type="text"
@@ -65,6 +74,28 @@ class ProfileMainSettings extends Component {
                     <Avatar
                         imageUrl={ this.props.profile.avatarImage }
                     />
+                </div>
+                <div>
+                    <label>
+                        Location
+                        <input type="text" readOnly defaultValue="Stara Zagora, Bulgaria" />
+                    </label>
+                    <label>
+                        From City
+                        <input
+                            type="text"
+                            defaultValue={ this.props.profile.city }
+                            onChange={(e) => this.updateProfileTextField("city", e.target.value)}
+                        />
+                    </label>
+                    <label>
+                        From Country
+                        <input
+                            type="text"
+                            defaultValue={ this.props.profile.country }
+                            onChange={(e) => this.updateProfileTextField("country", e.target.value)}
+                        />
+                    </label>
                 </div>
                 <br/>
                 <span>
