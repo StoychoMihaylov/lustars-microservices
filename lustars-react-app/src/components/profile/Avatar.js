@@ -105,14 +105,20 @@ class Avatar extends Component {
 
         let formData = new FormData();
         formData.append("image", this.state.croppedImage)
-        var response = this.props.uploadAvatarImage(formData)
 
-        // TO DO: if response Ok show cropped image if not show notification err msg
-
-        this.setState({
-            croppedImageUrl: imgUrl,
-            showImageCropper: false
-        })
+        this.props.uploadAvatarImage(formData)
+            .then(response => {
+                console.log(response)
+                if (response.status === 201) {
+                    this.setState({
+                        croppedImageUrl: imgUrl,
+                        showImageCropper: false
+                    })
+                    this.props.successfulNotification("Avatar image uploaded!")
+                } else {
+                    this.props.errorNotification("Something went wrong! Please check your connection!")
+                }
+            })
     }
 
     async chooseImageToUpload(image) {
