@@ -98,7 +98,7 @@ export function requestEditMyUserProfileDetailsFail(error) {
     }
 }
 
-//*************************** Change wheter user profile is active on/off ***************************
+//*************************** Update user profile bolean field ***************************
 
 export function updateUserProfileBoleanField(newProfileData) {
     return dispatch => {
@@ -125,16 +125,19 @@ export function updateBoleanFieldSuccess(newProfileData) {
 export function uploadAvatarImage(formdData) {
     return dispatch => {
         dispatch(requestUploadAvatarImage(formdData))
-        axios.post(api.domain + 'user-profile/avatar-image/upload', formdData, {
+
+        return axios.post(api.domain + 'user-profile/avatar-image/upload', formdData, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('lustars_token')
             }
         })
-        .then(
+        .then(response => {
             dispatch(requestUploadAvatarImageSuccess())
-        )
+            return response
+        })
         .catch(err => {
             dispatch(requestUploadAvatarImageFail(err))
+            return err
         })
     }
 }
@@ -160,7 +163,7 @@ export function requestUploadAvatarImageFail(error) {
 
 //*************************** Update user profile text field ***************************
 
-export function updateuserProfileTextField(newProfileData) {
+export function updateUserProfileTextField(newProfileData) {
     return dispatch => {
         dispatch(editTextField())
         dispatch(editTextFieldSuccess(newProfileData))

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { updateUserProfileBoleanField, updateuserProfileTextField } from '../../store/actions/profileActions'
+import { updateUserProfileBoleanField, updateUserProfileTextField } from '../../store/actions/profileActions'
 import YesNoInputField from '../../components/profile/YesNoInputField'
 import NumbersField from '../../components/profile/NumbersField'
 import Avatar from '../../components/profile/Avatar'
@@ -18,26 +18,26 @@ class ProfileMainSettings extends Component {
         switch (field) {
             case 'name':
                 newState.name = value
-                this.props.updateuserProfileTextField(newState)
+                this.props.updateUserProfileTextField(newState)
                 return
             case 'lastName':
                 newState.lastName = value
-                this.props.updateuserProfileTextField(newState)
+                this.props.updateUserProfileTextField(newState)
                 return
             case 'city':
                 newState.city = value
-                this.props.updateuserProfileTextField(newState)
+                this.props.updateUserProfileTextField(newState)
                 return
             case 'country':
                 newState.country = value
-                this.props.updateuserProfileTextField(newState)
+                this.props.updateUserProfileTextField(newState)
                 return
             default:
                 return
         }
     }
 
-    updateIsProfileActive = (field, newValue) => {
+    updateProfileBooleanField = (field, newValue) => {
         let oldState = this.props.profile
         let newState = Object.assign({}, oldState)
 
@@ -102,7 +102,7 @@ class ProfileMainSettings extends Component {
                     <YesNoInputField
                         label="Profile Active"
                         value={ this.props.profile.isUserProfileActivated }
-                        switchValue={(newValue) => this.updateIsProfileActive('isProfileActive', newValue)}
+                        switchValue={(newValue) => this.updateProfileBooleanField('isProfileActive', newValue)}
                     />
                 </span>
                 <br/>
@@ -124,7 +124,7 @@ class ProfileMainSettings extends Component {
                     <YesNoInputField
                         label="Email subscribed"
                         value={ this.props.profile.emailNotificationsSubscribed }
-                        switchValue={(newValue) => this.updateIsProfileActive("isEmailSubscribed", newValue)}
+                        switchValue={(newValue) => this.updateProfileBooleanField("isEmailSubscribed", newValue)}
                     />
                 </span>
             </div>
@@ -135,7 +135,7 @@ class ProfileMainSettings extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         updateUserProfileBoleanField: (newValue) => dispatch(updateUserProfileBoleanField(newValue)),
-        updateuserProfileTextField: (newValue) => dispatch(updateuserProfileTextField(newValue))
+        updateUserProfileTextField: (newValue) => dispatch(updateUserProfileTextField(newValue))
     }
 }
 
