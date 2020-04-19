@@ -9,6 +9,51 @@ import '../../styles/components/profile/ProfileMainSettings.css'
 class ProfileMainSettings extends Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            showNameInput: false,
+            showLastNameInput: false
+        }
+    }
+
+    showHideNameInput() {
+        let currentState = this.state.showNameInput
+
+        if (!currentState) {
+            this.setState({
+                showNameInput: true
+            })
+        } else {
+            this.setState({
+                showNameInput: false
+            })
+        }
+    }
+
+    showHideLastNameInput() {
+        let currentState = this.state.showLastNameInput
+
+        if (!currentState) {
+            this.setState({
+                showLastNameInput: true
+            })
+        } else {
+            this.setState({
+                showLastNameInput: false
+            })
+        }
+    }
+
+    hideNameInput(event) {
+        if (event.target.value.length > 0) {
+            this.showHideNameInput()
+        }
+    }
+
+    hideLastNameInput(event) {
+        if (event.target.value.length > 0) {
+            this.showHideLastNameInput()
+        }
     }
 
     updateProfileTextField(field, value) {
@@ -56,77 +101,108 @@ class ProfileMainSettings extends Component {
     }
 
     render() {
+        let namePxLength = this.props.profile.name !== undefined ? this.props.profile.name.length : 0
+        let lastNamePxLenght = this.props.profile.lastName !== undefined ? this.props.profile.lastName.length : 0
         return (
             <div className="profileMainSettings">
-                <div>
-                    <input
-                        type="text"
-                        defaultValue={ this.props.profile.name }
-                        onChange={(e) => this.updateProfileTextField("name", e.target.value)}
-                    />
-                    <input
-                        type="text"
-                        defaultValue={ this.props.profile.lastName }
-                        onChange={(e) => this.updateProfileTextField("lastName", e.target.value)}
-                    />
+                <div className="profileFullName">
+                    {
+                        this.state.showNameInput !== true
+                        ?   <span onClick={ this.showHideNameInput.bind(this) }>{ this.props.profile.name}&nbsp;</span>
+                        :   <input
+                                autoFocus
+                                type="text"
+                                placeholder="First Name"
+                                className="profileFullNameInput"
+                                style={{ maxWidth: namePxLength < 3 ? 120 : namePxLength * 14 }}
+                                defaultValue={ this.props.profile.name }
+                                onBlur={ this.hideNameInput.bind(this) }
+                                onChange={(e) => this.updateProfileTextField("name", e.target.value)}
+                            />
+                    }
+                    {
+                        this.state.showLastNameInput !== true
+                        ?   <span onClick={ this.showHideLastNameInput.bind(this) }>{ this.props.profile.lastName }</span>
+                        :   <input
+                                autoFocus
+                                type="text"
+                                placeholder="Last Name"
+                                className="profileFullNameInput"
+                                style={{ maxWidth: lastNamePxLenght < 3 ? 120 : lastNamePxLenght * 14 }}
+                                defaultValue={ this.props.profile.lastName }
+                                onBlur={ this.hideLastNameInput.bind(this) }
+                                onChange={(e) => this.updateProfileTextField("lastName", e.target.value)}
+                            />
+                    }
                 </div>
-                <div>
-                    <Avatar
-                        imageUrl={ this.props.profile.avatarImage }
-                    />
-                </div>
-                <div>
-                    <label>
-                        Location
-                        <input type="text" readOnly defaultValue="Stara Zagora, Bulgaria" />
-                    </label>
-                    <label>
-                        From City
-                        <input
-                            type="text"
-                            defaultValue={ this.props.profile.city }
-                            onChange={(e) => this.updateProfileTextField("city", e.target.value)}
+                <div className="settings">
+                    <div>
+                        <Avatar
+                            imageUrl={ this.props.profile.avatarImage }
                         />
-                    </label>
-                    <label>
-                        From Country
-                        <input
-                            type="text"
-                            defaultValue={ this.props.profile.country }
-                            onChange={(e) => this.updateProfileTextField("country", e.target.value)}
+                    </div>
+                    <div>
+                        <label>
+                            <span className="inputLabelMainSettings">Location:</span>
+                            <input
+                                type="text"
+                                placeholder="Location"
+                                className="textInput"
+                                readOnly defaultValue="Stara Zagora, Bulgaria"
+                            />
+                        </label>
+                        <label>
+                            <span className="inputLabelMainSettings">From City:</span>
+                            <input
+                                type="text"
+                                placeholder="City"
+                                className="textInput"
+                                defaultValue={ this.props.profile.city }
+                                onChange={(e) => this.updateProfileTextField("city", e.target.value)}
+                            />
+                        </label>
+                        <label>
+                            <span className="inputLabelMainSettings">From Country:</span>
+                            <input
+                                type="text"
+                                placeholder="Country"
+                                className="textInput"
+                                defaultValue={ this.props.profile.country }
+                                onChange={(e) => this.updateProfileTextField("country", e.target.value)}
+                            />
+                        </label>
+                    </div>
+                    <br/>
+                    <span>
+                        <YesNoInputField
+                            label="Profile Active"
+                            value={ this.props.profile.isUserProfileActivated }
+                            switchValue={(newValue) => this.updateProfileBooleanField('isProfileActive', newValue)}
                         />
-                    </label>
+                    </span>
+                    <br/>
+                    <span>
+                        <NumbersField
+                            label="Credits"
+                            value={ this.props.profile.credits }
+                        />
+                    </span>
+                    <br/>
+                    <span>
+                        <NumbersField
+                            label="Super likes"
+                            value={ this.props.profile.superlikes }
+                        />
+                    </span>
+                    <br/>
+                    <span>
+                        <YesNoInputField
+                            label="Email subscribed"
+                            value={ this.props.profile.emailNotificationsSubscribed }
+                            switchValue={(newValue) => this.updateProfileBooleanField("isEmailSubscribed", newValue)}
+                        />
+                    </span>
                 </div>
-                <br/>
-                <span>
-                    <YesNoInputField
-                        label="Profile Active"
-                        value={ this.props.profile.isUserProfileActivated }
-                        switchValue={(newValue) => this.updateProfileBooleanField('isProfileActive', newValue)}
-                    />
-                </span>
-                <br/>
-                <span>
-                    <NumbersField
-                        label="Credits"
-                        value={ this.props.profile.credits }
-                    />
-                </span>
-                <br/>
-                <span>
-                    <NumbersField
-                        label="Super likes"
-                        value={ this.props.profile.superlikes }
-                    />
-                </span>
-                <br/>
-                <span>
-                    <YesNoInputField
-                        label="Email subscribed"
-                        value={ this.props.profile.emailNotificationsSubscribed }
-                        switchValue={(newValue) => this.updateProfileBooleanField("isEmailSubscribed", newValue)}
-                    />
-                </span>
             </div>
         )
     }
