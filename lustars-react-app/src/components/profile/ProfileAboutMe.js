@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { updateUserProfileBoleanField, updateUserProfileTextField } from '../../store/actions/profileActions'
 import YesNoInputField from './YesNoInputField'
+import '../../styles/components/profile/ProfileAboutMe.css'
 
 class ProfileAboutMe extends Component {
     constructor(props) {
@@ -116,9 +117,10 @@ class ProfileAboutMe extends Component {
                 <h2>About me</h2>
                 <div>
                     <label>
-                        Mood
+                        <span className="inputLableAbout">Mood:&nbsp;</span>
                         <input
                             type="text"
+                            className="textInputAbout"
                             defaultValue={ this.props.profile.title }
                             onChange={(e) => this.updateProfileTextField("title", e.target.value)}
                         />
@@ -126,9 +128,10 @@ class ProfileAboutMe extends Component {
                 </div>
                 <div>
                     <label>
-                        Birth date
+                        <span className="inputLableAbout">Birth date:&nbsp;</span>
                         <input
                             type="text"
+                            className="textInputAbout"
                             defaultValue={ this.props.profile.dateOfBirth }
                             onChange={(e) => this.updateProfileTextField("dateOfBirth", e.target.value)}
                         />
@@ -136,9 +139,10 @@ class ProfileAboutMe extends Component {
                 </div>
                 <div>
                     <label>
-                        Gender
+                        <span className="inputLableAbout">Gender:&nbsp;</span>
                         <input
                             type="text"
+                            className="textInputAbout"
                             defaultValue={ this.props.profile.gender }
                             onChange={(e) => this.updateProfileTextField("gender", e.target.value)}
                         />
@@ -146,9 +150,10 @@ class ProfileAboutMe extends Component {
                 </div>
                 <div>
                     <label>
-                        Merial status
+                        <span className="inputLableAbout">Merial status:&nbsp;</span>
                         <input
                             type="text"
+                            className="textInputAbout"
                             defaultValue={ this.props.profile.meritalStatus }
                             onChange={(e) => this.updateProfileTextField("meritalStatus", e.target.value)}
                         />
@@ -156,9 +161,10 @@ class ProfileAboutMe extends Component {
                 </div>
                 <div>
                     <label>
-                        Looking for
+                        <span className="inputLableAbout">Looking for:&nbsp;</span>
                         <input
                             type="text"
+                            className="textInputAbout"
                             defaultValue={ this.props.profile.lookingFor }
                             onChange={(e) => this.updateProfileTextField("lookingFor", e.target.value)}
                         />
@@ -166,9 +172,10 @@ class ProfileAboutMe extends Component {
                 </div>
                 <div>
                     <label>
-                        Languages
+                        <span className="inputLableAbout">Languages:&nbsp;</span>
                         <input
                             type="text"
+                            className="textInputAbout"
                             defaultValue={ this.props.profile.languages }
                             onChange={(e) => this.updateProfileTextField("languages", e.target.value)}
                         />
@@ -176,9 +183,10 @@ class ProfileAboutMe extends Component {
                 </div>
                 <div>
                     <label>
-                        Education degree
+                        <span className="inputLableAbout">Education degree:&nbsp;</span>
                         <input
                             type="text"
+                            className="textInputAbout"
                             defaultValue={ this.props.profile.educationDegree }
                             onChange={(e) => this.updateProfileTextField("educationDegree", e.target.value)}
                         />
@@ -186,9 +194,10 @@ class ProfileAboutMe extends Component {
                 </div>
                 <div>
                     <label>
-                        University
+                        <span className="inputLableAbout">University:&nbsp;</span>
                         <input
                             type="text"
+                            className="textInputAbout"
                             defaultValue={ this.props.profile.university }
                             onChange={(e) => this.updateProfileTextField("university", e.target.value)}
                         />
@@ -196,9 +205,10 @@ class ProfileAboutMe extends Component {
                 </div>
                 <div>
                     <label>
-                        Work
+                        <span className="inputLableAbout">Work:&nbsp;</span>
                         <input
                             type="text"
+                            className="textInputAbout"
                             defaultValue={ this.props.profile.work }
                             onChange={(e) => this.updateProfileTextField("work", e.target.value)}
                         />
@@ -206,18 +216,22 @@ class ProfileAboutMe extends Component {
                 </div>
                 <div>
                     <label>
-                        Income
+                        <span className="inputLableAbout">Income:&nbsp;</span>
                         <input
                             type="text"
+                            className="textInputAbout"
                             defaultValue={ this.props.profile.income }
                             onChange={(e) => this.updateProfileTextField("income", e.target.value)}
                         />
                     </label>
                 </div>
+                <br/>
                 <div>
                     <label>
-                        Biography
+                        <span className="textAreaLableAbout">Biography:&nbsp;</span>
                         <textarea
+                            rows="4" cols="33"
+                            className="textAreaAbout"
                             defaultValue={ this.props.profile.biography }
                             onChange={(e) => this.updateProfileTextField("biography", e.target.value)}>
                         </textarea>
@@ -240,9 +254,10 @@ class ProfileAboutMe extends Component {
                 </div>
                 <div>
                     <label>
-                        Height
+                        <span className="inputLableAbout">Height:&nbsp;</span>
                         <input
                             type="text"
+                            className="textInputAbout"
                             defaultValue={ this.props.profile.height }
                             onChange={(e) => this.updateProfileTextField("height", e.target.value)}
                         />
@@ -250,9 +265,10 @@ class ProfileAboutMe extends Component {
                 </div>
                 <div>
                     <label>
-                        Weight
+                        <span className="inputLableAbout">Weight:&nbsp;</span>
                         <input
                             type="text"
+                            className="textInputAbout"
                             defaultValue={ this.props.profile.weight }
                             onChange={(e) => this.updateProfileTextField("weight", e.target.value)}
                         />
@@ -260,9 +276,10 @@ class ProfileAboutMe extends Component {
                 </div>
                 <div>
                     <label>
-                        Figure
+                        <span className="inputLableAbout">Figure:&nbsp;</span>
                         <input
                             type="text"
+                            className="textInputAbout"
                             defaultValue={ this.props.profile.figure }
                             onChange={(e) => this.updateProfileTextField("figure", e.target.value)}
                         />
@@ -277,9 +294,10 @@ class ProfileAboutMe extends Component {
                 </div>
                 <div>
                     <label>
-                        How often Drink
+                        <span className="inputLableAbout">How often Drink:&nbsp;</span>
                         <input
                             type="text"
+                            className="textInputAbout"
                             defaultValue={ this.props.profile.howOftenDrinkAlcohol }
                             onChange={(e) => this.updateProfileTextField("howOftenDrinkAlcohol", e.target.value)}
                         />
@@ -294,9 +312,10 @@ class ProfileAboutMe extends Component {
                 </div>
                 <div>
                     <label>
-                        How often smoke
+                        <span className="inputLableAbout">How often smoke:&nbsp;</span>
                         <input
                             type="text"
+                            className="textInputAbout"
                             defaultValue={ this.props.profile.howOftenSmoke }
                             onChange={(e) => this.updateProfileTextField("howOftenSmoke", e.target.value)}
                         />
