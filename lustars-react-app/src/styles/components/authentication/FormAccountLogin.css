@@ -1,7 +1,7 @@
-.loginFormContainer {
+.login-form-container {
     text-align: center;
 }
 
-.cursorPointer:hover {
+.cursor-pointer:hover {
     cursor: pointer;
-  }
+}

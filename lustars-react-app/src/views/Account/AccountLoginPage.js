@@ -5,7 +5,7 @@ import '../../styles/views/AccountLoginPage.css'
 class AccountLoginPage extends Component {
     render() {
         return (
-            <div className='accountloginPageConteiner'>
+            <div className='account-login-page-conteiner'>
                 <div>
                     <div>
                         <h1>Logo Here!</h1>

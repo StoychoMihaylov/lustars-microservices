@@ -108,7 +108,7 @@ class FormRegistration extends Component {
                         type="text"
                         placeholder="Name..."
                         name="name"
-                        className="registrationField"
+                        className="registration-field"
                         onChange={event => this.setState({ name: event.target.value })}
                     />
                 </div>
@@ -118,7 +118,7 @@ class FormRegistration extends Component {
                         type="text"
                         placeholder="Email..."
                         name="email"
-                        className="registrationField"
+                        className="registration-field"
                         onChange={event => this.setState({ email: event.target.value })}
                     />
                 </div>
@@ -128,7 +128,7 @@ class FormRegistration extends Component {
                         type="password"
                         placeholder="Password..."
                         name="password"
-                        className="registrationField"
+                        className="registration-field"
                         onChange={event => this.setState({ password: event.target.value })}
                     />
                 </div>
@@ -138,7 +138,7 @@ class FormRegistration extends Component {
                         type="password"
                         placeholder="Confirm Password..."
                         name="confirmPassword"
-                        className="registrationField"
+                        className="registration-field"
                         onChange={event => this.setState({ confirmPassword: event.target.value })}
                     />
                 </div>

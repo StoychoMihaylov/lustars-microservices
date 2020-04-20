@@ -41,12 +41,12 @@ class ProfileInfo extends Component {
         console.log(this.props.profile)
         let isProfileDifined = this.props.profile !== undefined ? true : false
         return (
-            <div className="userProfileContainer">
-                <div className="profileMainSettings">
+            <div className="user-profile-container">
+                <div className="profile-main-settings">
                     <ProfileMainSettings profile={ isProfileDifined !== undefined ? this.props.profile : undefined } />
                 </div>
 
-                <div className="userProfileInfoDetails">
+                <div className="user-profile-info-details">
                     <ProfileAboutMe
                         profile={ isProfileDifined !== undefined ? this.props.profile : undefined }
                     />
@@ -57,7 +57,7 @@ class ProfileInfo extends Component {
                 </div>
 
                 <div>
-                    <button className="saveProfileDetailsBtn" onClick={this.updateUsedProfileDetails.bind(this)} >Save Details</button>
+                    <button className="save-profile-details-btn" onClick={this.updateUsedProfileDetails.bind(this)} >Save Details</button>
                 </div>
             </div>
         )

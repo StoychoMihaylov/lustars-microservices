@@ -8,9 +8,9 @@ class NavbarLinks extends Component {
         return (
             <NavItem>
                  <ul className="navbar-nav flex-grow">
-                    <NavLink className="cursorPointer navbarLink" onClick={() => this.props.push("/home")} >Home</NavLink>
-                    <NavLink className="cursorPointer navbarLink" onClick={() => this.props.push("/profile")} >My profile</NavLink>
-                    <NavLink className="cursorPointer navbarLink">About us</NavLink>
+                    <NavLink className="cursor-pointer navbar-link" onClick={() => this.props.push("/home")} >Home</NavLink>
+                    <NavLink className="cursor-pointer navbar-link" onClick={() => this.props.push("/profile")} >My profile</NavLink>
+                    <NavLink className="cursor-pointer navbar-link">About us</NavLink>
                 </ul>
             </NavItem>
         )

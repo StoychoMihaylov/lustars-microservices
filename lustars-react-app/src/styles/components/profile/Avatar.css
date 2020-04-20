@@ -1,10 +1,10 @@
-.avatarImage {
+.avatar-image {
     cursor: pointer;
     border-radius: 5px;
     max-width: 250px;
 }
 
-.avatarImgUploadBtn {
+.avatar-img-upload-btn {
     display: none;
 }
 
@@ -22,12 +22,12 @@
     text-align: center;
 }
 
-.imageToCrop {
+.image-to-crop {
     max-width: auto;
     max-width: 50%;
 }
 
-.cropImgBtn {
+.crop-img-btn {
     color: white;
     padding: 10px;
     margin-bottom: 20px;

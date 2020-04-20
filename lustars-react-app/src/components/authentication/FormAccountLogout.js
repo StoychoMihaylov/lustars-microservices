@@ -36,14 +36,14 @@ class FormAccountLogout extends Component {
                     localStorage.getItem('lustars_token') !== null
                     ?
                     <ul className="navbar-nav flex-grow">
-                        <NavLink className="cursorPointer navbarLink" onClick={ () => this.props.push("/profile") }>Hello { localStorage.getItem("lustars_user_name") }!</NavLink>
-                        <NavLink className="logoutBtn cursorPointer navbarLink" onClick={ this.logoutUser.bind(this) }>LogOut</NavLink>
+                        <NavLink className="cursor-pointer navbar-link" onClick={ () => this.props.push("/profile") }>Hello { localStorage.getItem("lustars_user_name") }!</NavLink>
+                        <NavLink className="logout-btn cursor-pointer navbar-link" onClick={ this.logoutUser.bind(this) }>LogOut</NavLink>
                     </ul>
                     :
                     <ul className="navbar-nav flex-grow">
-                        <NavLink className='cursorPointer navbarLink' onClick={ () => this.props.push("/account/login") }>login</NavLink>
+                        <NavLink className='cursor-pointer navbar-link' onClick={ () => this.props.push("/account/login") }>login</NavLink>
                         <NavLink>/</NavLink>
-                        <NavLink className='cursorPointer navbarLink' onClick={ () => this.props.push("/account/registration") }>Register</NavLink>
+                        <NavLink className='cursor-pointer navbar-link' onClick={ () => this.props.push("/account/registration") }>Register</NavLink>
                     </ul>
                 }
             </NavItem>
