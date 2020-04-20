@@ -115,210 +115,290 @@ class ProfileAboutMe extends Component {
         return(
             <div>
                 <h2>About me</h2>
-                <div>
-                    <label for="mood">Mood:&nbsp;</label>
-                        <input
-                            id="mood"
-                            type="text"
-                            placeholder="Type how you feel"
-                            className="textInputAbout"
-                            defaultValue={ this.props.profile.title }
-                            onChange={(e) => this.updateProfileTextField("title", e.target.value)}
-                        />
-                </div>
-                <div>
-                    <label for="dateOfBirth">Birth date:&nbsp;</label>
-                        <input
-                            id="dateOfBirth"
-                            type="text"
-                            placeholder="DD/mm/yyyy"
-                            className="textInputAbout"
-                            defaultValue={ this.props.profile.dateOfBirth }
-                            onChange={(e) => this.updateProfileTextField("dateOfBirth", e.target.value)}
-                        />
-                </div>
-                <div>
-                    <label for="gender">Gender:&nbsp;</label>
-                        <input
-                            id="gender"
-                            type="text"
-                            placeholder="man/female/gay"
-                            className="textInputAbout"
-                            defaultValue={ this.props.profile.gender }
-                            onChange={(e) => this.updateProfileTextField("gender", e.target.value)}
-                        />
-                </div>
-                <div>
-                    <label for="meritalStatus">Merial status:&nbsp;</label>
-                        <input
-                            id="meritalStatus"
-                            type="text"
-                            placeholder="single/meried/divorced"
-                            className="textInputAbout"
-                            defaultValue={ this.props.profile.meritalStatus }
-                            onChange={(e) => this.updateProfileTextField("meritalStatus", e.target.value)}
-                        />
-                </div>
-                <div>
-                    <label for="lookingFor">Looking for:&nbsp;</label>
-                        <input
-                            id="lookingFor"
-                            type="text"
-                            placeholder="man/female/gay"
-                            className="textInputAbout"
-                            defaultValue={ this.props.profile.lookingFor }
-                            onChange={(e) => this.updateProfileTextField("lookingFor", e.target.value)}
-                        />
-                </div>
-                <div>
-                    <label for="languages">Languages:&nbsp;</label>
-                        <input
-                            id="languages"
-                            type="text"
-                            placeholder="Bulgarian, Russian, English..."
-                            className="textInputAbout"
-                            defaultValue={ this.props.profile.languages }
-                            onChange={(e) => this.updateProfileTextField("languages", e.target.value)}
-                        />
-                </div>
-                <div>
-                    <label for="educationDegree">Education degree:&nbsp;</label>
-                        <input
-                            id="educationDegree"
-                            type="text"
-                            placeholder="School/Bachelor/Master/Doctor/Professor"
-                            className="textInputAbout"
-                            defaultValue={ this.props.profile.educationDegree }
-                            onChange={(e) => this.updateProfileTextField("educationDegree", e.target.value)}
-                        />
-                </div>
-                <div>
-                    <label for="university">University:&nbsp;</label>
-                        <input
-                            id="university"
-                            type="text"
-                            placeholder="Technical University - Sofia"
-                            className="textInputAbout"
-                            defaultValue={ this.props.profile.university }
-                            onChange={(e) => this.updateProfileTextField("university", e.target.value)}
-                        />
-                </div>
-                <div>
-                    <label for="work">Work:&nbsp;</label>
-                        <input
+                <table className="profile-about-me-table">
+                    <tr>
+                        <th><label for="first-name">First name:</label></th>
+                        <th>
+                            <input
+                                id="first-name"
+                                type="text"
+                                placeholder="First Name"
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.name }
+                                onChange={(e) => this.updateProfileTextField("name", e.target.value)}
+                            />
+                        </th>
+                    </tr>
+                    <tr>
+                        <td><label for="last-name">Last name:</label></td>
+                        <td>
+                            <input
+                                id="last-name"
+                                type="text"
+                                placeholder="Last Name"
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.lastName }
+                                onChange={(e) => this.updateProfileTextField("lastName", e.target.value)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="mood">Mood:</label></td>
+                        <td>
+                            <input
+                                id="mood"
+                                type="text"
+                                placeholder="Type how you feel"
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.title }
+                                onChange={(e) => this.updateProfileTextField("title", e.target.value)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="date-of-birth">Birth date:</label></td>
+                        <td>
+                            <input
+                                id="date-of-birth"
+                                type="text"
+                                placeholder="DD/mm/yyyy"
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.dateOfBirth }
+                                onChange={(e) => this.updateProfileTextField("dateOfBirth", e.target.value)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="gender">Gender:</label></td>
+                        <td>
+                            <input
+                                id="gender"
+                                type="text"
+                                placeholder="man/female/gay"
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.gender }
+                                onChange={(e) => this.updateProfileTextField("gender", e.target.value)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="merital-status">Merial status:</label></td>
+                        <td>
+                            <input
+                                id="merital-status"
+                                type="text"
+                                placeholder="single/meried/divorced"
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.meritalStatus }
+                                onChange={(e) => this.updateProfileTextField("meritalStatus", e.target.value)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="looking-for">Looking for:</label></td>
+                        <td>
+                            <input
+                                id="looking-for"
+                                type="text"
+                                placeholder="man/female/gay"
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.lookingFor }
+                                onChange={(e) => this.updateProfileTextField("lookingFor", e.target.value)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="languages">Languages:</label></td>
+                        <td>
+                            <input
+                                id="languages"
+                                type="text"
+                                placeholder="Bulgarian, Russian, English..."
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.languages }
+                                onChange={(e) => this.updateProfileTextField("languages", e.target.value)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="education-degree">Education degree:</label></td>
+                        <td>
+                            <input
+                                id="education-degree"
+                                type="text"
+                                placeholder="School/Bachelor/Master/Doctor/Professor"
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.educationDegree }
+                                onChange={(e) => this.updateProfileTextField("educationDegree", e.target.value)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="university">University:</label></td>
+                        <td>
+                            <input
+                                id="university"
+                                type="text"
+                                placeholder="Technical University - Sofia"
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.university }
+                                onChange={(e) => this.updateProfileTextField("university", e.target.value)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="work">Work:</label></td>
+                        <td>
+                            <input
                             id="work"
                             type="text"
                             placeholder="Work"
-                            className="textInputAbout"
+                            className="text-input-profile-about"
                             defaultValue={ this.props.profile.work }
                             onChange={(e) => this.updateProfileTextField("work", e.target.value)}
-                        />
-                </div>
-                <div>
-                    <label for="income">Income:&nbsp;</label>
-                        <input
-                            id="income"
-                            type="text"
-                            placeholder="3000лв."
-                            className="textInputAbout"
-                            defaultValue={ this.props.profile.income }
-                            onChange={(e) => this.updateProfileTextField("income", e.target.value)}
-                        />
-                </div>
-                <br/>
-                <div>
-                    <label for="biography">Biography:&nbsp;</label>
-                        <textarea
-                            id="biography"
-                            rows="4" cols="33"
-                            placeholder="Type something that describes you."
-                            className="textAreaAbout"
-                            defaultValue={ this.props.profile.biography }
-                            onChange={(e) => this.updateProfileTextField("biography", e.target.value)}>
-                        </textarea>
-                </div>
-                <br/>
-                <div>
-                    <YesNoInputField
-                        label="Kids"
-                        value={ this.props.profile.haveKids }
-                        switchValue={(newValue) => this.updateProfileBooleanField('haveKids', newValue)}
-                    />
-                </div>
-                <div>
-                    <YesNoInputField
-                        label="Want to have kids"
-                        value={ this.props.profile.wantToHaveKids }
-                        switchValue={(newValue) => this.updateProfileBooleanField('wantToHaveKids', newValue)}
-                    />
-                </div>
-                <div>
-                    <label for="height">Height:&nbsp;</label>
-                        <input
-                            id="height"
-                            type="text"
-                            placeholder="180см."
-                            className="textInputAbout"
-                            defaultValue={ this.props.profile.height }
-                            onChange={(e) => this.updateProfileTextField("height", e.target.value)}
-                        />
-                </div>
-                <div>
-                    <label for="weight">Weight:&nbsp;</label>
-                        <input
-                            id="weight"
-                            type="text"
-                            placeholder="75кг."
-                            className="textInputAbout"
-                            defaultValue={ this.props.profile.weight }
-                            onChange={(e) => this.updateProfileTextField("weight", e.target.value)}
-                        />
-                </div>
-                <div>
-                    <label for="figure">Figure:&nbsp;</label>
-                        <input
-                            id="figure"
-                            type="text"
-                            placeholder="normal"
-                            className="textInputAbout"
-                            defaultValue={ this.props.profile.figure }
-                            onChange={(e) => this.updateProfileTextField("figure", e.target.value)}
-                        />
-                </div>
-                <div>
-                    <YesNoInputField
-                        label="Drink Alcohol"
-                        value={ this.props.profile.drinkAlcohol }
-                        switchValue={(newValue) => this.updateProfileBooleanField('drinkAlcohol', newValue)}
-                    />
-                </div>
-                <div>
-                    <label for="howOftenDrinkAlcohol">How often Drink:&nbsp;</label>
-                        <input
-                            id="howOftenDrinkAlcohol"
-                            type="text"
-                            className="textInputAbout"
-                            defaultValue={ this.props.profile.howOftenDrinkAlcohol }
-                            onChange={(e) => this.updateProfileTextField("howOftenDrinkAlcohol", e.target.value)}
-                        />
-                </div>
-                <div>
-                    <YesNoInputField
-                        label="Smoker"
-                        value={ this.props.profile.smoker }
-                        switchValue={(newValue) => this.updateProfileBooleanField('smoker', newValue)}
-                    />
-                </div>
-                <div>
-                    <label for="howOftenSmoke"></label>
-                        <span className="inputLableAbout">How often smoke:&nbsp;</span>
-                        <input
-                            type="text"
-                            className="textInputAbout"
-                            defaultValue={ this.props.profile.howOftenSmoke }
-                            onChange={(e) => this.updateProfileTextField("howOftenSmoke", e.target.value)}
-                        />
-                </div>
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="income">Income:</label></td>
+                        <td>
+                            <input
+                                id="income"
+                                type="text"
+                                placeholder="3000‎€"
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.income }
+                                onChange={(e) => this.updateProfileTextField("income", e.target.value)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="biography">Biography:</label></td>
+                        <td>
+                            <textarea
+                                id="biography"
+                                rows="4" cols="28"
+                                placeholder="Type something that describes you."
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.biography }
+                                onChange={(e) => this.updateProfileTextField("biography", e.target.value)}>
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><hr/></td>
+                        <td><hr/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="kids">Kids:</label></td>
+                        <td>
+                            <YesNoInputField
+                                id="kids"
+                                value={ this.props.profile.haveKids }
+                                switchValue={(newValue) => this.updateProfileBooleanField('haveKids', newValue)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="want-to-have-kids">Want to have kids:</label></td>
+                        <td>
+                            <YesNoInputField
+                                id="want-to-have-kids"
+                                value={ this.props.profile.wantToHaveKids }
+                                switchValue={(newValue) => this.updateProfileBooleanField('wantToHaveKids', newValue)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="drink-alcohol">Drink alcohol:</label></td>
+                        <td>
+                            <YesNoInputField
+                                id="drink-alcohol"
+                                value={ this.props.profile.drinkAlcohol }
+                                switchValue={(newValue) => this.updateProfileBooleanField('drinkAlcohol', newValue)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="smoker">Smoker:</label></td>
+                        <td>
+                            <YesNoInputField
+                                id="smoker"
+                                value={ this.props.profile.smoker }
+                                switchValue={(newValue) => this.updateProfileBooleanField('smoker', newValue)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><hr/></td>
+                        <td><hr/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="height">Height:&nbsp;</label></td>
+                        <td>
+                            <input
+                                id="height"
+                                type="text"
+                                placeholder="180sm"
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.height }
+                                onChange={(e) => this.updateProfileTextField("height", e.target.value)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="weight">Weight:&nbsp;</label></td>
+                        <td>
+                            <input
+                                id="weight"
+                                type="text"
+                                placeholder="75kg"
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.weight }
+                                onChange={(e) => this.updateProfileTextField("weight", e.target.value)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="figure">Figure:&nbsp;</label></td>
+                        <td>
+                            <input
+                                id="figure"
+                                type="text"
+                                placeholder="normal"
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.figure }
+                                onChange={(e) => this.updateProfileTextField("figure", e.target.value)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="how-often-drin-alcohol">How often Drink:&nbsp;</label></td>
+                        <td>
+                            <input
+                                id="how-often-drin-alcohol"
+                                type="text"
+                                placeholder="rarely/often"
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.howOftenDrinkAlcohol }
+                                onChange={(e) => this.updateProfileTextField("howOftenDrinkAlcohol", e.target.value)}
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="how-often-smoke">How often smoke:&nbsp;</label></td>
+                        <td>
+                            <input
+                                id="how-often-smoke"
+                                type="text"
+                                placeholder="rarely/often/when drink"
+                                className="text-input-profile-about"
+                                defaultValue={ this.props.profile.howOftenSmoke }
+                                onChange={(e) => this.updateProfileTextField("howOftenSmoke", e.target.value)}
+                            />
+                        </td>
+                    </tr>
+                </table>
             </div>
         )
     }

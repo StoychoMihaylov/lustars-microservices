@@ -154,7 +154,7 @@ class Avatar extends Component {
                     <div>
                         {src && (
                             <ReactCrop
-                            className="imageToCrop"
+                            className="image-to-crop"
                             src={src}
                             crop={crop}
                             onImageLoaded={this.onImageLoaded}
@@ -163,7 +163,7 @@ class Avatar extends Component {
                             />)
                         }
                     </div>
-                    <button type="submit" className="cropImgBtn" >Crop image</button>
+                    <button type="submit" className="crop-img-btn" >Crop image</button>
                 </Form>
             </div>
             : ""
@@ -176,14 +176,14 @@ class Avatar extends Component {
                         multiple={false}
                         id='profile_pic'
                         value={profile_pic}
-                        className="avatarImgUploadBtn"
+                        className="avatar-img-upload-btn"
                         onChange={ this.chooseImageToUpload.bind(this) }
                     />
 
                     {
                         this.state.croppedImageUrl !== null
-                            ? <img className="avatarImage" src={this.state.croppedImageUrl} alt="" />
-                            : <img className="avatarImage" src={process.env.PUBLIC_URL + '/empty-avatar.png'} alt="" />
+                            ? <img className="avatar-image" src={this.state.croppedImageUrl} alt="" />
+                            : <img className="avatar-image" src={process.env.PUBLIC_URL + '/empty-avatar.png'} alt="" />
                     }
 
                 </label>
@@ -197,14 +197,14 @@ class Avatar extends Component {
                         multiple={false}
                         id='profile_pic'
                         value={profile_pic}
-                        className="avatarImgUploadBtn"
+                        className="avatar-img-upload-btn"
                         onChange={ this.chooseImageToUpload.bind(this) }
                     />
 
                     {
                         this.state.croppedImageUrl !== null
-                            ? <img className="avatarImage" src={this.state.croppedImageUrl} alt="" />
-                            : <img className="avatarImage" src={ api.imageAPI + imageUser } alt="" />
+                            ? <img className="avatar-image" src={this.state.croppedImageUrl} alt="" />
+                            : <img className="avatar-image" src={ api.imageAPI + imageUser } alt="" />
                     }
 
                 </label>

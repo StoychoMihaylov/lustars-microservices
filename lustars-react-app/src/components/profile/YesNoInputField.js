@@ -24,7 +24,7 @@ class YesNoInputField extends Component {
         return (
             <label>
                 { label }&nbsp;
-                <input type="button" className="profileSwitchField" value={ value } onClick={this.switchValue.bind(this)} />
+                <input id={ this.props.id } type="button" className="profile-switch-field" value={ value } onClick={this.switchValue.bind(this)} />
             </label>
         )
     }

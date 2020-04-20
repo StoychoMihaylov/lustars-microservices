@@ -11,7 +11,7 @@ class NumbersField extends Component {
         return (
             <label>
                 { label }&nbsp;
-                <input type="button" className="profileNumberField" value={ value } />
+                <input id={ this.props.id } type="button" className="profile-number-field" value={ value } />
             </label>
         )
     }

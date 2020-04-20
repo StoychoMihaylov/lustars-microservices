@@ -80,7 +80,7 @@ class LoginAccount extends Component {
 
     render() {
         return (
-            <div className="loginFormContainer">
+            <div className="login-form-container">
                 <div>
                     <div className="errorMessage">{this.state.emailValidation}</div>
                     <input

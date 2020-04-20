@@ -9,19 +9,19 @@ class EventNotification extends Component {
 
                 {
                     this.props.infoMessage.length > 0
-                    ? <div className="infoNotificationMessage">{this.props.infoMessage}</div>
+                    ? <div className="info-notification-message">{this.props.infoMessage}</div>
                     : null
                 }
 
                 {
                     this.props.successfulMessage.length > 0
-                    ? <div className="successNotificationfulMessage">{this.props.successfulMessage}</div>
+                    ? <div className="success-notification-message">{this.props.successfulMessage}</div>
                     : null
                 }
 
                 {
                     this.props.errorMessage.length > 0
-                    ? <div className="errorNotificationMessage">{this.props.errorMessage}</div>
+                    ? <div className="error-notification-message">{this.props.errorMessage}</div>
                     : null
                 }
 

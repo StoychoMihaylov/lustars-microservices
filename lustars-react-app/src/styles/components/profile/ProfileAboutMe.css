@@ -1,43 +1,26 @@
-.inputLableAbout {
-    padding-top: 7px;
-    padding-bottom: 6px;
-    padding-left: 20px;
-    color: white;
-    background-color: blue;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
-}
-
-.textInputAbout {
-    border: 0;
-    padding: 5px;
+.text-input-profile-about {
+    border: 1;
+    padding: 4px;
+    margin: 4px;
     padding-left: 10px;
     padding-right: 10px;
+    border-radius: 5px;
+}
+
+.text-input-profile-about:focus {
     color: white;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-color: rgb(255, 0, 102);
     background-color: rgb(255, 0, 102);
 }
 
-.textAreaLableAbout {
-    padding-top: 7px;
-    padding-bottom: 6px;
-    padding-left: 20px;
-    padding-right: 20px;
-    color: white;
-    background-color: blue;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+.profile-about-me-table, th{
+    min-width: 150px;
 }
 
-.textAreaAbout {
-    border: 0;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: white;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    background-color: rgb(255, 0, 102);
+.profile-about-me-table label{
+    cursor: pointer;
+}
+
+.profile-about-me-table label:hover{
+    color: rgb(255, 0, 102);
 }

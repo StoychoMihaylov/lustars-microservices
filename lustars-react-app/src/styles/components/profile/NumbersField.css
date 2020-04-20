@@ -1,4 +1,4 @@
-.profileNumberField {
+.profile-number-field {
     border: 0;
     max-width: 100px;
     border-radius: 5px;
@@ -6,7 +6,7 @@
     margin: 5px;
 }
 
-.profileNumberField:hover {
+.profile-number-field:hover {
     color: white;
     background-color:  rgb(255, 0, 102);
 }
