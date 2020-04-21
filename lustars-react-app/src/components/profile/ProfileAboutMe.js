@@ -14,6 +14,14 @@ class ProfileAboutMe extends Component {
         let newState = Object.assign({}, oldState)
 
         switch (field) {
+            case 'name':
+                newState.name = value
+                this.props.updateUserProfileTextField(newState)
+                return
+            case 'lastName':
+                newState.lastName = value
+                this.props.updateUserProfileTextField(newState)
+                return
             case 'title':
                 newState.title = value
                 this.props.updateUserProfileTextField(newState)

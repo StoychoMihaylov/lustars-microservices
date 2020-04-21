@@ -21,14 +21,6 @@ class ProfileMainSettings extends Component {
         let newState = Object.assign({}, oldState)
 
         switch (field) {
-            case 'name':
-                newState.name = value
-                this.props.updateUserProfileTextField(newState)
-                return
-            case 'lastName':
-                newState.lastName = value
-                this.props.updateUserProfileTextField(newState)
-                return
             case 'city':
                 newState.city = value
                 this.props.updateUserProfileTextField(newState)
