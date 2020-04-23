@@ -26,6 +26,7 @@
                 userProfile.IsUserProfileActivated = bm.IsUserProfileActivated;
                 userProfile.Name = bm.Name;
                 userProfile.LastName = bm.LastName;
+                userProfile.Location = bm.Location;
                 userProfile.City = bm.City;
                 userProfile.Country = bm.Country;
                 userProfile.Title = bm.Title;

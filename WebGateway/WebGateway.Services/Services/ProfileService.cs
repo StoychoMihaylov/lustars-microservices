@@ -13,7 +13,6 @@
     using WebGateway.Services.Endpoints;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.UserProfile;
-    using WebGateway.Models.ViewModels.UserProfileViewModel;
 
     public class ProfileService : Service, IProfileService
     {

@@ -1,4 +1,4 @@
-﻿namespace WebGateway.Models.ViewModels
+﻿namespace WebGateway.Models.BidingModels.UserProfile
 {
     public class ImageUrlBindingModel
     {

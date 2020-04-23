@@ -118,7 +118,7 @@
             var profileController = new ProfileController(profileService.Object);
 
             // Act
-            var response = profileController.SaveImageUrl(userId, imageUrl);
+            var response = profileController.SaveAvatarImageUrl(userId, imageUrl);
 
             // Assert
             Assert.NotNull(response);
@@ -141,7 +141,7 @@
             var profileController = new ProfileController(profileService.Object);
 
             // Act
-            var response = profileController.SaveImageUrl(userId, imageUrl);
+            var response = profileController.SaveAvatarImageUrl(userId, imageUrl);
 
             // Assert
             Assert.NotNull(response);
