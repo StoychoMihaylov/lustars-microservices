@@ -6,7 +6,6 @@
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.UserProfile;
     using WebGateway.App.Authorization;
-    using WebGateway.Models.ViewModels;
     using Microsoft.AspNetCore.Http;
 
     [ApiController]

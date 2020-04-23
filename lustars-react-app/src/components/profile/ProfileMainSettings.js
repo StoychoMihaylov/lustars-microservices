@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import axios from 'axios'
-import { updateUserProfileBoleanField, updateUserProfileTextField } from '../../store/actions/profileActions'
+import { updateUserProfileBoleanField, updateUserProfileTextField, editMyUserProfileDetails } from '../../store/actions/profileActions'
 import YesNoInputField from '../../components/profile/YesNoInputField'
 import NumbersField from '../../components/profile/NumbersField'
 import Avatar from '../../components/profile/Avatar'
@@ -39,6 +39,11 @@ class ProfileMainSettings extends Component {
             '&sensor=fase&key=AIzaSyCReeeqP32sURxShaQ2XHxtirN6AWGDkAY'
         )
         .then(response => {
+            let oldState = this.props.profile
+            let newState = Object.assign({}, oldState)
+            newState.location = response.data.results[0].formatted_address
+
+            this.props.editMyUserProfileDetails(newState)
             this.setState({
                 location: response.data.results[0].formatted_address
             })
@@ -85,6 +90,10 @@ class ProfileMainSettings extends Component {
     }
 
     render() {
+        let getLocationBtn = this.state.location !== ""
+                                    ?  this.state.location
+                                    :  <button className="location-btn" onClick={ this.setGeolocation.bind(this) }>Get Location</button>
+
         return (
             <div className="profile-main-settings">
                 <div className="settings">
@@ -107,9 +116,9 @@ class ProfileMainSettings extends Component {
                                 <td><label htmlFor="location">Location:</label></td>
                                 <td>
                                     {
-                                        this.state.location !== ""
-                                            ?  this.state.location
-                                            :  <button className="location-btn" onClick={ this.setGeolocation.bind(this) }>Get Location</button>
+                                        this.props.profile.location !== null
+                                            ? this.props.profile.location
+                                            : getLocationBtn
                                     }
                                 </td>
                             </tr>
@@ -191,6 +200,7 @@ class ProfileMainSettings extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
+        editMyUserProfileDetails: (details) => dispatch(editMyUserProfileDetails(details)),
         updateUserProfileBoleanField: (newValue) => dispatch(updateUserProfileBoleanField(newValue)),
         updateUserProfileTextField: (newValue) => dispatch(updateUserProfileTextField(newValue))
     }
