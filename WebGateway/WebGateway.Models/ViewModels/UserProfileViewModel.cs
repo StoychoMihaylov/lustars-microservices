@@ -1,4 +1,4 @@
-﻿namespace WebGateway.Models.ViewModels.UserProfileViewModel
+﻿namespace WebGateway.Models.ViewModels
 {
     using System;
     using System.Collections.Generic;
@@ -22,6 +22,7 @@
         public string Title { get; set; }
         public string Email { get; set; }
         public string Gender { get; set; }
+        public string Location { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
         public DateTime DateOfBirth { get; set; }

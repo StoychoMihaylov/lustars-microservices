@@ -12,6 +12,6 @@
 
         public DateTime UploadedOn { get; set; }
 
-        public virtual UserProfile UserProfile { get; set; }
+        public virtual UserProfileViewModel UserProfile { get; set; }
     }
 }

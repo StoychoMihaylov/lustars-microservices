@@ -1,7 +1,11 @@
-.profile-partner-info label{
+.profile-partner-info-table, th{
+    min-width: 150px;
+}
+
+.profile-partner-info-table label{
     cursor: pointer;
 }
 
-.profile-partner-info label:hover{
+.profile-partner-info-table label:hover{
     color: rgb(255, 0, 102);
 }

@@ -15,3 +15,12 @@
 .profile-main-settings-table label:hover{
     color: rgb(255, 0, 102);
 }
+
+.location-btn {
+    border: 0;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    background-color: rgb(255, 0, 102);
+}

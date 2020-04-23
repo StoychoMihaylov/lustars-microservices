@@ -21,6 +21,7 @@ import axios from 'axios'
 export function getMyUserProfileDetails() {
     return dispatch => {
         dispatch(requestMyUserProfileDetails())
+
         axios.get(api.domain + 'user-profile', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('lustars_token')

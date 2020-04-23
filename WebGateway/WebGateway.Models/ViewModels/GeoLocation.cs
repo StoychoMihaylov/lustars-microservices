@@ -20,6 +20,6 @@
 
         public bool IsActive { get; set; }
 
-        public UserProfile UserProfile { get; set; }
+        public UserProfileViewModel UserProfile { get; set; }
     }
 }

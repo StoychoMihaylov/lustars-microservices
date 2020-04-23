@@ -5,7 +5,6 @@
     using Microsoft.AspNetCore.Http;
     using WebGateway.Models.ViewModels;
     using WebGateway.Models.BidingModels.UserProfile;
-    using WebGateway.Models.ViewModels.UserProfileViewModel;
 
     public interface IProfileService
     {

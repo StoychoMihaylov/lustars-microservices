@@ -14,6 +14,7 @@
         [MaxLength(15)]
         public string Name { get; set; }
         public string LastName { get; set; }
+        public string Location { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
         [MaxLength(20)]
