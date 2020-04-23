@@ -1,7 +1,7 @@
 .avatar-image {
     cursor: pointer;
     border-radius: 5px;
-    max-width: 250px;
+    max-width: 355px;
 }
 
 .avatar-img-upload-btn {
@@ -23,6 +23,7 @@
 }
 
 .image-to-crop {
+    margin: 30px;
     max-width: auto;
     max-width: 50%;
 }

@@ -38,7 +38,6 @@ class ProfileInfo extends Component {
     }
 
     render() {
-        console.log(this.props.profile)
         let isProfileDifined = this.props.profile !== undefined ? true : false
         return (
             <div className="user-profile-container">
