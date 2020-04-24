@@ -32,17 +32,32 @@ class ProfileMainSettings extends Component {
     }
 
     getUserGeolocation(position) {
+        let latitude = position.coords.latitude
+        let longitude = position.coords.longitude
+
         axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' +
-            position.coords.latitude +
+            latitude +
             ',' +
-            position.coords.longitude +
+            longitude +
             '&sensor=fase&key=AIzaSyCReeeqP32sURxShaQ2XHxtirN6AWGDkAY'
         )
         .then(response => {
+            let location = response.data.results[0].formatted_address
+            let arrLocation = location.split(',')
+
             let oldState = this.props.profile
             let newState = Object.assign({}, oldState)
-            newState.location = response.data.results[0].formatted_address
 
+            newState.location = location
+            newState.geoLocations.push({
+                street: arrLocation[0],
+                city: arrLocation[1],
+                country: arrLocation[2],
+                latitude: latitude,
+                longitude: longitude
+            })
+
+            console.log(newState)
             this.props.editMyUserProfileDetails(newState)
             this.setState({
                 location: response.data.results[0].formatted_address
@@ -94,6 +109,7 @@ class ProfileMainSettings extends Component {
                                     ?  this.state.location
                                     :  <button className="location-btn" onClick={ this.setGeolocation.bind(this) }>Get Location</button>
 
+        console.log(this.props.profile)
         return (
             <div className="profile-main-settings">
                 <div className="settings">
