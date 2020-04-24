@@ -1,6 +1,8 @@
 ﻿namespace WebGateway.Models.BidingModels.UserProfile
 {
     using System;
+    using System.Collections.Generic;
+    using WebGateway.Models.ViewModels;
     using System.ComponentModel.DataAnnotations;
 
     public class UserProfileBindingModel
@@ -51,5 +53,7 @@
         public bool PartnerDrinkAlcohol { get; set; }
         public bool PartnerHaveKids { get; set; }
         public string PartnerFigure { get; set; }
+
+        public ICollection<GeoLocation> GeoLocations { get; set; }
     }
 }

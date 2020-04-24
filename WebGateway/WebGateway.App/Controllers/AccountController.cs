@@ -3,10 +3,9 @@
     using System;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
-
+    using WebGateway.App.Authorization;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
-    using WebGateway.App.Authorization;
 
     [ApiController]
     [Route("account")]

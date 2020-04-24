@@ -2,11 +2,10 @@
 {
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
-
+    using Microsoft.AspNetCore.Http;
+    using WebGateway.App.Authorization;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.UserProfile;
-    using WebGateway.App.Authorization;
-    using Microsoft.AspNetCore.Http;
 
     [ApiController]
     [Route("user-profile")]

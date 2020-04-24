@@ -58,6 +58,7 @@
                 userProfile.PartnerDrinkAlcohol = bm.PartnerDrinkAlcohol;
                 userProfile.PartnerHaveKids = bm.PartnerHaveKids;
                 userProfile.PartnerFigure = bm.PartnerFigure;
+                userProfile.GeoLocations = bm.GeoLocations;
 
                 this.Context.UserProfiles.Update(userProfile);
                 this.Context.SaveChanges();
