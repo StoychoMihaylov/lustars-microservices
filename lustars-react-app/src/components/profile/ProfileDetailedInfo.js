@@ -32,7 +32,7 @@ class ProfileInfo extends Component {
                 if (response.status === 200) {
                     this.props.successfulNotification("Profile updated!")
                 } else {
-                    this.props.errorNotification("Something went wrong! Please chekc your connection!")
+                    this.props.errorNotification("Something went wrong! Please check your connection!")
                 }
             })
     }

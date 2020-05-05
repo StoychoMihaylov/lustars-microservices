@@ -14,5 +14,6 @@
         Task<bool> CallProfileAPI_SaveAvatarImageURL(Guid userId, ImageUrlBindingModel url);
         Task<bool> CallProfileAPI_CreateNewUserProfileImage(Guid userId, ImageUrlBindingModel url);
         Task<string> CallImageAPI_UploadImage(Guid userId, IFormFile formData);
+        Task<bool> CallProfileAPI_UpdateUserProfileGeoLocation(Guid userId, GeoLocation bm);
     }
 }

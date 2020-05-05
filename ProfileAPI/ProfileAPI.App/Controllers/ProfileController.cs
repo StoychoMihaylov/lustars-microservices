@@ -2,7 +2,7 @@
 {
     using System;
     using Microsoft.AspNetCore.Mvc;
-
+    using ProfileAPI.Data.Entities;
     using ProfileAPI.Models.BidingModels;
     using ProfileAPI.Services.Interfaces;
 
@@ -118,6 +118,26 @@
             }
 
             return StatusCode(201); // Created!
+        }
+
+        [HttpPost]
+        [Route("{userId}/geolocation")]
+        public IActionResult UpdateGeolocation(string userId, [FromBody]GeoLocation geolocation)
+        {
+            var userIdGuid = Guid.Empty;
+            bool isValid = Guid.TryParse(userId, out userIdGuid);
+            if (!isValid)
+            {
+                return StatusCode(400, "The user id is not in a valid Guid format!");
+            }
+
+            var updated = this.profileService.UpdateUserProfileGeolocation(userIdGuid, geolocation);
+            if (!updated)
+            {
+                return StatusCode(501); // NotImplemented!
+            }
+
+            return StatusCode(200); // Ok
         }
     }
 }

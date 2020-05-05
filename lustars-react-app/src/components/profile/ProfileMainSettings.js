@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import axios from 'axios'
-import { updateUserProfileBoleanField, updateUserProfileTextField, editMyUserProfileDetails } from '../../store/actions/profileActions'
+import { updateUserProfileBoleanField, updateUserProfileTextField, editMyUserProfileDetails, updateUserProfileGeaolocation } from '../../store/actions/profileActions'
 import YesNoInputField from '../../components/profile/YesNoInputField'
 import NumbersField from '../../components/profile/NumbersField'
 import Avatar from '../../components/profile/Avatar'
@@ -45,20 +45,20 @@ class ProfileMainSettings extends Component {
             let location = response.data.results[0].formatted_address
             let arrLocation = location.split(',')
 
-            let oldState = this.props.profile
-            let newState = Object.assign({}, oldState)
-
-            newState.location = location
-            newState.geoLocations.push({
+            let geoLocations = {
                 street: arrLocation[0],
                 city: arrLocation[1],
                 country: arrLocation[2],
-                latitude: latitude,
-                longitude: longitude
-            })
+                latitude: latitude.toString(),
+                longitude: longitude.toString(),
+                createdOn: new Date(),
+                IsActive: true
+            }
 
-            console.log(newState)
-            this.props.editMyUserProfileDetails(newState)
+            console.log(geoLocations)
+            let updateResponse = this.props.updateUserProfileGeaolocation(geoLocations) // Update User Profile Geo location as background proccess
+            console.log(updateResponse)
+
             this.setState({
                 location: response.data.results[0].formatted_address
             })
@@ -216,6 +216,7 @@ class ProfileMainSettings extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
+        updateUserProfileGeaolocation: (geolocation) => dispatch(updateUserProfileGeaolocation(geolocation)),
         editMyUserProfileDetails: (details) => dispatch(editMyUserProfileDetails(details)),
         updateUserProfileBoleanField: (newValue) => dispatch(updateUserProfileBoleanField(newValue)),
         updateUserProfileTextField: (newValue) => dispatch(updateUserProfileTextField(newValue))

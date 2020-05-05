@@ -11,10 +11,54 @@ import {
     REQUEST_UPLOAD_AVATAR_IMAGE_SUCCESS,
     REQUEST_UPLOAD_AVATAR_IMAGE_FAIL,
     UPDATE_USER_PROFILE_TEXT_FIELD,
-    UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS
+    UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS,
+    UPDATE_USER_PROFILE_GEOLOCATION,
+    UPDATE_USER_PROFILE_GEOLOCATION_SUCCESS,
+    UPDATE_USER_PROFILE_GEOLOCATION_FAIL
 } from '../../constants/profileActionTypes'
 import { api } from '../../constants/endpoints'
 import axios from 'axios'
+
+//*************************** Update ser profile geaolocation ***************************
+
+export function updateUserProfileGeaolocation(geolocation) {
+    return dispatch => {
+        dispatch(requestupdateUserProfileGeaolocation())
+
+        axios.post(api.domain + 'user-profile/geolocation/update', geolocation, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token')
+            }
+        })
+        .then(response => {
+            dispatch(requestupdateUserProfileGeaolocationSuccess())
+            return response
+        })
+        .catch(err => {
+            dispatch(requestupdateUserProfileGeaolocationFail(err))
+            return err
+        })
+    }
+}
+
+export function requestupdateUserProfileGeaolocation() {
+    return {
+        type: UPDATE_USER_PROFILE_GEOLOCATION
+    }
+}
+
+export function requestupdateUserProfileGeaolocationSuccess() {
+    return {
+        type: UPDATE_USER_PROFILE_GEOLOCATION_SUCCESS,
+    }
+}
+
+export function requestupdateUserProfileGeaolocationFail(error) {
+    return {
+        type: UPDATE_USER_PROFILE_GEOLOCATION_FAIL,
+        payload: error
+    }
+}
 
 //*************************** Get my user profile details ***************************
 
@@ -69,7 +113,6 @@ export function editMyUserProfileDetails(userProfileDetails) {
                 }
             })
             .then(response => {
-                console.log(response)
                 dispatch(requestEditMyUserProfileDetailsSuccess())
                 return response
             })

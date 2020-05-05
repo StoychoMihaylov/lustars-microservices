@@ -6,6 +6,7 @@
     using WebGateway.App.Authorization;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.UserProfile;
+    using WebGateway.Models.ViewModels;
 
     [ApiController]
     [Route("user-profile")]
@@ -16,6 +17,28 @@
         public ProfileController(IProfileService profileService)
         {
             this.profileService = profileService;
+        }
+
+
+        [HttpPost]
+        [Authorize]
+        [Route("geolocation/update")]
+        public async Task<IActionResult> UpdateGeolocation([FromBody] GeoLocation bm)
+        {
+            var userId = IdentityManager.CurrentUserId;
+
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400, "Model state is not valid!");
+            }
+
+            var isUpdated = await this.profileService.CallProfileAPI_UpdateUserProfileGeoLocation(userId, bm);
+            if (!isUpdated)
+            {
+                return StatusCode(501); // NotImplemented!
+            }
+
+            return StatusCode(200); // Ok!
         }
 
         [HttpPost]

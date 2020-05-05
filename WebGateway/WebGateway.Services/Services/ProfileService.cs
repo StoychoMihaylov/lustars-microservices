@@ -108,5 +108,19 @@
 
             return null;
         }
+
+        public async Task<bool> CallProfileAPI_UpdateUserProfileGeoLocation(Guid userId, GeoLocation bm)
+        {
+            var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(bm);
+
+            var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + $"profile/{userId.ToString()}/geolocation", stringContent);
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

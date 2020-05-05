@@ -9,6 +9,9 @@ import {
     UPDATE_USER_PROFILE_BOOLEAN_FIELD_SUCCESS,
     UPDATE_USER_PROFILE_TEXT_FIELD,
     UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS,
+    UPDATE_USER_PROFILE_GEOLOCATION,
+    UPDATE_USER_PROFILE_GEOLOCATION_SUCCESS,
+    UPDATE_USER_PROFILE_GEOLOCATION_FAIL
 } from '../../constants/profileActionTypes'
 
 const initialState = {
@@ -22,6 +25,13 @@ const profileReducer = (state, action) => {
     state = state || initialState
 
     switch (action.type) {
+        case UPDATE_USER_PROFILE_GEOLOCATION:
+        case UPDATE_USER_PROFILE_GEOLOCATION_SUCCESS:
+        case UPDATE_USER_PROFILE_GEOLOCATION_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
         case REQUEST_MY_PROFILE_DETAILS:
             return {
                 ...state,
