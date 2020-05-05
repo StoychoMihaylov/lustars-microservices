@@ -11,5 +11,6 @@
         UserProfile GetUserProfileById(Guid userId);
         bool CreateNewUserProfileImage(Guid userId, string imageUrl);
         bool SaveUserProfileAvatarImage(Guid userIdGuid, string url);
+        bool UpdateUserProfileGeolocation(Guid userIdGuid, GeoLocation geolocation);
     }
 }

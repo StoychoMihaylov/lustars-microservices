@@ -87,7 +87,7 @@ class LoginAccount extends Component {
                         type="text"
                         placeholder="Email..."
                         name="email"
-                        className="registrationField"
+                        className="registration-field"
                         onChange={event => this.setState({ email: event.target.value })}
                     />
                 </div>
@@ -97,7 +97,7 @@ class LoginAccount extends Component {
                         type="password"
                         placeholder="Password..."
                         name="password"
-                        className="registrationField"
+                        className="registration-field"
                         onChange={event => this.setState({ password: event.target.value })}
                     />
                 </div>
@@ -107,11 +107,11 @@ class LoginAccount extends Component {
                 </div>
                     <button
                         type="button"
-                        className="saveBtn"
+                        className="save-btn"
                         onClick={this.handleSubmit.bind(this)}>&nbsp;Log in&nbsp;</button>
                     <button
                         type="button"
-                        className="backBtn"
+                        className="back-btn"
                         onClick={ this.props.goBack }>Go Back</button>
                 </div>
             </div>

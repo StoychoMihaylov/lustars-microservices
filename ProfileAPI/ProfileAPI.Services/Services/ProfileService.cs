@@ -136,7 +136,7 @@
         {
             try
             {
-                var img = new List<Image>()
+                var imgs = new List<Image>()
                 {
                     new Image()
                     {
@@ -150,7 +150,7 @@
                     .Where(u => u.Id == userId)
                     .FirstOrDefault();
 
-                user.Images = img;
+                user.Images = imgs;
 
                 this.Context.UserProfiles.Update(user);
                 this.Context.SaveChanges();
@@ -178,6 +178,50 @@
                 this.Context.SaveChanges();
             }
             catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool UpdateUserProfileGeolocation(Guid userIdGuid, GeoLocation geolocation)
+        {
+            try
+            {
+                var user = this.Context
+                   .UserProfiles
+                   .Include(u => u.GeoLocations)
+                   .Where(u => u.Id == userIdGuid)
+                   .First();
+
+
+                var newGeolocation = new GeoLocation()
+                {
+                    Street = geolocation.Street,
+                    City = geolocation.City,
+                    Country = geolocation.Country,
+                    Latitude = geolocation.Latitude,
+                    Longitude = geolocation.Longitude,
+                    CreatedOn = DateTime.UtcNow,
+                    IsActive = true,
+                    UserProfile = user
+                };
+                
+
+                if (user.GeoLocations.Count != 0)
+                {
+                    foreach (var geo in user.GeoLocations)
+                    {
+                        geo.IsActive = false;
+                    }
+                }
+
+                user.GeoLocations.Add(newGeolocation);
+                this.Context.UserProfiles.Update(user);
+                this.Context.SaveChanges();
+            }
+            catch(Exception ex)
             {
                 return false;
             }

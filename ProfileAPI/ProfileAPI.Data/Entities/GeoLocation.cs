@@ -22,6 +22,6 @@
 
         public bool IsActive { get; set; }
 
-        public UserProfile UserProfile { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
     }
 }
