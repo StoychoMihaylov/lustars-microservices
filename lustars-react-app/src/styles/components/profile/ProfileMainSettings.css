@@ -24,3 +24,27 @@
     width: 100%;
     background-color: rgb(255, 0, 102);
 }
+
+.location-refresh-btn {
+    color: rgb(255, 0, 102);
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.location-refresh-btn:hover {
+    color: white;
+    border-radius: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 3px;
+    background-color: rgb(255, 0, 102);
+}
+
+.location-refresh-btn:active {
+    color: white;
+    border-radius: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 3px;
+    background-color: grey;
+}
