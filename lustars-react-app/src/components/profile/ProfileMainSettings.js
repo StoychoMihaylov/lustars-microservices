@@ -106,10 +106,9 @@ class ProfileMainSettings extends Component {
 
     render() {
         let getLocationBtn = this.state.location !== ""
-                                    ?  this.state.location
-                                    :  <button className="location-btn" onClick={ this.setGeolocation.bind(this) }>Get Location</button>
+            ?  <span> { this.state.location } <span onClick={ this.setGeolocation.bind(this) } className="location-refresh-btn">&#8634;</span></span>
+            :  <button className="location-btn" onClick={ this.setGeolocation.bind(this) }>Get Location</button>
 
-        console.log(this.props.profile)
         return (
             <div className="profile-main-settings">
                 <div className="settings">
@@ -132,7 +131,7 @@ class ProfileMainSettings extends Component {
                                 <td><label htmlFor="location">Location:</label></td>
                                 <td>
                                     {
-                                        this.props.profile.location !== null
+                                        this.props.profile.location !== null && this.props.profile.location !== undefined
                                             ? this.props.profile.location
                                             : getLocationBtn
                                     }
