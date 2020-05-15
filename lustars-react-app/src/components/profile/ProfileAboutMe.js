@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { updateUserProfileBoleanField, updateUserProfileTextField } from '../../store/actions/profileActions'
 import YesNoInputField from './YesNoInputField'
 import '../../styles/components/profile/ProfileAboutMe.css'
@@ -59,7 +61,7 @@ class ProfileAboutMe extends Component {
                 this.props.updateUserProfileTextField(newState)
                 return
             case 'income':
-                newState.income = parseInt(value)
+                newState.income = value
                 this.props.updateUserProfileTextField(newState)
                 return
             case 'biography':
@@ -120,6 +122,7 @@ class ProfileAboutMe extends Component {
     }
 
     render() {
+        console.log(this.props.profile.income)
         return(
             <div>
                 <h2>About me</h2>
@@ -167,53 +170,78 @@ class ProfileAboutMe extends Component {
                         <tr>
                             <td><label htmlFor="date-of-birth">Birth date:</label></td>
                             <td>
-                                <input
+                                <DatePicker
                                     id="date-of-birth"
-                                    type="text"
-                                    placeholder="DD/mm/yyyy"
                                     className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.dateOfBirth }
-                                    onChange={(e) => this.updateProfileTextField("dateOfBirth", e.target.value)}
+                                    showPopperArrow={false}
+                                    selected={new Date()}
+                                    onChange={(date) => this.updateProfileTextField("dateOfBirth", date)}
                                 />
                             </td>
                         </tr>
                         <tr>
                             <td><label htmlFor="gender">Gender:</label></td>
                             <td>
-                                <input
+                                <select
                                     id="gender"
-                                    type="text"
-                                    placeholder="man/female/gay"
                                     className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.gender }
-                                    onChange={(e) => this.updateProfileTextField("gender", e.target.value)}
-                                />
+                                    value={ this.props.profile.gender }
+                                    onChange={(e) => this.updateProfileTextField("gender", e.target.value)}>
+                                    {
+                                        this.props.profile.gender === null || this.props.profile.gender === undefined
+                                            ? <option selected="selected">Select Gender</option>
+                                            : null
+                                    }
+                                    <option value="Man">Man</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Bisexsual">Bisexsual</option>
+                                    <option value="Man-gay">Man-gay</option>
+                                    <option value="Female-gay">Female-gay</option>
+                                    <option value="Trans">Trans</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
                             <td><label htmlFor="merital-status">Merial status:</label></td>
                             <td>
-                                <input
+                                <select
                                     id="merital-status"
-                                    type="text"
-                                    placeholder="single/meried/divorced"
                                     className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.meritalStatus }
-                                    onChange={(e) => this.updateProfileTextField("meritalStatus", e.target.value)}
-                                />
+                                    value={ this.props.profile.meritalStatus }
+                                    onChange={(e) => this.updateProfileTextField("meritalStatus", e.target.value)}>
+                                    {
+                                        this.props.profile.meritalStatus === null || this.props.profile.meritalStatus === undefined
+                                            ? <option selected="selected">Select Marital Status</option>
+                                            : null
+                                    }
+                                    <option value="Single">Single</option>
+                                    <option value="Meried">Meried</option>
+                                    <option value="Divorced">Divorced</option>
+                                    <option value="Complicated">Complicated</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
                             <td><label htmlFor="looking-for">Looking for:</label></td>
                             <td>
-                                <input
+                                <select
                                     id="looking-for"
                                     type="text"
-                                    placeholder="man/female/gay"
                                     className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.lookingFor }
-                                    onChange={(e) => this.updateProfileTextField("lookingFor", e.target.value)}
-                                />
+                                    value={ this.props.profile.lookingFor }
+                                    onChange={(e) => this.updateProfileTextField("lookingFor", e.target.value)}>
+                                    {
+                                        this.props.profile.lookingFor === null || this.props.profile.lookingFor === undefined
+                                            ? <option>Select Interests</option>
+                                            : null
+                                    }
+                                    <option value="Man">Man</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Bisexsual">Bisexsual</option>
+                                    <option value="Man-gay">Man-gay</option>
+                                    <option value="Female-gay">Female-gay</option>
+                                    <option value="Trans">Trans</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -232,14 +260,21 @@ class ProfileAboutMe extends Component {
                         <tr>
                             <td><label htmlFor="education-degree">Education degree:</label></td>
                             <td>
-                                <input
+                                <select
                                     id="education-degree"
-                                    type="text"
-                                    placeholder="School/Bachelor/Master/Doctor/Professor"
                                     className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.educationDegree }
-                                    onChange={(e) => this.updateProfileTextField("educationDegree", e.target.value)}
-                                />
+                                    value={ this.props.profile.educationDegree }
+                                    onChange={(e) => this.updateProfileTextField("educationDegree", e.target.value)}>
+                                    {
+                                        this.props.profile.educationDegree === null || this.props.profile.educationDegree === undefined
+                                            ? <option selected="selected">Select Education degree</option>
+                                            : null
+                                    }
+                                    <option value="School">School</option>
+                                    <option value="Bachelor">Bachelor</option>
+                                    <option value="Master">Master</option>
+                                    <option value="PhD">PhD</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -248,7 +283,7 @@ class ProfileAboutMe extends Component {
                                 <input
                                     id="university"
                                     type="text"
-                                    placeholder="Technical University - Sofia"
+                                    placeholder="Name of University..."
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.university }
                                     onChange={(e) => this.updateProfileTextField("university", e.target.value)}
@@ -271,14 +306,22 @@ class ProfileAboutMe extends Component {
                         <tr>
                             <td><label htmlFor="income">Income:</label></td>
                             <td>
-                                <input
+                                <select
                                     id="income"
-                                    type="text"
-                                    placeholder="3000‎€"
                                     className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.income }
-                                    onChange={(e) => this.updateProfileTextField("income", e.target.value)}
-                                />
+                                    value={ this.props.profile.income }
+                                    onChange={(e) => this.updateProfileTextField("income", e.target.value)}>
+                                    {
+                                        this.props.profile.income === null || this.props.profile.income === undefined
+                                            ?   <option selected="selected">Select Income</option>
+                                            :   null
+                                    }
+                                    <option value="200€ - 600€/month" >200€ - 600€/month</option>
+                                    <option value="600€ - 1200€/month">600€ - 1200€/month</option>
+                                    <option value="1200€ - 2200€/month">1200€ - 2200€/month</option>
+                                    <option value="3000€ - 5000€/month">3000€ - 5000€/month</option>
+                                    <option value="more than 5000€/month">more than 5000€/month</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -371,42 +414,76 @@ class ProfileAboutMe extends Component {
                         <tr>
                             <td><label htmlFor="figure">Figure:&nbsp;</label></td>
                             <td>
-                                <input
+                                <select
                                     id="figure"
-                                    type="text"
-                                    placeholder="normal"
                                     className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.figure }
-                                    onChange={(e) => this.updateProfileTextField("figure", e.target.value)}
-                                />
+                                    value={ this.props.profile.figure }
+                                    onChange={(e) => this.updateProfileTextField("figure", e.target.value)}>
+                                    {
+                                        this.props.profile.figure === null || this.props.profile.figure === undefined
+                                            ? <option selected="selected">Select your figure</option>
+                                            : null
+                                    }
+                                    <option value="Thin">Thin</option>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Athletic">Athletic</option>
+                                    <option value="Muscular">Muscular</option>
+                                    <option value="Fluffy">Fluffy</option>
+                                </select>
                             </td>
                         </tr>
-                        <tr>
-                            <td><label htmlFor="how-often-drin-alcohol">How often Drink:&nbsp;</label></td>
-                            <td>
-                                <input
-                                    id="how-often-drin-alcohol"
-                                    type="text"
-                                    placeholder="rarely/often"
-                                    className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.howOftenDrinkAlcohol }
-                                    onChange={(e) => this.updateProfileTextField("howOftenDrinkAlcohol", e.target.value)}
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label htmlFor="how-often-smoke">How often smoke:&nbsp;</label></td>
-                            <td>
-                                <input
-                                    id="how-often-smoke"
-                                    type="text"
-                                    placeholder="rarely/often/when drink"
-                                    className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.howOftenSmoke }
-                                    onChange={(e) => this.updateProfileTextField("howOftenSmoke", e.target.value)}
-                                />
-                            </td>
-                        </tr>
+                            {
+                                this.props.profile.drinkAlcohol !== null && this.props.profile.drinkAlcohol !== undefined && this.props.profile.drinkAlcohol === true
+                                    ?   <tr>
+                                            <td><label htmlFor="how-often-drin-alcohol">How often Drink:&nbsp;</label></td>
+                                            <td>
+                                                <select
+                                                    id="how-often-drin-alcohol"
+                                                    className="text-input-profile-about"
+                                                    value={ this.props.profile.howOftenDrinkAlcohol }
+                                                    onChange={(e) => this.updateProfileTextField("howOftenDrinkAlcohol", e.target.value)}>
+                                                    {
+                                                        this.props.profile.howOftenDrinkAlcohol === null || this.props.profile.howOftenDrinkAlcohol === undefined
+                                                            ?   <option selected="selected">Drinking frequency</option>
+                                                            :   null
+                                                    }
+                                                    <option value="Rarely">Rarely</option>
+                                                    <option value="Often">Often</option>
+                                                    <option value="When celebrate">When celebrate</option>
+                                                    <option value="Every night">Every night</option>
+                                                    <option value="All the time">All the time</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    : null
+                            }
+                            {
+                                this.props.profile.smoker !== null && this.props.profile.smoker !== undefined && this.props.profile.smoker === true
+                                    ?   <tr>
+                                            <td><label htmlFor="how-often-smoke">How often smoke:&nbsp;</label></td>
+                                            <td>
+                                                <select
+                                                    id="how-often-smoke"
+                                                    type="text"
+                                                    placeholder="rarely/often/when drink"
+                                                    className="text-input-profile-about"
+                                                    defaultValue={ this.props.profile.howOftenSmoke }
+                                                    onChange={(e) => this.updateProfileTextField("howOftenSmoke", e.target.value)}>
+                                                    {
+                                                        this.props.profile.howOftenSmoke === null || this.props.profile.howOftenSmoke === undefined
+                                                            ?   <option selected="selected">Smoking frequency</option>
+                                                            :   null
+                                                    }
+                                                    <option value="Rarely">Rarely</option>
+                                                    <option value="When drink">When drink</option>
+                                                    <option value="Often">Often</option>
+                                                    <option value="Very often">Very often</option>
+                                                    <option value="All the time">All the time</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    :   null
+                            }
                     </tbody>
                 </table>
             </div>

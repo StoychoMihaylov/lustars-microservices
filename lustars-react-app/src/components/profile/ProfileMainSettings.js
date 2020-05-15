@@ -5,6 +5,7 @@ import { updateUserProfileBoleanField, updateUserProfileTextField, editMyUserPro
 import YesNoInputField from '../../components/profile/YesNoInputField'
 import NumbersField from '../../components/profile/NumbersField'
 import Avatar from '../../components/profile/Avatar'
+import { city_states } from '../../constants/countriesAndCities'
 import '../../styles/components/profile/ProfileMainSettings.css'
 
 class ProfileMainSettings extends Component {
@@ -15,7 +16,8 @@ class ProfileMainSettings extends Component {
             location: "",
 
             showNameInput: false,
-            showLastNameInput: false
+            showLastNameInput: false,
+            isFromCountrySelected: false
         }
     }
 
@@ -72,6 +74,10 @@ class ProfileMainSettings extends Component {
         let oldState = this.props.profile
         let newState = Object.assign({}, oldState)
 
+        this.setState({
+            isFromCountrySelected: true
+        })
+
         switch (field) {
             case 'city':
                 newState.city = value
@@ -109,6 +115,23 @@ class ProfileMainSettings extends Component {
             ?  <span> { this.state.location } <span onClick={ this.setGeolocation.bind(this) } className="location-refresh-btn">&#8634;</span></span>
             :  <button className="location-btn" onClick={ this.setGeolocation.bind(this) }>Get Location</button>
 
+        let selectCountries = Object.keys(city_states)
+        let countrySelectOptions = selectCountries.map((country, index) => {
+            return (
+                <option key={ index } value={ country } >{ country }</option>
+            )
+        })
+
+        let selectCities = this.state.isFromCountrySelected ? city_states[this.props.profile.country] : null
+        let citySelectOptions = selectCities === null
+        ? <option>Select City</option>
+        : selectCities.map((city, index) => {
+            return (
+                <option key={ index } value={ city }>{ city }</option>
+            )
+        })
+
+        console.log(this.props.profile)
         return (
             <div className="profile-main-settings">
                 <div className="settings">
@@ -138,29 +161,32 @@ class ProfileMainSettings extends Component {
                                 </td>
                             </tr>
                             <tr>
-                                <td><label htmlFor="from-city">From City:</label></td>
+                                <td><label htmlFor="from-country">From Country:</label></td>
                                 <td>
-                                    <input
-                                        id="from-city"
-                                        type="text"
-                                        placeholder="City"
+                                    <select
+                                        id="from-country"
                                         className="text-input-profile-about"
-                                        defaultValue={ this.props.profile.city }
-                                        onChange={(e) => this.updateProfileTextField("city", e.target.value)}
-                                    />
+                                        value={ this.props.profile.country }
+                                        onChange={(e) => this.updateProfileTextField("country", e.target.value)}>
+                                        {
+                                            this.props.profile.country === null || this.props.profile.country === undefined
+                                                ? <option selected="selected">Select Country</option>
+                                                : null
+                                        }
+                                        { countrySelectOptions }
+                                    </select>
                                 </td>
                             </tr>
                             <tr>
-                                <td><label htmlFor="from-country">From Country:</label></td>
+                            <td><label htmlFor="from-city">From City:</label></td>
                                 <td>
-                                    <input
-                                        id="from-country"
-                                        type="text"
-                                        placeholder="Country"
-                                        className="text-input-profile-about"
-                                        defaultValue={ this.props.profile.country }
-                                        onChange={(e) => this.updateProfileTextField("country", e.target.value)}
-                                    />
+                                    <select
+                                         id="from-city"
+                                         className="text-input-profile-about"
+                                         value={ this.props.profile.city }
+                                         onChange={(e) => this.updateProfileTextField("city", e.target.value)}>
+                                        { citySelectOptions }
+                                    </select>
                                 </td>
                             </tr>
                             <tr>
