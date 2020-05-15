@@ -41,7 +41,7 @@
         public string HowOftenDrinkAlcohol { get; set; }
         public bool Smoker { get; set; }
         public string HowOftenSmoke { get; set; }
-        public int Income { get; set; }
+        public string Income { get; set; }
         public string MeritalStatus { get; set; }
 
         // About the partner

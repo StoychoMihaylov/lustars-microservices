@@ -68,7 +68,6 @@ class Avatar extends Component {
             crop.height
          )
 
-
         // As a blob
         const reader  = new FileReader()
         canvas.toBlob(blob => {
