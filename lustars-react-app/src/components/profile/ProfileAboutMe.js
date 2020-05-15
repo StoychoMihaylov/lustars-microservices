@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { updateUserProfileBoleanField, updateUserProfileTextField } from '../../store/actions/profileActions'
 import YesNoInputField from './YesNoInputField'
+import { countryLanguages } from '../../constants/countryLanguages'
 import '../../styles/components/profile/ProfileAboutMe.css'
 
 class ProfileAboutMe extends Component {
@@ -247,14 +248,28 @@ class ProfileAboutMe extends Component {
                         <tr>
                             <td><label htmlFor="languages">Languages:</label></td>
                             <td>
-                                <input
+                                <select
                                     id="languages"
                                     type="text"
                                     placeholder="Bulgarian, Russian, English..."
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.languages }
-                                    onChange={(e) => this.updateProfileTextField("languages", e.target.value)}
-                                />
+                                    onChange={(e) => this.updateProfileTextField("languages", e.target.value)}>
+                                    {
+
+                                    }
+                                    {
+                                        countryLanguages.map((language, index) => {
+                                            return (
+                                                <option
+                                                    key={ index }
+                                                    value={ language }>
+                                                        { language }
+                                                </option>
+                                            )
+                                        })
+                                    }
+                                </select>
                             </td>
                         </tr>
                         <tr>
