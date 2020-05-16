@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { updateUserProfileBoleanField, updateUserProfileTextField } from '../../store/actions/profileActions'
 import YesNoInputField from './YesNoInputField'
+import { countryLanguages } from '../../constants/countryLanguages'
 import '../../styles/components/profile/ProfileAboutMe.css'
 
 class ProfileAboutMe extends Component {
@@ -12,6 +13,10 @@ class ProfileAboutMe extends Component {
     }
 
     updateProfileTextField(field, value) {
+        if (this.props.profile === undefined) {
+            // TO DO: Notification for connection problem
+        }
+
         let oldState = this.props.profile
         let newState = Object.assign({}, oldState)
 
@@ -45,8 +50,8 @@ class ProfileAboutMe extends Component {
                 this.props.updateUserProfileTextField(newState)
                 return
             case 'languages':
-                newState.languages = value
-                this.props.updateUserProfileTextField(newState)
+                oldState.languages.push(value)
+                this.props.updateUserProfileTextField(oldState)
                 return
             case 'educationDegree':
                 newState.educationDegree = value
@@ -226,7 +231,6 @@ class ProfileAboutMe extends Component {
                             <td>
                                 <select
                                     id="looking-for"
-                                    type="text"
                                     className="text-input-profile-about"
                                     value={ this.props.profile.lookingFor }
                                     onChange={(e) => this.updateProfileTextField("lookingFor", e.target.value)}>
@@ -247,14 +251,36 @@ class ProfileAboutMe extends Component {
                         <tr>
                             <td><label htmlFor="languages">Languages:</label></td>
                             <td>
-                                <input
+                                {
+                                    this.props.profile.languages !== null && this.props.profile.languages !== undefined
+                                        ?   this.props.profile.languages.map((language, index) => {
+                                                return (
+                                                    <span key={ index }>{ language } &#10008;</span>
+                                                )
+                                            })
+                                        :   null
+                                }
+                                <span className="country-language">Bulgarian &#10008;</span>
+                                <span className="country-language">German &#10008;</span>
+                                <span className="country-language">English &#10008;</span>
+                                <select
                                     id="languages"
-                                    type="text"
-                                    placeholder="Bulgarian, Russian, English..."
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.languages }
-                                    onChange={(e) => this.updateProfileTextField("languages", e.target.value)}
-                                />
+                                    onChange={(e) => this.updateProfileTextField("languages", e.target.value)}>
+                                    <option selected="selected">Add language</option>
+                                    {
+                                        countryLanguages.map((language, index) => {
+                                            return (
+                                                <option
+                                                    key={ index }
+                                                    value={ language }>
+                                                        { language }
+                                                </option>
+                                            )
+                                        })
+                                    }
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -464,8 +490,6 @@ class ProfileAboutMe extends Component {
                                             <td>
                                                 <select
                                                     id="how-often-smoke"
-                                                    type="text"
-                                                    placeholder="rarely/often/when drink"
                                                     className="text-input-profile-about"
                                                     defaultValue={ this.props.profile.howOftenSmoke }
                                                     onChange={(e) => this.updateProfileTextField("howOftenSmoke", e.target.value)}>
