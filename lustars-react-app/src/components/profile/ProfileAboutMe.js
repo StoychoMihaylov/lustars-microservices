@@ -10,6 +10,10 @@ import '../../styles/components/profile/ProfileAboutMe.css'
 class ProfileAboutMe extends Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            isDatePickerClicked: false
+        }
     }
 
     updateProfileTextField(field, value) {
@@ -34,8 +38,11 @@ class ProfileAboutMe extends Component {
                 this.props.updateUserProfileTextField(newState)
                 return
             case 'dateOfBirth':
-                newState.dateOfBirth = value
+                newState.dateOfBirth = new Date(value)
                 this.props.updateUserProfileTextField(newState)
+                this.setState({
+                    isDatePickerClicked: false
+                })
                 return
             case 'gender':
                 newState.gender = value
@@ -127,7 +134,7 @@ class ProfileAboutMe extends Component {
     }
 
     render() {
-        console.log(this.props.profile.income)
+        console.log(this.props.profile.dateOfBirth)
         return(
             <div>
                 <h2>About me</h2>
@@ -175,13 +182,25 @@ class ProfileAboutMe extends Component {
                         <tr>
                             <td><label htmlFor="date-of-birth">Birth date:</label></td>
                             <td>
-                                <DatePicker
-                                    id="date-of-birth"
-                                    className="text-input-profile-about"
-                                    showPopperArrow={false}
-                                    selected={new Date()}
-                                    onChange={(date) => this.updateProfileTextField("dateOfBirth", date)}
-                                />
+                                {
+                                    this.state.isDatePickerClicked === false
+                                        ?   <input
+                                                id="date-of-birth"
+                                                className="text-input-profile-about"
+                                                type="text"
+                                                readOnly
+                                                onClick={() => this.setState({ isDatePickerClicked: true })}
+                                                value={ new Date(this.props.profile.dateOfBirth).getDate() + "/" + new Date(this.props.profile.dateOfBirth).getMonth() + "/" + new Date(this.props.profile.dateOfBirth).getFullYear() }/>
+                                        :   <DatePicker
+                                                id="date-of-birth"
+                                                className="text-input-profile-about"
+                                                autoFocus
+                                                showPopperArrow={true}
+                                                selected={ new Date() }
+                                                onChange={(date) => this.updateProfileTextField("dateOfBirth", date)}
+                                                onBlur={(date) => this.updateProfileTextField("dateOfBirth", date)}
+                                            />
+                                }
                             </td>
                         </tr>
                         <tr>

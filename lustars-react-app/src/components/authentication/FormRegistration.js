@@ -126,7 +126,7 @@ class FormRegistration extends Component {
                 <div className="error-field-message">{this.state.genderValidation}</div>
                     <select
                         className="registration-field"
-                        onChange={event => this.setState({ name: event.target.value })}>
+                        onChange={event => this.setState({ gender: event.target.value })}>
                         {
                             this.state.gender === ""
                                 ? <option selected="selected">Select Gender</option>

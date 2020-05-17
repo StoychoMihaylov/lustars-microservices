@@ -57,7 +57,7 @@
             db.UserProfiles.Add(existinUserProfile);
             db.SaveChanges();
 
-            var bm = new UserProfileBindingModel() 
+            var bm = new EditUserProfileBindingModel() 
             {
                 Id = new Guid("e9166940-f14b-491c-99ba-cfc6cf13f662"),
                 Name = "Goshko",                     // Changed!!!

@@ -32,7 +32,7 @@
 
         [HttpPost]
         [Route("my-user-profile/edit")]
-        public IActionResult EditUserProfile([FromBody] UserProfileBindingModel bm)
+        public IActionResult EditUserProfile([FromBody] EditUserProfileBindingModel bm)
         {
             var isUpdated = this.profileService.EditUserProfile(bm);
             if (!isUpdated)
@@ -65,7 +65,7 @@
 
         [HttpPost]
         [Route("{userId}/image-url")]
-        public IActionResult CreateNewUserProfileImage(string userId, [FromBody]ImageUrlBindingModel imageUrl)
+        public IActionResult CreateNewUserProfileImage(string userId, [FromBody] AddImageUrlBindingModel imageUrl)
         {
             var userIdGuid = Guid.Empty;
             bool isValid = Guid.TryParse(userId, out userIdGuid);
@@ -90,7 +90,7 @@
 
         [HttpPost]
         [Route("{userId}/avatar-image-url")]
-        public IActionResult SaveAvatarImageUrl(string userId, [FromBody]ImageUrlBindingModel imageUrl)
+        public IActionResult SaveAvatarImageUrl(string userId, [FromBody]AddImageUrlBindingModel imageUrl)
         {
             var userIdGuid = Guid.Empty;
             bool isValid = Guid.TryParse(userId, out userIdGuid);
