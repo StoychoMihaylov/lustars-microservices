@@ -49,7 +49,7 @@
         public void Post_EditUserProfile_ShouldReturnStatusCode200Ok()
         {
             // Arrange
-            UserProfileBindingModel bm = new UserProfileBindingModel()
+            EditUserProfileBindingModel bm = new EditUserProfileBindingModel()
             {
                 Name = "Goshko",
 
@@ -112,7 +112,7 @@
         { 
             // Arrange
             var userId = "e9166940-f14b-491c-99ba-cfc6cf13f662";
-            var imageUrl = new ImageUrlBindingModel() { Url = "images/mimi_sexy/e2166920-f54b-131c-88ba-cdc6cd13d662.jpg" };
+            var imageUrl = new AddImageUrlBindingModel() { Url = "images/mimi_sexy/e2166920-f54b-131c-88ba-cdc6cd13d662.jpg" };
 
             var profileService = new Mock<IProfileService>();
             profileService
@@ -135,7 +135,7 @@
         {
             // Arrange
             var userId = "wrongGuidFormar-f14b-491c-99ba-wrongGuidFormar";
-            var imageUrl = new ImageUrlBindingModel() { Url = "images/mimi_sexy/e2166920-f54b-131c-88ba-cdc6cd13d662.jpg" };
+            var imageUrl = new AddImageUrlBindingModel() { Url = "images/mimi_sexy/e2166920-f54b-131c-88ba-cdc6cd13d662.jpg" };
 
             var profileService = new Mock<IProfileService>();
             profileService

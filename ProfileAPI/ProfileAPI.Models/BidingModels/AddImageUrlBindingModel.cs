@@ -1,6 +1,6 @@
 ﻿namespace ProfileAPI.Models.BidingModels
 {
-    public class ImageUrlBindingModel
+    public class AddImageUrlBindingModel
     {
         public string Url { get; set; }
     }

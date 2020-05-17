@@ -14,7 +14,7 @@
         public ProfileService(IProfileDBContext context)
             : base(context) {}
 
-        public bool EditUserProfile(UserProfileBindingModel bm)
+        public bool EditUserProfile(EditUserProfileBindingModel bm)
         {
             try
             {
@@ -26,9 +26,9 @@
                 userProfile.IsUserProfileActivated = bm.IsUserProfileActivated;
                 userProfile.Name = bm.Name;
                 userProfile.LastName = bm.LastName;
-                userProfile.FromCity = bm.City;
-                userProfile.FromCountry = bm.Country;
-                userProfile.FeelInMood = bm.Title;
+                userProfile.FromCity = bm.FromCity;
+                userProfile.FromCountry = bm.FromCountry;
+                userProfile.FeelInMood = bm.FeelInMood;
                 userProfile.Gender = bm.Gender;
                 userProfile.DateOfBirth = bm.DateOfBirth;
                 userProfile.LookingFor = bm.LookingFor;

@@ -1,9 +1,11 @@
 ﻿namespace ProfileAPI.Models.BidingModels
 {
     using System;
+    using ProfileAPI.Data.Entities;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class UserProfileBindingModel
+    public class EditUserProfileBindingModel
     {
         public Guid Id { get; set; }
         public bool EmailNotificationsSubscribed { get; set; }
@@ -13,11 +15,10 @@
         [MaxLength(15)]
         public string Name { get; set; }
         public string LastName { get; set; }
-        public string Location { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
+        public string FromCity { get; set; }
+        public string FromCountry { get; set; }
         [MaxLength(20)]
-        public string Title { get; set; }
+        public string FeelInMood { get; set; }
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string LookingFor { get; set; }
@@ -28,7 +29,7 @@
         public string EducationDegree { get; set; }
         public string University { get; set; }
         public string Work { get; set; }
-        public string Languages { get; set; }
+        public ICollection<Language> Languages { get; set; }
         public bool WantToHaveKids { get; set; }
         public int Height { get; set; }
         public int Weight { get; set; }
