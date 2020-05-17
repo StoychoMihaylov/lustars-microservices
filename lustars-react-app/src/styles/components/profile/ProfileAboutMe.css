@@ -16,7 +16,7 @@
 
 .text-input-profile-about:hover {
     cursor: pointer;
-    background-color: lightblue;
+    background-color: rgb(255, 0, 102);
 }
 
 .profile-about-me-table, th{

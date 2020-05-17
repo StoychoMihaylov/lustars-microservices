@@ -26,10 +26,9 @@
                 userProfile.IsUserProfileActivated = bm.IsUserProfileActivated;
                 userProfile.Name = bm.Name;
                 userProfile.LastName = bm.LastName;
-                userProfile.Location = bm.Location;
-                userProfile.City = bm.City;
-                userProfile.Country = bm.Country;
-                userProfile.Title = bm.Title;
+                userProfile.FromCity = bm.City;
+                userProfile.FromCountry = bm.Country;
+                userProfile.FeelInMood = bm.Title;
                 userProfile.Gender = bm.Gender;
                 userProfile.DateOfBirth = bm.DateOfBirth;
                 userProfile.LookingFor = bm.LookingFor;
@@ -37,7 +36,6 @@
                 userProfile.EducationDegree = bm.EducationDegree;
                 userProfile.University = bm.University;
                 userProfile.Work = bm.Work;
-                userProfile.Languages = bm.Languages;
                 userProfile.WantToHaveKids = bm.WantToHaveKids;
                 userProfile.Height = bm.Height;
                 userProfile.Weight = bm.Weight;
@@ -126,8 +124,20 @@
                 })
                 .ToList();
 
+            var languages = this.Context
+                .Languages
+                .AsNoTracking()
+                .Where(l => l.UserProfile.Id == userId)
+                .Select(l => new Language
+                {
+                    Id = l.Id,
+                    Name = l.Name
+                })
+                .ToList();
+
             userProfile.Images = userImages;
             userProfile.GeoLocations = geoLocation;
+            userProfile.Languages = languages;
 
             return userProfile;
         }

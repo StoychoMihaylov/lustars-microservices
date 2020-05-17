@@ -1,8 +1,6 @@
 ﻿namespace ProfileAPI.Models.BidingModels
 {
     using System;
-    using ProfileAPI.Data.Entities;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public class UserProfileBindingModel
@@ -53,7 +51,5 @@
         public bool PartnerDrinkAlcohol { get; set; }
         public bool PartnerHaveKids { get; set; }
         public string PartnerFigure { get; set; }
-
-        public ICollection<GeoLocation> GeoLocations { get; set; }
     }
 }
