@@ -8,6 +8,8 @@
     {
         DbSet<UserProfile> UserProfiles { get; set; }
 
+        DbSet<Language> Languages { get; set; }
+
         DbSet<GeoLocation> GeoLocations { get; set; }
 
         DbSet<Image> Images { get; set; }

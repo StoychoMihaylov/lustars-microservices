@@ -167,7 +167,7 @@ class ProfileAboutMe extends Component {
                                     type="text"
                                     placeholder="Type how you feel"
                                     className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.title }
+                                    defaultValue={ this.props.profile.feelInMood }
                                     onChange={(e) => this.updateProfileTextField("title", e.target.value)}
                                 />
                             </td>
@@ -255,7 +255,7 @@ class ProfileAboutMe extends Component {
                                     this.props.profile.languages !== null && this.props.profile.languages !== undefined
                                         ?   this.props.profile.languages.map((language, index) => {
                                                 return (
-                                                    <span key={ index }>{ language } &#10008;</span>
+                                                    <span key={ index } className="country-language">{ language } &#10008;</span>
                                                 )
                                             })
                                         :   null

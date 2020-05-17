@@ -16,10 +16,10 @@
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Location { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
+        public string FromCity { get; set; }
+        public string FromCountry { get; set; }
         [MaxLength(20)]
-        public string Title { get; set; }
+        public string FeelInMood { get; set; }
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string LookingFor { get; set; }
@@ -29,8 +29,8 @@
         public string Biography { get; set; }
         public string EducationDegree { get; set; }
         public string University { get; set; }
+        public ICollection<Language> Languages { get; set; }
         public string Work { get; set; }
-        public string Languages { get; set; }
         public bool WantToHaveKids { get; set; }
         public int Height { get; set; }
         public int Weight { get; set; }
@@ -53,7 +53,5 @@
         public bool PartnerDrinkAlcohol { get; set; }
         public bool PartnerHaveKids { get; set; }
         public string PartnerFigure { get; set; }
-
-        public ICollection<GeoLocation> GeoLocations { get; set; }
     }
 }

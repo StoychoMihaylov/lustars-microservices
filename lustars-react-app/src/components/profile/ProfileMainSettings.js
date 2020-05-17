@@ -80,11 +80,11 @@ class ProfileMainSettings extends Component {
 
         switch (field) {
             case 'city':
-                newState.city = value
+                newState.fromCity = value
                 this.props.updateUserProfileTextField(newState)
                 return
             case 'country':
-                newState.country = value
+                newState.fromCountry = value
                 this.props.updateUserProfileTextField(newState)
                 return
             default:
@@ -166,7 +166,7 @@ class ProfileMainSettings extends Component {
                                     <select
                                         id="from-country"
                                         className="text-input-profile-about"
-                                        value={ this.props.profile.country }
+                                        value={ this.props.profile.fromCountry }
                                         onChange={(e) => this.updateProfileTextField("country", e.target.value)}>
                                         {
                                             this.props.profile.country === null || this.props.profile.country === undefined
@@ -183,7 +183,7 @@ class ProfileMainSettings extends Component {
                                     <select
                                          id="from-city"
                                          className="text-input-profile-about"
-                                         value={ this.props.profile.city }
+                                         value={ this.props.profile.fromCity }
                                          onChange={(e) => this.updateProfileTextField("city", e.target.value)}>
                                         { citySelectOptions }
                                     </select>
