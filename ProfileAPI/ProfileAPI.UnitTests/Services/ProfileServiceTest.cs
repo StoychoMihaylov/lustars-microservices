@@ -16,20 +16,27 @@
             // Arrange
             var db = this.GetDatabase();
 
-            var userId = new Guid("e9166940-f14b-491c-99ba-cfc6cf13f662");
+            var bm = new CreateUserProfileBindingModel() 
+            { 
+                Id = new Guid("e9166940-f14b-491c-99ba-cfc6cf13f662"),
+                Name = "TestName",
+                Email = "test@test.com"
+            };
 
             var profileService = new ProfileService(db);
 
             // Act
-            var response = profileService.CreateNewUserProfile(userId);
+            var response = profileService.CreateNewUserProfile(bm);
 
-            var createdUserProfile = db.UserProfiles.Find(userId);
+            var createdUserProfile = db.UserProfiles.Find(bm.Id);
 
             // Assert
             Assert.True(response);
             Assert.NotNull(createdUserProfile);
             Assert.IsType<UserProfile>(createdUserProfile);
-            Assert.Equal(userId, createdUserProfile.Id);
+            Assert.Equal(bm.Id, createdUserProfile.Id);
+            Assert.Equal(bm.Name, createdUserProfile.Name);
+            Assert.Equal(bm.Email, createdUserProfile.Email);
         }
 
         [Fact]

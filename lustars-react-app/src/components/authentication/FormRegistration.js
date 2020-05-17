@@ -8,6 +8,7 @@ import {
     errorNotification
 } from '../../store/actions/eventNotifications'
 import '../../styles/components/authentication/FormRegistration.css'
+import '../../styles/components/common/InputFields.css'
 
 class FormRegistration extends Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class FormRegistration extends Component {
 
         this.state = {
             name: "",
+            gender: "",
             email: "",
             password: "",
             confirmPassword: "",
@@ -40,6 +42,13 @@ class FormRegistration extends Component {
             isFormValid = false
         } else {
             this.setState({ nameValidation: ""})
+        }
+
+        if (this.state.gender === "") {
+            this.setState({ genderValidation: "Please select gender!"})
+            isFormValid = false
+        } else {
+            this.setState({ genderValidation: ""})
         }
 
         let isMailValid = this.emailValidation(this.state.email)
@@ -100,10 +109,11 @@ class FormRegistration extends Component {
     }
 
     render() {
+        console.log(this.state)
         return (
             <div>
                 <div>
-                <div className="errorMessage">{this.state.nameValidation}</div>
+                <div className="error-field-message">{this.state.nameValidation}</div>
                     <input
                         type="text"
                         placeholder="Name..."
@@ -113,7 +123,25 @@ class FormRegistration extends Component {
                     />
                 </div>
                 <div>
-                    <div className="errorMessage">{this.state.emailValidation}</div>
+                <div className="error-field-message">{this.state.genderValidation}</div>
+                    <select
+                        className="registration-field"
+                        onChange={event => this.setState({ name: event.target.value })}>
+                        {
+                            this.state.gender === ""
+                                ? <option selected="selected">Select Gender</option>
+                                : null
+                        }
+                        <option value="Man">Man</option>
+                        <option value="Female">Female</option>
+                        <option value="Bisexsual">Bisexsual</option>
+                        <option value="Man-gay">Man-gay</option>
+                        <option value="Female-gay">Female-gay</option>
+                        <option value="Trans">Trans</option>
+                    </select>
+                </div>
+                <div>
+                    <div className="error-field-message">{this.state.emailValidation}</div>
                     <input
                         type="text"
                         placeholder="Email..."
@@ -123,7 +151,7 @@ class FormRegistration extends Component {
                     />
                 </div>
                 <div>
-                    <div className="errorMessage">{this.state.passwordValidation}</div>
+                    <div className="error-field-message">{this.state.passwordValidation}</div>
                     <input
                         type="password"
                         placeholder="Password..."
@@ -133,7 +161,7 @@ class FormRegistration extends Component {
                     />
                 </div>
                 <div>
-                    <div className="errorMessage">{this.state.confirmPasswordValidation}</div>
+                    <div className="error-field-message">{this.state.confirmPasswordValidation}</div>
                     <input
                         type="password"
                         placeholder="Confirm Password..."
@@ -148,12 +176,12 @@ class FormRegistration extends Component {
                 <div>
                     <button
                         type="button"
-                        className="saveBtn"
+                        className="save-btn"
                         onClick={this.handleSubmit.bind(this)}>Register</button>
 
                     <button
                         type="button"
-                        className="backBtn"
+                        className="back-btn"
                         onClick={ this.props.goBack }>Go Back</button>
                 </div>
             </div>

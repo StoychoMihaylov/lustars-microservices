@@ -4,7 +4,6 @@
     using Xunit;
     using System;
     using Microsoft.AspNetCore.Mvc;
-
     using ProfileAPI.Data.Entities;
     using ProfileAPI.App.Controllers;
     using ProfileAPI.Services.Interfaces;
@@ -12,13 +11,18 @@
 
     public class ProfileControllerTest
     {
+        private CreateUserProfileBindingModel createUserProfileBindingModel = new CreateUserProfileBindingModel()
+        {
+            Id = new Guid("e9166940-f14b-491c-99ba-cfc6cf13f662"),
+            Name = "TestName",
+            Email = "test@test.com"
+        };
+
         private Mock<IProfileService> MockCreateNewUserProfileService()
         {
-            var accountId = "e9166940-f14b-491c-99ba-cfc6cf13f662";
-
             var profileSericeMock = new Mock<IProfileService>();
             profileSericeMock
-                .Setup(p => p.CreateNewUserProfile(new Guid(accountId)))
+                .Setup(p => p.CreateNewUserProfile(createUserProfileBindingModel))
                 .Returns(true);
 
             return profileSericeMock;
@@ -33,7 +37,7 @@
             var profileController = new ProfileController(profileSericeMock.Object);
 
             // Act
-            var response = profileController.CreateUserProfile("e9166940-f14b-491c-99ba-cfc6cf13f662");
+            var response = profileController.CreateUserProfile(createUserProfileBindingModel);
 
             // Assert
             Assert.NotNull(response);
@@ -112,7 +116,7 @@
 
             var profileService = new Mock<IProfileService>();
             profileService
-                .Setup(p => p.CreateNewUserProfileImage(new Guid(userId), imageUrl.Url))
+                .Setup(p => p.SaveUserProfileAvatarImage(new Guid(userId), imageUrl.Url))
                 .Returns(true);
 
             var profileController = new ProfileController(profileService.Object);
@@ -135,7 +139,7 @@
 
             var profileService = new Mock<IProfileService>();
             profileService
-                .Setup(p => p.CreateNewUserProfileImage(Guid.NewGuid(), imageUrl.Url))
+                .Setup(p => p.SaveUserProfileAvatarImage(Guid.NewGuid(), imageUrl.Url))
                 .Returns(true);
 
             var profileController = new ProfileController(profileService.Object);

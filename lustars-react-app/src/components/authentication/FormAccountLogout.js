@@ -22,9 +22,11 @@ class FormAccountLogout extends Component {
               if (response.status === 200) {
                   localStorage.clear()
                   this.props.successfulNotification("Loged out!")
-                  window.location.reload(false);
+                  window.location.reload(false)
               } else {
+                  localStorage.clear()
                   this.props.errorNotification("Connection problem! Please try again")
+                  window.location.reload(false)
               }
           })
     }

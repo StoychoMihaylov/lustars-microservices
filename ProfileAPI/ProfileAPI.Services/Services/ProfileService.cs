@@ -2,10 +2,10 @@
 {
     using System;
     using System.Linq;
-    using Microsoft.EntityFrameworkCore;
     using ProfileAPI.Data.Entities;
     using System.Collections.Generic;
     using ProfileAPI.Data.Interfaces;
+    using Microsoft.EntityFrameworkCore;
     using ProfileAPI.Models.BidingModels;
     using ProfileAPI.Services.Interfaces;
 
@@ -56,7 +56,6 @@
                 userProfile.PartnerDrinkAlcohol = bm.PartnerDrinkAlcohol;
                 userProfile.PartnerHaveKids = bm.PartnerHaveKids;
                 userProfile.PartnerFigure = bm.PartnerFigure;
-                userProfile.GeoLocations = bm.GeoLocations;
 
                 this.Context.UserProfiles.Update(userProfile);
                 this.Context.SaveChanges();
@@ -69,13 +68,16 @@
             return true;
         }
 
-        public bool CreateNewUserProfile(Guid accountId)
+        public bool CreateNewUserProfile(CreateUserProfileBindingModel bm)
         {
             try
             {
                 UserProfile newProfile = new UserProfile()
                 {
-                    Id = accountId,
+                    Id = bm.Id,
+                    Name = bm.Name,
+                    Email = bm.Email,
+                    Gender = bm.Gender,
                     CreatedOn = DateTime.UtcNow
                 };
 
