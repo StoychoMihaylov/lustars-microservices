@@ -13,6 +13,7 @@
         // Settings info
         public int Credits { get; set; }
         public int Superlikes { get; set; }
+        public string Email { get; set; }
         public bool EmailNotificationsSubscribed { get; set; }
         public bool IsUserProfileActivated { get; set; }
 

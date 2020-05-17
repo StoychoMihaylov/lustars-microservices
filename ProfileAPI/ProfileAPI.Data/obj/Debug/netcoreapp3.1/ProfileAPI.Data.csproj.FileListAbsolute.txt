@@ -15,4 +15,3 @@ C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Data\obj
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Data\obj\Debug\netcoreapp3.1\ProfileAPI.Data.AssemblyInfo.cs
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Data\obj\Debug\netcoreapp3.1\ProfileAPI.Data.dll
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Data\obj\Debug\netcoreapp3.1\ProfileAPI.Data.pdb
-C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Data\obj\Debug\netcoreapp3.1\ProfileAPI.Data.csprojAssemblyReference.cache

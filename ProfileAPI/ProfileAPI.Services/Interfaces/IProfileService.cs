@@ -7,7 +7,7 @@
     public interface IProfileService
     {
         bool EditUserProfile(UserProfileBindingModel userProfile);
-        bool CreateNewUserProfile(Guid accountId);
+        bool CreateNewUserProfile(CreateUserProfileBindingModel createUserProfileBm);
         UserProfile GetUserProfileById(Guid userId);
         bool CreateNewUserProfileImage(Guid userId, string imageUrl);
         bool SaveUserProfileAvatarImage(Guid userIdGuid, string url);

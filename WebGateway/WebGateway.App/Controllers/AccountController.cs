@@ -6,6 +6,7 @@
     using WebGateway.App.Authorization;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
+    using WebGateway.Models.BidingModels.UserProfile;
 
     [ApiController]
     [Route("account")]
@@ -43,7 +44,14 @@
                     return StatusCode(400, "Email already exists or wrong credentials!"); // BadRequest!
                 }
 
-                var isCreated = await this.profileService.CallProfileAPI_CreateUserProfile(accountCredentials.UserId); // Call to ProfileAPI
+                var userProfileVm = new CreateUserProfileBindingModel()
+                { 
+                    Id = accountCredentials.UserId,
+                    Name = bm.Name,
+                    Email = bm.Email
+                };
+
+                var isCreated = await this.profileService.CallProfileAPI_CreateUserProfile(userProfileVm); // Call to ProfileAPI
 
                 if (!isCreated)
                 {

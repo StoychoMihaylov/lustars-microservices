@@ -18,17 +18,10 @@
         }
 
         [HttpPost]
-        [Route("create/{userId}")]
-        public IActionResult CreateUserProfile(string userId)
+        [Route("create")]
+        public IActionResult CreateUserProfile(CreateUserProfileBindingModel bm)
         {
-            var guidUserId = Guid.Empty;
-            bool isValid = Guid.TryParse(userId, out guidUserId);
-            if (!isValid)
-            {
-                return StatusCode(400, "The user id is not a in valid Guid format!");
-            }
-
-            var isCreated = this.profileService.CreateNewUserProfile(guidUserId);
+            var isCreated = this.profileService.CreateNewUserProfile(bm);
             if (!isCreated)
             {
                 return StatusCode(501); // NotImplemented!

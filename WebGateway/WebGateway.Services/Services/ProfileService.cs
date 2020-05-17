@@ -19,9 +19,10 @@
         public ProfileService(HttpClient httpClient, StringContentSerializer stringContentSerializer)
             : base(httpClient, stringContentSerializer) { }
 
-        public async Task<bool> CallProfileAPI_CreateUserProfile(Guid userId)
-        {  
-            var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + $"profile/create/{userId.ToString()}", null);
+        public async Task<bool> CallProfileAPI_CreateUserProfile(CreateUserProfileBindingModel bindingModel)
+        {
+            var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(bindingModel);
+            var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + $"profile/create", stringContent);
 
             if (response.StatusCode == HttpStatusCode.Created)
             {
