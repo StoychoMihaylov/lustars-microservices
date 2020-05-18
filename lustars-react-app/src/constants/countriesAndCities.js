@@ -1,6 +1,7 @@
 export const city_states = Object();
 
 //Africa
+city_states["Select Country"] = ["Select City"]
 city_states["Algeria"] = ["Algiers","Adrar","Ain Defla","Ain Temouchent","Alger","Annaba","Batna","Bechar","Bejaia","Biskra","Blida","Bordj Bou Arreridj","Bouira","Boumerdes","Chlef","Constantine","Djelfa","El Bayadh","El Oued","El Tarf","Ghardaia","Guelma","Illizi","Jijel","Khenchela","Laghouat","Mascara","Medea","Mila","Mostaganem","M'Sila","Naama","Oran","Ouargla","Oum el Bouaghi","Relizane","Saida","Setif","Sidi Bel Abbes","Skikda","Souk Ahras","Tamanghasset","Tebessa","Tiaret","Tindouf","Tipaza","Tissemsilt","Tizi Ouzou","Tlemcen"]
 city_states["Angola"] = ["Luanda","Bengo","Benguela","Bie","Cabinda","Cuando Cubango","Cuanza Norte","Cuanza Sul","Cunene","Huambo","Huila","Lunda Norte","Lunda Sul","Malanje","Moxico","Namibe","Uige","Zaire"]
 city_states["Benin"] = ["Porto-Novo","Alibori","Atakora","Atlantique","Borgou","Collines","Couffo","Donga","Littoral","Mono","Oueme","Plateau","Zou"]

@@ -7,8 +7,10 @@ import {
     REQUEST_EDIT_MY_PROFILE_DETAILS_FAIL,
     UPDATE_USER_PROFILE_BOOLEAN_FIELD,
     UPDATE_USER_PROFILE_BOOLEAN_FIELD_SUCCESS,
+    UPDATE_USER_PROFILE_BOOLEAN_FIELD_FAIL,
     UPDATE_USER_PROFILE_TEXT_FIELD,
     UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS,
+    UPDATE_USER_PROFILE_TEXT_FIELD_FAIL,
     UPDATE_USER_PROFILE_GEOLOCATION,
     UPDATE_USER_PROFILE_GEOLOCATION_SUCCESS,
     UPDATE_USER_PROFILE_GEOLOCATION_FAIL
@@ -67,13 +69,25 @@ const profileReducer = (state, action) => {
         case UPDATE_USER_PROFILE_BOOLEAN_FIELD_SUCCESS:
             return {
                 ...state,
-                userProfileDetails: action.payload
+                userProfileDetails: action.payload,
+                refresh: true
+            }
+        case UPDATE_USER_PROFILE_BOOLEAN_FIELD_FAIL:
+            return {
+                ...state,
+                error: action.payload
             }
         case UPDATE_USER_PROFILE_TEXT_FIELD:
         case UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS:
             return {
                 ...state,
-                userProfileDetails: action.payload
+                userProfileDetails: action.payload,
+                refresh: true
+            }
+        case UPDATE_USER_PROFILE_TEXT_FIELD_FAIL:
+            return {
+                ...state,
+                error: action.payload
             }
 
         default:

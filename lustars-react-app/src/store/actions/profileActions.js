@@ -7,11 +7,13 @@ import {
     REQUEST_EDIT_MY_PROFILE_DETAILS_FAIL,
     UPDATE_USER_PROFILE_BOOLEAN_FIELD,
     UPDATE_USER_PROFILE_BOOLEAN_FIELD_SUCCESS,
+    UPDATE_USER_PROFILE_BOOLEAN_FIELD_FAIL,
+    UPDATE_USER_PROFILE_TEXT_FIELD,
+    UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS,
+    UPDATE_USER_PROFILE_TEXT_FIELD_FAIL,
     REQUEST_UPLOAD_AVATAR_IMAGE,
     REQUEST_UPLOAD_AVATAR_IMAGE_SUCCESS,
     REQUEST_UPLOAD_AVATAR_IMAGE_FAIL,
-    UPDATE_USER_PROFILE_TEXT_FIELD,
-    UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS,
     UPDATE_USER_PROFILE_GEOLOCATION,
     UPDATE_USER_PROFILE_GEOLOCATION_SUCCESS,
     UPDATE_USER_PROFILE_GEOLOCATION_FAIL
@@ -164,6 +166,13 @@ export function updateBoleanFieldSuccess(newProfileData) {
     }
 }
 
+export function updateBoleanFieldFieldFail() {
+    return {
+        type: UPDATE_USER_PROFILE_BOOLEAN_FIELD_FAIL
+    }
+}
+
+
 //*************************** Upload avatar image ***************************
 
 export function uploadAvatarImage(formdData) {
@@ -224,5 +233,11 @@ export function editTextFieldSuccess(newProfileData) {
     return {
         type: UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS,
         payload: newProfileData
+    }
+}
+
+export function editTextFieldFaild() {
+    return {
+        type: UPDATE_USER_PROFILE_TEXT_FIELD_FAIL
     }
 }

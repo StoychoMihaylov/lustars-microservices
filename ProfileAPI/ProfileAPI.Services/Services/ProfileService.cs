@@ -24,6 +24,7 @@
 
                 userProfile.EmailNotificationsSubscribed = bm.EmailNotificationsSubscribed;
                 userProfile.IsUserProfileActivated = bm.IsUserProfileActivated;
+                userProfile.Languages = bm.Languages;
                 userProfile.Name = bm.Name;
                 userProfile.LastName = bm.LastName;
                 userProfile.FromCity = bm.FromCity;
