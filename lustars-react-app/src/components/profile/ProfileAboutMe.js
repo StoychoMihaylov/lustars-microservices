@@ -2,7 +2,12 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { updateUserProfileBoleanField, updateUserProfileTextField } from '../../store/actions/profileActions'
+import {
+    updateUserProfileBoleanField,
+    updateUserProfileTextField,
+    addUserCountryLanguage,
+    deleteUserCountryLanguage
+} from '../../store/actions/profileActions'
 import YesNoInputField from './YesNoInputField'
 import { countryLanguages } from '../../constants/countryLanguages'
 import '../../styles/components/profile/ProfileAboutMe.css'
@@ -17,8 +22,11 @@ class ProfileAboutMe extends Component {
     }
 
     updateProfileTextField(field, value) {
-        if (this.props.profile === undefined) {
+        if (this.props.profile === undefined ||
+            this.props.profile === null ||
+            Object.keys(this.props.profile).length == 0) {
             // TO DO: Notification for connection problem
+            return
         }
 
         let oldState = this.props.profile
@@ -57,16 +65,29 @@ class ProfileAboutMe extends Component {
                 this.props.updateUserProfileTextField(newState)
                 return
             case 'addLanguage':
-                if (!oldState.languages.includes(value)) {
-                    oldState.languages.push({ name: value })
-                    this.props.updateUserProfileTextField(oldState)
+                let includesLanguage = false
+                newState.languages.forEach(language => {
+                    if (language.name === value) {
+                        includesLanguage = true
+                    }
+                })
+                
+                if (!includesLanguage) {
+                    newState.languages.push({ name: value })
+                    this.props.addUserCountryLanguage(newState)
                 }
                 return
             case 'deleteLanguage':
-                if (oldState.languages.includes(value)) {
-                    oldState.languages.remove(value)
-                    this.props.updateUserProfileTextField(oldState)
-                }
+                let index = 0
+                oldState.languages.forEach( language => {
+                    if (language.name === value) {
+                        let stateWithLanguages = Object.assign({}, oldState)
+                        stateWithLanguages.languages.splice(index, 1)
+                        this.props.deleteUserCountryLanguage(stateWithLanguages)
+                    }
+
+                    index++
+                })
                 return
             case 'educationDegree':
                 newState.educationDegree = value
@@ -267,21 +288,22 @@ class ProfileAboutMe extends Component {
                                 </select>
                             </td>
                         </tr>
+                        <br/>
                         <tr>
                             <td><label htmlFor="languages">Languages:</label></td>
                             <td>
-                                <div>
+                                <div className="country-languages-container">
                                     {
                                         this.props.profile.languages !== null && this.props.profile.languages !== undefined
                                             ?   this.props.profile.languages.map((language, index) => {
                                                     return (
-                                                        <span
+                                                        <div
+                                                            id={ language.name }
                                                             key={ index }
                                                             className="country-language"
-                                                            value={ language.name }
-                                                            onClick= {(e) => this.updateProfileTextField("deleteLanguage", e.eventPhase.value)}>
-                                                            { language.name }&#10008;
-                                                        </span>
+                                                            onClick= {(e) => this.updateProfileTextField("deleteLanguage", e.target.id)}>
+                                                            { language.name } &#10008;
+                                                        </div>
                                                     )
                                                 })
                                             :   null
@@ -292,7 +314,11 @@ class ProfileAboutMe extends Component {
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.languages }
                                     onChange={(e) => this.updateProfileTextField("addLanguage", e.target.value)}>
-                                    <option selected="selected">Add language</option>
+                                    {
+                                        this.props.profile.languages === null || this.props.profile.languages === undefined || this.props.profile.languages.length === 0
+                                            ?   <option selected="selected">Add language</option>
+                                            :   null
+                                    }
                                     {
                                         countryLanguages.map((language, index) => {
                                             return (
@@ -307,6 +333,7 @@ class ProfileAboutMe extends Component {
                                 </select>
                             </td>
                         </tr>
+                        <br/>
                         <tr>
                             <td><label htmlFor="education-degree">Education degree:</label></td>
                             <td>
@@ -541,6 +568,8 @@ class ProfileAboutMe extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
+        deleteUserCountryLanguage: (newValue) => dispatch(deleteUserCountryLanguage(newValue)),
+        addUserCountryLanguage: (newValue) => dispatch(addUserCountryLanguage(newValue)),
         updateUserProfileBoleanField: (newValue) => dispatch(updateUserProfileBoleanField(newValue)),
         updateUserProfileTextField: (newValue) => dispatch(updateUserProfileTextField(newValue))
     }
