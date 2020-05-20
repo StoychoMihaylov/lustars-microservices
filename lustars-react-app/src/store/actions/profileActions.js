@@ -7,17 +7,58 @@ import {
     REQUEST_EDIT_MY_PROFILE_DETAILS_FAIL,
     UPDATE_USER_PROFILE_BOOLEAN_FIELD,
     UPDATE_USER_PROFILE_BOOLEAN_FIELD_SUCCESS,
+    UPDATE_USER_PROFILE_TEXT_FIELD,
+    UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS,
     REQUEST_UPLOAD_AVATAR_IMAGE,
     REQUEST_UPLOAD_AVATAR_IMAGE_SUCCESS,
     REQUEST_UPLOAD_AVATAR_IMAGE_FAIL,
-    UPDATE_USER_PROFILE_TEXT_FIELD,
-    UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS,
     UPDATE_USER_PROFILE_GEOLOCATION,
     UPDATE_USER_PROFILE_GEOLOCATION_SUCCESS,
-    UPDATE_USER_PROFILE_GEOLOCATION_FAIL
+    UPDATE_USER_PROFILE_GEOLOCATION_FAIL,
+    ADD_COUNTRY_LANGUAGE,
+    ADD_COUNTRY_LANGUAGE_SUCCESS,
+    DELETE_COUNTRY_LANGUAGE
 } from '../../constants/profileActionTypes'
 import { api } from '../../constants/endpoints'
 import axios from 'axios'
+
+//*************************** Delete country language ***************************
+
+export function deleteUserCountryLanguage(newValues) {
+    return dispatch => {
+        dispatch(deleteLanguage(newValues))
+    }
+}
+
+export function deleteLanguage(newValues) {
+    return {
+        type: DELETE_COUNTRY_LANGUAGE,
+        payload: newValues
+    }
+}
+
+//*************************** Add country language ***************************
+
+export function addUserCountryLanguage(newValues) {
+    console.log(newValues)
+    return dispatch => {
+        dispatch(addLanguage())
+        dispatch(addLanguageSuccess(newValues))
+    }
+}
+
+export function addLanguage() {
+    return {
+        type: ADD_COUNTRY_LANGUAGE
+    }
+}
+
+export function addLanguageSuccess(newValues) {
+    return {
+        type: ADD_COUNTRY_LANGUAGE_SUCCESS,
+        payload: newValues
+    }
+}
 
 //*************************** Update ser profile geaolocation ***************************
 
@@ -163,6 +204,7 @@ export function updateBoleanFieldSuccess(newProfileData) {
         payload: newProfileData
     }
 }
+
 
 //*************************** Upload avatar image ***************************
 

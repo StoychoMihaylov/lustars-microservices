@@ -45,3 +45,7 @@
     cursor: pointer;
     color: lightblue;
 }
+
+.country-languages-container {
+    text-align: center;
+}

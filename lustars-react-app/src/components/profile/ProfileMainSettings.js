@@ -1,7 +1,12 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import axios from 'axios'
-import { updateUserProfileBoleanField, updateUserProfileTextField, editMyUserProfileDetails, updateUserProfileGeaolocation } from '../../store/actions/profileActions'
+import {
+    updateUserProfileBoleanField,
+    updateUserProfileTextField,
+    editMyUserProfileDetails,
+    updateUserProfileGeaolocation
+} from '../../store/actions/profileActions'
 import YesNoInputField from '../../components/profile/YesNoInputField'
 import NumbersField from '../../components/profile/NumbersField'
 import Avatar from '../../components/profile/Avatar'
@@ -14,9 +19,6 @@ class ProfileMainSettings extends Component {
 
         this.state = {
             location: "",
-
-            showNameInput: false,
-            showLastNameInput: false,
             isFromCountrySelected: false
         }
     }
@@ -74,10 +76,6 @@ class ProfileMainSettings extends Component {
         let oldState = this.props.profile
         let newState = Object.assign({}, oldState)
 
-        this.setState({
-            isFromCountrySelected: true
-        })
-
         switch (field) {
             case 'city':
                 newState.fromCity = value
@@ -86,6 +84,9 @@ class ProfileMainSettings extends Component {
             case 'country':
                 newState.fromCountry = value
                 this.props.updateUserProfileTextField(newState)
+                this.setState({
+                    isFromCountrySelected: true
+                })
                 return
             default:
                 return
@@ -122,14 +123,14 @@ class ProfileMainSettings extends Component {
             )
         })
 
-        let selectCities = this.state.isFromCountrySelected ? city_states[this.props.profile.country] : null
-        let citySelectOptions = selectCities === null
-        ? <option>Select City</option>
-        : selectCities.map((city, index) => {
-            return (
-                <option key={ index } value={ city }>{ city }</option>
-            )
-        })
+        let selectCities = this.props.profile.fromCountry !== undefined && this.props.profile.fromCountry ? city_states[this.props.profile.fromCountry] : city_states["Select Country"]
+        let citySelectOptions = selectCities !== null
+            ?   selectCities.map((city, index) => {
+                    return (
+                        <option key={ index } value={ city }>{ city }</option>
+                    )
+                })
+            : null
 
         console.log(this.props.profile)
         return (
@@ -169,7 +170,7 @@ class ProfileMainSettings extends Component {
                                         value={ this.props.profile.fromCountry }
                                         onChange={(e) => this.updateProfileTextField("country", e.target.value)}>
                                         {
-                                            this.props.profile.country === null || this.props.profile.country === undefined
+                                            this.props.profile.fromCountry === null || this.props.profile.fromCountry === undefined
                                                 ? <option selected="selected">Select Country</option>
                                                 : null
                                         }
@@ -181,10 +182,10 @@ class ProfileMainSettings extends Component {
                             <td><label htmlFor="from-city">From City:</label></td>
                                 <td>
                                     <select
-                                         id="from-city"
-                                         className="text-input-profile-about"
-                                         value={ this.props.profile.fromCity }
-                                         onChange={(e) => this.updateProfileTextField("city", e.target.value)}>
+                                        id="from-city"
+                                        className="text-input-profile-about"
+                                        value={ this.props.profile.fromCity }
+                                        onChange={(e) => this.updateProfileTextField("city", e.target.value)}>
                                         { citySelectOptions }
                                     </select>
                                 </td>

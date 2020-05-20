@@ -11,7 +11,10 @@ import {
     UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS,
     UPDATE_USER_PROFILE_GEOLOCATION,
     UPDATE_USER_PROFILE_GEOLOCATION_SUCCESS,
-    UPDATE_USER_PROFILE_GEOLOCATION_FAIL
+    UPDATE_USER_PROFILE_GEOLOCATION_FAIL,
+    ADD_COUNTRY_LANGUAGE,
+    ADD_COUNTRY_LANGUAGE_SUCCESS,
+    DELETE_COUNTRY_LANGUAGE
 } from '../../constants/profileActionTypes'
 
 const initialState = {
@@ -25,6 +28,20 @@ const profileReducer = (state, action) => {
     state = state || initialState
 
     switch (action.type) {
+        case DELETE_COUNTRY_LANGUAGE:
+            return {
+                ...state,
+                userProfileDetails: action.payload
+            }
+        case ADD_COUNTRY_LANGUAGE:
+            return {
+                ...state
+            }
+        case ADD_COUNTRY_LANGUAGE_SUCCESS:
+            return {
+                ...state,
+                userProfileDetails: action.payload
+            }
         case UPDATE_USER_PROFILE_GEOLOCATION:
         case UPDATE_USER_PROFILE_GEOLOCATION_SUCCESS:
         case UPDATE_USER_PROFILE_GEOLOCATION_FAIL:
@@ -67,15 +84,16 @@ const profileReducer = (state, action) => {
         case UPDATE_USER_PROFILE_BOOLEAN_FIELD_SUCCESS:
             return {
                 ...state,
-                userProfileDetails: action.payload
+                userProfileDetails: action.payload,
+                refresh: true
             }
         case UPDATE_USER_PROFILE_TEXT_FIELD:
         case UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS:
             return {
                 ...state,
-                userProfileDetails: action.payload
+                userProfileDetails: action.payload,
+                refresh: true
             }
-
         default:
             return state
     }

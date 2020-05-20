@@ -16,14 +16,24 @@
 
         public bool EditUserProfile(EditUserProfileBindingModel bm)
         {
+            var languages = this.Context
+                .Languages
+                .Where(l => l.UserProfile.Id == bm.Id)
+                .ToList();
+
+            languages = bm.Languages.ToList();
+
+            // TO DO: Make it works when some language is deleted
+
             try
             {
                 var userProfile = this.Context
                     .UserProfiles
                     .Find(bm.Id);
 
+                userProfile.Languages = languages;
                 userProfile.EmailNotificationsSubscribed = bm.EmailNotificationsSubscribed;
-                userProfile.IsUserProfileActivated = bm.IsUserProfileActivated;
+                userProfile.IsUserProfileActivated = bm.IsUserProfileActivated;             
                 userProfile.Name = bm.Name;
                 userProfile.LastName = bm.LastName;
                 userProfile.FromCity = bm.FromCity;
@@ -60,7 +70,7 @@
                 this.Context.UserProfiles.Update(userProfile);
                 this.Context.SaveChanges();
             }
-            catch
+            catch(Exception ex)
             {
                 return false;
             }
