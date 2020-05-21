@@ -9,6 +9,7 @@ import {
     deleteUserCountryLanguage
 } from '../../store/actions/profileActions'
 import YesNoInputField from './YesNoInputField'
+import NumberAdjusterInput from '../common/NumberAdjusterInput'
 import { countryLanguages } from '../../constants/countryLanguages'
 import '../../styles/components/profile/ProfileAboutMe.css'
 
@@ -71,11 +72,12 @@ class ProfileAboutMe extends Component {
                         includesLanguage = true
                     }
                 })
-                
+
                 if (!includesLanguage) {
                     newState.languages.push({ name: value })
                     this.props.addUserCountryLanguage(newState)
                 }
+
                 return
             case 'deleteLanguage':
                 let index = 0
@@ -217,10 +219,19 @@ class ProfileAboutMe extends Component {
                                             id="date-of-birth"
                                             className="text-input-profile-about"
                                             showPopperArrow={false}
-                                            selected={ new Date(this.props.profile.dateOfBirth) }
+                                            selected={ this.props.profile.dateOfBirth !== null && this.props.profile.dateOfBirth !== undefined
+                                                ? new Date(this.props.profile.dateOfBirth)
+                                                : new Date()
+                                            }
                                             onChange={(date) => this.updateProfileTextField("dateOfBirth", date)}
                                         />
-                                    :   null
+                                    :   <DatePicker
+                                            id="date-of-birth"
+                                            className="text-input-profile-about"
+                                            showPopperArrow={false}
+                                            selected={ new Date() }
+                                            onChange={(date) => this.updateProfileTextField("dateOfBirth", date)}
+                                        />
                                 }
                             </td>
                         </tr>
@@ -288,7 +299,10 @@ class ProfileAboutMe extends Component {
                                 </select>
                             </td>
                         </tr>
-                        <br/>
+                        <tr>
+                            <td><hr/></td>
+                            <td><hr/></td>
+                        </tr>
                         <tr>
                             <td><label htmlFor="languages">Languages:</label></td>
                             <td>
@@ -333,7 +347,10 @@ class ProfileAboutMe extends Component {
                                 </select>
                             </td>
                         </tr>
-                        <br/>
+                        <tr>
+                            <td><hr/></td>
+                            <td><hr/></td>
+                        </tr>
                         <tr>
                             <td><label htmlFor="education-degree">Education degree:</label></td>
                             <td>
@@ -402,7 +419,7 @@ class ProfileAboutMe extends Component {
                             </td>
                         </tr>
                         <tr>
-                            <td><label htmlFor="biography">Biography:</label></td>
+                            <td><label htmlFor="biography">About you:</label></td>
                             <td>
                                 <textarea
                                     id="biography"
@@ -463,28 +480,22 @@ class ProfileAboutMe extends Component {
                             <td><hr/></td>
                         </tr>
                         <tr>
-                            <td><label htmlFor="height">Height:&nbsp;</label></td>
+                            <td><label htmlFor="height">Height/sm:</label></td>
                             <td>
-                                <input
+                                 <NumberAdjusterInput
                                     id="height"
-                                    type="text"
-                                    placeholder="180sm"
-                                    className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.height }
-                                    onChange={(e) => this.updateProfileTextField("height", e.target.value)}
+                                    numberInput={ this.props.profile.height }
+                                    numberResult={ (value) => this.updateProfileTextField("height", value) }
                                 />
                             </td>
                         </tr>
                         <tr>
-                            <td><label htmlFor="weight">Weight:&nbsp;</label></td>
+                            <td><label htmlFor="weight">Weight/kg:</label></td>
                             <td>
-                                <input
+                                <NumberAdjusterInput
                                     id="weight"
-                                    type="text"
-                                    placeholder="75kg"
-                                    className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.weight }
-                                    onChange={(e) => this.updateProfileTextField("weight", e.target.value)}
+                                    numberInput={ this.props.profile.weight }
+                                    numberResult={ (value) => this.updateProfileTextField("weight", value) }
                                 />
                             </td>
                         </tr>

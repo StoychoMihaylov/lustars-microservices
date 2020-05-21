@@ -49,8 +49,6 @@
                 Name = "Pesho",
                 Gender = "man",
                 DateOfBirth = DateTime.UtcNow,
-                PartnerIncomeFrom = 20,
-                PartnerIncomeTo = 25
             };
 
             var db = this.GetDatabase();
@@ -63,8 +61,6 @@
                 Name = "Goshko",                     // Changed!!!
                 Gender = "man",
                 DateOfBirth = DateTime.UtcNow,
-                PartnerIncomeFrom = 18,                   // Changed!!!
-                PartnerIncomeTo = 30                      // Changed!!!   
             };
 
             var profileService = new ProfileService(db);
@@ -77,8 +73,6 @@
             // Assert
             Assert.True(response);
             Assert.Equal("Goshko", updatedUserProfile.Name);
-            Assert.Equal(18, updatedUserProfile.PartnerIncomeFrom);
-            Assert.Equal(30, updatedUserProfile.PartnerIncomeTo);
         }
 
         [Fact]
@@ -93,8 +87,6 @@
                 Name = "Goshko",
                 Gender = "man",
                 DateOfBirth = DateTime.UtcNow,
-                PartnerIncomeFrom = 18,
-                PartnerIncomeTo = 30
             };
 
             var db = this.GetDatabase();
@@ -108,8 +100,6 @@
 
             // Assert
             Assert.NotNull(response);
-            Assert.Equal(18, response.PartnerIncomeFrom);
-            Assert.Equal(30, response.PartnerIncomeTo);
         }
 
         [Fact]

@@ -54,9 +54,7 @@
                 Name = "Goshko",
 
                 Gender = "man",
-                DateOfBirth = DateTime.UtcNow,
-                PartnerIncomeFrom = 18,
-                PartnerIncomeTo = 30
+                DateOfBirth = DateTime.UtcNow
             }; 
 
             var profileService = new Mock<IProfileService>();
@@ -86,8 +84,6 @@
                 Name = "Goshko",
                 Gender = "man",
                 DateOfBirth = DateTime.UtcNow,
-                PartnerIncomeFrom = 18,
-                PartnerIncomeTo = 30
             };
 
             var profileService = new Mock<IProfileService>();

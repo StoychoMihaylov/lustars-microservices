@@ -8,7 +8,7 @@ import {
     updateUserProfileGeaolocation
 } from '../../store/actions/profileActions'
 import YesNoInputField from '../../components/profile/YesNoInputField'
-import NumbersField from '../../components/profile/NumbersField'
+import NumbersField from '../../components/common/NumbersField'
 import Avatar from '../../components/profile/Avatar'
 import { city_states } from '../../constants/countriesAndCities'
 import '../../styles/components/profile/ProfileMainSettings.css'

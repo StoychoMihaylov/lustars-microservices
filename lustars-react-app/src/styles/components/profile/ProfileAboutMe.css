@@ -2,7 +2,7 @@
     border: 1;
     padding: 4px;
     margin: 4px;
-    width: 100%;
+    width: 80%;
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 5px;
@@ -16,6 +16,7 @@
 
 .text-input-profile-about:hover {
     cursor: pointer;
+    color: white;
     background-color: rgb(255, 0, 102);
 }
 

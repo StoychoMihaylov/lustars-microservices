@@ -56,8 +56,7 @@
         // About the partner
         public int PartnerAgeRangeFrom { get; set; }
         public int PartnerAgeRangeTo { get; set; }
-        public int PartnerIncomeFrom { get; set; }
-        public int PartnerIncomeTo { get; set; }
+        public string PartnerIncome { get; set; }
         public bool PartnerSmoke { get; set; }
         public bool PartnerDrinkAlcohol { get; set; }
         public bool PartnerHaveKids { get; set; }
