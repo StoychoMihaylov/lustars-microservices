@@ -53,8 +53,7 @@
                 userProfile.MeritalStatus = bm.MeritalStatus;
                 userProfile.PartnerAgeRangeFrom = bm.PartnerAgeRangeFrom;
                 userProfile.PartnerAgeRangeTo = bm.PartnerAgeRangeTo;
-                userProfile.PartnerIncomeFrom = bm.PartnerIncomeFrom;
-                userProfile.PartnerIncomeTo = bm.PartnerIncomeTo;
+                userProfile.PartnerIncome = bm.PartnerIncome;
                 userProfile.PartnerSmoke = bm.PartnerSmoke;
                 userProfile.PartnerDrinkAlcohol = bm.PartnerDrinkAlcohol;
                 userProfile.PartnerHaveKids = bm.PartnerHaveKids;

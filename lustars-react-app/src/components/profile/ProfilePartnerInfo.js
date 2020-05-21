@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { updateUserProfileBoleanField, updateUserProfileTextField } from '../../store/actions/profileActions'
 import YesNoInputField from './YesNoInputField'
+import NumberAdjusterInput from '../common/NumberAdjusterInput'
 import '../../styles/components/profile/ProfilePartnerInfo.css'
 
 class ProfilePartnerInfo extends Component {
@@ -15,6 +16,7 @@ class ProfilePartnerInfo extends Component {
 
         switch (field) {
             case 'partnerAgeRangeFrom':
+                console.log(value)
                 newState.partnerAgeRangeFrom = parseInt(value)
                 this.props.updateUserProfileTextField(newState)
                 return
@@ -26,12 +28,8 @@ class ProfilePartnerInfo extends Component {
                 newState.partnerFigure = value
                 this.props.updateUserProfileTextField(newState)
                 return
-            case 'partnerIncomeFrom':
+            case 'partnerIncome':
                 newState.partnerIncomeFrom = parseInt(value)
-                this.props.updateUserProfileTextField(newState)
-                return
-            case 'partnerIncomeTo':
-                newState.partnerIncomeTo = parseInt(value)
                 this.props.updateUserProfileTextField(newState)
                 return
 
@@ -76,40 +74,42 @@ class ProfilePartnerInfo extends Component {
                         <tr>
                             <td><label htmlFor="partner-age-range-from" >Age range from:</label></td>
                             <td>
-                                <input
+                                <NumberAdjusterInput
                                     id="partner-age-range-from"
-                                    type="text"
-                                    placeholder="Partner age from"
-                                    className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.partnerAgeRangeFrom }
-                                    onChange={(e) => this.updateProfileTextField("partnerAgeRangeFrom", e.target.value)}
+                                    numberInput={ this.props.profile.partnerAgeRangeFrom }
+                                    numberResult={ (value) => this.updateProfileTextField("partnerAgeRangeFrom", value) }
                                 />
                             </td>
                         </tr>
                         <tr>
                             <td><label htmlFor="partner-age-range-to">Age range to:</label></td>
                             <td>
-                                <input
+                                <NumberAdjusterInput
                                     id="partner-age-range-to"
-                                    type="text"
-                                    placeholder="Partner age to"
-                                    className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.partnerAgeRangeTo }
-                                    onChange={(e) => this.updateProfileTextField("partnerAgeRangeTo", e.target.value)}
+                                    numberInput={ this.props.profile.partnerAgeRangeTo }
+                                    numberResult={ (value) => this.updateProfileTextField("partnerAgeRangeTo", value) }
                                 />
                             </td>
                         </tr>
                         <tr>
                             <td><label htmlFor="partner-figure">Figure:</label></td>
                             <td>
-                                <input
+                                <select
                                     id="partner-figure"
-                                    type="text"
-                                    placeholder="Partner figure"
                                     className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.partnerFigure }
-                                    onChange={(e) => this.updateProfileTextField("partnerFigure", e.target.value)}
-                                />
+                                    value={ this.props.profile.partnerFigure }
+                                    onChange={(e) => this.updateProfileTextField("partnerFigure", e.target.value)}>
+                                    {
+                                        this.props.profile.partnerFigure === null || this.props.profile.partnerFigure === undefined
+                                            ? <option selected="selected">Select partner figure</option>
+                                            : null
+                                    }
+                                    <option value="Thin">Thin</option>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Athletic">Athletic</option>
+                                    <option value="Muscular">Muscular</option>
+                                    <option value="Fluffy">Fluffy</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -153,27 +153,22 @@ class ProfilePartnerInfo extends Component {
                         <tr>
                             <td><label htmlFor="partner-income-from">Partner income from:</label></td>
                             <td>
-                                <input
+                                <select
                                     id="partner-income-from"
-                                    type="text"
-                                    placeholder="800€"
                                     className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.partnerIncomeFrom }
-                                    onChange={(e) => this.updateProfileTextField("partnerIncomeFrom", e.target.value)}
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label htmlFor="partner-income-to">Partner income to:</label></td>
-                            <td>
-                                <input
-                                    id="partner-income-to"
-                                    type="text"
-                                    placeholder="1800€"
-                                    className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.partnerIncomeTo }
-                                    onChange={(e) => this.updateProfileTextField("partnerIncomeTo", e.target.value)}
-                                />
+                                    value={ this.props.profile.partnerIncome }
+                                    onChange={(e) => this.updateProfileTextField("partnerIncome", e.target.value)}>
+                                    {
+                                        this.props.profile.income === null || this.props.profile.income === undefined
+                                            ?   <option selected="selected">Select Income</option>
+                                            :   null
+                                    }
+                                    <option value="200€ - 600€/month" >200€ - 600€/month</option>
+                                    <option value="600€ - 1200€/month">600€ - 1200€/month</option>
+                                    <option value="1200€ - 2200€/month">1200€ - 2200€/month</option>
+                                    <option value="3000€ - 5000€/month">3000€ - 5000€/month</option>
+                                    <option value="more than 5000€/month">more than 5000€/month</option>
+                                </select>
                             </td>
                         </tr>
                     </tbody>
