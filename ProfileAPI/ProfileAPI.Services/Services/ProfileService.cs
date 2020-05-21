@@ -16,14 +16,7 @@
 
         public bool EditUserProfile(EditUserProfileBindingModel bm)
         {
-            var languages = this.Context
-                .Languages
-                .Where(l => l.UserProfile.Id == bm.Id)
-                .ToList();
-
-            languages = bm.Languages.ToList();
-
-            // TO DO: Make it works when some language is deleted
+            var languages = GetUpdatedLanguages(bm);
 
             try
             {
@@ -76,6 +69,62 @@
             }
 
             return true;
+        }
+
+        private List<Language> GetUpdatedLanguages(EditUserProfileBindingModel bm)
+        {
+            var languagesToBeDeled = new List<Language>();
+            var languagesToBeAdded = new List<Language>();
+
+            var DBlanguages = this.Context
+                .Languages
+                .Where(l => l.UserProfile.Id == bm.Id)
+                .ToList();
+
+            if (DBlanguages.Count() > bm.Languages.Count())
+            {
+                foreach (var language in DBlanguages)
+                {
+                    var isLanguageFound = false;
+                    foreach (var bmLanguage in bm.Languages)
+                    {
+                        if (language.Name == bmLanguage.Name)
+                        {
+                            isLanguageFound = true;
+                        }
+                    }
+
+                    if (!isLanguageFound)
+                    {
+                        languagesToBeDeled.Add(language);
+                    }
+                }
+
+                DBlanguages.RemoveAll(languagesToBeDeled.Contains);
+            }
+            else if (DBlanguages.Count() < bm.Languages.Count())
+            {
+                foreach (var bmLanguage in bm.Languages)
+                {
+                    var isLanguageFound = false;
+                    foreach (var language in DBlanguages)
+                    {
+                        if (language.Name == bmLanguage.Name)
+                        {
+                            isLanguageFound = true;
+                        }
+                    }
+
+                    if (!isLanguageFound)
+                    {
+                        languagesToBeAdded.Add(bmLanguage);
+                    }
+                }
+
+                DBlanguages.AddRange(languagesToBeAdded);
+            }
+
+            return DBlanguages;
         }
 
         public bool CreateNewUserProfile(CreateUserProfileBindingModel bm)
