@@ -12,16 +12,40 @@
     border-bottom-right-radius: 7px;
 }
 
-.number-adjuster-input-button-left:hover, .number-adjuster-input-button-right:hover {
+.number-adjuster-input-button-left:hover,
+.number-adjuster-input-button-right:hover,
+.double-number-adjuster-input-btn-left:hover,
+.number-adjuster-input-button-right:hover {
     background-color: lightblue;
 }
 
-.number-adjuster-input-button-left:active, .number-adjuster-input-button-right:active {
+.number-adjuster-input-button-left:active,
+.number-adjuster-input-button-right:active,
+.double-number-adjuster-input-btn-left:active,
+.double-number-adjuster-input-btn-right:active {
     background-color: rgb(255, 0, 102);
 }
 
 .number-adjuster-input {
+    cursor: pointer;
+    color: rgb(255, 0, 102);
+    border: none;
     max-width: 40px;
     text-align: center;
+}
+
+.number-adjuster-input:active {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(255, 0, 102);
+}
+
+.double-number-adjuster-input-btn-left {
     border: none;
+    border-left: 1px solid black;
+}
+
+.double-number-adjuster-input-btn-right {
+    border: none;
+    border-right: 1px solid black;
 }
