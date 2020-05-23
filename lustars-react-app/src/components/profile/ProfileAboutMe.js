@@ -328,11 +328,7 @@ class ProfileAboutMe extends Component {
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.languages }
                                     onChange={(e) => this.updateProfileTextField("addLanguage", e.target.value)}>
-                                    {
-                                        this.props.profile.languages === null || this.props.profile.languages === undefined || this.props.profile.languages.length === 0
-                                            ?   <option selected="selected">Add language</option>
-                                            :   null
-                                    }
+                                    <option selected="selected">Add language</option>
                                     {
                                         countryLanguages.map((language, index) => {
                                             return (

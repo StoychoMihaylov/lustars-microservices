@@ -23,6 +23,7 @@
 .number-adjuster-input-button-right:active,
 .double-number-adjuster-input-btn-left:active,
 .double-number-adjuster-input-btn-right:active {
+    color: white;
     background-color: rgb(255, 0, 102);
 }
 
