@@ -1,0 +1,6 @@
+.user-profile-image {
+    height: auto;
+    max-width: 100px;
+    margin: 5px;
+    display: inline-block;
+}
