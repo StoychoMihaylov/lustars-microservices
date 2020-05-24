@@ -32,9 +32,6 @@ const profileReducer = (state, action) => {
 
     switch (action.type) {
         case UPLOAD_USER_PROFILE_IMAGE:
-            return {
-                ...state
-            }
         case UPLOAD_USER_PROFILE_IMAGE_SUCCESS:
             return {
                 ...state

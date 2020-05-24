@@ -14,7 +14,7 @@ namespace WebGateway.App
         {
             services.AddCors();
             services.AddControllers();
-            services.AddHealthChecks(); // Healtchecks info for the container
+            //services.AddHealthChecks(); // Healtchecks info for the container
             services.AddSwaggerDocument(); //Swagger
             services.AddMemoryCache();
             services.AddCorsPolicy(apiCorsPolicy);
@@ -23,8 +23,8 @@ namespace WebGateway.App
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseRouting();
             app.UseCors(apiCorsPolicy);
+            app.UseRouting();
             app.UseOpenApi(); //Swagger
             app.UseSwaggerUi3();
             app.UseControllerEndpoints();

@@ -5,10 +5,7 @@ import '../../styles/views/AccountRegistration.css'
 class AccountRegistrationPage extends Component {
     render() {
         return (
-            <div className="account-registration-container">
-                <div>
-                    <h1>Logo Here!</h1>
-                </div>
+            <div className="account-registration-page-container">
                 <FormRegistration />
             </div>
         )

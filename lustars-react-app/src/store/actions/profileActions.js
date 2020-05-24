@@ -32,9 +32,10 @@ export function uploadUserProfileImage(imageFormData) {
     return dispatch => {
         dispatch(requestuploadUserProfileImage())
 
-        axios.post(api.domain + 'user-profile/image/upload', imageFormData, {
+        return axios.post(api.domain + 'user-profile/image/upload', imageFormData, {
             headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token')
+                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
+                'Access-Control-Allow-Origin': '*'
             }
         })
         .then(response => {
@@ -113,7 +114,8 @@ export function updateUserProfileGeaolocation(geolocation) {
 
         axios.post(api.domain + 'user-profile/geolocation/update', geolocation, {
             headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token')
+                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
+                'Access-Control-Allow-Origin': '*'
             }
         })
         .then(response => {
@@ -154,7 +156,8 @@ export function getMyUserProfileDetails() {
 
         axios.get(api.domain + 'user-profile', {
             headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token')
+                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
+                'Access-Control-Allow-Origin': '*'
             }
         })
         .then(response => {
@@ -195,7 +198,8 @@ export function editMyUserProfileDetails(userProfileDetails) {
 
         return axios.post(api.domain + 'user-profile/edit', userProfileDetails, {
                 headers: {
-                    'Authorization': 'Bearer ' + localStorage.getItem('lustars_token')
+                    'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
+                    'Access-Control-Allow-Origin': '*'
                 }
             })
             .then(response => {
@@ -259,7 +263,8 @@ export function uploadAvatarImage(formdData) {
 
         return axios.post(api.domain + 'user-profile/avatar-image/upload', formdData, {
             headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token')
+                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
+                'Access-Control-Allow-Origin': '*'
             }
         })
         .then(response => {

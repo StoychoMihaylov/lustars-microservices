@@ -10,7 +10,7 @@
     {
         Task<bool> CallProfileAPI_CreateUserProfile(CreateUserProfileBindingModel createUserProfileViewModel);
         Task<bool> CallProfileAPI_EditUserProfile(UserProfileBindingModel bm);
-        Task<UserProfileViewModel> CallProfileAPI_GetUserProfileById(Guid guidUserId);
+        Task<string> CallProfileAPI_GetUserProfileById(Guid guidUserId);
         Task<bool> CallProfileAPI_SaveAvatarImageURL(Guid userId, ImageUrlBindingModel url);
         Task<bool> CallProfileAPI_CreateNewUserProfileImage(Guid userId, ImageUrlBindingModel url);
         Task<string> CallImageAPI_UploadImage(Guid userId, IFormFile formData);

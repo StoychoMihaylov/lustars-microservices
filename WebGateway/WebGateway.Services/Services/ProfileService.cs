@@ -44,16 +44,16 @@
             return false;
         }
 
-        public async Task<UserProfileViewModel> CallProfileAPI_GetUserProfileById(Guid guidUserId)
+        public async Task<string> CallProfileAPI_GetUserProfileById(Guid guidUserId)
         {
             var response = await this.HttpClient.GetAsync(ProfileAPIService.Endpoint + $"profile/my-user-profile/{guidUserId.ToString()}");
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                var userProfileVm = JsonConvert
-                    .DeserializeObject<UserProfileViewModel>(response.Content.ReadAsStringAsync().Result);
+                var content = response.Content.ReadAsStringAsync().Result;
+                //var userProfileVm = JsonConvert.DeserializeObject<UserProfileViewModel>(content);
 
-                return userProfileVm;
+                return content;
             }
             else
             {

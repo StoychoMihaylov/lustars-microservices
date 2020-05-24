@@ -6,10 +6,6 @@ import NumberAdjusterInput from '../common/NumberAdjusterInput'
 import '../../styles/components/profile/ProfilePartnerInfo.css'
 
 class ProfilePartnerInfo extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     updateProfileTextField(field, value) {
         let oldState = this.props.profile
         let newState = Object.assign({}, oldState)

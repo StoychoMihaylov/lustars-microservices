@@ -27,7 +27,7 @@
         public DateTime DateOfBirth { get; set; }
         public string LookingFor { get; set; }
         public DateTime CreatedOn { get; set; }
-        public ICollection<Image> Images { get; set; }
+        //public ICollection<Image> Images { get; set; }
         public ICollection<GeoLocation> GeoLocations { get; set; }
 
         // About me

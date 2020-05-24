@@ -25,7 +25,7 @@ class ProfileAboutMe extends Component {
     updateProfileTextField(field, value) {
         if (this.props.profile === undefined ||
             this.props.profile === null ||
-            Object.keys(this.props.profile).length == 0) {
+            Object.keys(this.props.profile).length === 0) {
             // TO DO: Notification for connection problem
             return
         }
@@ -165,7 +165,6 @@ class ProfileAboutMe extends Component {
     }
 
     render() {
-        console.log(this.props.profile)
         return(
             <div>
                 <h2>About me</h2>
@@ -219,9 +218,12 @@ class ProfileAboutMe extends Component {
                                             id="date-of-birth"
                                             className="text-input-profile-about"
                                             showPopperArrow={false}
-                                            selected={ this.props.profile.dateOfBirth !== null && this.props.profile.dateOfBirth !== undefined
-                                                ? new Date(this.props.profile.dateOfBirth)
-                                                : new Date()
+                                            selected=
+                                            {   this.props.profile.dateOfBirth !== null &&
+                                                this.props.profile.dateOfBirth !== undefined &&
+                                                this.props.profile.dateOfBirth !== "0001-01-01T00:00:00"
+                                                    ? new Date(this.props.profile.dateOfBirth)
+                                                    : new Date()
                                             }
                                             onChange={(date) => this.updateProfileTextField("dateOfBirth", date)}
                                         />
@@ -326,9 +328,8 @@ class ProfileAboutMe extends Component {
                                 <select
                                     id="languages"
                                     className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.languages }
                                     onChange={(e) => this.updateProfileTextField("addLanguage", e.target.value)}>
-                                    <option selected="selected">Add language</option>
+                                    <option selected="selected" disabled>Add language</option>
                                     {
                                         countryLanguages.map((language, index) => {
                                             return (
