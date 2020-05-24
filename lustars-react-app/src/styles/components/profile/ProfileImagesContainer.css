@@ -4,3 +4,64 @@
     margin: 5px;
     display: inline-block;
 }
+
+.img-previewer-overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    text-align: center;
+}
+
+.image-preview {
+    margin: 30px;
+    max-width: auto;
+    max-width: 50%;
+}
+
+.upload-img-bttn {
+    color: white;
+    padding: 10px;
+    border: none;
+    margin-bottom: 20px;
+    border-radius: 50px;
+    border-color:  rgb(255, 0, 102);
+    background-color: rgb(255, 0, 102);
+}
+
+.upload-img-bttn:hover {
+   background-color: lightblue;
+}
+
+.upload-img-bttn:active {
+    background-color: rgb(255, 0, 102);
+ }
+
+.exit-uplad-img-bttn {
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    font-size: 28px;
+    border: none;
+    font-weight: bold;
+    color: rgb(255, 0, 102);
+    background: transparent;
+}
+
+.exit-uplad-img-bttn:hover {
+    color: lightblue
+}
+
+.exit-uplad-img-bttn:active {
+    color:rgb(255, 0, 102);
+}
+
+.upload-img-input {
+    display: none;
+}
