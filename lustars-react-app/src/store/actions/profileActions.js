@@ -17,10 +17,55 @@ import {
     UPDATE_USER_PROFILE_GEOLOCATION_FAIL,
     ADD_COUNTRY_LANGUAGE,
     ADD_COUNTRY_LANGUAGE_SUCCESS,
-    DELETE_COUNTRY_LANGUAGE
+    DELETE_COUNTRY_LANGUAGE,
+    UPLOAD_USER_PROFILE_IMAGE,
+    UPLOAD_USER_PROFILE_IMAGE_SUCCESS,
+    UPLOAD_USER_PROFILE_IMAGE_FAIL
 } from '../../constants/profileActionTypes'
 import { api } from '../../constants/endpoints'
 import axios from 'axios'
+
+
+//*************************** Upload user profile image ***************************
+
+export function uploadUserProfileImage(imageFormData) {
+    return dispatch => {
+        dispatch(requestuploadUserProfileImage())
+
+        axios.post(api.domain + 'user-profile/image/upload', imageFormData, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token')
+            }
+        })
+        .then(response => {
+            dispatch(requestuploadUserProfileImageSuccess())
+            return response
+        })
+        .catch(err => {
+            dispatch(requestuploadUserProfileImageFail(err))
+            return err
+        })
+    }
+}
+
+export function requestuploadUserProfileImage() {
+    return {
+        type: UPLOAD_USER_PROFILE_IMAGE
+    }
+}
+
+export function requestuploadUserProfileImageSuccess() {
+    return {
+        type: UPLOAD_USER_PROFILE_IMAGE_SUCCESS,
+    }
+}
+
+export function requestuploadUserProfileImageFail(error) {
+    return {
+        type: UPLOAD_USER_PROFILE_IMAGE_FAIL,
+        payload: error
+    }
+}
 
 //*************************** Delete country language ***************************
 

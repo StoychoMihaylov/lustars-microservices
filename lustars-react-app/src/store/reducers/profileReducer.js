@@ -14,7 +14,10 @@ import {
     UPDATE_USER_PROFILE_GEOLOCATION_FAIL,
     ADD_COUNTRY_LANGUAGE,
     ADD_COUNTRY_LANGUAGE_SUCCESS,
-    DELETE_COUNTRY_LANGUAGE
+    DELETE_COUNTRY_LANGUAGE,
+    UPLOAD_USER_PROFILE_IMAGE,
+    UPLOAD_USER_PROFILE_IMAGE_SUCCESS,
+    UPLOAD_USER_PROFILE_IMAGE_FAIL
 } from '../../constants/profileActionTypes'
 
 const initialState = {
@@ -28,6 +31,19 @@ const profileReducer = (state, action) => {
     state = state || initialState
 
     switch (action.type) {
+        case UPLOAD_USER_PROFILE_IMAGE:
+            return {
+                ...state
+            }
+        case UPLOAD_USER_PROFILE_IMAGE_SUCCESS:
+            return {
+                ...state
+            }
+        case UPLOAD_USER_PROFILE_IMAGE_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
         case DELETE_COUNTRY_LANGUAGE:
             return {
                 ...state,

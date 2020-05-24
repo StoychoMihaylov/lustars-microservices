@@ -1,9 +1,15 @@
 import React, { Component } from "react"
+import { connect } from "react-redux"
 import { Form } from 'reactstrap'
 import ReactCrop from 'react-image-crop'
+import {
+    infoNotification,
+    successfulNotification,
+    errorNotification
+} from '../../store/actions/eventNotifications'
 import '../../styles/components/common/ImageCropper.css'
 
-export default class ImageCropper extends Component {
+class ImageCropper extends Component {
     constructor(props){
         super(props)
 
@@ -121,7 +127,6 @@ export default class ImageCropper extends Component {
         }
     }
 
-
     render () {
         const { crop, profile_pic, src } = this.state
 
@@ -170,3 +175,14 @@ export default class ImageCropper extends Component {
         )
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+         // Notifications
+        infoNotification: (message) => dispatch(infoNotification(message)),
+        successfulNotification: (message) => dispatch(successfulNotification(message)),
+        errorNotification: (message) => dispatch(errorNotification(message))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ImageCropper)

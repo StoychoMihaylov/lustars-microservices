@@ -1,42 +1,103 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
+import { Form } from 'reactstrap'
 import { api } from '../../constants/endpoints'
 import {
     infoNotification,
     successfulNotification,
     errorNotification
 } from '../../store/actions/eventNotifications'
-import ImageCropper from '../common/ImageCropper'
+import { uploadUserProfileImage } from '../../store/actions/profileActions'
 import '../../styles/components/profile/ProfileImagesContainer.css'
 
 class ProfileImagesContainer extends Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            previewImage: null
+        }
     }
 
-    uploadUserProfileImage(croppedImgUrl, croppedImage) {
-        console.log(croppedImgUrl)
-        console.log(croppedImage)
+    selectUserProfileImage(images) {
+        if (images.target.files[0].type === "image/jpeg") {
+            let targetImg = images.target.files[0]
+            let newImg = URL.createObjectURL(targetImg)
+
+            this.setState({
+                imageFile: targetImg,
+                previewImage: newImg
+            })
+        }
+    }
+
+    uploadUserProfileImage(event) {
+        event.preventDefault()
+
+        let formData = new FormData();
+        formData.append("image", this.state.imageFile)
+
+        this.props.uploadUserProfileImage(formData)
+            .then(response => {
+                if (response.status === 201) {
+                    this.setState({
+                        previewImage: null
+                    })
+                    this.props.successfulNotification("Avatar image uploaded!")
+                } else {
+                    this.props.errorNotification("Something went wrong! Please check your connection!")
+                }
+            })
+    }
+
+    preventSubmitImageUpload() {
+        this.setState({
+            previewImage: null
+        })
     }
 
     render () {
-        let emptyImageTemplate = <img className="user-profile-image" src={process.env.PUBLIC_URL + '/add-image.png'} alt="" />
+        let imagePreviewer = this.state.previewImage !== null
+            ?   <div className="img-previewer-overlay">
+                    <Form onSubmit={ this.uploadUserProfileImage.bind(this) }>
+                        <img className="image-preview" src={this.state.previewImage} alt="" />
+                        <br/>
+                        <button
+                            type="submit"
+                            className="upload-img-bttn"
+                        >Upload
+                        </button>
+                        <button
+                            type="button"
+                            className="exit-uplad-img-bttn"
+                            onClick={ this.preventSubmitImageUpload.bind(this) }
+                        >&#9587;
+                        </button>
+                    </Form>
+                </div>
+            :   null
+
+        let userProfileImages =  this.props.userProfileImages !== undefined
+            ?   this.props.userProfileImages.map((image, index) => {
+                    return (
+                        <img key={index} className="user-profile-image" src={ api.imageAPI + image } alt="" />
+                    )
+                })
+            :   null
 
         return (
             <div>
-                {
-                    this.props.userProfileImages !== undefined
-                    ?   this.props.userProfileImages.map((image, index) => {
-                            return (
-                                <img key={index} className="user-profile-image" src={ api.imageAPI + image } alt="" />
-                            )
-                        })
-                    :   null
-                }
-                <ImageCropper
-                    emptyImageTemplate={emptyImageTemplate}
-                    returnCroppedUrlAndCroppedImage={(croppedImgUrl, croppedImage) => this.uploadUserProfileImage(croppedImgUrl, croppedImage)}
-                />
+                { userProfileImages }
+                { imagePreviewer }
+                <label>
+                    <input
+                        type="file"
+                        multiple={false}
+                        className="upload-img-input"
+                        onChange={this.selectUserProfileImage.bind(this)}
+                    />
+                    <img className="user-profile-image" src={process.env.PUBLIC_URL + '/add-image.png'} alt="" />
+                </label>
             </div>
         )
     }
@@ -44,6 +105,8 @@ class ProfileImagesContainer extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
+        uploadUserProfileImage: (formData) => dispatch(uploadUserProfileImage(formData)),
+
          // Notifications
         infoNotification: (message) => dispatch(infoNotification(message)),
         successfulNotification: (message) => dispatch(successfulNotification(message)),
