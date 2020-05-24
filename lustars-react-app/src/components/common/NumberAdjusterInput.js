@@ -10,10 +10,7 @@ export default class NumberAdjusterInput extends Component {
         this.state = {
             number: numberInput !== null && numberInput !== undefined
                 ? numberInput
-                : 0,
-
-            disableDownBtn: false,
-            disableDownBtn: false
+                : 0
         }
     }
 

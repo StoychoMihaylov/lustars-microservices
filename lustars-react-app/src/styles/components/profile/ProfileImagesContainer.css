@@ -1,10 +1,3 @@
-.user-profile-image {
-    height: auto;
-    max-width: 100px;
-    margin: 5px;
-    display: inline-block;
-}
-
 .img-previewer-overlay {
     height: 100%;
     width: 100%;
@@ -64,4 +57,16 @@
 
 .upload-img-input {
     display: none;
+}
+
+.user-profile-image {
+    margin: 5px;
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
+    display: inline-block;
+}
+
+.user-profile-images-container {
+    text-align: left;
 }

@@ -9,8 +9,8 @@ C:\Users\stmih\Desktop\lustars-microservices\WebGateway\WebGateway.Models\obj\De
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.Models\bin\Debug\netcoreapp3.1\WebGateway.Models.deps.json
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.Models\bin\Debug\netcoreapp3.1\WebGateway.Models.dll
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.Models\bin\Debug\netcoreapp3.1\WebGateway.Models.pdb
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.Models\obj\Debug\netcoreapp3.1\WebGateway.Models.csprojAssemblyReference.cache
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.Models\obj\Debug\netcoreapp3.1\WebGateway.Models.AssemblyInfoInputs.cache
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.Models\obj\Debug\netcoreapp3.1\WebGateway.Models.AssemblyInfo.cs
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.Models\obj\Debug\netcoreapp3.1\WebGateway.Models.dll
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.Models\obj\Debug\netcoreapp3.1\WebGateway.Models.pdb
-C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.Models\obj\Debug\netcoreapp3.1\WebGateway.Models.csprojAssemblyReference.cache

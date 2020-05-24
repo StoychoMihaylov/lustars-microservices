@@ -4,3 +4,13 @@
     border-radius: 5px;
     min-width: 300px;
 }
+
+.form-registration-container {
+    margin-top: 10%;
+    background-color: rgba(201, 76, 76, 0.5);
+    margin-left: 35%;
+    margin-right: 35%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}

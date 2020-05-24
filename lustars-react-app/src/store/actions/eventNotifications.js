@@ -7,7 +7,7 @@ import {
     CLEAR_ERROR_NOTIFICATION_MESSAGE
 } from '../../constants/eventNotificationsActionTypes'
 
-//*************************** Notification actions ***************************
+//*************************** Info notification actions ***************************
 
 export function infoNotification(message) {
     return function (dispatch) {
@@ -15,31 +15,7 @@ export function infoNotification(message) {
         setTimeout(
             function () {
                 dispatch(clearInfoNotificationMesage(message))
-            }.bind(this),
-            4000
-        )
-    }
-}
-
-export function successfulNotification(message) {
-    return function (dispatch) {
-        dispatch(setSuccessfulNotificationMessage(message))
-        setTimeout(
-            function () {
-                dispatch(clearSuccessfulNotificationMessage(message))
-            }.bind(this),
-            4000
-        )
-    }
-}
-
-export function errorNotification(message) {
-    return function (dispatch) {
-        dispatch(setErrorNotificationMessage(message))
-        setTimeout(
-            function () {
-            dispatch(clearErrorNotificationMessage(message))
-            }.bind(this),
+            },
             4000
         )
     }
@@ -58,6 +34,20 @@ export function clearInfoNotificationMesage() {
     }
 }
 
+//************************** Success notification action ****************************
+
+export function successfulNotification(message) {
+    return function (dispatch) {
+        dispatch(setSuccessfulNotificationMessage(message))
+        setTimeout(
+            function () {
+                dispatch(clearSuccessfulNotificationMessage(message))
+            },
+            4000
+        )
+    }
+}
+
 export function setSuccessfulNotificationMessage(message) {
     return {
         type: SET_SUCCESSFUL_NOTIFICATION_MESSAGE,
@@ -68,6 +58,20 @@ export function setSuccessfulNotificationMessage(message) {
 export function clearSuccessfulNotificationMessage() {
     return {
         type: CLEAR_SUCCESSFUL_NOTIFICATION_MESSAGE,
+    }
+}
+
+//************************** error notification action ****************************
+
+export function errorNotification(message) {
+    return function (dispatch) {
+        dispatch(setErrorNotificationMessage(message))
+        setTimeout(
+            function () {
+            dispatch(clearErrorNotificationMessage(message))
+            },
+            4000
+        )
     }
 }
 
@@ -83,6 +87,3 @@ export function clearErrorNotificationMessage() {
         type: CLEAR_ERROR_NOTIFICATION_MESSAGE,
     }
 }
-
-
-//***********************************************************************************

@@ -8,6 +8,7 @@ import {
     errorNotification
 } from '../../store/actions/eventNotifications'
 import { uploadUserProfileImage } from '../../store/actions/profileActions'
+import { getMyUserProfileDetails } from '../../store/actions/profileActions'
 import '../../styles/components/profile/ProfileImagesContainer.css'
 
 class ProfileImagesContainer extends Component {
@@ -18,7 +19,7 @@ class ProfileImagesContainer extends Component {
             previewImage: null
         }
     }
-
+    
     selectUserProfileImage(images) {
         if (images.target.files[0].type === "image/jpeg") {
             let targetImg = images.target.files[0]
@@ -43,6 +44,9 @@ class ProfileImagesContainer extends Component {
                     this.setState({
                         previewImage: null
                     })
+
+                    // Will update and rerender the state with the new image
+                    this.props.getMyUserProfileDetails()
                     this.props.successfulNotification("Avatar image uploaded!")
                 } else {
                     this.props.errorNotification("Something went wrong! Please check your connection!")
@@ -77,16 +81,17 @@ class ProfileImagesContainer extends Component {
                 </div>
             :   null
 
-        let userProfileImages =  this.props.userProfileImages !== undefined
+        let userProfileImages =  this.props.userProfileImages !== undefined && this.props.userProfileImages !== null
             ?   this.props.userProfileImages.map((image, index) => {
                     return (
-                        <img key={index} className="user-profile-image" src={ api.imageAPI + image } alt="" />
+                        <img key={index} className="user-profile-image" src={ api.imageAPI + image.url } alt="" />
                     )
                 })
             :   null
 
+        console.log(this.props.userProfileImages)
         return (
-            <div>
+            <div className="user-profile-images-container">
                 { userProfileImages }
                 { imagePreviewer }
                 <label>
@@ -106,6 +111,7 @@ class ProfileImagesContainer extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         uploadUserProfileImage: (formData) => dispatch(uploadUserProfileImage(formData)),
+        getMyUserProfileDetails: () => dispatch(getMyUserProfileDetails()),
 
          // Notifications
         infoNotification: (message) => dispatch(infoNotification(message)),

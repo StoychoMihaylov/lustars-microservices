@@ -180,6 +180,7 @@ C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.UnitTest
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.UnitTests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.UnitTests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.UnitTests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.UnitTests\obj\Debug\netcoreapp3.1\WebGateway.UnitTests.csprojAssemblyReference.cache
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.UnitTests\obj\Debug\netcoreapp3.1\WebGateway.UnitTests.AssemblyInfoInputs.cache
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.UnitTests\obj\Debug\netcoreapp3.1\WebGateway.UnitTests.AssemblyInfo.cs
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.UnitTests\obj\Debug\netcoreapp3.1\WebGateway.UnitTests.csproj.CopyComplete
