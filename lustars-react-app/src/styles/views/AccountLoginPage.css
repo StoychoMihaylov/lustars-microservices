@@ -1,8 +1,6 @@
 .account-login-page-conteiner {
-    text-align: center;
-    position:fixed;
-    margin-top: 55px;
-    top: 0;
+    position: absolute;
+    top:0;
     left:0;
     bottom:0;
     right:0;
@@ -13,4 +11,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.home-back-bttn a{
+    color: white;
 }

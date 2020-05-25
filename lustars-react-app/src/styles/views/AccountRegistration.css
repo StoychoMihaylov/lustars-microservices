@@ -12,3 +12,16 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.home-back-bttn {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 50px;
+    max-width: 300px;
+    background-color: rgb(192,192,192, 0.5);
+}
+
+.home-back-bttn:hover {
+    cursor: pointer;
+    background-color: rgb(135,206,250, 0.5) ;
+}

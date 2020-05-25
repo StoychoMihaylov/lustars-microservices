@@ -5,10 +5,10 @@ import '../../styles/views/AccountLoginPage.css'
 class AccountLoginPage extends Component {
     render() {
         return (
-            <div className='account-login-page-conteiner'>
+            <div className="account-login-page-conteiner">
                 <div>
-                    <div>
-                        <h1>Logo Here!</h1>
+                    <div className="home-back-bttn">
+                        <a href="/">Go Back to Home</a>
                     </div>
                     <FormAccountLogin />
                 </div>

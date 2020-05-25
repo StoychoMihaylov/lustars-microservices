@@ -179,12 +179,12 @@ class FormRegistration extends Component {
                 <div>
                     <button
                         type="button"
-                        className="save-btn"
+                        className="register-save-btn"
                         onClick={this.handleSubmit.bind(this)}>Register</button>
 
                     <button
                         type="button"
-                        className="back-btn"
+                        className="register-back-btn"
                         onClick={ this.props.goBack }>Go Back</button>
                 </div>
             </div>

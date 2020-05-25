@@ -82,12 +82,15 @@ class LoginAccount extends Component {
         return (
             <div className="login-form-container">
                 <div>
+                    <h1>Logo Here!</h1>
+                </div>
+                <div>
                     <div className="errorMessage">{this.state.emailValidation}</div>
                     <input
                         type="text"
                         placeholder="Email..."
                         name="email"
-                        className="registration-field"
+                        className="login-field"
                         onChange={event => this.setState({ email: event.target.value })}
                     />
                 </div>
@@ -97,7 +100,7 @@ class LoginAccount extends Component {
                         type="password"
                         placeholder="Password..."
                         name="password"
-                        className="registration-field"
+                        className="login-field"
                         onChange={event => this.setState({ password: event.target.value })}
                     />
                 </div>
@@ -107,11 +110,11 @@ class LoginAccount extends Component {
                 </div>
                     <button
                         type="button"
-                        className="save-btn"
+                        className="login-bttn"
                         onClick={this.handleSubmit.bind(this)}>&nbsp;Log in&nbsp;</button>
                     <button
                         type="button"
-                        className="back-btn"
+                        className="login-back-bttn"
                         onClick={ this.props.goBack }>Go Back</button>
                 </div>
             </div>

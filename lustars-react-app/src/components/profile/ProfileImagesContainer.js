@@ -19,7 +19,7 @@ class ProfileImagesContainer extends Component {
             previewImage: null
         }
     }
-    
+
     selectUserProfileImage(images) {
         if (images.target.files[0].type === "image/jpeg") {
             let targetImg = images.target.files[0]
@@ -84,7 +84,23 @@ class ProfileImagesContainer extends Component {
         let userProfileImages =  this.props.userProfileImages !== undefined && this.props.userProfileImages !== null
             ?   this.props.userProfileImages.map((image, index) => {
                     return (
-                        <img key={index} className="user-profile-image" src={ api.imageAPI + image.url } alt="" />
+                        <div
+                            key={index}
+                            className="user-profile-image-container"
+                            onMouseEnter={ this.showImageOperationOptions.bind(this) }
+                        >
+                            <img
+                                ref={index}
+                                className="add-image-as-avatar"
+                                src={process.env.PUBLIC_URL + '/empty-avatar.png'}
+                                alt=""
+                            />
+                            <img
+                                className="user-profile-image"
+                                src={ api.imageAPI + image.url }
+                                alt=""
+                            />
+                        </div>
                     )
                 })
             :   null
