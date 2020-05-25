@@ -67,6 +67,16 @@
     display: inline-block;
 }
 
+.user-profile-image-container {
+    display: inline-block;
+}
+
 .user-profile-images-container {
     text-align: left;
+}
+
+.add-image-as-avatar {
+    height: 35px;
+    width: 35px;
+    /* display: none; */
 }
