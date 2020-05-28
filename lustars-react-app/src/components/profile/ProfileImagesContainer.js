@@ -54,6 +54,24 @@ class ProfileImagesContainer extends Component {
             })
     }
 
+    addUserProfileImageAsAvatar() {
+        console.log("Add user profile image as avatar")
+    }
+
+    showImageOperationOptions(event) {
+        let id = event.target.id
+        if (id !== "") {
+            this.refs[id].style.display = 'block'
+        }
+    }
+
+    hideImageOperationOptions(event) {
+        let id = event.target.id
+        if (id !== "") {
+            this.refs[id].style.display = 'none'
+        }
+    }
+
     preventSubmitImageUpload() {
         this.setState({
             previewImage: null
@@ -84,23 +102,31 @@ class ProfileImagesContainer extends Component {
         let userProfileImages =  this.props.userProfileImages !== undefined && this.props.userProfileImages !== null
             ?   this.props.userProfileImages.map((image, index) => {
                     return (
-                        <div
+                        <label
                             key={index}
-                            className="user-profile-image-container"
+                            id={"image" + index}
+                            className="user-profile-image-label"
                             onMouseEnter={ this.showImageOperationOptions.bind(this) }
+                            onMouseLeave={ this.hideImageOperationOptions.bind(this) }
+                            onClick={ this.addUserProfileImageAsAvatar.bind(this) }
                         >
-                            <img
-                                ref={index}
-                                className="add-image-as-avatar"
-                                src={process.env.PUBLIC_URL + '/empty-avatar.png'}
-                                alt=""
-                            />
-                            <img
-                                className="user-profile-image"
-                                src={ api.imageAPI + image.url }
-                                alt=""
-                            />
-                        </div>
+                            <div className="user-profile-image-container">
+                                <img
+                                    ref={"image" + index}
+                                    className="add-image-as-avatar"
+                                    src={process.env.PUBLIC_URL + '/gear-image.png'}
+                                    alt=""
+                                />
+                                <img
+                                    id={"image" + index}
+                                    className="user-profile-image"
+                                    src={ api.imageAPI + image.url }
+                                    onMouseEnter={ this.showImageOperationOptions.bind(this) }
+                                    onMouseLeave={ this.hideImageOperationOptions.bind(this) }
+                                    alt=""
+                                />
+                            </div>
+                        </label>
                     )
                 })
             :   null

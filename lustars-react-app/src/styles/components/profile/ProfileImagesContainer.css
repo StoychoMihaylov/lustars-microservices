@@ -59,24 +59,49 @@
     display: none;
 }
 
-.user-profile-image {
-    margin: 5px;
-    width:  100px;
-    height: 100px;
-    object-fit: cover;
-    display: inline-block;
-}
+
 
 .user-profile-image-container {
     display: inline-block;
 }
 
-.user-profile-images-container {
-    text-align: left;
+.user-profile-image-container {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.user-profile-image {
+    margin-right: 3px;
+    margin-left: 3px;
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.user-profile-image:hover {
+    opacity: 0.3;
 }
 
 .add-image-as-avatar {
-    height: 35px;
-    width: 35px;
-    /* display: none; */
+    height: 80px;
+    width: 80px;
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    border-radius: 50px;
+}
+
+#image0 {
+    border-top-left-radius: 20px;
+}
+
+#image2 {
+    border-top-right-radius: 20px;
 }
