@@ -1,0 +1,10 @@
+.layout-footer {
+    text-align: center;
+    background-color: grey;
+}
+
+.footer-content-container {
+    display: inline-block;
+    max-width: 300px;
+    margin: 50px;
+}

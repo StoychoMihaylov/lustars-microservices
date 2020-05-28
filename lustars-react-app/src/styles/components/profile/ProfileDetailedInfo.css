@@ -3,9 +3,11 @@
     margin: 20px;
     vertical-align:top;
     display: inline-block;
+    color: rgba(128, 128, 128);
 }
 
 .user-profile-info-details {
+    color: rgba(128, 128, 128);
     width: 600px;
     margin: 20px;
     overflow: hidden;
@@ -18,11 +20,20 @@
     color: white;
     padding: 10px;
     border-radius: 50px;
-    border-color:  rgb(255, 0, 102);
-    background-color: rgb(255, 0, 102);
+    border: none;
+    background-color: rgba(255, 0, 102);
+}
+
+.save-profile-details-btn:hover {
+    background-color: lightblue;
+}
+
+.save-profile-details-btn:active {
+    background-color: rgba(255, 0, 102);
 }
 
 .user-profile-container {
     text-align: center;
     margin-bottom: 20px;
+    padding-bottom: 20px;
 }

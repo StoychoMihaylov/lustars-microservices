@@ -59,10 +59,8 @@
     display: none;
 }
 
-
-
-.user-profile-image-container {
-    display: inline-block;
+.user-profile-images-container {
+    padding-left: 30px;
 }
 
 .user-profile-image-container {
