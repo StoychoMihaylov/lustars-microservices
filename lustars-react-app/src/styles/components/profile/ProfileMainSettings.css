@@ -22,12 +22,12 @@
     border-radius: 5px;
     padding: 5px;
     width: 100%;
-    background-color: rgba(255, 0, 102, 0.301);
-    border: 1px solid black;
+    background-color: rgba(255, 0, 102);
+    border: none;
 }
 
 .location-refresh-btn {
-    color: white;
+    color: black;
     font-size: 25px;
     cursor: pointer;
 }
@@ -37,10 +37,5 @@
 }
 
 .location-refresh-btn:active {
-    color: white;
-    border-radius: 5px;
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-bottom: 3px;
-    background-color: grey;
+    color: rgba(255, 0, 102);
 }
