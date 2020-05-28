@@ -134,17 +134,19 @@ class ProfileImagesContainer extends Component {
         console.log(this.props.userProfileImages)
         return (
             <div className="user-profile-images-container">
-                { userProfileImages }
-                { imagePreviewer }
-                <label>
-                    <input
-                        type="file"
-                        multiple={false}
-                        className="upload-img-input"
-                        onChange={this.selectUserProfileImage.bind(this)}
-                    />
-                    <img className="user-profile-image" src={process.env.PUBLIC_URL + '/add-image.png'} alt="" />
-                </label>
+                <div>
+                    { userProfileImages }
+                    { imagePreviewer }
+                    <label>
+                        <input
+                            type="file"
+                            multiple={false}
+                            className="upload-img-input"
+                            onChange={this.selectUserProfileImage.bind(this)}
+                        />
+                        <img className="user-profile-image" src={process.env.PUBLIC_URL + '/add-image.png'} alt="" />
+                    </label>
+                </div>
             </div>
         )
     }

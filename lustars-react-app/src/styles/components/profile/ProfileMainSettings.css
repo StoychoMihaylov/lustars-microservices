@@ -13,7 +13,7 @@
 }
 
 .profile-main-settings-table label:hover{
-    color: rgb(255, 0, 102);
+    color: lightblue;
 }
 
 .location-btn {
@@ -22,22 +22,18 @@
     border-radius: 5px;
     padding: 5px;
     width: 100%;
-    background-color: rgb(255, 0, 102);
+    background-color: rgba(255, 0, 102, 0.301);
+    border: 1px solid black;
 }
 
 .location-refresh-btn {
-    color: rgb(255, 0, 102);
+    color: white;
     font-size: 25px;
     cursor: pointer;
 }
 
 .location-refresh-btn:hover {
-    color: white;
-    border-radius: 5px;
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-bottom: 3px;
-    background-color: rgb(255, 0, 102);
+    color: lightblue;
 }
 
 .location-refresh-btn:active {
