@@ -64,7 +64,7 @@ class ProfileMainSettings extends Component {
             console.log(updateResponse)
 
             this.setState({
-                location: response.data.results[0].formatted_address
+                location: arrLocation[1] + ", " + arrLocation[2]
             })
         })
         .catch({
@@ -113,7 +113,7 @@ class ProfileMainSettings extends Component {
 
     render() {
         let getLocationBtn = this.state.location !== ""
-            ?  <span> { this.state.location } <span onClick={ this.setGeolocation.bind(this) } className="location-refresh-btn">&#8634;</span></span>
+            ?  <span>{ this.state.location }<span onClick={ this.setGeolocation.bind(this) } className="location-refresh-btn">&#8634;</span></span>
             :  <button className="location-btn" onClick={ this.setGeolocation.bind(this) }>Get Location</button>
 
         let selectCountries = Object.keys(city_states)
@@ -155,9 +155,11 @@ class ProfileMainSettings extends Component {
                                 <td><label htmlFor="location">Location:</label></td>
                                 <td>
                                     {
-                                        this.props.profile.location !== null && this.props.profile.location !== undefined
-                                            ? this.props.profile.location
-                                            : getLocationBtn
+                                        this.props.profile.geoLocations !== null && this.props.profile.geoLocations !== undefined
+                                            ?   <div>
+                                                    <span>{ this.props.profile.geoLocations[0].city }, { this.props.profile.geoLocations[0].country } </span><span onClick={ this.setGeolocation.bind(this) } className="location-refresh-btn">&#8634;</span>
+                                                </div>
+                                            :   getLocationBtn
                                     }
                                 </td>
                             </tr>
