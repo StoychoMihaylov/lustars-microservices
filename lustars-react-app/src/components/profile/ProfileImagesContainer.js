@@ -16,7 +16,8 @@ class ProfileImagesContainer extends Component {
         super(props)
 
         this.state = {
-            previewImage: null
+            previewUploadImage: null,
+            imageSettingPreview: null
         }
     }
 
@@ -27,7 +28,7 @@ class ProfileImagesContainer extends Component {
 
             this.setState({
                 imageFile: targetImg,
-                previewImage: newImg
+                previewUploadImage: newImg
             })
         }
     }
@@ -42,20 +43,29 @@ class ProfileImagesContainer extends Component {
             .then(response => {
                 if (response.status === 201) {
                     this.setState({
-                        previewImage: null
+                        previewUploadImage: null
                     })
 
                     // Will update and rerender the state with the new image
                     this.props.getMyUserProfileDetails()
-                    this.props.successfulNotification("Avatar image uploaded!")
+                    this.props.successfulNotification("Image uploaded!")
                 } else {
                     this.props.errorNotification("Something went wrong! Please check your connection!")
                 }
             })
     }
 
-    addUserProfileImageAsAvatar() {
-        console.log("Add user profile image as avatar")
+    closeImageSettingPreview() {
+        this.setState({
+            imageSettingPreview: null
+        })
+    }
+
+    openImagePreviewSettings(event) {
+        console.log(this.props.userProfileImages[event.target.id.substr(5)].url)
+        this.setState({
+            imageSettingPreview: this.props.userProfileImages[event.target.id.substr(5)].url
+        })
     }
 
     showImageOperationOptions(event) {
@@ -74,15 +84,15 @@ class ProfileImagesContainer extends Component {
 
     preventSubmitImageUpload() {
         this.setState({
-            previewImage: null
+            previewUploadImage: null
         })
     }
 
     render () {
-        let imagePreviewer = this.state.previewImage !== null
+        let imageUploadPreviewer = this.state.previewUploadImage !== null
             ?   <div className="img-previewer-overlay">
                     <Form onSubmit={ this.uploadUserProfileImage.bind(this) }>
-                        <img className="image-preview" src={this.state.previewImage} alt="" />
+                        <img className="image-preview" src={this.state.previewUploadImage} alt="" />
                         <br/>
                         <button
                             type="submit"
@@ -105,15 +115,16 @@ class ProfileImagesContainer extends Component {
                         <label
                             key={index}
                             id={"image" + index}
+                            value={image.id}
                             className="user-profile-image-label"
                             onMouseEnter={ this.showImageOperationOptions.bind(this) }
                             onMouseLeave={ this.hideImageOperationOptions.bind(this) }
-                            onClick={ this.addUserProfileImageAsAvatar.bind(this) }
+                            onClick={ this.openImagePreviewSettings.bind(this) }
                         >
                             <div className="user-profile-image-container">
                                 <img
                                     ref={"image" + index}
-                                    className="add-image-as-avatar"
+                                    className="image-setting-icon"
                                     src={process.env.PUBLIC_URL + '/gear-image.png'}
                                     alt=""
                                 />
@@ -131,12 +142,40 @@ class ProfileImagesContainer extends Component {
                 })
             :   null
 
+        let imagePreviewSettingOverlay = this.state.imageSettingPreview !== null
+            ?   <div className="img-previewer-overlay">
+                    <img
+                        className="image-preview"
+                        src={ api.imageAPI + this.state.imageSettingPreview }
+                        alt=""
+                    />
+                    <br/>
+                    <button
+                        type="button"
+                        className="delete-img-bttn"
+                    ><img className="add-as-avatar-image" src={process.env.PUBLIC_URL + '/empty-avatar.png'} alt="" />
+                    </button>
+                    <button
+                        type="button"
+                        className="delete-img-bttn"
+                    >&#128465;
+                    </button>
+                    <button
+                        type="button"
+                        className="exit-uplad-img-bttn"
+                        onClick={ this.closeImageSettingPreview.bind(this) }
+                    >&#9587;
+                    </button>
+                </div>
+            :   null
+
         console.log(this.props.userProfileImages)
         return (
             <div className="user-profile-images-container">
                 <div>
                     { userProfileImages }
-                    { imagePreviewer }
+                    { imageUploadPreviewer }
+                    { imagePreviewSettingOverlay }
                     <label>
                         <input
                             type="file"
