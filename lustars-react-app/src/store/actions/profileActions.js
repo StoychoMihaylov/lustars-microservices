@@ -20,17 +20,20 @@ import {
     DELETE_COUNTRY_LANGUAGE,
     UPLOAD_USER_PROFILE_IMAGE,
     UPLOAD_USER_PROFILE_IMAGE_SUCCESS,
-    UPLOAD_USER_PROFILE_IMAGE_FAIL
+    UPLOAD_USER_PROFILE_IMAGE_FAIL,
+    DELETE_USER_PROFILE_IMAGE,
+    DELETE_USER_PROFILE_IMAGE_SUCCESS,
+    DELETE_USER_PROFILE_IMAGE_FAIL
 } from '../../constants/profileActionTypes'
 import { api } from '../../constants/endpoints'
 import axios from 'axios'
 
 
-//*************************** Upload user profile image ***************************
+//*************************** Delete user profile image ***************************
 
-export function uploadUserProfileImage(imageFormData) {
+export function deleteUserProfileImage(imageFormData) {
     return dispatch => {
-        dispatch(requestuploadUserProfileImage())
+        dispatch(requestDeleteUserProfileImage())
 
         return axios.post(api.domain + 'user-profile/image/upload', imageFormData, {
             headers: {
@@ -39,29 +42,71 @@ export function uploadUserProfileImage(imageFormData) {
             }
         })
         .then(response => {
-            dispatch(requestuploadUserProfileImageSuccess())
+            dispatch(requestDeleteUserProfileImageSuccess())
             return response
         })
         .catch(err => {
-            dispatch(requestuploadUserProfileImageFail(err))
+            dispatch(requestDeleteUserProfileImageFail(err))
             return err
         })
     }
 }
 
-export function requestuploadUserProfileImage() {
+export function requestDeleteUserProfileImage() {
+    return {
+        type: DELETE_USER_PROFILE_IMAGE
+    }
+}
+
+export function requestDeleteUserProfileImageSuccess() {
+    return {
+        type: DELETE_USER_PROFILE_IMAGE_SUCCESS,
+    }
+}
+
+export function requestDeleteUserProfileImageFail(error) {
+    return {
+        type: DELETE_USER_PROFILE_IMAGE_FAIL,
+        payload: error
+    }
+}
+
+//*************************** Upload user profile image ***************************
+
+export function uploadUserProfileImage(imageFormData) {
+    return dispatch => {
+        dispatch(requestUploadUserProfileImage())
+
+        return axios.post(api.domain + 'user-profile/image/upload', imageFormData, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+        .then(response => {
+            dispatch(requestUploadUserProfileImageSuccess())
+            return response
+        })
+        .catch(err => {
+            dispatch(requestUploadUserProfileImageFail(err))
+            return err
+        })
+    }
+}
+
+export function requestUploadUserProfileImage() {
     return {
         type: UPLOAD_USER_PROFILE_IMAGE
     }
 }
 
-export function requestuploadUserProfileImageSuccess() {
+export function requestUploadUserProfileImageSuccess() {
     return {
         type: UPLOAD_USER_PROFILE_IMAGE_SUCCESS,
     }
 }
 
-export function requestuploadUserProfileImageFail(error) {
+export function requestUploadUserProfileImageFail(error) {
     return {
         type: UPLOAD_USER_PROFILE_IMAGE_FAIL,
         payload: error
