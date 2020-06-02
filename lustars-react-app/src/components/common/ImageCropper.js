@@ -14,7 +14,6 @@ class ImageCropper extends Component {
         super(props)
 
         this.state = {
-            previewAvatarImage: null,
             src: null,
             crop: {
                 unit: "%",
@@ -99,16 +98,10 @@ class ImageCropper extends Component {
         e.preventDefault()
 
         var imgUrl = URL.createObjectURL(this.state.croppedImage)
-
-        this.setState({
-            croppedImageUrl: imgUrl,
-            showImageCropper: false
-        })
-
         this.props.returnCroppedUrlAndCroppedImage(imgUrl, this.state.croppedImage)
     }
 
-    async chooseImageToUpload(image) {
+    async croppImage(image) {
 
         if (image.target.files[0].type === "image/jpeg") {
             const fileReader = new FileReader()
@@ -152,25 +145,15 @@ class ImageCropper extends Component {
             </div>
             : ""
 
-        let emptyImageTemplate =
+        let cropperStarter =
             <div>
-                <label>
-                    <input
-                        type="file"
-                        multiple={false}
-                        id='profile_pic'
-                        value={profile_pic}
-                        className="avatar-img-upload-btn"
-                        onChange={ this.chooseImageToUpload.bind(this) }
-                    />
-                    { this.props.emptyImageTemplate }
-                </label>
+                <button onChange={ () => this.croppImage(this.props.imageToCropp) }></button>
             </div>
 
         return (
             <div>
                 { imageCropper }
-                { emptyImageTemplate }
+                { cropperStarter }
             </div>
         )
     }

@@ -157,7 +157,8 @@ class ProfileMainSettings extends Component {
                                     {
                                         this.props.profile.geoLocations !== null && this.props.profile.geoLocations !== undefined
                                             ?   <div>
-                                                    <span>{ this.props.profile.geoLocations[0].city }, { this.props.profile.geoLocations[0].country } </span><span onClick={ this.setGeolocation.bind(this) } className="location-refresh-btn">&#8634;</span>
+                                                    <span>{ this.props.profile.geoLocations[0].city }, { this.props.profile.geoLocations[0].country } </span>
+                                                    <span onClick={ this.setGeolocation.bind(this) } className="location-refresh-btn">&#8634;</span>
                                                 </div>
                                             :   getLocationBtn
                                     }
