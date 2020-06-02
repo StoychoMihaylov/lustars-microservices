@@ -103,7 +103,7 @@ class ImageCropper extends Component {
     }
 
     async croppImage(image) {
-        let file = await axios.get(image.url).then(r => r.blob()).then(blobFile => new File([blobFile], "image", { type: "image/jpeg" }))
+        //let file = await axios.get(image.url).then(r => r.blob()).then(blobFile => new File([blobFile], "image", { type: "image/jpeg" }))
         console.log(file)
         if (file.type === "image/jpeg") {
             const fileReader = new FileReader()

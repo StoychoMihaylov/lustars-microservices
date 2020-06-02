@@ -77,7 +77,7 @@ export function uploadUserProfileImage(imageFormData) {
     return dispatch => {
         dispatch(requestUploadUserProfileImage())
 
-        return axios.post(api.domain + 'user-profile/image/upload', imageFormData, {
+        return axios.post(api.domain + 'user-profile/image/delete', imageFormData, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
                 'Access-Control-Allow-Origin': '*'
