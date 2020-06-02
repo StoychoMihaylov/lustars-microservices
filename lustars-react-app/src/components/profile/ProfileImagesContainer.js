@@ -7,8 +7,9 @@ import {
     successfulNotification,
     errorNotification
 } from '../../store/actions/eventNotifications'
-import { uploadUserProfileImage } from '../../store/actions/profileActions'
+import { uploadUserProfileImage, deleteUserProfileImage } from '../../store/actions/profileActions'
 import { getMyUserProfileDetails } from '../../store/actions/profileActions'
+import ImageCropper from '../common/ImageCropper'
 import '../../styles/components/profile/ProfileImagesContainer.css'
 
 class ProfileImagesContainer extends Component {
@@ -17,7 +18,7 @@ class ProfileImagesContainer extends Component {
 
         this.state = {
             previewUploadImage: null,
-            imageSettingPreview: null
+            imageSettingsPreview: null
         }
     }
 
@@ -57,14 +58,13 @@ class ProfileImagesContainer extends Component {
 
     closeImageSettingPreview() {
         this.setState({
-            imageSettingPreview: null
+            imageSettingsPreview: null
         })
     }
 
     openImagePreviewSettings(event) {
-        console.log(this.props.userProfileImages[event.target.id.substr(5)].url)
         this.setState({
-            imageSettingPreview: this.props.userProfileImages[event.target.id.substr(5)].url
+            imageSettingsPreview: this.props.userProfileImages[event.target.id.substr(5)]
         })
     }
 
@@ -86,6 +86,26 @@ class ProfileImagesContainer extends Component {
         this.setState({
             previewUploadImage: null
         })
+    }
+
+    deleteUserProfileImage() {
+        let formData = new FormData();
+        formData.append("image", this.state.imageSettingsPreview)
+
+        this.props.deleteUserProfileImage(formData)
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({
+                        imageSettingsPreview: null
+                    })
+
+                    // Will update and rerender the state with the new image
+                    this.props.getMyUserProfileDetails()
+                    this.props.successfulNotification("Image deleted!")
+                } else {
+                    this.props.errorNotification("Something went wrong! Please check your connection!")
+                }
+            })
     }
 
     render () {
@@ -142,22 +162,27 @@ class ProfileImagesContainer extends Component {
                 })
             :   null
 
-        let imagePreviewSettingOverlay = this.state.imageSettingPreview !== null
+        let imagePreviewSettingOverlay = this.state.imageSettingsPreview !== null
             ?   <div className="img-previewer-overlay">
                     <img
                         className="image-preview"
-                        src={ api.imageAPI + this.state.imageSettingPreview }
+                        src={ api.imageAPI + this.state.imageSettingsPreview.url }
                         alt=""
                     />
                     <br/>
                     <button
                         type="button"
                         className="delete-img-bttn"
-                    ><img className="add-as-avatar-image" src={process.env.PUBLIC_URL + '/empty-avatar.png'} alt="" />
+                    >
+                        <label>
+                            <ImageCropper imageToCropp={ this.state.imageSettingsPreview }/>
+                            <img className="add-as-avatar-image" src={process.env.PUBLIC_URL + '/empty-avatar.png'} alt="" />
+                        </label>
                     </button>
                     <button
                         type="button"
                         className="delete-img-bttn"
+                        onClick={ this.deleteUserProfileImage.bind(this) }
                     >&#128465;
                     </button>
                     <button
@@ -193,6 +218,7 @@ class ProfileImagesContainer extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
+        deleteUserProfileImage: (formData) => dispatch(deleteUserProfileImage(formData)),
         uploadUserProfileImage: (formData) => dispatch(uploadUserProfileImage(formData)),
         getMyUserProfileDetails: () => dispatch(getMyUserProfileDetails()),
 

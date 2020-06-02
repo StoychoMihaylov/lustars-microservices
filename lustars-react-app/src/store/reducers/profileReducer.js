@@ -17,7 +17,10 @@ import {
     DELETE_COUNTRY_LANGUAGE,
     UPLOAD_USER_PROFILE_IMAGE,
     UPLOAD_USER_PROFILE_IMAGE_SUCCESS,
-    UPLOAD_USER_PROFILE_IMAGE_FAIL
+    UPLOAD_USER_PROFILE_IMAGE_FAIL,
+    DELETE_USER_PROFILE_IMAGE,
+    DELETE_USER_PROFILE_IMAGE_SUCCESS,
+    DELETE_USER_PROFILE_IMAGE_FAIL
 } from '../../constants/profileActionTypes'
 
 const initialState = {
@@ -31,6 +34,16 @@ const profileReducer = (state, action) => {
     state = state || initialState
 
     switch (action.type) {
+        case DELETE_USER_PROFILE_IMAGE:
+        case DELETE_USER_PROFILE_IMAGE_SUCCESS:
+            return {
+                ...state
+            }
+        case DELETE_USER_PROFILE_IMAGE_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
         case UPLOAD_USER_PROFILE_IMAGE:
         case UPLOAD_USER_PROFILE_IMAGE_SUCCESS:
             return {

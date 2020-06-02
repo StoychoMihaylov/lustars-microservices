@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { Form } from 'reactstrap'
 import ReactCrop from 'react-image-crop'
+import axios from 'axios'
 import {
     infoNotification,
     successfulNotification,
@@ -102,15 +103,16 @@ class ImageCropper extends Component {
     }
 
     async croppImage(image) {
-
-        if (image.target.files[0].type === "image/jpeg") {
+        let file = await axios.get(image.url).then(r => r.blob()).then(blobFile => new File([blobFile], "image", { type: "image/jpeg" }))
+        console.log(file)
+        if (file.type === "image/jpeg") {
             const fileReader = new FileReader()
 
             fileReader.onloadend = () => {
                 this.setState({src: fileReader.result })
             }
 
-            fileReader.readAsDataURL(image.target.files[0])
+            fileReader.readAsDataURL(file)
 
             this.setState({
                 showImageCropper: true
@@ -147,7 +149,7 @@ class ImageCropper extends Component {
 
         let cropperStarter =
             <div>
-                <button onChange={ () => this.croppImage(this.props.imageToCropp) }></button>
+                <button onClick={ () => this.croppImage(this.props.imageToCropp) }></button>
             </div>
 
         return (
