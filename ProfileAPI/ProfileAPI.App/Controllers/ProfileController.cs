@@ -89,6 +89,23 @@
         }
 
         [HttpPost]
+        [Route("{userId}/image/delete")]
+        public IActionResult DeleteUserProfileImage(string userId, [FromBody] DeleteUserProfileImageBindingModel image)
+        {
+            var userGuidId = Guid.Empty;
+            Guid.TryParse(userId, out userGuidId);
+           
+            var isDeleted = this.profileService.DeleteUserProfileImage(userGuidId, image.Id);
+
+            if (!isDeleted)
+            {
+                return StatusCode(501); // NotImplemented!
+            }
+
+            return StatusCode(200); // Ok
+        }
+
+        [HttpPost]
         [Route("{userId}/avatar-image-url")]
         public IActionResult SaveAvatarImageUrl(string userId, [FromBody]AddImageUrlBindingModel imageUrl)
         {

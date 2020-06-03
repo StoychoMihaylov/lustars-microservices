@@ -31,11 +31,10 @@ import axios from 'axios'
 
 //*************************** Delete user profile image ***************************
 
-export function deleteUserProfileImage(imageFormData) {
+export function deleteUserProfileImage(image) {
     return dispatch => {
         dispatch(requestDeleteUserProfileImage())
-
-        return axios.post(api.domain + 'user-profile/image/upload', imageFormData, {
+        return axios.post(api.domain + 'user-profile/image/delete', image, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
                 'Access-Control-Allow-Origin': '*'
@@ -77,7 +76,7 @@ export function uploadUserProfileImage(imageFormData) {
     return dispatch => {
         dispatch(requestUploadUserProfileImage())
 
-        return axios.post(api.domain + 'user-profile/image/delete', imageFormData, {
+        return axios.post(api.domain + 'user-profile/image/upload', imageFormData, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
                 'Access-Control-Allow-Origin': '*'

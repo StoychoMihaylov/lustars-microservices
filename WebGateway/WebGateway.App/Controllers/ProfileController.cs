@@ -7,6 +7,8 @@
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.UserProfile;
     using WebGateway.Models.ViewModels;
+    using System;
+    using System.Linq;
 
     [ApiController]
     [Route("user-profile")]
@@ -78,7 +80,7 @@
         [HttpPost]
         [Authorize]
         [Route("image/upload")]
-        public async Task<IActionResult> uploadImage([FromForm]IFormFile image)
+        public async Task<IActionResult> uploadImage([FromForm] IFormFile image)
         {
             var userId = IdentityManager.CurrentUserId;
 
@@ -122,8 +124,11 @@
                 return StatusCode(501);
             }
 
-            var isImageCreated = await this.profileService
-                .CallProfileAPI_SaveAvatarImageURL(userId, new ImageUrlBindingModel() { Url = imageUrl });
+            var isImageCreated = await this.profileService.CallProfileAPI_SaveAvatarImageURL(userId, 
+                new ImageUrlBindingModel() 
+                { 
+                    Url = imageUrl
+                });
 
             if (!isImageCreated)
             {
@@ -131,6 +136,28 @@
             }
 
             return StatusCode(201); // Created!
+        }
+
+        [HttpPost]
+        [Authorize]
+        [Route("image/delete")]
+        public async Task<IActionResult> deleteImage([FromBody] DeleteUserProfileImageBindingModel image)
+        {
+            if (image.Id == 0 || image.Id == long.MinValue)
+            {
+                return StatusCode(400); // Bad Request!
+            }
+
+            var userId = IdentityManager.CurrentUserId;
+
+            var isImageDeleted = await this.profileService.CallProfileaPI_DeleteImage(userId, image);
+
+            if (!isImageDeleted)
+            {
+                return StatusCode(501); // NotImplemented!
+            }
+
+            return StatusCode(200); // OK!
         }
 
         private bool CheckIfImageIsInValidFormat(IFormFile image)

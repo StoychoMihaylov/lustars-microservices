@@ -59,7 +59,6 @@ class ProfileMainSettings extends Component {
                 IsActive: true
             }
 
-            console.log(geoLocations)
             let updateResponse = this.props.updateUserProfileGeaolocation(geoLocations) // Update User Profile Geo location as background proccess
             console.log(updateResponse)
 

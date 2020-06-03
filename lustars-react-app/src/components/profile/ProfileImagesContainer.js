@@ -89,10 +89,12 @@ class ProfileImagesContainer extends Component {
     }
 
     deleteUserProfileImage() {
-        let formData = new FormData();
-        formData.append("image", this.state.imageSettingsPreview)
 
-        this.props.deleteUserProfileImage(formData)
+        let image = {
+            id: this.state.imageSettingsPreview.id
+        }
+
+        this.props.deleteUserProfileImage(image)
             .then(response => {
                 if (response.status === 200) {
                     this.setState({
@@ -218,7 +220,7 @@ class ProfileImagesContainer extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        deleteUserProfileImage: (formData) => dispatch(deleteUserProfileImage(formData)),
+        deleteUserProfileImage: (image) => dispatch(deleteUserProfileImage(image)),
         uploadUserProfileImage: (formData) => dispatch(uploadUserProfileImage(formData)),
         getMyUserProfileDetails: () => dispatch(getMyUserProfileDetails()),
 

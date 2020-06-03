@@ -123,5 +123,19 @@
 
             return false;
         }
+
+        public async Task<bool> CallProfileaPI_DeleteImage(Guid userId, DeleteUserProfileImageBindingModel image)
+        {
+            var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(image);
+
+            var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + $"profile/{userId.ToString()}/image/delete", stringContent);
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
