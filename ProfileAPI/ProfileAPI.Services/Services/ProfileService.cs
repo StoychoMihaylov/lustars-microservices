@@ -298,5 +298,33 @@
 
             return true;
         }
+
+        public bool DeleteUserProfileImage(Guid userGuidId, long imageGuidId)
+        {
+            try
+            {
+                var user = this.Context
+                   .UserProfiles
+                   .Include(u => u.Images)
+                   .Where(u => u.Id == userGuidId)
+                   .First();
+
+                var imageToBeRemoved = user
+                    .Images
+                    .Where(i => i.Id == imageGuidId)
+                    .First();
+
+                user.Images.Remove(imageToBeRemoved);
+
+                this.Context.UserProfiles.Update(user);
+                this.Context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }
