@@ -175,15 +175,6 @@ class ProfileImagesContainer extends Component {
                     <button
                         type="button"
                         className="delete-img-bttn"
-                    >
-                        <label>
-                            <ImageCropper imageToCropp={ this.state.imageSettingsPreview }/>
-                            <img className="add-as-avatar-image" src={process.env.PUBLIC_URL + '/empty-avatar.png'} alt="" />
-                        </label>
-                    </button>
-                    <button
-                        type="button"
-                        className="delete-img-bttn"
                         onClick={ this.deleteUserProfileImage.bind(this) }
                     >&#128465;
                     </button>
@@ -196,7 +187,6 @@ class ProfileImagesContainer extends Component {
                 </div>
             :   null
 
-        console.log(this.props.userProfileImages)
         return (
             <div className="user-profile-images-container">
                 <div>
