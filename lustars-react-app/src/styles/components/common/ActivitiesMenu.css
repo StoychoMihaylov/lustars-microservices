@@ -1,0 +1,14 @@
+.activities-menu {
+    color: white;
+    background-color: rgb(255, 0, 102);
+}
+
+.activities-menu-link {
+    color: white;
+    margin: 5px;
+    text-decoration: none !important;
+}
+
+.activities-menu-link:hover {
+    color:lightblue;
+}

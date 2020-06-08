@@ -38,7 +38,7 @@ export default class NavMenu extends React.Component {
   render () {
     return (
       <header>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3 navbar">
+        <Navbar className="navbar-expand-sm navbar-toggleable-sm navbar">
           <Container>
             <NavbarBrand to="/">Lustars logo!</NavbarBrand>
             <NavbarToggler onClick={this.toggle} className="mr-2" />
@@ -57,11 +57,13 @@ export default class NavMenu extends React.Component {
             </Collapse>
           </Container>
         </Navbar>
-        {
-          this.state.isActivitiesActive === true
-            ? <ActivitiesMenu />
-            : null
-        }
+        <Container>
+          {
+            this.state.isActivitiesActive === true
+              ? <ActivitiesMenu />
+              : null
+          }
+        </Container>
       </header>
     )
   }
