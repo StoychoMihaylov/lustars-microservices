@@ -4,12 +4,9 @@
     using System.IO;
     using System.Net;
     using System.Net.Http;
-    using Newtonsoft.Json;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Http;
-
     using WebGateway.Services.Common;
-    using WebGateway.Models.ViewModels;
     using WebGateway.Services.Endpoints;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.UserProfile;
@@ -51,7 +48,22 @@
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 var content = response.Content.ReadAsStringAsync().Result;
-                //var userProfileVm = JsonConvert.DeserializeObject<UserProfileViewModel>(content);
+                
+                return content;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<string> CallProfileAPI_GetUserProfileShortreviewDataById(Guid guidUserId)
+        {
+            var response = await this.HttpClient.GetAsync(ProfileAPIService.Endpoint + $"profile/my-user-profile-short-preview/{guidUserId.ToString()}");
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var content = response.Content.ReadAsStringAsync().Result;
 
                 return content;
             }
@@ -110,7 +122,7 @@
             return null;
         }
 
-        public async Task<bool> CallProfileAPI_UpdateUserProfileGeoLocation(Guid userId, GeoLocation bm)
+        public async Task<bool> CallProfileAPI_UpdateUserProfileGeoLocation(Guid userId, GeoLocationBindingModel bm)
         {
             var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(bm);
 

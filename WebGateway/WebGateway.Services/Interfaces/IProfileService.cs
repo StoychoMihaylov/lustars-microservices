@@ -3,7 +3,6 @@
     using System;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Http;
-    using WebGateway.Models.ViewModels;
     using WebGateway.Models.BidingModels.UserProfile;
 
     public interface IProfileService
@@ -14,7 +13,8 @@
         Task<bool> CallProfileAPI_SaveAvatarImageURL(Guid userId, ImageUrlBindingModel url);
         Task<bool> CallProfileAPI_CreateNewUserProfileImage(Guid userId, ImageUrlBindingModel url);
         Task<string> CallImageAPI_UploadImage(Guid userId, IFormFile formData);
-        Task<bool> CallProfileAPI_UpdateUserProfileGeoLocation(Guid userId, GeoLocation bm);
+        Task<bool> CallProfileAPI_UpdateUserProfileGeoLocation(Guid userId, GeoLocationBindingModel bm);
         Task<bool> CallProfileaPI_DeleteImage(Guid userId, DeleteUserProfileImageBindingModel image);
+        Task<string> CallProfileAPI_GetUserProfileShortreviewDataById(Guid userId);
     }
 }

@@ -63,6 +63,26 @@
             return StatusCode(200, userProfileVm);
         }
 
+        [HttpGet]
+        [Route("my-user-profile-short-preview/{userId}")]
+        public IActionResult GetUserProfileShortPreview(string userId)
+        {
+            var guidOutput = Guid.Empty;
+            bool isValid = Guid.TryParse(userId, out guidOutput);
+            if (!isValid)
+            {
+                return StatusCode(400, "The user id is not a in valid Guid format!");
+            }
+
+            var userProfileVm = this.profileService.GetUserProfileShortPreviewDataById(guidOutput);
+            if (userProfileVm == null)
+            {
+                return StatusCode(404); // NotFound!
+            }
+
+            return StatusCode(200, userProfileVm);
+        }
+
         [HttpPost]
         [Route("{userId}/image-url")]
         public IActionResult CreateNewUserProfileImage(string userId, [FromBody] AddImageUrlBindingModel imageUrl)
