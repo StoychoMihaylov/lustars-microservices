@@ -20,7 +20,10 @@ import {
     UPLOAD_USER_PROFILE_IMAGE_FAIL,
     DELETE_USER_PROFILE_IMAGE,
     DELETE_USER_PROFILE_IMAGE_SUCCESS,
-    DELETE_USER_PROFILE_IMAGE_FAIL
+    DELETE_USER_PROFILE_IMAGE_FAIL,
+    REQUEST_MY_PROFILE_SHORT_DATA,
+    REQUEST_MY_PROFILE_SHORT_DATA_SUCCESS,
+    REQUEST_MY_PROFILE_SHORT_DATA_FAIL
 } from '../../constants/profileActionTypes'
 
 const initialState = {
@@ -71,6 +74,22 @@ const profileReducer = (state, action) => {
         case UPDATE_USER_PROFILE_GEOLOCATION:
         case UPDATE_USER_PROFILE_GEOLOCATION_SUCCESS:
         case UPDATE_USER_PROFILE_GEOLOCATION_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
+        case REQUEST_MY_PROFILE_SHORT_DATA:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case REQUEST_MY_PROFILE_SHORT_DATA_SUCCESS:
+            return {
+                ...state,
+                UserProfileShortPreviewData: action.payload,
+                isLoading: false
+            }
+        case REQUEST_MY_PROFILE_SHORT_DATA_FAIL:
             return {
                 ...state,
                 error: action.payload

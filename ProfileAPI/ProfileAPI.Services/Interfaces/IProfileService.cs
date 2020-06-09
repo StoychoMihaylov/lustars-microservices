@@ -2,6 +2,7 @@
 {
     using System;
     using ProfileAPI.Data.Entities;
+    using ProfileAPI.Models.ViewModels;
     using ProfileAPI.Models.BidingModels;
 
     public interface IProfileService
@@ -13,5 +14,6 @@
         bool SaveUserProfileAvatarImage(Guid userIdGuid, string url);
         bool UpdateUserProfileGeolocation(Guid userIdGuid, GeoLocation geolocation);
         bool DeleteUserProfileImage(Guid userGuidId, long imageGuidId);
+        UserProfileShortPreviewDataViewModel GetUserProfileShortPreviewDataById(Guid guidOutput);
     }
 }

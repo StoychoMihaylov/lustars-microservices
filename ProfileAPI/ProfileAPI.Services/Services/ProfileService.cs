@@ -8,6 +8,7 @@
     using Microsoft.EntityFrameworkCore;
     using ProfileAPI.Models.BidingModels;
     using ProfileAPI.Services.Interfaces;
+    using ProfileAPI.Models.ViewModels;
 
     public class ProfileService : Service, IProfileService
     {
@@ -325,6 +326,39 @@
             }
 
             return true;
+        }
+
+        public UserProfileShortPreviewDataViewModel GetUserProfileShortPreviewDataById(Guid userId)
+        {
+            var userShortData = this.Context
+                .UserProfiles
+                .AsNoTracking()
+                .Where(u => u.Id == userId)
+                .Select(u => new UserProfileShortPreviewDataViewModel() 
+                { 
+                    Id = u.Id,
+                    Name = u.Name,
+                    LastName = u.LastName,
+                    Credits = u.Credits,
+                    Superlikes = u.Superlikes,
+                    AvatarImage = u.AvatarImage
+                })
+                .FirstOrDefault(); // Null if not found!
+
+            var geoLocationShortData = this.Context
+                .GeoLocations
+                .AsNoTracking()
+                .Where(g => g.IsActive == true && g.UserProfile.Id == userId)
+                .Select(g => new GeoLocationShortPreviewDataViewModel() 
+                { 
+                    City = g.City,
+                    Country = g.Country
+                })
+                .FirstOrDefault();
+
+            userShortData.GeoLocation = geoLocationShortData;
+
+            return userShortData;
         }
     }
 }

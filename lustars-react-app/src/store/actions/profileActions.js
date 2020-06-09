@@ -23,7 +23,10 @@ import {
     UPLOAD_USER_PROFILE_IMAGE_FAIL,
     DELETE_USER_PROFILE_IMAGE,
     DELETE_USER_PROFILE_IMAGE_SUCCESS,
-    DELETE_USER_PROFILE_IMAGE_FAIL
+    DELETE_USER_PROFILE_IMAGE_FAIL,
+    REQUEST_MY_PROFILE_SHORT_DATA,
+    REQUEST_MY_PROFILE_SHORT_DATA_SUCCESS,
+    REQUEST_MY_PROFILE_SHORT_DATA_FAIL
 } from '../../constants/profileActionTypes'
 import { api } from '../../constants/endpoints'
 import axios from 'axios'
@@ -192,6 +195,47 @@ export function requestupdateUserProfileGeaolocationFail(error) {
     }
 }
 
+//*************************** Get my user profile preview short data ***************************
+
+export function getUserProfileShortPreviewData() {
+    return dispatch => {
+        dispatch(requestMyUserProfileShortPreviewData())
+
+        axios.get(api.domain + 'user-profile/short-preview-data', {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
+            }
+        })
+        .then(response => {
+            dispatch(requestMyUserProfileShortPreviewDataSuccess(response.data))
+        })
+        .catch(err => {
+            dispatch(requestUserProfileShortPreviewDataFail(err))
+
+        })
+    }
+}
+
+export function requestMyUserProfileShortPreviewData() {
+    return {
+        type: REQUEST_MY_PROFILE_SHORT_DATA
+    }
+}
+
+export function requestMyUserProfileShortPreviewDataSuccess(data) {
+    return {
+        type: REQUEST_MY_PROFILE_SHORT_DATA_SUCCESS,
+        payload: data
+    }
+}
+
+export function requestUserProfileShortPreviewDataFail(error) {
+    return {
+        type: REQUEST_MY_PROFILE_SHORT_DATA_FAIL,
+        payload: error
+    }
+}
+
 //*************************** Get my user profile details ***************************
 
 export function getMyUserProfileDetails() {
@@ -201,7 +245,6 @@ export function getMyUserProfileDetails() {
         axios.get(api.domain + 'user-profile', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
-                'Access-Control-Allow-Origin': '*'
             }
         })
         .then(response => {
@@ -243,7 +286,6 @@ export function editMyUserProfileDetails(userProfileDetails) {
         return axios.post(api.domain + 'user-profile/edit', userProfileDetails, {
                 headers: {
                     'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
-                    'Access-Control-Allow-Origin': '*'
                 }
             })
             .then(response => {
@@ -308,7 +350,6 @@ export function uploadAvatarImage(formdData) {
         return axios.post(api.domain + 'user-profile/avatar-image/upload', formdData, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
-                'Access-Control-Allow-Origin': '*'
             }
         })
         .then(response => {

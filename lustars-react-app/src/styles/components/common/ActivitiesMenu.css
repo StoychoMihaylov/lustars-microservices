@@ -1,5 +1,6 @@
 .activities-menu {
     color: white;
+    text-align: center;
     background-color: rgb(255, 0, 102);
 }
 
@@ -11,4 +12,27 @@
 
 .activities-menu-link:hover {
     color:lightblue;
+}
+
+.user-profile-short-data-avatar {
+    width:  200px;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    position: relative;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.activities-attributes {
+    margin-right: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.vertical-line {
+    border-left: 1px solid white;
+    height: 100px;
 }

@@ -25,7 +25,7 @@
         [HttpPost]
         [Authorize]
         [Route("geolocation/update")]
-        public async Task<IActionResult> UpdateGeolocation([FromBody] GeoLocation bm)
+        public async Task<IActionResult> UpdateGeolocation([FromBody] GeoLocationBindingModel bm)
         {
             var userId = IdentityManager.CurrentUserId;
 
@@ -68,19 +68,35 @@
         {
             var userId = IdentityManager.CurrentUserId;
 
-            var userProfileVm = await this.profileService.CallProfileAPI_GetUserProfileById(userId);
-            if (userProfileVm == null)
+            var userProfileJSON = await this.profileService.CallProfileAPI_GetUserProfileById(userId);
+            if (userProfileJSON == null)
             {
                 return StatusCode(404); // NotFound!
             }
 
-            return StatusCode(200, userProfileVm);
+            return StatusCode(200, userProfileJSON);
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("short-preview-data")]
+        public async Task<IActionResult> GetUserProfileShortPreviewData()
+        {
+            var userId = IdentityManager.CurrentUserId;
+
+            var userProfileJSON = await this.profileService.CallProfileAPI_GetUserProfileShortreviewDataById(userId);
+            if (userProfileJSON == null)
+            {
+                return StatusCode(404); // NotFound!
+            }
+
+            return StatusCode(200, userProfileJSON);
         }
 
         [HttpPost]
         [Authorize]
         [Route("image/upload")]
-        public async Task<IActionResult> uploadImage([FromForm] IFormFile image)
+        public async Task<IActionResult> UploadImage([FromForm] IFormFile image)
         {
             var userId = IdentityManager.CurrentUserId;
 

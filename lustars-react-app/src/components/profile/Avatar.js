@@ -107,7 +107,6 @@ class Avatar extends Component {
 
         this.props.uploadAvatarImage(formData)
             .then(response => {
-                console.log(response)
                 if (response.status === 201) {
                     this.setState({
                         croppedImageUrl: imgUrl,
