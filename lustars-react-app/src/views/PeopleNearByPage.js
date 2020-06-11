@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Avatar from '../components/profile/Avatar'
 
-class MainPage extends Component {
+class PeopleNearByPage extends Component {
     render() {
         return (
             <div>
@@ -10,4 +10,4 @@ class MainPage extends Component {
     }
 }
 
-export default MainPage
+export default PeopleNearByPage

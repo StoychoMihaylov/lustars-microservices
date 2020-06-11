@@ -2,8 +2,9 @@
 {
     using System;
     using ProfileAPI.Data.Entities;
+    using System.Collections.Generic;
     using ProfileAPI.Models.ViewModels;
-    using ProfileAPI.Models.BidingModels;
+    using ProfileAPI.Models.BidingModels; 
 
     public interface IProfileService
     {
@@ -15,5 +16,6 @@
         bool UpdateUserProfileGeolocation(Guid userIdGuid, GeoLocation geolocation);
         bool DeleteUserProfileImage(Guid userGuidId, long imageGuidId);
         UserProfileShortPreviewDataViewModel GetUserProfileShortPreviewDataById(Guid guidOutput);
+        List<UserProfileInDistanceViewModel> GetAllUserInDistance(Guid guidId, int v);
     }
 }

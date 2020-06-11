@@ -5,9 +5,14 @@
 }
 
 .activities-menu-link {
-    color: white;
     margin: 5px;
+    color: white;
+    cursor: pointer;
     text-decoration: none !important;
+}
+
+.activities-menu-link:hover {
+    color: lightblue;
 }
 
 .activities-menu-link:hover {
@@ -15,8 +20,8 @@
 }
 
 .user-profile-short-data-avatar {
-    width:  200px;
-    height: 200px;
+    width:  150px;
+    height: 150px;
     object-fit: cover;
     cursor: pointer;
     position: relative;

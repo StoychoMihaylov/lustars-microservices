@@ -5,10 +5,10 @@
     using ProfileAPI.Data.Entities;
     using System.Collections.Generic;
     using ProfileAPI.Data.Interfaces;
+    using ProfileAPI.Models.ViewModels;
     using Microsoft.EntityFrameworkCore;
     using ProfileAPI.Models.BidingModels;
     using ProfileAPI.Services.Interfaces;
-    using ProfileAPI.Models.ViewModels;
 
     public class ProfileService : Service, IProfileService
     {
@@ -359,6 +359,35 @@
             userShortData.GeoLocation = geoLocationShortData;
 
             return userShortData;
+        }
+
+        public List<UserProfileInDistanceViewModel> GetAllUserInDistance(Guid guidId, int v)
+        {
+            var currentUserGeoLocation = this.Context
+                .GeoLocations
+                .AsNoTracking()
+                .Where(g => g.IsActive == true && g.UserProfile.Id == guidId)
+                .FirstOrDefault();
+
+            if (currentUserGeoLocation == null)
+            {
+                return null;
+            }
+
+            var usersInSameCity = this.Context
+                .GeoLocations
+                .AsNoTracking()
+                .Where(g => g.IsActive == true && g.City == currentUserGeoLocation.City)
+                .Select(geolocation => new UserProfileInDistanceViewModel()
+                {
+                    Id = geolocation.UserProfile.Id,
+                    Name = geolocation.UserProfile.Name,
+                    AvatarImage = geolocation.UserProfile.AvatarImage,
+                    GeoLocation = geolocation
+                })
+                .ToList();
+
+            return usersInSameCity;
         }
     }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
+import { push, goBack } from "connected-react-router"
 import { api } from '../../constants/endpoints'
 import { getUserProfileShortPreviewData } from '../../store/actions/profileActions'
 
@@ -35,15 +36,15 @@ class ActiitiesMenu extends Component {
                     </div>
                     <div class="vertical-line activities-attributes"></div>
                     <div className="activities-attributes">
-                        <span><a href="#" className="activities-menu-link">People nearby</a></span>
+                        <span onClick={() => this.props.push('/PeopleNearByPage') } className="activities-menu-link">People nearby</span>
                         <br/>
-                        <span><a href="#" className="activities-menu-link">Messages</a></span>
+                        <span className="activities-menu-link">Messages</span>
                         <br/>
-                        <span><a href="#" className="activities-menu-link">Matched</a></span>
+                        <span className="activities-menu-link">Matched</span>
                         <br/>
-                        <span><a href="#" className="activities-menu-link">Liked you</a></span>
+                        <span className="activities-menu-link">Liked you</span>
                         <br/>
-                        <span><a href="#" className="activities-menu-link">Visitors</a></span>
+                        <span className="activities-menu-link">Visitors</span>
                     </div>
                     <div class="vertical-line activities-attributes"></div>
                 </div>
@@ -66,6 +67,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getUserProfileShortPreviewData: () => dispatch(getUserProfileShortPreviewData()),
+
+        // Navigation
+        goBack: () => dispatch(goBack()),
+        push: (url) => dispatch(push(url)),
     }
 }
 
