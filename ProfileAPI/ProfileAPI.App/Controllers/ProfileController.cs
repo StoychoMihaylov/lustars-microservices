@@ -17,6 +17,21 @@
             this.profileService = profileService;
         }
 
+        [HttpGet]
+        [Route("people-nearby/{userId}")]
+        public IActionResult GetPeopleNearby(string userId)
+        {
+            var guidId = Guid.Parse(userId);
+
+            var allUsersInDistanceOf10km = this.profileService.GetAllUserInDistance(guidId, 10);
+            if (allUsersInDistanceOf10km == null)
+            {
+                return StatusCode(404); // NotFound!
+            }
+
+            return StatusCode(200, allUsersInDistanceOf10km);
+        }
+
         [HttpPost]
         [Route("create")]
         public IActionResult CreateUserProfile(CreateUserProfileBindingModel bm)
@@ -47,14 +62,10 @@
         [Route("my-user-profile/{userId}")]
         public IActionResult GetMyUserProfile(string userId)
         {
-            var guidOutput = Guid.Empty;
-            bool isValid = Guid.TryParse(userId, out guidOutput);
-            if (!isValid)
-            {
-                return StatusCode(400, "The user id is not a in valid Guid format!");
-            }
+            var guidId = Guid.Parse(userId);
 
-            var userProfileVm = this.profileService.GetUserProfileById(guidOutput);
+
+            var userProfileVm = this.profileService.GetUserProfileById(guidId);
             if (userProfileVm == null)
             {
                 return StatusCode(404); // NotFound!
@@ -67,14 +78,9 @@
         [Route("my-user-profile-short-preview/{userId}")]
         public IActionResult GetUserProfileShortPreview(string userId)
         {
-            var guidOutput = Guid.Empty;
-            bool isValid = Guid.TryParse(userId, out guidOutput);
-            if (!isValid)
-            {
-                return StatusCode(400, "The user id is not a in valid Guid format!");
-            }
+            var guidId = Guid.Parse(userId);
 
-            var userProfileVm = this.profileService.GetUserProfileShortPreviewDataById(guidOutput);
+            var userProfileVm = this.profileService.GetUserProfileShortPreviewDataById(guidId);
             if (userProfileVm == null)
             {
                 return StatusCode(404); // NotFound!
@@ -87,19 +93,14 @@
         [Route("{userId}/image-url")]
         public IActionResult CreateNewUserProfileImage(string userId, [FromBody] AddImageUrlBindingModel imageUrl)
         {
-            var userIdGuid = Guid.Empty;
-            bool isValid = Guid.TryParse(userId, out userIdGuid);
-            if (!isValid)
-            {
-                return StatusCode(400, "The user id is not in a valid Guid format!");
-            }
+            var guidId = Guid.Parse(userId);
 
             if (imageUrl.Url == string.Empty)
             {
                 return StatusCode(400, "Image url can't be empty string");
             }
 
-            var isImageCreated = this.profileService.CreateNewUserProfileImage(userIdGuid, imageUrl.Url);
+            var isImageCreated = this.profileService.CreateNewUserProfileImage(guidId, imageUrl.Url);
             if (!isImageCreated)
             {
                 return StatusCode(501); // NotImplemented!
@@ -112,10 +113,9 @@
         [Route("{userId}/image/delete")]
         public IActionResult DeleteUserProfileImage(string userId, [FromBody] DeleteUserProfileImageBindingModel image)
         {
-            var userGuidId = Guid.Empty;
-            Guid.TryParse(userId, out userGuidId);
-           
-            var isDeleted = this.profileService.DeleteUserProfileImage(userGuidId, image.Id);
+            var guidId = Guid.Parse(userId);
+
+            var isDeleted = this.profileService.DeleteUserProfileImage(guidId, image.Id);
 
             if (!isDeleted)
             {
@@ -129,19 +129,14 @@
         [Route("{userId}/avatar-image-url")]
         public IActionResult SaveAvatarImageUrl(string userId, [FromBody]AddImageUrlBindingModel imageUrl)
         {
-            var userIdGuid = Guid.Empty;
-            bool isValid = Guid.TryParse(userId, out userIdGuid);
-            if (!isValid)
-            {
-                return StatusCode(400, "The user id is not in a valid Guid format!");
-            }
+            var guidId = Guid.Parse(userId);   
 
             if (imageUrl.Url == string.Empty)
             {
                 return StatusCode(400, "Image url can't be empty string");
             }
 
-            var isImageCreated = this.profileService.SaveUserProfileAvatarImage(userIdGuid, imageUrl.Url);
+            var isImageCreated = this.profileService.SaveUserProfileAvatarImage(guidId, imageUrl.Url);
             if (!isImageCreated)
             {
                 return StatusCode(501); // NotImplemented!
@@ -154,14 +149,9 @@
         [Route("{userId}/geolocation")]
         public IActionResult UpdateGeolocation(string userId, [FromBody]GeoLocation geolocation)
         {
-            var userIdGuid = Guid.Empty;
-            bool isValid = Guid.TryParse(userId, out userIdGuid);
-            if (!isValid)
-            {
-                return StatusCode(400, "The user id is not in a valid Guid format!");
-            }
-
-            var updated = this.profileService.UpdateUserProfileGeolocation(userIdGuid, geolocation);
+            var guidId = Guid.Parse(userId);
+   
+            var updated = this.profileService.UpdateUserProfileGeolocation(guidId, geolocation);
             if (!updated)
             {
                 return StatusCode(501); // NotImplemented!

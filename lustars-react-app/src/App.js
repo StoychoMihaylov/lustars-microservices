@@ -6,7 +6,7 @@ import HomePage from './views/HomePage'
 import ProfileEditPage from './views/ProfileEditPage'
 import AccountRegistrationPage from './views/Account/AccountRegistrationPage'
 import AccountLoginPage from './views/Account/AccountLoginPage'
-import MainPage from './views/MainPage'
+import PeopleNearByPage from './views/PeopleNearByPage'
 
 // Custom private route (if your is not auth via token redirect to login page)
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -26,6 +26,6 @@ export default () => (
     <Route exact path='/account/registration' component={ AccountRegistrationPage } />
 
     <PrivateRoute exact path='/profile' component={ ProfileEditPage } />
-    <PrivateRoute exact path='/main' component={ MainPage } />
+    <PrivateRoute exact path='/main' component={ PeopleNearByPage } />
   </Layout>
 );
