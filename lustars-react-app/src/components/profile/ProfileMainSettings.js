@@ -48,13 +48,15 @@ class ProfileMainSettings extends Component {
         .then(response => {
             let location = response.data.results[0].formatted_address
             let arrLocation = location.split(',')
+            let postCodeAndCity = arrLocation[1].trim().split(' ')
 
             let geoLocations = {
                 street: arrLocation[0],
-                city: arrLocation[1],
+                postCode: postCodeAndCity[0],
+                city: postCodeAndCity[1],
                 country: arrLocation[2],
-                latitude: latitude.toString(),
-                longitude: longitude.toString(),
+                latitude: latitude,
+                longitude: longitude,
                 createdOn: new Date(),
                 IsActive: true
             }
