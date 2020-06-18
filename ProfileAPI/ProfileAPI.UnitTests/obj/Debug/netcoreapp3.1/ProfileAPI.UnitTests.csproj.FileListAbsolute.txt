@@ -246,3 +246,5 @@ C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTest
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.csproj.CopyComplete
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.dll
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.pdb
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

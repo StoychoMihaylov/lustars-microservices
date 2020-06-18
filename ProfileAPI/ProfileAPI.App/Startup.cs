@@ -1,5 +1,6 @@
 namespace ProfileAPI.App
 {
+    using AutoMapper;
     using ProfileAPI.Data.Context;
     using ProfileAPI.App.Infrastructure;
     using ProfileAPI.Data.DBInitializer;
@@ -24,6 +25,7 @@ namespace ProfileAPI.App
             services.AddSwaggerDocument(); //Swagger
             services.AddPosgreSQLWithEntityFramework(Configuration);
             services.AddDependanciInjectionResolver(); // DI
+            services.AddAutoMapper(typeof(Startup));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ProfileDBContext context)
