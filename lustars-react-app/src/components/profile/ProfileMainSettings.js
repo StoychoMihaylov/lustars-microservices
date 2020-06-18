@@ -48,13 +48,15 @@ class ProfileMainSettings extends Component {
         .then(response => {
             let location = response.data.results[0].formatted_address
             let arrLocation = location.split(',')
+            let postCodeAndCity = arrLocation[1].trim().split(' ')
 
             let geoLocations = {
                 street: arrLocation[0],
-                city: arrLocation[1],
+                postCode: postCodeAndCity[0],
+                city: postCodeAndCity[1],
                 country: arrLocation[2],
-                latitude: latitude.toString(),
-                longitude: longitude.toString(),
+                latitude: latitude,
+                longitude: longitude,
                 createdOn: new Date(),
                 IsActive: true
             }
@@ -154,10 +156,12 @@ class ProfileMainSettings extends Component {
                                 <td><label htmlFor="location">Location:</label></td>
                                 <td>
                                     {
-                                        this.props.profile.geoLocations !== null && this.props.profile.geoLocations !== undefined
+                                        this.props.profile.geoLocation !== null && this.props.profile.geoLocation !== undefined
                                             ?   <div>
-                                                    <span>{ this.props.profile.geoLocations[0].city }, { this.props.profile.geoLocations[0].country } </span>
-                                                    <span onClick={ this.setGeolocation.bind(this) } className="location-refresh-btn">&#8634;</span>
+                                                    <span>{ this.props.profile.geoLocation.city },
+                                                    { this.props.profile.geoLocation.country }
+                                                </span>
+                                                    <span onClick={ this.setGeolocation.bind(this) } className="location-refresh-btn"> &#8634;</span>
                                                 </div>
                                             :   getLocationBtn
                                     }

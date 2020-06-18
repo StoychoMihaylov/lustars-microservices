@@ -8,6 +8,7 @@
     using ProfileAPI.App.Controllers;
     using ProfileAPI.Services.Interfaces;
     using ProfileAPI.Models.BidingModels;
+    using ProfileAPI.Models.ViewModels;
 
     public class ProfileControllerTest
     {
@@ -79,7 +80,7 @@
             // Arrange
             var userId = "e9166940-f14b-491c-99ba-cfc6cf13f662";
 
-            var userProfile = new UserProfile() 
+            var userProfile = new UserProfileDetailedDataViewModel()
             {
                 Name = "Goshko",
                 Gender = "man",

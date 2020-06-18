@@ -2,14 +2,18 @@
 {
     using Xunit;
     using System;
+    using AutoMapper;
     using System.Linq;
 
     using ProfileAPI.Data.Entities;
     using ProfileAPI.Services.Services;
     using ProfileAPI.Models.BidingModels;
+    
 
     public class ProfileServiceTest : TestsInitializer
     {
+        private readonly IMapper mapper;
+
         [Fact]
         public void CreateNewUserProfile_ShouldCreateUserProfileAndReturnTrue()
         {
@@ -23,7 +27,7 @@
                 Email = "test@test.com"
             };
 
-            var profileService = new ProfileService(db);
+            var profileService = new ProfileService(db, this.mapper);
 
             // Act
             var response = profileService.CreateNewUserProfile(bm);
@@ -63,7 +67,7 @@
                 DateOfBirth = DateTime.UtcNow,
             };
 
-            var profileService = new ProfileService(db);
+            var profileService = new ProfileService(db, this.mapper);
 
             // Act
             var response = profileService.EditUserProfile(bm);
@@ -93,7 +97,7 @@
             db.Add(userProfile);
             db.SaveChanges();
 
-            var profileService = new ProfileService(db);
+            var profileService = new ProfileService(db, this.mapper);
 
             // Act
             var response = profileService.GetUserProfileById(userId);
@@ -114,7 +118,7 @@
             db.UserProfiles.Add(user);
             db.SaveChanges();
 
-            var profileService = new ProfileService(db);
+            var profileService = new ProfileService(db, this.mapper);
 
             // Act
             var response = profileService.CreateNewUserProfileImage(userId, imageUrl);

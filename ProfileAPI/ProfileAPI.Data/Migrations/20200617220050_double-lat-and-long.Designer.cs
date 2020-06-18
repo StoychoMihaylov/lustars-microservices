@@ -10,8 +10,8 @@ using ProfileAPI.Data.Context;
 namespace ProfileAPI.Data.Migrations
 {
     [DbContext(typeof(ProfileDBContext))]
-    [Migration("20200326224342_user-profile-fields-changes")]
-    partial class userprofilefieldschanges
+    [Migration("20200617220050_double-lat-and-long")]
+    partial class doublelatandlong
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,10 +40,13 @@ namespace ProfileAPI.Data.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("Latitude")
-                        .HasColumnType("text");
+                    b.Property<double>("Latitude")
+                        .HasColumnType("double precision");
 
-                    b.Property<string>("Longitude")
+                    b.Property<double>("Longitude")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("PostCode")
                         .HasColumnType("text");
 
                     b.Property<string>("Street")
@@ -82,6 +85,29 @@ namespace ProfileAPI.Data.Migrations
                     b.ToTable("Images");
                 });
 
+            modelBuilder.Entity("ProfileAPI.Data.Entities.Language", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("UserProfileId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserProfileId");
+
+                    b.ToTable("Languages");
+                });
+
             modelBuilder.Entity("ProfileAPI.Data.Entities.UserProfile", b =>
                 {
                     b.Property<Guid>("Id")
@@ -93,12 +119,6 @@ namespace ProfileAPI.Data.Migrations
                     b.Property<string>("Biography")
                         .HasColumnType("character varying(3000)")
                         .HasMaxLength(3000);
-
-                    b.Property<string>("City")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Country")
-                        .HasColumnType("text");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("timestamp without time zone");
@@ -121,7 +141,17 @@ namespace ProfileAPI.Data.Migrations
                     b.Property<bool>("EmailNotificationsSubscribed")
                         .HasColumnType("boolean");
 
+                    b.Property<string>("FeelInMood")
+                        .HasColumnType("character varying(20)")
+                        .HasMaxLength(20);
+
                     b.Property<string>("Figure")
+                        .HasColumnType("text");
+
+                    b.Property<string>("FromCity")
+                        .HasColumnType("text");
+
+                    b.Property<string>("FromCountry")
                         .HasColumnType("text");
 
                     b.Property<string>("Gender")
@@ -139,14 +169,11 @@ namespace ProfileAPI.Data.Migrations
                     b.Property<string>("HowOftenSmoke")
                         .HasColumnType("text");
 
-                    b.Property<int>("Income")
-                        .HasColumnType("integer");
+                    b.Property<string>("Income")
+                        .HasColumnType("text");
 
                     b.Property<bool>("IsUserProfileActivated")
                         .HasColumnType("boolean");
-
-                    b.Property<string>("Languages")
-                        .HasColumnType("text");
 
                     b.Property<string>("LastName")
                         .HasColumnType("text");
@@ -176,11 +203,8 @@ namespace ProfileAPI.Data.Migrations
                     b.Property<bool>("PartnerHaveKids")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("PartnerIncomeFrom")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("PartnerIncomeTo")
-                        .HasColumnType("integer");
+                    b.Property<string>("PartnerIncome")
+                        .HasColumnType("text");
 
                     b.Property<bool>("PartnerSmoke")
                         .HasColumnType("boolean");
@@ -190,10 +214,6 @@ namespace ProfileAPI.Data.Migrations
 
                     b.Property<int>("Superlikes")
                         .HasColumnType("integer");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("character varying(20)")
-                        .HasMaxLength(20);
 
                     b.Property<string>("University")
                         .HasColumnType("text");
@@ -227,6 +247,14 @@ namespace ProfileAPI.Data.Migrations
                 {
                     b.HasOne("ProfileAPI.Data.Entities.UserProfile", "UserProfile")
                         .WithMany("Images")
+                        .HasForeignKey("UserProfileId")
+                        .OnDelete(DeleteBehavior.SetNull);
+                });
+
+            modelBuilder.Entity("ProfileAPI.Data.Entities.Language", b =>
+                {
+                    b.HasOne("ProfileAPI.Data.Entities.UserProfile", "UserProfile")
+                        .WithMany("Languages")
                         .HasForeignKey("UserProfileId")
                         .OnDelete(DeleteBehavior.SetNull);
                 });

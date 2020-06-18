@@ -1,6 +1,7 @@
 ﻿namespace ProfileAPI.Services.Services
 {
     using System;
+    using AutoMapper;
     using System.Linq;
     using ProfileAPI.Data.Entities;
     using System.Collections.Generic;
@@ -12,8 +13,13 @@
 
     public class ProfileService : Service, IProfileService
     {
-        public ProfileService(IProfileDBContext context)
-            : base(context) {}
+        private readonly IMapper mapper;
+
+        public ProfileService(IProfileDBContext context, IMapper mapper)
+            : base(context) 
+        {
+            this.mapper = mapper;
+        }
 
         public bool EditUserProfile(EditUserProfileBindingModel bm)
         {
@@ -24,41 +30,44 @@
                 var userProfile = this.Context
                     .UserProfiles
                     .Find(bm.Id);
-
+             
+                this.mapper.Map<EditUserProfileBindingModel, UserProfile>(bm, userProfile);
                 userProfile.Languages = languages;
-                userProfile.EmailNotificationsSubscribed = bm.EmailNotificationsSubscribed;
-                userProfile.IsUserProfileActivated = bm.IsUserProfileActivated;             
-                userProfile.Name = bm.Name;
-                userProfile.LastName = bm.LastName;
-                userProfile.FromCity = bm.FromCity;
-                userProfile.FromCountry = bm.FromCountry;
-                userProfile.FeelInMood = bm.FeelInMood;
-                userProfile.Gender = bm.Gender;
-                userProfile.DateOfBirth = bm.DateOfBirth;
-                userProfile.LookingFor = bm.LookingFor;
-                userProfile.Biography = bm.Biography;
-                userProfile.EducationDegree = bm.EducationDegree;
-                userProfile.University = bm.University;
-                userProfile.Work = bm.Work;
-                userProfile.WantToHaveKids = bm.WantToHaveKids;
-                userProfile.Height = bm.Height;
-                userProfile.Weight = bm.Weight;
-                userProfile.Figure = bm.Figure;
-                userProfile.WantKids = bm.WantKids;
-                userProfile.HaveKids = bm.HaveKids;
-                userProfile.DrinkAlcohol = bm.DrinkAlcohol;
-                userProfile.HowOftenDrinkAlcohol = bm.HowOftenDrinkAlcohol;
-                userProfile.Smoker = bm.Smoker;
-                userProfile.HowOftenSmoke = bm.HowOftenSmoke;
-                userProfile.Income = bm.Income;
-                userProfile.MeritalStatus = bm.MeritalStatus;
-                userProfile.PartnerAgeRangeFrom = bm.PartnerAgeRangeFrom;
-                userProfile.PartnerAgeRangeTo = bm.PartnerAgeRangeTo;
-                userProfile.PartnerIncome = bm.PartnerIncome;
-                userProfile.PartnerSmoke = bm.PartnerSmoke;
-                userProfile.PartnerDrinkAlcohol = bm.PartnerDrinkAlcohol;
-                userProfile.PartnerHaveKids = bm.PartnerHaveKids;
-                userProfile.PartnerFigure = bm.PartnerFigure;
+
+                //userProfile.Languages = languages;
+                //userProfile.EmailNotificationsSubscribed = bm.EmailNotificationsSubscribed;
+                //userProfile.IsUserProfileActivated = bm.IsUserProfileActivated;             
+                //userProfile.Name = bm.Name;
+                //userProfile.LastName = bm.LastName;
+                //userProfile.FromCity = bm.FromCity;
+                //userProfile.FromCountry = bm.FromCountry;
+                //userProfile.FeelInMood = bm.FeelInMood;
+                //userProfile.Gender = bm.Gender;
+                //userProfile.DateOfBirth = bm.DateOfBirth;
+                //userProfile.LookingFor = bm.LookingFor;
+                //userProfile.Biography = bm.Biography;
+                //userProfile.EducationDegree = bm.EducationDegree;
+                //userProfile.University = bm.University;
+                //userProfile.Work = bm.Work;
+                //userProfile.WantToHaveKids = bm.WantToHaveKids;
+                //userProfile.Height = bm.Height;
+                //userProfile.Weight = bm.Weight;
+                //userProfile.Figure = bm.Figure;
+                //userProfile.WantKids = bm.WantKids;
+                //userProfile.HaveKids = bm.HaveKids;
+                //userProfile.DrinkAlcohol = bm.DrinkAlcohol;
+                //userProfile.HowOftenDrinkAlcohol = bm.HowOftenDrinkAlcohol;
+                //userProfile.Smoker = bm.Smoker;
+                //userProfile.HowOftenSmoke = bm.HowOftenSmoke;
+                //userProfile.Income = bm.Income;
+                //userProfile.MeritalStatus = bm.MeritalStatus;
+                //userProfile.PartnerAgeRangeFrom = bm.PartnerAgeRangeFrom;
+                //userProfile.PartnerAgeRangeTo = bm.PartnerAgeRangeTo;
+                //userProfile.PartnerIncome = bm.PartnerIncome;
+                //userProfile.PartnerSmoke = bm.PartnerSmoke;
+                //userProfile.PartnerDrinkAlcohol = bm.PartnerDrinkAlcohol;
+                //userProfile.PartnerHaveKids = bm.PartnerHaveKids;
+                //userProfile.PartnerFigure = bm.PartnerFigure;
 
                 this.Context.UserProfiles.Update(userProfile);
                 this.Context.SaveChanges();
@@ -80,6 +89,8 @@
                 .Languages
                 .Where(l => l.UserProfile.Id == bm.Id)
                 .ToList();
+
+            // TO DO: Add logic that checks if the the db languages and bg languages are equaal whethe some language has been changed
 
             if (DBlanguages.Count() > bm.Languages.Count())
             {
@@ -152,13 +163,13 @@
             return true;
         }
 
-        public UserProfile GetUserProfileById(Guid userId)
+        public UserProfileDetailedDataViewModel GetUserProfileById(Guid userId)
         {
-            var userProfile = this.Context
+            var userProfile = this.mapper.Map<UserProfileDetailedDataViewModel>(this.Context
                 .UserProfiles
                 .AsNoTracking()
                 .Where(u => u.Id == userId)
-                .FirstOrDefault();
+                .FirstOrDefault());
 
             if (userProfile == null) { return null; }
 
@@ -183,7 +194,7 @@
                     City = g.City,
                     Country = g.Country
                 })
-                .ToList();
+                .FirstOrDefault();
 
             var languages = this.Context
                 .Languages
@@ -197,7 +208,7 @@
                 .ToList();
 
             userProfile.Images = userImages;
-            userProfile.GeoLocations = geoLocation;
+            userProfile.GeoLocation = geoLocation;
             userProfile.Languages = languages;
 
             return userProfile;
@@ -361,7 +372,7 @@
             return userShortData;
         }
 
-        public List<UserProfileInDistanceViewModel> GetAllUserInDistance(Guid guidId, int v)
+        public List<UserProfileInDistanceViewModel> GetAllUserInDistance(Guid guidId, int distance)
         {
             var currentUserGeoLocation = this.Context
                 .GeoLocations
@@ -387,7 +398,39 @@
                 })
                 .ToList();
 
-            return usersInSameCity;
+            var usersInDistance = FilterAllUsersByDistance(currentUserGeoLocation, usersInSameCity, distance);
+
+            return usersInDistance;
+        }
+
+        private List<UserProfileInDistanceViewModel> FilterAllUsersByDistance(
+            GeoLocation currentUserGeoLocation, 
+            List<UserProfileInDistanceViewModel> usersInSameCity, 
+            int distance)
+        {
+            var usersInDistance = new List<UserProfileInDistanceViewModel>();
+
+            foreach (var user in usersInSameCity)
+            {
+                var calcDistance = GetDistance(currentUserGeoLocation.Longitude, currentUserGeoLocation.Latitude, user.GeoLocation.Longitude, user.GeoLocation.Latitude);
+                if (calcDistance <= distance)
+                {
+                    usersInDistance.Add(user);
+                }
+            }
+
+            return usersInDistance;
+        }
+
+        private double GetDistance(double longitude, double latitude, double otherLongitude, double otherLatitude)
+        {
+            var d1 = latitude * (Math.PI / 180.0);
+            var num1 = longitude * (Math.PI / 180.0);
+            var d2 = otherLatitude * (Math.PI / 180.0);
+            var num2 = otherLongitude * (Math.PI / 180.0) - num1;
+            var d3 = Math.Pow(Math.Sin((d2 - d1) / 2.0), 2.0) + Math.Cos(d1) * Math.Cos(d2) * Math.Pow(Math.Sin(num2 / 2.0), 2.0);
+
+            return 6376500.0 * (2.0 * Math.Atan2(Math.Sqrt(d3), Math.Sqrt(1.0 - d3)));
         }
     }
 }
