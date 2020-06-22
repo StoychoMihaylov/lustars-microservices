@@ -1,15 +1,10 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { Form } from 'reactstrap'
+import { NotificationManager} from 'react-notifications';
 import { api } from '../../constants/endpoints'
-import {
-    infoNotification,
-    successfulNotification,
-    errorNotification
-} from '../../store/actions/eventNotifications'
 import { uploadUserProfileImage, deleteUserProfileImage } from '../../store/actions/profileActions'
 import { getMyUserProfileDetails } from '../../store/actions/profileActions'
-import ImageCropper from '../common/ImageCropper'
 import '../../styles/components/profile/ProfileImagesContainer.css'
 
 class ProfileImagesContainer extends Component {
@@ -49,9 +44,9 @@ class ProfileImagesContainer extends Component {
 
                     // Will update and rerender the state with the new image
                     this.props.getMyUserProfileDetails()
-                    this.props.successfulNotification("Image uploaded!")
+                    NotificationManager.success('Image has been uploaded successfully', 'Uploaded!', 3000)
                 } else {
-                    this.props.errorNotification("Something went wrong! Please check your connection!")
+                    NotificationManager.error('Something went wrong! Please check your connection!', 'Error!', 5000)
                 }
             })
     }
@@ -212,12 +207,7 @@ const mapDispatchToProps = dispatch => {
     return {
         deleteUserProfileImage: (image) => dispatch(deleteUserProfileImage(image)),
         uploadUserProfileImage: (formData) => dispatch(uploadUserProfileImage(formData)),
-        getMyUserProfileDetails: () => dispatch(getMyUserProfileDetails()),
-
-         // Notifications
-        infoNotification: (message) => dispatch(infoNotification(message)),
-        successfulNotification: (message) => dispatch(successfulNotification(message)),
-        errorNotification: (message) => dispatch(errorNotification(message))
+        getMyUserProfileDetails: () => dispatch(getMyUserProfileDetails())
     }
 }
 

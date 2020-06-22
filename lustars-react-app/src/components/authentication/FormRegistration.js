@@ -2,11 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push, goBack } from "connected-react-router"
 import { registerAccount } from '../../store/actions/accountActions'
-import {
-    infoNotification,
-    successfulNotification,
-    errorNotification
-} from '../../store/actions/eventNotifications'
 import '../../styles/components/authentication/FormRegistration.css'
 import '../../styles/components/common/InputFields.css'
 
@@ -198,12 +193,7 @@ const mapDispatchToProps = dispatch => {
 
         // Navigation
         goBack: () => dispatch(goBack()),
-        push: (url) => dispatch(push(url)),
-
-         // Notifications
-         infoNotification: (message) => dispatch(infoNotification(message)),
-         successfulNotification: (message) => dispatch(successfulNotification(message)),
-         errorNotification: (message) => dispatch(errorNotification(message))
+        push: (url) => dispatch(push(url))
     }
 }
 

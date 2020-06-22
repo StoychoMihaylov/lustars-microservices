@@ -1,11 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
+import { NotificationManager} from 'react-notifications'
 import { push, goBack } from "connected-react-router"
-import {
-    infoNotification,
-    successfulNotification,
-    errorNotification
-} from '../../store/actions/eventNotifications'
 import ProfileMainSettings from './ProfileMainSettings'
 import ProfileAboutMe from './ProfileAboutMe'
 import ProfilePartnerInfo from './ProfilePartnerInfo'
@@ -31,9 +27,12 @@ class ProfileInfo extends Component {
         this.props.editMyUserProfileDetails(this.props.profile)
             .then(response => {
                 if (response.status === 200) {
-                    this.props.successfulNotification("Profile updated!")
+                    NotificationManager.success('Your profile has been updated successfully', 'Updated!', 3000)
                 } else {
                     this.props.errorNotification("Something went wrong! Please check your connection!")
+                    NotificationManager.error('Something went wrong! Please check your connection!', 'Error!', 5000, () => {
+                        alert('There is some problem! Please try again or check your network!');
+                      });
                 }
             })
     }
@@ -87,12 +86,7 @@ const mapDispatchToProps = dispatch => {
 
         // Navigation
         goBack: () => dispatch(goBack()),
-        push: (url) => dispatch(push(url)),
-
-         // Notifications
-        infoNotification: (message) => dispatch(infoNotification(message)),
-        successfulNotification: (message) => dispatch(successfulNotification(message)),
-        errorNotification: (message) => dispatch(errorNotification(message))
+        push: (url) => dispatch(push(url))
     }
 }
 
