@@ -4,15 +4,13 @@ import { connectRouter, routerMiddleware } from 'connected-react-router'
 
 import accountReducer from './reducers/accountReducer'
 import profileReducer from './reducers/profileReducer'
-import eventNotificationsReducer from './reducers/eventNotificationsReducer'
 
 
 export default function configureStore (history, initialState) {
 
   const reducers = {
     account: accountReducer,
-    profile: profileReducer,
-    eventNotifications: eventNotificationsReducer
+    profile: profileReducer
   }
 
   const middleware = [

@@ -34,41 +34,6 @@
                 this.mapper.Map<EditUserProfileBindingModel, UserProfile>(bm, userProfile);
                 userProfile.Languages = languages;
 
-                //userProfile.Languages = languages;
-                //userProfile.EmailNotificationsSubscribed = bm.EmailNotificationsSubscribed;
-                //userProfile.IsUserProfileActivated = bm.IsUserProfileActivated;             
-                //userProfile.Name = bm.Name;
-                //userProfile.LastName = bm.LastName;
-                //userProfile.FromCity = bm.FromCity;
-                //userProfile.FromCountry = bm.FromCountry;
-                //userProfile.FeelInMood = bm.FeelInMood;
-                //userProfile.Gender = bm.Gender;
-                //userProfile.DateOfBirth = bm.DateOfBirth;
-                //userProfile.LookingFor = bm.LookingFor;
-                //userProfile.Biography = bm.Biography;
-                //userProfile.EducationDegree = bm.EducationDegree;
-                //userProfile.University = bm.University;
-                //userProfile.Work = bm.Work;
-                //userProfile.WantToHaveKids = bm.WantToHaveKids;
-                //userProfile.Height = bm.Height;
-                //userProfile.Weight = bm.Weight;
-                //userProfile.Figure = bm.Figure;
-                //userProfile.WantKids = bm.WantKids;
-                //userProfile.HaveKids = bm.HaveKids;
-                //userProfile.DrinkAlcohol = bm.DrinkAlcohol;
-                //userProfile.HowOftenDrinkAlcohol = bm.HowOftenDrinkAlcohol;
-                //userProfile.Smoker = bm.Smoker;
-                //userProfile.HowOftenSmoke = bm.HowOftenSmoke;
-                //userProfile.Income = bm.Income;
-                //userProfile.MeritalStatus = bm.MeritalStatus;
-                //userProfile.PartnerAgeRangeFrom = bm.PartnerAgeRangeFrom;
-                //userProfile.PartnerAgeRangeTo = bm.PartnerAgeRangeTo;
-                //userProfile.PartnerIncome = bm.PartnerIncome;
-                //userProfile.PartnerSmoke = bm.PartnerSmoke;
-                //userProfile.PartnerDrinkAlcohol = bm.PartnerDrinkAlcohol;
-                //userProfile.PartnerHaveKids = bm.PartnerHaveKids;
-                //userProfile.PartnerFigure = bm.PartnerFigure;
-
                 this.Context.UserProfiles.Update(userProfile);
                 this.Context.SaveChanges();
             }
@@ -413,7 +378,7 @@
             foreach (var user in usersInSameCity)
             {
                 var calcDistance = GetDistance(currentUserGeoLocation.Longitude, currentUserGeoLocation.Latitude, user.GeoLocation.Longitude, user.GeoLocation.Latitude);
-                if (calcDistance <= distance)
+                if (calcDistance / 1000 <= distance)
                 {
                     usersInDistance.Add(user);
                 }

@@ -29,14 +29,18 @@ class ActiitiesMenu extends Component {
                         <span>{ this.props.profilePreviewData.name } </span>
                         <span>{ this.props.profilePreviewData.lastName }</span>
                         <br/>
-                        <span>{ this.props.profilePreviewData.geoLocation.city } { this.props.profilePreviewData.geoLocation.country } </span>
+                        {
+                            this.props.profilePreviewData.geoLocation !== undefined && this.props.profilePreviewData.geoLocation !== null
+                            ?   <span>{ this.props.profilePreviewData.geoLocation.city } { this.props.profilePreviewData.geoLocation.country } </span>
+                            :   null
+                        }
                         <br/>
                         <span>Creadits: { this.props.profilePreviewData.credits } </span>
                         <span>Super Likes: { this.props.profilePreviewData.superlikes }</span>
                     </div>
                     <div class="vertical-line activities-attributes"></div>
                     <div className="activities-attributes">
-                        <span onClick={() => this.props.push('/PeopleNearByPage') } className="activities-menu-link">People nearby</span>
+                        <span onClick={() => this.props.push('/people-nearby') } className="activities-menu-link">People nearby</span>
                         <br/>
                         <span className="activities-menu-link">Messages</span>
                         <br/>

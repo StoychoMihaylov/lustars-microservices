@@ -3,11 +3,7 @@ import { connect } from "react-redux"
 import { Form } from 'reactstrap'
 import { api } from '../../constants/endpoints'
 import ReactCrop from 'react-image-crop'
-import {
-    infoNotification,
-    successfulNotification,
-    errorNotification
-} from '../../store/actions/eventNotifications'
+import { NotificationManager} from 'react-notifications';
 import { uploadAvatarImage } from '../../store/actions/profileActions'
 import 'react-image-crop/dist/ReactCrop.css'
 import '../../styles/components/profile/Avatar.css'
@@ -112,9 +108,12 @@ class Avatar extends Component {
                         croppedImageUrl: imgUrl,
                         showImageCropper: false
                     })
-                    this.props.successfulNotification("Avatar image uploaded!")
+                    NotificationManager.success('Avatar image uploaded!', 'Congrats!', 3000);
                 } else {
                     this.props.errorNotification("Something went wrong! Please check your connection!")
+                    NotificationManager.error('Something went wrong! Please check your connection!', 'Please try again!', 5000, () => {
+                        alert('Something went wrong! Please check your connection!');
+                      })
                 }
             })
     }
@@ -134,7 +133,9 @@ class Avatar extends Component {
                 showImageCropper: true
             })
         } else {
-            this.props.errorNotification('The image should be in "jpeg" format!')
+            NotificationManager.error('The image should be in "jpeg" format!', 'Invalid image format!', 5000, () => {
+                alert('Please upload images only in jpg(jpeg) format!');
+              })
         }
     }
 
@@ -224,12 +225,7 @@ class Avatar extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        uploadAvatarImage: (imageFile) => dispatch(uploadAvatarImage(imageFile)),
-
-         // Notifications
-        infoNotification: (message) => dispatch(infoNotification(message)),
-        successfulNotification: (message) => dispatch(successfulNotification(message)),
-        errorNotification: (message) => dispatch(errorNotification(message))
+        uploadAvatarImage: (imageFile) => dispatch(uploadAvatarImage(imageFile))
     }
 }
 
