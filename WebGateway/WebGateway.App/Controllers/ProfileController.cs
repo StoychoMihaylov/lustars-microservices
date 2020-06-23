@@ -6,9 +6,6 @@
     using WebGateway.App.Authorization;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.UserProfile;
-    using WebGateway.Models.ViewModels;
-    using System;
-    using System.Linq;
 
     [ApiController]
     [Route("user-profile")]
@@ -174,6 +171,22 @@
             }
 
             return StatusCode(200); // OK!
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("people-nearby")]
+        public async Task<IActionResult> GetPeopleNearby()
+        {
+            var userId = IdentityManager.CurrentUserId;
+
+            var allUsersInDistance = await this.profileService.GetAllUserInDistance(userId);
+            if (allUsersInDistance == null)
+            {
+                return StatusCode(404); // NotFound!
+            }
+
+            return StatusCode(200, allUsersInDistance);
         }
 
         private bool CheckIfImageIsInValidFormat(IFormFile image)

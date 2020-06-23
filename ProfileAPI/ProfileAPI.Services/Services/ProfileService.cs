@@ -337,7 +337,7 @@
             return userShortData;
         }
 
-        public List<UserProfileInDistanceViewModel> GetAllUserInDistance(Guid guidId, int distance)
+        public List<UserProfileInDistanceViewModel> GetAllUsersInDistance(Guid guidId, int distance)
         {
             var currentUserGeoLocation = this.Context
                 .GeoLocations
@@ -359,6 +359,8 @@
                     Id = geolocation.UserProfile.Id,
                     Name = geolocation.UserProfile.Name,
                     AvatarImage = geolocation.UserProfile.AvatarImage,
+                    City = geolocation.City,
+                    Country = geolocation.Country,
                     GeoLocation = geolocation
                 })
                 .ToList();
@@ -380,6 +382,7 @@
                 var calcDistance = GetDistance(currentUserGeoLocation.Longitude, currentUserGeoLocation.Latitude, user.GeoLocation.Longitude, user.GeoLocation.Latitude);
                 if (calcDistance / 1000 <= distance)
                 {
+                    user.GeoLocation = null; // against loop reference
                     usersInDistance.Add(user);
                 }
             }
