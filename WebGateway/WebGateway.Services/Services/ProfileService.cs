@@ -47,9 +47,7 @@
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                var content = response.Content.ReadAsStringAsync().Result;
-                
-                return content;
+                return response.Content.ReadAsStringAsync().Result;
             }
             else
             {
@@ -63,9 +61,7 @@
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                var content = response.Content.ReadAsStringAsync().Result;
-
-                return content;
+                return response.Content.ReadAsStringAsync().Result;
             }
             else
             {
@@ -104,6 +100,7 @@
         public async Task<string> CallImageAPI_UploadImage(Guid userId, IFormFile formData)
         {
             var ms = new MemoryStream();
+
             formData
                 .OpenReadStream()
                 .CopyTo(ms);
@@ -148,6 +145,20 @@
             }
 
             return false;
+        }
+
+        public async Task<string> GetAllUserInDistance(Guid guidId)
+        {
+            var response = await this.HttpClient.GetAsync(ProfileAPIService.Endpoint + $"profile/people-nearby/{guidId.ToString()}");
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return response.Content.ReadAsStringAsync().Result;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

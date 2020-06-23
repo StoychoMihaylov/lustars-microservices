@@ -16,6 +16,6 @@
         bool UpdateUserProfileGeolocation(Guid userIdGuid, GeoLocation geolocation);
         bool DeleteUserProfileImage(Guid userGuidId, long imageGuidId);
         UserProfileShortPreviewDataViewModel GetUserProfileShortPreviewDataById(Guid guidOutput);
-        List<UserProfileInDistanceViewModel> GetAllUserInDistance(Guid guidId, int v);
+        List<UserProfileInDistanceViewModel> GetAllUsersInDistance(Guid guidId, int v);
     }
 }

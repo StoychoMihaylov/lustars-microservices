@@ -23,7 +23,7 @@
         {
             var guidId = Guid.Parse(userId);
 
-            var allUsersInDistanceOf10km = this.profileService.GetAllUserInDistance(guidId, 10);
+            var allUsersInDistanceOf10km = this.profileService.GetAllUsersInDistance(guidId, 10);
             if (allUsersInDistanceOf10km == null)
             {
                 return StatusCode(404); // NotFound!

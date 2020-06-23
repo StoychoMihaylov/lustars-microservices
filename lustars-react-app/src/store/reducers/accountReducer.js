@@ -8,7 +8,7 @@ import {
     REQUEST_ACCOUNT_LOGOUT,
     REQUEST_ACCOUNT_LOGOUT_SUCCESS,
     REQUEST_ACCOUNT_LOGOUT_FAIL
-} from '../../constants/accountActionTypes'
+} from '../../constants/actionTypes/accountActionTypes'
 
 const initialState = {
     credentials: {},

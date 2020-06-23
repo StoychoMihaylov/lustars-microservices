@@ -24,7 +24,7 @@ import {
     REQUEST_MY_PROFILE_SHORT_DATA,
     REQUEST_MY_PROFILE_SHORT_DATA_SUCCESS,
     REQUEST_MY_PROFILE_SHORT_DATA_FAIL
-} from '../../constants/profileActionTypes'
+} from '../../constants/actionTypes/profileActionTypes'
 
 const initialState = {
     userProfileDetails: {},

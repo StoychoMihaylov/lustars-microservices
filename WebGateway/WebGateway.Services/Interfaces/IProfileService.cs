@@ -16,5 +16,6 @@
         Task<bool> CallProfileAPI_UpdateUserProfileGeoLocation(Guid userId, GeoLocationBindingModel bm);
         Task<bool> CallProfileaPI_DeleteImage(Guid userId, DeleteUserProfileImageBindingModel image);
         Task<string> CallProfileAPI_GetUserProfileShortreviewDataById(Guid userId);
+        Task<string> GetAllUserInDistance(Guid guidId);
     }
 }
