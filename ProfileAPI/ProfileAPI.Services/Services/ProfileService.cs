@@ -353,7 +353,7 @@
             var usersInSameCity = this.Context
                 .GeoLocations
                 .AsNoTracking()
-                .Where(g => g.IsActive == true && g.City == currentUserGeoLocation.City)
+                .Where(g => g.IsActive == true && g.City == currentUserGeoLocation.City && g.UserProfile.Id != guidId)
                 .Select(geolocation => new UserProfileInDistanceViewModel()
                 {
                     Id = geolocation.UserProfile.Id,
@@ -383,6 +383,7 @@
                 if (calcDistance / 1000 <= distance)
                 {
                     user.GeoLocation = null; // against loop reference
+                    user.Distance = Math.Round(calcDistance / 1000, 1).ToString() + "km";
                     usersInDistance.Add(user);
                 }
             }
