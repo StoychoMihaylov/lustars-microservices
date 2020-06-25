@@ -9,7 +9,27 @@
 
         public string Name { get; set; }
 
+        public string Age { get; set; }
+
+        public string NameAndAge
+        {
+            get 
+            {
+                return $"{Name}, {Age}";
+            }
+        }
+
         public string AvatarImage { get; set; }
+
+        public string Distance { get; set; }
+
+        public string Location
+        {
+            get 
+            {
+                return $"{City}, {Country}";
+            }
+        }
 
         public string City { get; set; }
 
