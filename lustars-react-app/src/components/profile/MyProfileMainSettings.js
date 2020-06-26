@@ -6,14 +6,14 @@ import {
     updateUserProfileTextField,
     editMyUserProfileDetails,
     updateUserProfileGeaolocation
-} from '../../store/actions/profileActions'
-import YesNoInputField from '../../components/profile/YesNoInputField'
-import NumbersField from '../../components/common/NumbersField'
-import Avatar from '../../components/profile/Avatar'
+} from '../../store/actions/myProfileActions'
+import YesNoInputField from './YesNoInputField'
+import NumbersField from '../common/NumbersField'
+import Avatar from './Avatar'
 import { city_states } from '../../constants/countriesAndCities'
-import '../../styles/components/profile/ProfileMainSettings.css'
+import '../../styles/components/profile/MyProfileMainSettings.css'
 
-class ProfileMainSettings extends Component {
+class MyProfileMainSettings extends Component {
     constructor(props) {
         super(props)
 
@@ -255,4 +255,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(ProfileMainSettings)
+export default connect(null, mapDispatchToProps)(MyProfileMainSettings)

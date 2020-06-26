@@ -24,7 +24,7 @@ import {
     REQUEST_MY_PROFILE_SHORT_DATA,
     REQUEST_MY_PROFILE_SHORT_DATA_SUCCESS,
     REQUEST_MY_PROFILE_SHORT_DATA_FAIL
-} from '../../constants/actionTypes/profileActionTypes'
+} from '../../constants/actionTypes/myProfileActionTypes'
 
 const initialState = {
     userProfileDetails: {},
@@ -33,7 +33,7 @@ const initialState = {
     error: false
 }
 
-const profileReducer = (state, action) => {
+const myProfileReducer = (state, action) => {
     state = state || initialState
 
     switch (action.type) {
@@ -144,4 +144,4 @@ const profileReducer = (state, action) => {
     }
 }
 
-export default profileReducer
+export default myProfileReducer

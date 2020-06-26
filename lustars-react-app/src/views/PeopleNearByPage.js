@@ -6,46 +6,54 @@ import '../styles/views/PeopleNearbyPage.css'
 
 class PeopleNearbyPage extends Component {
 
-    componentDidMount() {
-      this.props.getPeopleNearby()
-    }
+  componentDidMount() {
+    this.props.getPeopleNearby()
+  }
 
-    render() {
-      console.log(this.props.peopleNearby)
-        return (
-            <div>
-              {
-                this.props.peopleNearby !== undefined && this.props.peopleNearby !== null
-                  ? this.props.peopleNearby.map((userProfile, index) => {
-                      return (
-                        <label key={ index } id={ userProfile.id }>
-                          <div className="profile-image-container">
-                            <div>{ userProfile.distance } away</div>
-                            <img
-                                className="profile-in-distance-image"
-                                src={ api.imageAPI + userProfile.avatarImage }
-                                alt=""
-                            />
-                            <div className="profile-name-and-location">
-                              <div>{ userProfile.nameAndAge }</div>
-                              <div>{ userProfile.location }</div>
-                            </div>
+  openProfileDetailsPage(event) {
+    console.log(event.target.id)
+  }
+
+  render() {
+    console.log(this.props.peopleNearby)
+      return (
+          <div>
+            {
+              this.props.peopleNearby !== undefined && this.props.peopleNearby !== null
+                ? this.props.peopleNearby.map((userProfile, index) => {
+                    return (
+                      <label
+                        key={ index }
+                        id={ userProfile.id }
+                        onClick={ this.openProfileDetailsPage.bind(this) }
+                      >
+                        <div className="profile-image-container">
+                          <div>{ userProfile.distance } away</div>
+                          <img
+                              className="profile-in-distance-image"
+                              src={ api.imageAPI + userProfile.avatarImage }
+                              alt=""
+                          />
+                          <div className="profile-name-and-location">
+                            <div>{ userProfile.nameAndAge }</div>
+                            <div>{ userProfile.location }</div>
                           </div>
-                        </label>
-                      )
-                    })
-                  : null
-              }
-            </div>
-        )
-    }
+                        </div>
+                      </label>
+                    )
+                  })
+                : null
+            }
+          </div>
+      )
+  }
 }
 
 const mapStateToProps = state => {
   return {
     peopleNearby: state.peopleNearby.peopleNearby,
-    isLoading: state.profile.isLoading,
-    error: state.profile.error
+    isLoading: state.peopleNearby.isLoading,
+    error: state.peopleNearby.error
   }
 }
 
