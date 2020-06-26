@@ -1,11 +1,11 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { updateUserProfileBoleanField, updateUserProfileTextField } from '../../store/actions/profileActions'
+import { updateUserProfileBoleanField, updateUserProfileTextField } from '../../store/actions/myProfileActions'
 import YesNoInputField from './YesNoInputField'
 import NumberAdjusterInput from '../common/NumberAdjusterInput'
-import '../../styles/components/profile/ProfilePartnerInfo.css'
+import '../../styles/components/profile/MyProfilePartnerInfo.css'
 
-class ProfilePartnerInfo extends Component {
+class MyProfilePartnerInfo extends Component {
     updateProfileTextField(field, value) {
         let oldState = this.props.profile
         let newState = Object.assign({}, oldState)
@@ -181,4 +181,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(ProfilePartnerInfo)
+export default connect(null, mapDispatchToProps)(MyProfilePartnerInfo)

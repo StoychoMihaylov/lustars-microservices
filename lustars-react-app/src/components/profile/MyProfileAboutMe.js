@@ -7,13 +7,13 @@ import {
     updateUserProfileTextField,
     addUserCountryLanguage,
     deleteUserCountryLanguage
-} from '../../store/actions/profileActions'
+} from '../../store/actions/myProfileActions'
 import YesNoInputField from './YesNoInputField'
 import NumberAdjusterInput from '../common/NumberAdjusterInput'
 import { countryLanguages } from '../../constants/countryLanguages'
-import '../../styles/components/profile/ProfileAboutMe.css'
+import '../../styles/components/profile/MyProfileAboutMe.css'
 
-class ProfileAboutMe extends Component {
+class MyProfileAboutMe extends Component {
     constructor(props) {
         super(props)
 
@@ -583,4 +583,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(ProfileAboutMe)
+export default connect(null, mapDispatchToProps)(MyProfileAboutMe)

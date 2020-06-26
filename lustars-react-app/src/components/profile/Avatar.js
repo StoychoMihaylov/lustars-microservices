@@ -4,7 +4,7 @@ import { Form } from 'reactstrap'
 import { api } from '../../constants/endpoints'
 import ReactCrop from 'react-image-crop'
 import { NotificationManager} from 'react-notifications';
-import { uploadAvatarImage } from '../../store/actions/profileActions'
+import { uploadAvatarImage } from '../../store/actions/myProfileActions'
 import 'react-image-crop/dist/ReactCrop.css'
 import '../../styles/components/profile/Avatar.css'
 

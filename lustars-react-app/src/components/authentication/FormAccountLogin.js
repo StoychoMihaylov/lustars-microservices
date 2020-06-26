@@ -65,7 +65,7 @@ class LoginAccount extends Component {
                     localStorage.setItem('lustars_user_name', credentials.name)
 
                     this.props.successfulNotification("Loged in!")
-                    this.props.push("/profile") // redirection!
+                    this.props.push("/my-profile") // redirection!
                     window.location.reload(false); // refresh layout
                 } else {
                     this.props.errorNotification("Wrong credentials or this user doesn't exist!")

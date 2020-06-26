@@ -3,11 +3,11 @@ import { connect } from "react-redux"
 import { Form } from 'reactstrap'
 import { NotificationManager} from 'react-notifications';
 import { api } from '../../constants/endpoints'
-import { uploadUserProfileImage, deleteUserProfileImage } from '../../store/actions/profileActions'
-import { getMyUserProfileDetails } from '../../store/actions/profileActions'
-import '../../styles/components/profile/ProfileImagesContainer.css'
+import { uploadUserProfileImage, deleteUserProfileImage } from '../../store/actions/myProfileActions'
+import { getMyUserProfileDetails } from '../../store/actions/myProfileActions'
+import '../../styles/components/profile/MyProfileImagesContainer.css'
 
-class ProfileImagesContainer extends Component {
+class MyProfileImagesContainer extends Component {
     constructor(props) {
         super(props)
 
@@ -211,4 +211,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(ProfileImagesContainer)
+export default connect(null, mapDispatchToProps)(MyProfileImagesContainer)

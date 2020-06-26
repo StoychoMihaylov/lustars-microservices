@@ -4,7 +4,7 @@ import { connectRouter, routerMiddleware } from 'connected-react-router'
 
 // Reducers
 import accountReducer from './reducers/accountReducer'
-import profileReducer from './reducers/profileReducer'
+import myProfileReducer from './reducers/myProfileReducer'
 import peopleNearbyReducer from './reducers/peopleNearbyReducer'
 
 
@@ -12,7 +12,7 @@ export default function configureStore (history, initialState) {
 
   const reducers = {
     account: accountReducer,
-    profile: profileReducer,
+    myProfile: myProfileReducer,
     peopleNearby: peopleNearbyReducer
   }
 

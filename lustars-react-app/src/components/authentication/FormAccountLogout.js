@@ -33,7 +33,7 @@ class FormAccountLogout extends Component {
                     localStorage.getItem('lustars_token') !== null
                     ?
                     <ul className="navbar-nav flex-grow">
-                        <NavLink className="cursor-pointer navbar-link" onClick={ () => this.props.push("/profile") }>Hello { localStorage.getItem("lustars_user_name") }!</NavLink>
+                        <NavLink className="cursor-pointer navbar-link" onClick={ () => this.props.push("/my-profile") }>Hello { localStorage.getItem("lustars_user_name") }!</NavLink>
                         <NavLink className="logout-btn cursor-pointer navbar-link" onClick={ this.logoutUser.bind(this) }>LogOut</NavLink>
                     </ul>
                     :

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from "react-redux"
 import { push, goBack } from "connected-react-router"
 import { api } from '../../constants/endpoints'
-import { getUserProfileShortPreviewData } from '../../store/actions/profileActions'
+import { getUserProfileShortPreviewData } from '../../store/actions/myProfileActions'
 
 import '../../styles/components/common/ActivitiesMenu.css'
 
@@ -64,7 +64,7 @@ class ActiitiesMenu extends Component {
 
 const mapStateToProps = state => {
     return {
-        profilePreviewData: state.profile.UserProfileShortPreviewData,
+        profilePreviewData: state.myProfile.UserProfileShortPreviewData,
     }
 }
 
