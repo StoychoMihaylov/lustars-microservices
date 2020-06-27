@@ -1,49 +1,55 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
+import { push, goBack } from "connected-react-router"
 import { getPeopleNearby } from '../store/actions/peopleNearbyActions'
 import { api } from '../constants/endpoints'
 import '../styles/views/PeopleNearbyPage.css'
 
 class PeopleNearbyPage extends Component {
+  constructor(props) {
+    super(props)
+  }
 
   componentDidMount() {
     this.props.getPeopleNearby()
   }
 
-  openProfileDetailsPage(event) {
-    console.log(event.target.id)
+  retrieveDetailsForProfile(event) {
+    this.props.push(`/profile/${event.target.id}`)
   }
 
   render() {
     console.log(this.props.peopleNearby)
+
+    let userProfiles = this.props.peopleNearby !== undefined && this.props.peopleNearby !== null
+      ? this.props.peopleNearby.map((userProfile, index) => {
+          return (
+            <label
+              key={ index }
+              id={ userProfile.id }
+              onClick={ this.retrieveDetailsForProfile.bind(this) }
+            >
+              <div className="profile-image-container">
+                <div>{ userProfile.distance } away</div>
+                <img
+                    id={ userProfile.id }
+                    className="profile-in-distance-image"
+                    src={ api.imageAPI + userProfile.avatarImage }
+                    alt=""
+                />
+                <div id={ userProfile.id } className="profile-name-and-location">
+                  <div>{ userProfile.nameAndAge }</div>
+                  <div>{ userProfile.location }</div>
+                </div>
+              </div>
+            </label>
+          )
+        })
+      : null
+
       return (
           <div>
-            {
-              this.props.peopleNearby !== undefined && this.props.peopleNearby !== null
-                ? this.props.peopleNearby.map((userProfile, index) => {
-                    return (
-                      <label
-                        key={ index }
-                        id={ userProfile.id }
-                        onClick={ this.openProfileDetailsPage.bind(this) }
-                      >
-                        <div className="profile-image-container">
-                          <div>{ userProfile.distance } away</div>
-                          <img
-                              className="profile-in-distance-image"
-                              src={ api.imageAPI + userProfile.avatarImage }
-                              alt=""
-                          />
-                          <div className="profile-name-and-location">
-                            <div>{ userProfile.nameAndAge }</div>
-                            <div>{ userProfile.location }</div>
-                          </div>
-                        </div>
-                      </label>
-                    )
-                  })
-                : null
-            }
+            { userProfiles }
           </div>
       )
   }
@@ -59,7 +65,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getPeopleNearby: () => dispatch(getPeopleNearby())
+    getPeopleNearby: () => dispatch(getPeopleNearby()),
+    push: (url) => dispatch(push(url))
   }
 }
 

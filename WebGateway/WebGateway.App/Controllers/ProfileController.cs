@@ -6,6 +6,7 @@
     using WebGateway.App.Authorization;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.UserProfile;
+    using System;
 
     [ApiController]
     [Route("user-profile")]
@@ -61,10 +62,22 @@
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> GetUserProfile()
+        public async Task<IActionResult> GetUserProfile(string id)
         {
-            var userId = IdentityManager.CurrentUserId;
-
+            var userId = new Guid();
+            if (id == null)
+            {
+                userId = IdentityManager.CurrentUserId;
+            }
+            else
+            {
+                var isValid = Guid.TryParse(id, out userId);
+                if (! isValid)
+                {
+                    return StatusCode(400); // BadRequest!
+                }
+            }
+            
             var userProfileJSON = await this.profileService.CallProfileAPI_GetUserProfileById(userId);
             if (userProfileJSON == null)
             {
@@ -105,7 +118,7 @@
 
             if (imageUrl == null)
             {
-                return StatusCode(501);
+                return StatusCode(501); // NotImplemented!
             }
 
             var isImageCreated = await this.profileService
