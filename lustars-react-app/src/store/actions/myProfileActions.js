@@ -153,7 +153,7 @@ export function addLanguageSuccess(newValues) {
     }
 }
 
-//*************************** Update ser profile geaolocation ***************************
+//*************************** Update profile geaolocation ***************************
 
 export function updateUserProfileGeaolocation(geolocation) {
     return dispatch => {
@@ -238,11 +238,11 @@ export function requestUserProfileShortPreviewDataFail(error) {
 
 //*************************** Get my user profile details ***************************
 
-export function getMyUserProfileDetails() {
+export function getMyUserProfileDetails(id) {
     return dispatch => {
-        dispatch(requestMyUserProfileDetails())
+        dispatch(requestMyUserProfileDetails(id))
 
-        axios.get(api.domain + 'user-profile', {
+        axios.get(api.domain + `user-profile?ID=${id}`, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
             }

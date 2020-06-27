@@ -7,7 +7,10 @@ import MyProfileEditPage from './views/MyProfileEditPage'
 import AccountRegistrationPage from './views/Account/AccountRegistrationPage'
 import AccountLoginPage from './views/Account/AccountLoginPage'
 import PeopleNearbyPage from './views/PeopleNearbyPage'
-import 'react-notifications/lib/notifications.css';
+import ProfileDetailsPage from './views/ProfileDetailsPage'
+
+import 'react-notifications/lib/notifications.css'
+
 
 // Custom private route (if your is not auth via token redirect to login page)
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -29,5 +32,6 @@ export default () => (
 
       <PrivateRoute exact path='/my-profile' component={ MyProfileEditPage } />
       <PrivateRoute exact path='/people-nearby' component={ PeopleNearbyPage } />
+      <PrivateRoute exact path='/profile/:id' component={ ProfileDetailsPage } />
     </Layout>
 )

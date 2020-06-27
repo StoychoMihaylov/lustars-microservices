@@ -19,7 +19,7 @@ class MyProfileDetailedInfo extends Component {
     }
 
     componentDidMount() {
-        this.props.getMyUserProfileDetails()
+        this.props.getMyUserProfileDetails("")
     }
 
     updateUsedProfileDetails() {
@@ -80,7 +80,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getMyUserProfileDetails: () => dispatch(getMyUserProfileDetails()),
+        getMyUserProfileDetails: (id) => dispatch(getMyUserProfileDetails(id)),
         editMyUserProfileDetails: (userProfileDetails) => dispatch(editMyUserProfileDetails(userProfileDetails)),
 
         // Navigation
