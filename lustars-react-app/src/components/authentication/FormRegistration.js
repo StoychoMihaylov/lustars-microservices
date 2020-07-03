@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push, goBack } from "connected-react-router"
+import { NotificationManager } from 'react-notifications'
 import { registerAccount } from '../../store/actions/accountActions'
 import '../../styles/components/authentication/FormRegistration.css'
 import '../../styles/components/common/InputFields.css'
@@ -92,13 +93,14 @@ class FormRegistration extends Component {
                     localStorage.setItem('lustars_user_id', credentials.userId)
                     localStorage.setItem('lustars_user_name', credentials.name)
 
-                    this.props.successfulNotification("You are succesfully registered!")
+                    NotificationManager.success('You are succesfully registered!', '', 3000)
                     this.props.push("/my-profile")
                     window.location.reload(false); // refresh layout
                 } else if (response.response != null && response.response.status === 400) { // Bad Reguest (User already exist or wrong credentials)
-                    this.props.errorNotification(response.response.data)
+                    NotificationManager.error(response.response.data, "", 3000)
                 } else {
-                    this.props.errorNotification("Connection problem! Please try again")
+                    this.props.errorNotification("")
+                    NotificationManager.error('Connection problem! Please try again!', '', 3000)
                 }
             })
     }

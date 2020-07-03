@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { NotificationManager} from 'react-notifications'
+import { NotificationManager } from 'react-notifications'
 import { push, goBack } from "connected-react-router"
 import MyProfileMainSettings from './MyProfileMainSettings'
 import MyProfileAboutMe from './MyProfileAboutMe'
@@ -28,7 +28,6 @@ class MyProfileDetailedInfo extends Component {
                 if (response.status === 200) {
                     NotificationManager.success('Your profile has been updated successfully', 'Updated!', 3000)
                 } else {
-                    this.props.errorNotification("Something went wrong! Please check your connection!")
                     NotificationManager.error('Something went wrong! Please check your connection!', 'Error!', 5000, () => {
                         alert('There is some problem! Please try again or check your network!');
                       });

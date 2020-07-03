@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { push, goBack } from "connected-react-router"
+import { NotificationManager } from 'react-notifications'
 import { loginAccount } from '../../store/actions/accountActions'
 import '../../styles/components/authentication/FormAccountLogin.css'
 
@@ -64,11 +65,11 @@ class LoginAccount extends Component {
                     localStorage.setItem('lustars_user_id', credentials.userId)
                     localStorage.setItem('lustars_user_name', credentials.name)
 
-                    this.props.successfulNotification("Loged in!")
+                    NotificationManager.success('Loged in!', '', 3000)
                     this.props.push("/my-profile") // redirection!
                     window.location.reload(false); // refresh layout
                 } else {
-                    this.props.errorNotification("Wrong credentials or this user doesn't exist!")
+                    NotificationManager.error("Wrong credentials or this user doesn't exist!", '', 3000)
                 }
             })
         }
