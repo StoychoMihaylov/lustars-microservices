@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { NavItem, NavLink } from 'reactstrap';
 import { push, goBack } from "connected-react-router"
 import { logoutAccount } from '../../store/actions/accountActions'
+import { NotificationManager} from 'react-notifications'
 import '../../styles/components/authentication/FormAccountLogout.css'
 
 class FormAccountLogout extends Component {
@@ -16,11 +17,11 @@ class FormAccountLogout extends Component {
           .then(response => {
               if (response.status === 200) {
                   localStorage.clear()
-                  this.props.successfulNotification("Loged out!")
+                  NotificationManager.success('Loged out!', "", 3000);
                   window.location.reload(false)
               } else {
                   localStorage.clear()
-                  this.props.errorNotification("Connection problem! Please try again")
+                  NotificationManager.error('Connection problem! Please try again', "", 3000);
                   window.location.reload(false)
               }
           })

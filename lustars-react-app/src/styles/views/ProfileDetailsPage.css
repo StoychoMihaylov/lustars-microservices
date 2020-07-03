@@ -1,0 +1,110 @@
+.profile-details-container {
+    padding: 50px;
+    background-color: rgb(245,245,245);
+}
+
+.profile-details-image-container {
+    height: 150px;
+    width: 100%;
+    position: relative;
+    background-color: rgb(49, 48, 48);
+}
+
+.profile-details-image-avatar {
+    height: 200px;
+    width:  200px;
+    object-fit: cover;
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px;
+    border: 3px solid rgba(255, 0, 102);
+}
+
+.profile-details-image {
+    height: 150px;
+    width:  150px;
+    object-fit: cover;
+    cursor: pointer;
+    position: relative;
+}
+
+.intro-bar-element {
+    text-align: left;
+    margin-left: 30px;
+    margin-right: 30px;
+    min-height: 100px;
+    min-width: 150px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.profile-details-intro-bar {
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.profile-details-start-chating-bttn {
+    margin: 1px;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    background-color: rgba(255, 0, 102);
+}
+
+.profile-details-start-chating-bttn:hover {
+    background-color: lightblue;
+}
+
+.chat-box-icon {
+    font-size: 24px;
+}
+
+.profile-details-like-bttn {
+    margin: 1px;
+    font-size: 26px;
+    padding: 15px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid rgba(255, 0, 102);
+}
+
+.profile-details-like-bttn:hover {
+    background-color: rgba(255, 0, 102);
+}
+
+.profile-details-name {
+    font-size: 28px;
+}
+
+.profile-details-label {
+    font-size: 24px;
+}
+
+.profile-details-angular-image-bar {
+    color: white;
+    border: none;
+    font-size: 26px;
+    margin: 4px;
+    background-color: transparent;
+    margin-top: 50px;
+}
+
+#left-angular {
+    float: left;
+}
+
+#right-angular {
+    float: right;
+}
+
+.profile-details-camera-img-number {
+    right: 10px;
+    bottom: 10px;
+    position: absolute;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: transparent;
+}
