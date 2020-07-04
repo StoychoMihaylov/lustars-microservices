@@ -92,9 +92,7 @@ class ProfileDetailsPage extends Component {
         let displayProfile =
             <div>
                 <div className="profile-details-intro-bar">
-                    <div className="intro-bar-element">
-                        <img className="profile-details-image-avatar" src={ api.imageAPI + profile.avatarImage } alt="" />
-                    </div>
+                    <img className="profile-details-image-avatar" src={ api.imageAPI + profile.avatarImage } alt="" />
                     <div className="intro-bar-element">
                         <div className="profile-details-name">{ profile.name } { profile.lastName }</div>
                         <div>

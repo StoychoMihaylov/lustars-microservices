@@ -316,7 +316,7 @@
                     Name = u.Name,
                     LastName = u.LastName,
                     Credits = u.Credits,
-                    Superlikes = u.Superlikes,
+                    LustarLikes = u.LustarLikes,
                     AvatarImage = u.AvatarImage
                 })
                 .FirstOrDefault(); // Null if not found!

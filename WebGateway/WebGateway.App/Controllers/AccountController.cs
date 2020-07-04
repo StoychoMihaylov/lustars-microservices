@@ -48,6 +48,7 @@
                 { 
                     Id = accountCredentials.UserId,
                     Name = bm.Name,
+                    Gender = bm.Gender,
                     Email = bm.Email
                 };
 

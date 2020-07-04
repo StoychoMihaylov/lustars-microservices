@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ProfileAPI.Data.Migrations
 {
-    public partial class doublelatandlong : Migration
+    public partial class userprofiledataupdate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,43 +14,55 @@ namespace ProfileAPI.Data.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Credits = table.Column<int>(nullable: false),
-                    Superlikes = table.Column<int>(nullable: false),
+                    LustarLikes = table.Column<int>(nullable: false),
                     Email = table.Column<string>(nullable: true),
                     EmailNotificationsSubscribed = table.Column<bool>(nullable: false),
                     IsUserProfileActivated = table.Column<bool>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(maxLength: 15, nullable: true),
                     LastName = table.Column<string>(nullable: true),
+                    Gender = table.Column<string>(nullable: true),
+                    DateOfBirth = table.Column<DateTime>(nullable: false),
+                    BiographyAndInterests = table.Column<string>(maxLength: 3000, nullable: true),
                     AvatarImage = table.Column<string>(nullable: true),
                     FromCity = table.Column<string>(nullable: true),
                     FromCountry = table.Column<string>(nullable: true),
                     FeelInMood = table.Column<string>(maxLength: 20, nullable: true),
-                    Gender = table.Column<string>(nullable: true),
-                    DateOfBirth = table.Column<DateTime>(nullable: false),
                     LookingFor = table.Column<string>(nullable: true),
-                    CreatedOn = table.Column<DateTime>(nullable: false),
-                    Biography = table.Column<string>(maxLength: 3000, nullable: true),
                     EducationDegree = table.Column<string>(nullable: true),
                     University = table.Column<string>(nullable: true),
                     Work = table.Column<string>(nullable: true),
-                    WantToHaveKids = table.Column<bool>(nullable: false),
-                    Height = table.Column<int>(nullable: false),
-                    Weight = table.Column<int>(nullable: false),
-                    Figure = table.Column<string>(nullable: true),
+                    MeritalStatus = table.Column<string>(nullable: true),
                     WantKids = table.Column<string>(nullable: true),
                     HaveKids = table.Column<bool>(nullable: false),
                     DrinkAlcohol = table.Column<bool>(nullable: false),
                     HowOftenDrinkAlcohol = table.Column<string>(nullable: true),
                     Smoker = table.Column<bool>(nullable: false),
                     HowOftenSmoke = table.Column<string>(nullable: true),
-                    Income = table.Column<string>(nullable: true),
-                    MeritalStatus = table.Column<string>(nullable: true),
+                    DoingSport = table.Column<string>(nullable: true),
+                    HowOftenDoSport = table.Column<string>(nullable: true),
+                    Height = table.Column<int>(nullable: false),
+                    Weight = table.Column<int>(nullable: false),
+                    Figure = table.Column<string>(nullable: true),
                     PartnerAgeRangeFrom = table.Column<int>(nullable: false),
                     PartnerAgeRangeTo = table.Column<int>(nullable: false),
-                    PartnerIncome = table.Column<string>(nullable: true),
                     PartnerSmoke = table.Column<bool>(nullable: false),
                     PartnerDrinkAlcohol = table.Column<bool>(nullable: false),
                     PartnerHaveKids = table.Column<bool>(nullable: false),
-                    PartnerFigure = table.Column<string>(nullable: true)
+                    PartnerFigure = table.Column<string>(nullable: true),
+                    Love = table.Column<bool>(nullable: false),
+                    Trust = table.Column<bool>(nullable: false),
+                    Sex = table.Column<bool>(nullable: false),
+                    FinancialStability = table.Column<bool>(nullable: false),
+                    RespectAndUnderstanding = table.Column<bool>(nullable: false),
+                    SameInterests = table.Column<bool>(nullable: false),
+                    OppositeAttracs = table.Column<bool>(nullable: false),
+                    ExploreNewCulturesAndLanguages = table.Column<bool>(nullable: false),
+                    GrowingFamily = table.Column<bool>(nullable: false),
+                    LongGoodConversation = table.Column<bool>(nullable: false),
+                    LoveForAnimals = table.Column<bool>(nullable: false),
+                    ShareSameReligion = table.Column<bool>(nullable: false),
+                    KeepTraditions = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
