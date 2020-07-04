@@ -80,6 +80,7 @@ class FormRegistration extends Component {
 
         let userData = {
             name: this.state.name,
+            gender: this.state.gender,
             email: this.state.email,
             password: this.state.password,
             confirmPassword: this.state.confirmPassword,
@@ -106,7 +107,6 @@ class FormRegistration extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <div className="form-registration-container">
                 <div>
@@ -134,10 +134,6 @@ class FormRegistration extends Component {
                         }
                         <option value="Man">Man</option>
                         <option value="Female">Female</option>
-                        <option value="Bisexsual">Bisexsual</option>
-                        <option value="Man-gay">Man-gay</option>
-                        <option value="Female-gay">Female-gay</option>
-                        <option value="Trans">Trans</option>
                     </select>
                 </div>
                 <div>

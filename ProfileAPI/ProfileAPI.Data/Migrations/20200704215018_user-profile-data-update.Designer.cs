@@ -10,8 +10,8 @@ using ProfileAPI.Data.Context;
 namespace ProfileAPI.Data.Migrations
 {
     [DbContext(typeof(ProfileDBContext))]
-    [Migration("20200617220050_double-lat-and-long")]
-    partial class doublelatandlong
+    [Migration("20200704215018_user-profile-data-update")]
+    partial class userprofiledataupdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -116,7 +116,7 @@ namespace ProfileAPI.Data.Migrations
                     b.Property<string>("AvatarImage")
                         .HasColumnType("text");
 
-                    b.Property<string>("Biography")
+                    b.Property<string>("BiographyAndInterests")
                         .HasColumnType("character varying(3000)")
                         .HasMaxLength(3000);
 
@@ -128,6 +128,9 @@ namespace ProfileAPI.Data.Migrations
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("DoingSport")
+                        .HasColumnType("text");
 
                     b.Property<bool>("DrinkAlcohol")
                         .HasColumnType("boolean");
@@ -141,12 +144,18 @@ namespace ProfileAPI.Data.Migrations
                     b.Property<bool>("EmailNotificationsSubscribed")
                         .HasColumnType("boolean");
 
+                    b.Property<bool>("ExploreNewCulturesAndLanguages")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("FeelInMood")
                         .HasColumnType("character varying(20)")
                         .HasMaxLength(20);
 
                     b.Property<string>("Figure")
                         .HasColumnType("text");
+
+                    b.Property<bool>("FinancialStability")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("FromCity")
                         .HasColumnType("text");
@@ -157,11 +166,17 @@ namespace ProfileAPI.Data.Migrations
                     b.Property<string>("Gender")
                         .HasColumnType("text");
 
+                    b.Property<bool>("GrowingFamily")
+                        .HasColumnType("boolean");
+
                     b.Property<bool>("HaveKids")
                         .HasColumnType("boolean");
 
                     b.Property<int>("Height")
                         .HasColumnType("integer");
+
+                    b.Property<string>("HowOftenDoSport")
+                        .HasColumnType("text");
 
                     b.Property<string>("HowOftenDrinkAlcohol")
                         .HasColumnType("text");
@@ -169,17 +184,29 @@ namespace ProfileAPI.Data.Migrations
                     b.Property<string>("HowOftenSmoke")
                         .HasColumnType("text");
 
-                    b.Property<string>("Income")
-                        .HasColumnType("text");
-
                     b.Property<bool>("IsUserProfileActivated")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("KeepTraditions")
                         .HasColumnType("boolean");
 
                     b.Property<string>("LastName")
                         .HasColumnType("text");
 
+                    b.Property<bool>("LongGoodConversation")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("LookingFor")
                         .HasColumnType("text");
+
+                    b.Property<bool>("Love")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("LoveForAnimals")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("LustarLikes")
+                        .HasColumnType("integer");
 
                     b.Property<string>("MeritalStatus")
                         .HasColumnType("text");
@@ -187,6 +214,9 @@ namespace ProfileAPI.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("character varying(15)")
                         .HasMaxLength(15);
+
+                    b.Property<bool>("OppositeAttracs")
+                        .HasColumnType("boolean");
 
                     b.Property<int>("PartnerAgeRangeFrom")
                         .HasColumnType("integer");
@@ -203,26 +233,32 @@ namespace ProfileAPI.Data.Migrations
                     b.Property<bool>("PartnerHaveKids")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("PartnerIncome")
-                        .HasColumnType("text");
-
                     b.Property<bool>("PartnerSmoke")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("RespectAndUnderstanding")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("SameInterests")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("Sex")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("ShareSameReligion")
                         .HasColumnType("boolean");
 
                     b.Property<bool>("Smoker")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("Superlikes")
-                        .HasColumnType("integer");
+                    b.Property<bool>("Trust")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("University")
                         .HasColumnType("text");
 
                     b.Property<string>("WantKids")
                         .HasColumnType("text");
-
-                    b.Property<bool>("WantToHaveKids")
-                        .HasColumnType("boolean");
 
                     b.Property<int>("Weight")
                         .HasColumnType("integer");

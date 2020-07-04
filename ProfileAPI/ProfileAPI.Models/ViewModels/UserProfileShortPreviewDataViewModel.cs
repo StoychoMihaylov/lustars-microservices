@@ -8,7 +8,7 @@
 
         public int Credits { get; set; }
 
-        public int Superlikes { get; set; }
+        public int LustarLikes { get; set; }
 
         public string Name { get; set; }
 
