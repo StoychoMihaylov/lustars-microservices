@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ProfileAPI.Data.Migrations
 {
-    public partial class userprofiledataupdate : Migration
+    public partial class userprofilechanges : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,13 +33,13 @@ namespace ProfileAPI.Data.Migrations
                     University = table.Column<string>(nullable: true),
                     Work = table.Column<string>(nullable: true),
                     MeritalStatus = table.Column<string>(nullable: true),
-                    WantKids = table.Column<string>(nullable: true),
+                    WantKids = table.Column<bool>(nullable: false),
                     HaveKids = table.Column<bool>(nullable: false),
                     DrinkAlcohol = table.Column<bool>(nullable: false),
                     HowOftenDrinkAlcohol = table.Column<string>(nullable: true),
                     Smoker = table.Column<bool>(nullable: false),
                     HowOftenSmoke = table.Column<string>(nullable: true),
-                    DoingSport = table.Column<string>(nullable: true),
+                    DoSport = table.Column<bool>(nullable: false),
                     HowOftenDoSport = table.Column<string>(nullable: true),
                     Height = table.Column<int>(nullable: false),
                     Weight = table.Column<int>(nullable: false),
@@ -50,6 +50,7 @@ namespace ProfileAPI.Data.Migrations
                     PartnerDrinkAlcohol = table.Column<bool>(nullable: false),
                     PartnerHaveKids = table.Column<bool>(nullable: false),
                     PartnerFigure = table.Column<string>(nullable: true),
+                    PartnerDoSport = table.Column<bool>(nullable: false),
                     Love = table.Column<bool>(nullable: false),
                     Trust = table.Column<bool>(nullable: false),
                     Sex = table.Column<bool>(nullable: false),

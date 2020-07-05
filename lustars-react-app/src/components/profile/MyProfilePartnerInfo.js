@@ -69,23 +69,31 @@ class MyProfilePartnerInfo extends Component {
                         </tr>
                         <tr>
                             <td><label htmlFor="partner-age-range-from" >Age range from:</label></td>
-                            <td>
-                                <NumberAdjusterInput
-                                    id="partner-age-range-from"
-                                    numberInput={ this.props.profile.partnerAgeRangeFrom }
-                                    numberResult={ (value) => this.updateProfileTextField("partnerAgeRangeFrom", value) }
-                                />
-                            </td>
+                            {
+                                this.props.profile.partnerAgeRangeFrom !== undefined
+                                    ?   <td>
+                                            <NumberAdjusterInput
+                                                id="partner-age-range-from"
+                                                numberInput={ this.props.profile.partnerAgeRangeFrom }
+                                                numberResult={ (value) => this.updateProfileTextField("partnerAgeRangeFrom", value) }
+                                            />
+                                        </td>
+                                    :   null
+                            }
                         </tr>
                         <tr>
                             <td><label htmlFor="partner-age-range-to">Age range to:</label></td>
-                            <td>
-                                <NumberAdjusterInput
-                                    id="partner-age-range-to"
-                                    numberInput={ this.props.profile.partnerAgeRangeTo }
-                                    numberResult={ (value) => this.updateProfileTextField("partnerAgeRangeTo", value) }
-                                />
-                            </td>
+                            {
+                                this.props.profile.partnerAgeRangeTo !== undefined
+                                    ?   <td>
+                                            <NumberAdjusterInput
+                                                id="partner-age-range-to"
+                                                numberInput={ this.props.profile.partnerAgeRangeTo }
+                                                numberResult={ (value) => this.updateProfileTextField("partnerAgeRangeTo", value) }
+                                            />
+                                        </td>
+                                    :   null
+                            }
                         </tr>
                         <tr>
                             <td><label htmlFor="partner-figure">Figure:</label></td>
@@ -147,7 +155,7 @@ class MyProfilePartnerInfo extends Component {
                             <td>
                                 <YesNoInputField
                                     id="parther-do-sport"
-                                    value={ this.props.profile.partnerDoingSport }
+                                    value={ this.props.profile.partnerDoSport }
                                     switchValue={(newValue) => this.updateProfileBooleanField('partnerDoSport', newValue)}
                                 />
                             </td>

@@ -417,23 +417,31 @@ class MyProfileAboutMe extends Component {
                         </tr>
                         <tr>
                             <td><label htmlFor="height">Height/sm:</label></td>
-                            <td>
-                                 <NumberAdjusterInput
-                                    id="height"
-                                    numberInput={ this.props.profile.height }
-                                    numberResult={ (value) => this.updateProfileTextField("height", value) }
-                                />
-                            </td>
+                            {
+                                this.props.profile.height !== undefined
+                                    ?   <td>
+                                            <NumberAdjusterInput
+                                                id="height"
+                                                numberInput={ this.props.profile.height }
+                                                numberResult={ (value) => this.updateProfileTextField("height", value) }
+                                            />
+                                        </td>
+                                    :   null
+                            }
                         </tr>
                         <tr>
                             <td><label htmlFor="weight">Weight/kg:</label></td>
-                            <td>
-                                <NumberAdjusterInput
-                                    id="weight"
-                                    numberInput={ this.props.profile.weight }
-                                    numberResult={ (value) => this.updateProfileTextField("weight", value) }
-                                />
-                            </td>
+                            {
+                                this.props.profile.weight !== undefined
+                                    ?   <td>
+                                            <NumberAdjusterInput
+                                                id="weight"
+                                                numberInput={ this.props.profile.weight }
+                                                numberResult={ (value) => this.updateProfileTextField("weight", value) }
+                                            />
+                                        </td>
+                                    :   null
+                            }
                         </tr>
                         <tr>
                             <td><label htmlFor="figure">Figure:&nbsp;</label></td>
