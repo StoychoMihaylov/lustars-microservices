@@ -132,7 +132,7 @@ class FormRegistration extends Component {
                                 ? <option selected="selected">Select Gender</option>
                                 : null
                         }
-                        <option value="Man">Man</option>
+                        <option value="Man">Male</option>
                         <option value="Female">Female</option>
                     </select>
                 </div>

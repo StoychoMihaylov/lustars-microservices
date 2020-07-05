@@ -24,10 +24,6 @@ class MyProfilePartnerInfo extends Component {
                 newState.partnerFigure = value
                 this.props.updateUserProfileTextField(newState)
                 return
-            case 'partnerIncome':
-                newState.partnerIncomeFrom = parseInt(value)
-                this.props.updateUserProfileTextField(newState)
-                return
 
             default:
                 return
@@ -49,6 +45,10 @@ class MyProfilePartnerInfo extends Component {
                 return
             case 'partnerDrinkAlcohol':
                 newState.partnerDrinkAlcohol = newValue
+                this.props.updateUserProfileTextField(newState)
+                return
+            case 'partnerDoSport':
+                newState.partnerDoSport = newValue
                 this.props.updateUserProfileTextField(newState)
                 return
 
@@ -97,7 +97,7 @@ class MyProfilePartnerInfo extends Component {
                                     onChange={(e) => this.updateProfileTextField("partnerFigure", e.target.value)}>
                                     {
                                         this.props.profile.partnerFigure === null || this.props.profile.partnerFigure === undefined
-                                            ? <option selected="selected">Select partner figure</option>
+                                            ? <option selected="selected">Partner figure</option>
                                             : null
                                     }
                                     <option value="Thin">Thin</option>
@@ -143,28 +143,13 @@ class MyProfilePartnerInfo extends Component {
                             </td>
                         </tr>
                         <tr>
-                            <td><hr/></td>
-                            <td><hr/></td>
-                        </tr>
-                        <tr>
-                            <td><label htmlFor="partner-income-from">Partner income from:</label></td>
+                            <td><label htmlFor="parther-do-sport">Do sport:</label></td>
                             <td>
-                                <select
-                                    id="partner-income-from"
-                                    className="text-input-profile-about"
-                                    value={ this.props.profile.partnerIncome }
-                                    onChange={(e) => this.updateProfileTextField("partnerIncome", e.target.value)}>
-                                    {
-                                        this.props.profile.income === null || this.props.profile.income === undefined
-                                            ?   <option selected="selected">Select Income</option>
-                                            :   null
-                                    }
-                                    <option value="200€ - 600€/month" >200€ - 600€/month</option>
-                                    <option value="600€ - 1200€/month">600€ - 1200€/month</option>
-                                    <option value="1200€ - 2200€/month">1200€ - 2200€/month</option>
-                                    <option value="3000€ - 5000€/month">3000€ - 5000€/month</option>
-                                    <option value="more than 5000€/month">more than 5000€/month</option>
-                                </select>
+                                <YesNoInputField
+                                    id="parther-do-sport"
+                                    value={ this.props.profile.partnerDoingSport }
+                                    switchValue={(newValue) => this.updateProfileBooleanField('partnerDoSport', newValue)}
+                                />
                             </td>
                         </tr>
                     </tbody>

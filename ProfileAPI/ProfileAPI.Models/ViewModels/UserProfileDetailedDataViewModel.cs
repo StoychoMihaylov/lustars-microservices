@@ -47,7 +47,7 @@
         public string HowOftenDrinkAlcohol { get; set; }
         public bool Smoker { get; set; }
         public string HowOftenSmoke { get; set; }
-        public string DoingSport { get; set; }
+        public bool DoingSport { get; set; }
         public string HowOftenDoSport { get; set; }
 
         // Body
@@ -62,6 +62,7 @@
         public bool PartnerDrinkAlcohol { get; set; }
         public bool PartnerHaveKids { get; set; }
         public string PartnerFigure { get; set; }
+        public bool PartnerDoingSport { get; set; }
 
         // Lustars questions
         // What is most important for you in a partner relationship

@@ -99,10 +99,6 @@ class MyProfileMainSettings extends Component {
         let newState = Object.assign({}, oldState)
 
         switch (field) {
-            case 'isProfileActive':
-                newState.isUserProfileActivated = newValue
-                this.props.updateUserProfileBoleanField(newState)
-                return
             case 'isEmailSubscribed':
                 newState.emailNotificationsSubscribed = newValue
                 this.props.updateUserProfileBoleanField(newState)
@@ -201,16 +197,6 @@ class MyProfileMainSettings extends Component {
                                 <td><hr/></td>
                             </tr>
                             <tr>
-                                <td><label htmlFor="profile-activated">Profile Activated:</label></td>
-                                <td>
-                                    <YesNoInputField
-                                        id="profile-activated"
-                                        value={ this.props.profile.isUserProfileActivated }
-                                        switchValue={(newValue) => this.updateProfileBooleanField('isProfileActive', newValue)}
-                                    />
-                                </td>
-                            </tr>
-                            <tr>
                                 <td><label htmlFor="credits">Credits:</label></td>
                                 <td>
                                     <NumbersField
@@ -220,7 +206,7 @@ class MyProfileMainSettings extends Component {
                                 </td>
                             </tr>
                             <tr>
-                                <td><label htmlFor="super-likes">Super-likes:</label></td>
+                                <td><label htmlFor="super-likes">Lustar likes:</label></td>
                                 <td>
                                     <NumbersField
                                         id="super-likes"
