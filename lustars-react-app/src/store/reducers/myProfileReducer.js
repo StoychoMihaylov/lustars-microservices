@@ -48,9 +48,14 @@ const myProfileReducer = (state, action) => {
                 error: action.payload
             }
         case UPLOAD_USER_PROFILE_IMAGE:
+            return {
+                ...state,
+                isLoading: true
+            }
         case UPLOAD_USER_PROFILE_IMAGE_SUCCESS:
             return {
-                ...state
+                ...state,
+                isLoading: false
             }
         case UPLOAD_USER_PROFILE_IMAGE_FAIL:
             return {

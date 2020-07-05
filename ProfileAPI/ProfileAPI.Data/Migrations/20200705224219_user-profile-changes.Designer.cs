@@ -10,8 +10,8 @@ using ProfileAPI.Data.Context;
 namespace ProfileAPI.Data.Migrations
 {
     [DbContext(typeof(ProfileDBContext))]
-    [Migration("20200704215018_user-profile-data-update")]
-    partial class userprofiledataupdate
+    [Migration("20200705224219_user-profile-changes")]
+    partial class userprofilechanges
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -129,8 +129,8 @@ namespace ProfileAPI.Data.Migrations
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("DoingSport")
-                        .HasColumnType("text");
+                    b.Property<bool>("DoSport")
+                        .HasColumnType("boolean");
 
                     b.Property<bool>("DrinkAlcohol")
                         .HasColumnType("boolean");
@@ -224,6 +224,9 @@ namespace ProfileAPI.Data.Migrations
                     b.Property<int>("PartnerAgeRangeTo")
                         .HasColumnType("integer");
 
+                    b.Property<bool>("PartnerDoSport")
+                        .HasColumnType("boolean");
+
                     b.Property<bool>("PartnerDrinkAlcohol")
                         .HasColumnType("boolean");
 
@@ -257,8 +260,8 @@ namespace ProfileAPI.Data.Migrations
                     b.Property<string>("University")
                         .HasColumnType("text");
 
-                    b.Property<string>("WantKids")
-                        .HasColumnType("text");
+                    b.Property<bool>("WantKids")
+                        .HasColumnType("boolean");
 
                     b.Property<int>("Weight")
                         .HasColumnType("integer");

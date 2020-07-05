@@ -100,7 +100,6 @@ class FormRegistration extends Component {
                 } else if (response.response != null && response.response.status === 400) { // Bad Reguest (User already exist or wrong credentials)
                     NotificationManager.error(response.response.data, "", 3000)
                 } else {
-                    this.props.errorNotification("")
                     NotificationManager.error('Connection problem! Please try again!', '', 3000)
                 }
             })
@@ -132,7 +131,7 @@ class FormRegistration extends Component {
                                 ? <option selected="selected">Select Gender</option>
                                 : null
                         }
-                        <option value="Man">Man</option>
+                        <option value="Man">Male</option>
                         <option value="Female">Female</option>
                     </select>
                 </div>

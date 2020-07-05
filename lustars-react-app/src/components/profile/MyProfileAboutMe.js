@@ -65,6 +65,10 @@ class MyProfileAboutMe extends Component {
                 newState.lookingFor = value
                 this.props.updateUserProfileTextField(newState)
                 return
+            case 'howOftenDoSport':
+                newState.howOftenDoSport = value
+                this.props.updateUserProfileTextField(newState)
+                return
             case 'addLanguage':
                 let includesLanguage = false
                 newState.languages.forEach(language => {
@@ -103,12 +107,8 @@ class MyProfileAboutMe extends Component {
                 newState.work = value
                 this.props.updateUserProfileTextField(newState)
                 return
-            case 'income':
-                newState.income = value
-                this.props.updateUserProfileTextField(newState)
-                return
             case 'biography':
-                newState.biography = value
+                newState.biographyAndInterests = value
                 this.props.updateUserProfileTextField(newState)
                 return
             case 'height':
@@ -131,6 +131,10 @@ class MyProfileAboutMe extends Component {
                 newState.howOftenSmoke = value
                 this.props.updateUserProfileTextField(newState)
                 return
+            case 'howOftenSmoke':
+                newState.howOftenDoSport = value
+                this.props.updateUserProfileTextField(newState)
+                return
 
             default:
                 return
@@ -142,12 +146,16 @@ class MyProfileAboutMe extends Component {
         let newState = Object.assign({}, oldState)
 
         switch (field) {
+            case 'howOftenSmoke':
+                newState.doingSport = newValue
+                this.props.updateUserProfileBoleanField(newState)
+                return
             case 'haveKids':
                 newState.haveKids = newValue
                 this.props.updateUserProfileBoleanField(newState)
                 return
             case 'wantToHaveKids':
-                newState.wantToHaveKids = newValue
+                newState.wantKids = newValue
                 this.props.updateUserProfileBoleanField(newState)
                 return
             case 'drinkAlcohol':
@@ -156,6 +164,10 @@ class MyProfileAboutMe extends Component {
                 return
             case 'smoker':
                 newState.smoker = newValue
+                this.props.updateUserProfileBoleanField(newState)
+                return
+            case 'doSport':
+                newState.doSport = newValue
                 this.props.updateUserProfileBoleanField(newState)
                 return
 
@@ -250,12 +262,8 @@ class MyProfileAboutMe extends Component {
                                             ? <option selected="selected">Select Gender</option>
                                             : null
                                     }
-                                    <option value="Man">Man</option>
+                                    <option value="Man">Male</option>
                                     <option value="Female">Female</option>
-                                    <option value="Bisexsual">Bisexsual</option>
-                                    <option value="Man-gay">Man-gay</option>
-                                    <option value="Female-gay">Female-gay</option>
-                                    <option value="Trans">Trans</option>
                                 </select>
                             </td>
                         </tr>
@@ -292,12 +300,8 @@ class MyProfileAboutMe extends Component {
                                             ? <option>Select Interests</option>
                                             : null
                                     }
-                                    <option value="Man">Man</option>
+                                    <option value="Man">Male</option>
                                     <option value="Female">Female</option>
-                                    <option value="Bisexsual">Bisexsual</option>
-                                    <option value="Man-gay">Man-gay</option>
-                                    <option value="Female-gay">Female-gay</option>
-                                    <option value="Trans">Trans</option>
                                 </select>
                             </td>
                         </tr>
@@ -395,37 +399,69 @@ class MyProfileAboutMe extends Component {
                             </td>
                         </tr>
                         <tr>
-                            <td><label htmlFor="income">Income:</label></td>
-                            <td>
-                                <select
-                                    id="income"
-                                    className="text-input-profile-about"
-                                    value={ this.props.profile.income }
-                                    onChange={(e) => this.updateProfileTextField("income", e.target.value)}>
-                                    {
-                                        this.props.profile.income === null || this.props.profile.income === undefined
-                                            ?   <option selected="selected">Select Income</option>
-                                            :   null
-                                    }
-                                    <option value="200€ - 600€/month" >200€ - 600€/month</option>
-                                    <option value="600€ - 1200€/month">600€ - 1200€/month</option>
-                                    <option value="1200€ - 2200€/month">1200€ - 2200€/month</option>
-                                    <option value="3000€ - 5000€/month">3000€ - 5000€/month</option>
-                                    <option value="more than 5000€/month">more than 5000€/month</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label htmlFor="biography">About you:</label></td>
+                            <td><label htmlFor="biography">Few words about you and your interests:</label></td>
                             <td>
                                 <textarea
                                     id="biography"
                                     rows="4" cols="28"
                                     placeholder="Type something that describes you."
                                     className="text-input-profile-about"
-                                    defaultValue={ this.props.profile.biography }
+                                    defaultValue={ this.props.profile.biographyAndInterests }
                                     onChange={(e) => this.updateProfileTextField("biography", e.target.value)}>
                                 </textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><hr/></td>
+                            <td><hr/></td>
+                        </tr>
+                        <tr>
+                            <td><label htmlFor="height">Height/sm:</label></td>
+                            {
+                                this.props.profile.height !== undefined
+                                    ?   <td>
+                                            <NumberAdjusterInput
+                                                id="height"
+                                                numberInput={ this.props.profile.height }
+                                                numberResult={ (value) => this.updateProfileTextField("height", value) }
+                                            />
+                                        </td>
+                                    :   null
+                            }
+                        </tr>
+                        <tr>
+                            <td><label htmlFor="weight">Weight/kg:</label></td>
+                            {
+                                this.props.profile.weight !== undefined
+                                    ?   <td>
+                                            <NumberAdjusterInput
+                                                id="weight"
+                                                numberInput={ this.props.profile.weight }
+                                                numberResult={ (value) => this.updateProfileTextField("weight", value) }
+                                            />
+                                        </td>
+                                    :   null
+                            }
+                        </tr>
+                        <tr>
+                            <td><label htmlFor="figure">Figure:&nbsp;</label></td>
+                            <td>
+                                <select
+                                    id="figure"
+                                    className="text-input-profile-about"
+                                    value={ this.props.profile.figure }
+                                    onChange={(e) => this.updateProfileTextField("figure", e.target.value)}>
+                                    {
+                                        this.props.profile.figure === null || this.props.profile.figure === undefined
+                                            ? <option selected="selected">Select your figure</option>
+                                            : null
+                                    }
+                                    <option value="Thin">Thin</option>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Athletic">Athletic</option>
+                                    <option value="Muscular">Muscular</option>
+                                    <option value="Fluffy">Fluffy</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -447,8 +483,18 @@ class MyProfileAboutMe extends Component {
                             <td>
                                 <YesNoInputField
                                     id="want-to-have-kids"
-                                    value={ this.props.profile.wantToHaveKids }
+                                    value={ this.props.profile.wantKids }
                                     switchValue={(newValue) => this.updateProfileBooleanField('wantToHaveKids', newValue)}
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label htmlFor="do-sport">Do you sport:</label></td>
+                            <td>
+                                <YesNoInputField
+                                    id="do-sport"
+                                    value={ this.props.profile.doSport }
+                                    switchValue={(newValue) => this.updateProfileBooleanField('doSport', newValue)}
                                 />
                             </td>
                         </tr>
@@ -472,51 +518,30 @@ class MyProfileAboutMe extends Component {
                                 />
                             </td>
                         </tr>
-                        <tr>
-                            <td><hr/></td>
-                            <td><hr/></td>
-                        </tr>
-                        <tr>
-                            <td><label htmlFor="height">Height/sm:</label></td>
-                            <td>
-                                 <NumberAdjusterInput
-                                    id="height"
-                                    numberInput={ this.props.profile.height }
-                                    numberResult={ (value) => this.updateProfileTextField("height", value) }
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label htmlFor="weight">Weight/kg:</label></td>
-                            <td>
-                                <NumberAdjusterInput
-                                    id="weight"
-                                    numberInput={ this.props.profile.weight }
-                                    numberResult={ (value) => this.updateProfileTextField("weight", value) }
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label htmlFor="figure">Figure:&nbsp;</label></td>
-                            <td>
-                                <select
-                                    id="figure"
-                                    className="text-input-profile-about"
-                                    value={ this.props.profile.figure }
-                                    onChange={(e) => this.updateProfileTextField("figure", e.target.value)}>
-                                    {
-                                        this.props.profile.figure === null || this.props.profile.figure === undefined
-                                            ? <option selected="selected">Select your figure</option>
-                                            : null
-                                    }
-                                    <option value="Thin">Thin</option>
-                                    <option value="Normal">Normal</option>
-                                    <option value="Athletic">Athletic</option>
-                                    <option value="Muscular">Muscular</option>
-                                    <option value="Fluffy">Fluffy</option>
-                                </select>
-                            </td>
-                        </tr>
+                            {
+                                this.props.profile.doSport !== null && this.props.profile.doSport !== undefined && this.props.profile.doSport === true
+                                    ?   <tr>
+                                            <td><label htmlFor="how-often-do-port">How often Drink:&nbsp;</label></td>
+                                            <td>
+                                                <select
+                                                    id="how-often-do-port"
+                                                    className="text-input-profile-about"
+                                                    value={ this.props.profile.howOftenDoSport }
+                                                    onChange={(e) => this.updateProfileTextField("howOftenDoSport", e.target.value)}>
+                                                    {
+                                                        this.props.profile.howOftenDoSport === null || this.props.profile.howOftenDoSport === undefined
+                                                            ?   <option selected="selected">Sport activity</option>
+                                                            :   null
+                                                    }
+                                                    <option value="Rarely">Once a week</option>
+                                                    <option value="Often">1-3 times per week</option>
+                                                    <option value="When celebrate">Every day</option>
+                                                    <option value="Every night">Few times per day</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    : null
+                            }
                             {
                                 this.props.profile.drinkAlcohol !== null && this.props.profile.drinkAlcohol !== undefined && this.props.profile.drinkAlcohol === true
                                     ?   <tr>
