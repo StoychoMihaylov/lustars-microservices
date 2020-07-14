@@ -42,17 +42,17 @@ class ProfileDetailsPage extends Component {
             this.setState({
                 imagesEnd: this.state.imagesStart + 6
             })
-        } else if (window.innerWidth < 1200 && window.innerWidth > 992) {
+        } else if (window.innerWidth < 1202 && window.innerWidth > 992) {
             this.setState({
-                imagesEnd: this.state.imagesStart + 5
+                imagesEnd: this.state.imagesStart + 4
             })
         } else if (window.innerWidth < 992 && window.innerWidth > 768) {
             this.setState({
-                imagesEnd: this.state.imagesStart + 3
+                imagesEnd: this.state.imagesStart + 2
             })
         } else if (window.innerWidth < 768 && window.innerWidth > 515) {
             this.setState({
-                imagesEnd: this.state.imagesStart + 2
+                imagesEnd: this.state.imagesStart + 1
             })
         } else if (window.innerWidth < 515 && window.innerWidth > 364) {
             this.setState({
@@ -127,7 +127,7 @@ class ProfileDetailsPage extends Component {
                 <hr/>
                 <div>
                     <div className="profile-details-label">Mood</div>
-                    <div>{ profile.feelInMood }Feel great and sexy!</div>
+                    <div>{ profile.feelInMood }</div>
                 </div>
                 <hr/>
                 <div>
@@ -200,7 +200,6 @@ class ProfileDetailsPage extends Component {
                 <hr/>
             </div>
 
-        console.log(profile)
         return (
             <div className="profile-details-container">
                 {
