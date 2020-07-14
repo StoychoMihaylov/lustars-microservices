@@ -19,7 +19,6 @@
             this.profileService = profileService;
         }
 
-
         [HttpPost]
         [Authorize]
         [Route("geolocation/update")]

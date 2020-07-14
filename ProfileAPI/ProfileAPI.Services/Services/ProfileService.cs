@@ -359,6 +359,7 @@
                     Id = geolocation.UserProfile.Id,
                     Name = geolocation.UserProfile.Name,
                     AvatarImage = geolocation.UserProfile.AvatarImage,
+                    CountImages = geolocation.UserProfile.Images.Count(),
                     City = geolocation.City,
                     Country = geolocation.Country,
                     GeoLocation = geolocation

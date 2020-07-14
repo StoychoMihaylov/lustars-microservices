@@ -37,6 +37,7 @@ class PeopleNearbyPage extends Component {
                     src={ api.imageAPI + userProfile.avatarImage }
                     alt=""
                 />
+                <span className="profile-nearby-camera-img-number">&#128247; { userProfile.countImages }</span>
                 <div id={ userProfile.id } className="profile-name-and-location">
                   <div>{ userProfile.nameAndAge }</div>
                   <div>{ userProfile.location }</div>
@@ -48,7 +49,7 @@ class PeopleNearbyPage extends Component {
       : null
 
       return (
-          <div>
+          <div className="people-nearby-page-container">
             { userProfiles }
           </div>
       )

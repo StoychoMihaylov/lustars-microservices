@@ -28,3 +28,18 @@
     right: 0;
     left: 0;
 }
+
+.profile-nearby-camera-img-number {
+    right: 50px;
+    bottom: 80px;
+    position: relative;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: transparent;
+}
+
+.people-nearby-page-container {
+    margin-top: 60px;
+}

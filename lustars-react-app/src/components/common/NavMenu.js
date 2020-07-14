@@ -1,7 +1,6 @@
 import React from 'react'
-import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap'
+import { Container } from 'reactstrap'
 import FormAccountLogout from '../authentication/FormAccountLogout'
-import NavbarLinks from './NavbarLinks'
 import ActivitiesMenu from '../common/ActivitiesMenu'
 import '../../styles/components/common/NavMenu.css'
 
@@ -37,34 +36,38 @@ export default class NavMenu extends React.Component {
 
   render () {
     return (
-      <header>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm navbar">
-          <Container>
-            <NavbarBrand to="/">Lustars logo!</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} className="mr-2" />
-            <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={this.state.isOpen} navbar>
-              <ul className="navbar-nav flex-grow">
-                <NavbarLinks />
-                <NavItem>
-                  <NavLink>|</NavLink>
-                </NavItem>
-                <NavLink className="cursor-pointer navbar-link" onClick={ this.openActivitiesMenu.bind(this) }>Activities</NavLink>
-                <NavItem>
-                  <NavLink>|</NavLink>
-                </NavItem>
-                <FormAccountLogout />
-              </ul>
-            </Collapse>
-          </Container>
-        </Navbar>
-        <Container>
-          {
-            this.state.isActivitiesActive === true
-              ? <ActivitiesMenu />
-              : null
-          }
-        </Container>
-      </header>
+        <header>
+            <nav className="navbar">
+                <div className="navbar-logo" to="/">Lustars logo!</div>
+                <ul className="navbar-ul-elements">
+                  <li className="navbar-ul-elements">
+                    <div className="navbar-nav-attribute">
+                      <button
+                        className="cursor-pointer navbar-link"
+                        onClick={ this.openActivitiesMenu.bind(this) }
+                        style={{ backgroundColor: this.state.isActivitiesActive ? "lightblue" : "" }}
+                        >Activities
+                      </button>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <span className="navbar-vertical-line"></span>
+                    </div>
+                  </li>
+                  <li>
+                    <FormAccountLogout />
+                  </li>
+                </ul>
+            </nav>
+            <Container>
+              {
+                this.state.isActivitiesActive === true
+                  ? <ActivitiesMenu />
+                  : null
+              }
+            </Container>
+        </header>
     )
   }
 }
