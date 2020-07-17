@@ -237,12 +237,14 @@ export function requestUserProfileShortPreviewDataFail(error) {
 }
 
 //*************************** Get my user profile details ***************************
-
+// id is optional! If id is not provided it will take the id of the currunt loged user on server level
 export function getMyUserProfileDetails(id) {
+    let url = "user-profile" + (id !== "" ? `?ID=${id}` : "")
+
     return dispatch => {
         dispatch(requestMyUserProfileDetails(id))
 
-        axios.get(api.domain + `user-profile?ID=${id}`, {
+        axios.get(api.domain + url, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
             }
@@ -252,7 +254,6 @@ export function getMyUserProfileDetails(id) {
         })
         .catch(err => {
             dispatch(requestMyUserProfileDetailsFail(err))
-
         })
     }
 }

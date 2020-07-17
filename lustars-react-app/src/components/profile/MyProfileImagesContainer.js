@@ -3,8 +3,7 @@ import { connect } from "react-redux"
 import { Form } from 'reactstrap'
 import { NotificationManager} from 'react-notifications';
 import { api } from '../../constants/endpoints'
-import { uploadUserProfileImage, deleteUserProfileImage } from '../../store/actions/myProfileActions'
-import { getMyUserProfileDetails } from '../../store/actions/myProfileActions'
+import { uploadUserProfileImage, deleteUserProfileImage, getMyUserProfileDetails } from '../../store/actions/myProfileActions'
 import '../../styles/components/profile/MyProfileImagesContainer.css'
 
 class MyProfileImagesContainer extends Component {
@@ -26,6 +25,8 @@ class MyProfileImagesContainer extends Component {
                 imageFile: targetImg,
                 previewUploadImage: newImg
             })
+        } else {
+            NotificationManager.error('Only "jpeg" image format is allowed!', 'Ops...', 5000)
         }
     }
 
@@ -98,15 +99,16 @@ class MyProfileImagesContainer extends Component {
 
                     // Will update and rerender the state with the new image
                     this.props.getMyUserProfileDetails()
-                    this.props.successfulNotification("Image deleted!")
+                    NotificationManager.success('Image deleted!', '', 3000)
                 } else {
                     this.props.errorNotification("Something went wrong! Please check your connection!")
+                    NotificationManager.error('Conection propblem!', 'Ops...', 3000)
                 }
             })
     }
 
     render () {
-        let imageUploadPreviewer = this.state.previewUploadImage !== null
+        let imageUploadOverlay = this.state.previewUploadImage !== null
             ?   <div className="img-previewer-overlay">
                     <Form onSubmit={ this.uploadUserProfileImage.bind(this) }>
                         <img className="image-preview" src={this.state.previewUploadImage} alt="" />
@@ -127,7 +129,7 @@ class MyProfileImagesContainer extends Component {
             :   null
 
         let userProfileImages =  this.props.userProfileImages !== undefined && this.props.userProfileImages !== null
-            ?   this.props.userProfileImages.map((image, index) => {
+            ?   this.props.userProfileImages.slice(0, 9).map((image, index) => {
                     return (
                         <label
                             key={index}
@@ -182,21 +184,50 @@ class MyProfileImagesContainer extends Component {
                 </div>
             :   null
 
+        let addImageButton = <label>
+                                <input
+                                    type="file"
+                                    multiple={false}
+                                    className="upload-img-input"
+                                    onChange={this.selectUserProfileImage.bind(this)}
+                                />
+                                <img className="add-user-image-bttn" src={process.env.PUBLIC_URL + '/add-image.png'} alt="" />
+                            </label>
+
+        let miniAddImageButton = <label>
+                                <input
+                                    type="file"
+                                    multiple={false}
+                                    className="upload-img-input"
+                                    onChange={this.selectUserProfileImage.bind(this)}
+                                />
+                                <img className="mini-add-user-image-bttn" src={process.env.PUBLIC_URL + '/add-image.png'} alt="" />
+                            </label>
+
         return (
             <div className="user-profile-images-container">
                 <div>
-                    { userProfileImages }
-                    { imageUploadPreviewer }
+                    <div>
+                        { userProfileImages }
+                        {
+                            this.props.userProfileImages !== undefined && this.props.userProfileImages.length < 9
+                                ? addImageButton
+                                : null
+                        }
+                    </div>
+                    {
+                        this.props.userProfileImages !== undefined && this.props.userProfileImages.length >= 9
+                            ?   miniAddImageButton
+                            :   null
+                    }
+                    {
+                        this.props.userProfileImages !== undefined && this.props.userProfileImages.length > 9
+                            ?   <button className="show-more-images-bttn">...</button>
+                            :   null
+                    }
+
+                    { imageUploadOverlay }
                     { imagePreviewSettingOverlay }
-                    <label>
-                        <input
-                            type="file"
-                            multiple={false}
-                            className="upload-img-input"
-                            onChange={this.selectUserProfileImage.bind(this)}
-                        />
-                        <img className="user-profile-image" src={process.env.PUBLIC_URL + '/add-image.png'} alt="" />
-                    </label>
                 </div>
             </div>
         )
