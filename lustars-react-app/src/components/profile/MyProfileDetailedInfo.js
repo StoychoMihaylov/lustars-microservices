@@ -6,6 +6,7 @@ import MyProfileMainSettings from './MyProfileMainSettings'
 import MyProfileAboutMe from './MyProfileAboutMe'
 import MyProfilePartnerInfo from './MyProfilePartnerInfo'
 import MyProfileImagesContainer from './MyProfileImagesContainer'
+import MyProfileLustarsQuestions from './MyProfileLustarsQuestions'
 import { getMyUserProfileDetails, editMyUserProfileDetails } from '../../store/actions/myProfileActions'
 import '../../styles/components/profile/MyProfileDetailedInfo.css'
 
@@ -46,8 +47,10 @@ class MyProfileDetailedInfo extends Component {
                     <br/>
                     <br/>
                     <MyProfileImagesContainer
-                        userProfileImages={isProfileDifined !== undefined ? this.props.profile.images : undefined}
+                        userProfileImages={ isProfileDifined !== undefined ? this.props.profile.images : undefined }
                     />
+                    <br/>
+                    <MyProfileLustarsQuestions profile={ isProfileDifined !== undefined ? this.props.profile : undefined } />
                 </div>
 
                 <div className="user-profile-info-details">

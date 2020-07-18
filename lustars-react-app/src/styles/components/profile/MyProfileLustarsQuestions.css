@@ -1,0 +1,80 @@
+.lustars-questions-container {
+    padding-left: 30px;
+}
+
+.lustarts-questions-label {
+    font-size: 16px;
+}
+
+/* The container */
+.lustars-questions-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .lustars-questions-checkbox:hover {
+      color: lightblue;
+  }
+
+  /* Hide the browser's default checkbox */
+  .lustars-questions-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .lustars-questions-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 5px;
+  }
+
+  /* On mouse-over, add background color */
+  .lustars-questions-checkbox:hover input ~ .lustars-questions-checkmark {
+    background-color: lightblue;
+  }
+
+  /* When the checkbox is checked */
+  .lustars-questions-checkbox input:checked ~ .lustars-questions-checkmark {
+    background-color: rgba(255, 0, 102, 0.466);;
+  }
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .lustars-questions-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the checkmark when checked */
+  .lustars-questions-checkbox input:checked ~ .lustars-questions-checkmark:after {
+    display: block;
+  }
+
+  /* Style the checkmark/indicator */
+  .lustars-questions-checkbox .lustars-questions-checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }

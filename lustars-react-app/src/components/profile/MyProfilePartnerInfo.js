@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { updateUserProfileBoleanField, updateUserProfileTextField } from '../../store/actions/myProfileActions'
+import { updateUserProfileTextField } from '../../store/actions/myProfileActions'
 import YesNoInputField from './YesNoInputField'
 import NumberAdjusterInput from '../common/NumberAdjusterInput'
 import '../../styles/components/profile/MyProfilePartnerInfo.css'
@@ -12,7 +12,6 @@ class MyProfilePartnerInfo extends Component {
 
         switch (field) {
             case 'partnerAgeRangeFrom':
-                console.log(value)
                 newState.partnerAgeRangeFrom = parseInt(value)
                 this.props.updateUserProfileTextField(newState)
                 return
@@ -169,7 +168,6 @@ class MyProfilePartnerInfo extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateUserProfileBoleanField: (newValue) => dispatch(updateUserProfileBoleanField(newValue)),
         updateUserProfileTextField: (newValue) => dispatch(updateUserProfileTextField(newValue))
     }
 }

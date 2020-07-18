@@ -110,6 +110,38 @@
     left: 0;
 }
 
+.add-user-image-bttn {
+    margin-right: 3px;
+    margin-left: 3px;
+    width:  100px;
+    height: 100px;
+    padding: 20px;
+    object-fit: cover;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background-color:rgba(255, 0, 102, 0.466);
+}
+
+.mini-add-user-image-bttn {
+    margin-right: 3px;
+    margin-left: 3px;
+    width:  30px;
+    height: 30px;
+    padding: 2px;
+    object-fit: cover;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background-color:rgba(255, 0, 102, 0.466);
+}
+
 .user-profile-image:hover {
     opacity: 0.3;
 }
@@ -130,4 +162,18 @@
 
 #image2 {
     border-top-right-radius: 20px;
+}
+
+#image6 {
+    border-bottom-left-radius: 20px;
+}
+
+#image8 {
+    border-bottom-right-radius: 20px;
+}
+
+.show-more-images-bttn {
+    border: none;
+    background-color: transparent;
+    font-size: 28px;
 }

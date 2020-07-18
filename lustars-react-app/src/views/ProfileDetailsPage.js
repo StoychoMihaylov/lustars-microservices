@@ -40,7 +40,7 @@ class ProfileDetailsPage extends Component {
         console.log(window.innerWidth)
         if (window.innerWidth > 1200) {
             this.setState({
-                imagesEnd: this.state.imagesStart + 6
+                imagesEnd: this.state.imagesStart + 5
             })
         } else if (window.innerWidth < 1202 && window.innerWidth > 992) {
             this.setState({
