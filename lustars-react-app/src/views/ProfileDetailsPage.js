@@ -92,11 +92,13 @@ class ProfileDetailsPage extends Component {
         let displayProfile =
             <div>
                 <div className="profile-details-intro-bar">
-                    <img className="profile-details-image-avatar" src={ api.imageAPI + profile.avatarImage } alt="" />
+                    <div className="profile-details-avatar-container">
+                        <img className="profile-details-image-avatar" src={ api.imageAPI + profile.avatarImage } alt="" />
+                    </div>
                     <div className="intro-bar-element">
                         <div className="profile-details-name">{ profile.name } { profile.lastName }</div>
                         <div>
-                            Likes: 3604 &#10084;
+                            Likes: { profile.likes } &#10084;
                         </div>
                     </div>
                     <div className="intro-bar-element">
@@ -124,43 +126,89 @@ class ProfileDetailsPage extends Component {
                     <span className="profile-details-camera-img-number">&#128247; { profile.images !== undefined ? profile.images.length : null}</span>
                     <button id="right-angular" className="profile-details-angular-image-bar" onClick={ this.moveImageBarOnTheRight.bind(this) }>&#10095;</button>
                 </div>
-                <hr/>
-                <div>
-                    <div className="profile-details-label">Mood</div>
-                    <div>{ profile.feelInMood }</div>
-                </div>
-                <hr/>
-                <div>
-                    <div className="profile-details-label">Looking for</div>
-                    <div>Here to meet with { profile.lookingFor } between { profile.partnerAgeRangeFrom } and { profile.partnerAgeRangeTo }</div>
-                </div>
-                <hr/>
-                <div>
-                    <div className="profile-details-label">About me</div>
-                    <div>Gernder: { profile.gender }</div>
-                    <div>From: { profile.fromCity }, { profile.fromCountry }</div>
-                    <div>Merital status: { profile.meritalStatus }</div>
-                    <div>More about me: { profile.biography }</div>
-                    <div>weight: { profile.weight }</div>
-                    <div>Work: { profile.work } </div>
-                    <div>Figure: { profile.figure }</div>
-                    <div>Kids: { profile.haveKids }</div>
-                    <div>Height:{ profile.height }</div>
-                </div>
-                <hr/>
-                    <div>
-                        <div className="profile-details-label">Education</div>
-                        <div>Degree: { profile.educationDegree }</div>
-                        <div>University: { profile.university}</div>
-                    </div>
                 {
-                    profile.languages !== undefined && profile.languages.length > 0
-                        ?   <hr/>
+                    profile.feelInMood && profile.feelInMood !== null
+                        ?   <div>
+                                <hr/>
+                                <div className="profile-details-label">Mood</div>
+                                <div>{ profile.feelInMood }</div>
+                            </div>
+                        :   null
+                }
+                <div>
+                    <hr/>
+                    <div className="profile-details-label">Looking for</div>
+                    <div>
+                        Here to meet with { profile.lookingFor }
+                        {
+                            profile.partnerAgeRangeFrom !== null &&  profile.partnerAgeRangeTo !== null
+                            ?   <span>between { profile.partnerAgeRangeFrom } and { profile.partnerAgeRangeTo }</span>
+                            :   null
+                        }
+                    </div>
+                </div>
+                <div>
+                    <hr/>
+                    <div className="profile-details-label">About me</div>
+                    {
+                        profile.biographyAndInterests !== null
+                            ?   <div>More about me: { profile.biographyAndInterests }</div>
+                            :   null
+                    }
+                    <div>Gender: { profile.gender }</div>
+                    {
+                        profile.fromCity !== null || profile.fromCountry !== null
+                            ?   <div>From: { profile.fromCity }, { profile.fromCountry }</div>
+                            :   null
+                    }
+                    {
+                        profile.meritalStatus !== null
+                            ?   <div>Merital status: { profile.meritalStatus }</div>
+                            :   null
+                    }
+                    {
+                        profile.height  !== null
+                            ?   <div>Height: { profile.height }</div>
+                            :   null
+                    }
+                    {
+                        profile.weight !== null
+                            ?   <div>weight: { profile.weight }</div>
+                            :   null
+                    }
+                    {
+                        profile.work !== null
+                            ?   <div>Work: { profile.work } </div>
+                            :   null
+                    }
+                    {
+                        profile.figure !== null
+                            ?   <div>Figure: { profile.figure }</div>
+                            :   null
+                    }
+                    {
+                        profile.haveKids === true
+                            ?   <div>I Have kids</div>
+                            :   <div>I Don't have kids</div>
+                    }
+                </div>
+                {
+                    profile.educationDegree !== null || profile.university !== null
+                        ?   <div>
+                            <hr/>
+                                <div className="profile-details-label">Education</div>
+                                <div>Degree: { profile.educationDegree }</div>
+                                { profile.university !== null
+                                    ? <div>University: { profile.university }</div>
+                                    : null
+                                }
+                            </div>
                         :   null
                 }
                 {
                     profile.languages !== undefined && profile.languages.length > 0
                         ?   <div>
+                                <hr/>
                                 <div className="profile-details-label">Languages:</div>
                                 { laguages }
                             </div>
@@ -168,12 +216,8 @@ class ProfileDetailsPage extends Component {
                 }
                 {
                     profile.drinkAlcohol === true || profile.smoker === true
-                        ?   <hr/>
-                        : null
-                }
-                {
-                    profile.drinkAlcohol === true || profile.smoker === true
                         ?   <div>
+                                <hr/>
                                 <div className="profile-details-label">Habits and lifestyle</div>
                                 {
                                     profile.drinkAlcohol === true
@@ -188,19 +232,56 @@ class ProfileDetailsPage extends Component {
                             </div>
                         : null
                 }
-                <hr/>
+                {
+                    profile.partnerVisualAppearance !== false ||
+                    profile.trust !== false ||
+                    profile.sex !== false ||
+                    profile.financialStability !== false ||
+                    profile.communicationAndUnderstanding !== false ||
+                    profile.sameInterests !== false ||
+                    profile.oppositeAttracs !== false ||
+                    profile.growingFamily !== false ||
+                    profile.loveForAnimals !== false ||
+                    profile.shareSameReligion !== false ||
+                    profile.keepTraditions !== false
+                        ?   <div>
+                                <hr/>
+                                <div className="profile-details-label">Lustars partner preferences</div>
+                                <div>Most important in a relation for me:</div>
+                                { profile.partnerVisualAppearance !== false ? <div>Partner visual appearance</div> : null }
+                                { profile.trust !== false ? <div>Trust</div> : null }
+                                { profile.sex !== false ? <div>Sex</div> : null }
+                                { profile.financialStability !== false ? <div>Financial stability</div> : null }
+                                { profile.communicationAndUnderstanding !== false ? <div>communication and understanding</div> : null }
+                                { profile.sameInterests !== false ? <div>To share same interests</div> : null }
+                                { profile.oppositeAttracs !== false ? <div>Opposite attracs</div> : null }
+                                { profile.growingFamily !== false ? <div>Growing family</div> : null }
+                                { profile.loveForAnimals !== false ? <div>Love for animals</div> : null }
+                                { profile.shareSameReligion !== false ? <div>To share same religion</div> : null }
+                                { profile.keepTraditions !== false ? <div>Keep traditions alive</div> : null }
+                            </div>
+                        :   null
+                }
                 <div>
+                    <hr/>
                     <div className="profile-details-label">Desired partner</div>
-                    <div>Parner drink: { profile.partnerDrinkAlcohol }</div>
-                    <div>Partner figure: { profile.partnerFigure }</div>
-                    <div>Partner has kids: { profile.partnerHaveKids }</div>
-                    <div>Partner Smoke: { profile.partnerSmoke }</div>
-                    <div>Want kids: { profile.wantToHaveKids }</div>
+                    {
+                        profile.partnerFigure !== null ? <div>Partner figure: { profile.partnerFigure }</div> : null
+                    }
+                    {
+                        profile.partnerHaveKids === true ? <div>Partner who has kids</div> : <div>Parter who has no kids</div>
+                    }
+                    {
+                        profile.partnerDrinkAlcohol === true ? <div>Parner who drinks</div> : <div>Partner who doesn't drink</div>
+                    }
+                    {
+                        profile.partnerSmoke === null ? <div>Partner who Smokes</div> : <div>Partner who doesn't Smoke</div>
+                    }
                 </div>
-                <hr/>
             </div>
-
+        console.log(profile)
         return (
+
             <div className="profile-details-container">
                 {
                     this.props.isLoading == false

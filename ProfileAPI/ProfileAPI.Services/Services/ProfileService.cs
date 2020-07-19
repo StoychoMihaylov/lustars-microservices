@@ -172,6 +172,14 @@
                 })
                 .ToList();
 
+            var likes = this.Context
+                .UserProfiles
+                .AsNoTracking()
+                .Where(u => u.Id == userId)
+                .Select(u => u.WhoILiked)
+                .Count();
+
+            userProfile.Likes = likes;
             userProfile.Images = userImages;
             userProfile.GeoLocation = geoLocation;
             userProfile.Languages = languages;

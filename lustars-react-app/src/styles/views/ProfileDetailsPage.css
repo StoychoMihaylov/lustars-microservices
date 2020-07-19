@@ -1,5 +1,5 @@
 .profile-details-container {
-    padding: 110px;
+    padding: 50px;
     background-color: rgb(245,245,245);
 }
 
@@ -11,13 +11,13 @@
 }
 
 .profile-details-image-avatar {
-    height: 200px;
-    width:  200px;
+    height: 350px;
+    width:  300px;
     object-fit: cover;
     cursor: pointer;
     position: relative;
     border-radius: 10px;
-    border: 3px solid rgba(255, 0, 102);
+    border: 1px solid rgba(255, 0, 102);
 }
 
 .profile-details-image {
@@ -39,6 +39,7 @@
 }
 
 .profile-details-intro-bar {
+    margin-top: 30px;
     padding: 10px;
     border-radius: 10px;
     text-align: center;
@@ -107,4 +108,8 @@
     border-radius: 5px;
     border: 1px solid white;
     background-color: transparent;
+}
+
+.profile-details-avatar-container {
+    margin-bottom: 50px;
 }

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ProfileAPI.Data.Context;
@@ -9,9 +10,10 @@ using ProfileAPI.Data.Context;
 namespace ProfileAPI.Data.Migrations
 {
     [DbContext(typeof(ProfileDBContext))]
-    partial class ProfileDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200719151949_changes-on-user-profile")]
+    partial class changesonuserprofile
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,24 +106,6 @@ namespace ProfileAPI.Data.Migrations
                     b.HasIndex("UserProfileId");
 
                     b.ToTable("Languages");
-                });
-
-            modelBuilder.Entity("ProfileAPI.Data.Entities.Like", b =>
-                {
-                    b.Property<Guid>("LikeFromId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("LikeToId")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("onDate")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.HasKey("LikeFromId", "LikeToId");
-
-                    b.HasIndex("LikeToId");
-
-                    b.ToTable("Likes");
                 });
 
             modelBuilder.Entity("ProfileAPI.Data.Entities.UserProfile", b =>
@@ -306,21 +290,6 @@ namespace ProfileAPI.Data.Migrations
                         .WithMany("Languages")
                         .HasForeignKey("UserProfileId")
                         .OnDelete(DeleteBehavior.SetNull);
-                });
-
-            modelBuilder.Entity("ProfileAPI.Data.Entities.Like", b =>
-                {
-                    b.HasOne("ProfileAPI.Data.Entities.UserProfile", "LikeFrom")
-                        .WithMany("WhoILiked")
-                        .HasForeignKey("LikeFromId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ProfileAPI.Data.Entities.UserProfile", "LikeTo")
-                        .WithMany("Likes")
-                        .HasForeignKey("LikeToId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

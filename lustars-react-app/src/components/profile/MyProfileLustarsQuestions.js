@@ -8,11 +8,11 @@ class MyProfileLustarsQuestions extends Component {
 
     checkIfThereAreFiveBoxesChecked(field, value) {
         var boolObj = {
-            "love": this.props.profile.love,
+            "partnerVisualAppearance": this.props.profile.partnerVisualAppearance,
             "trust": this.props.profile.trust,
             "sex": this.props.profile.sex,
             "financialStability": this.props.profile.financialStability,
-            "respectAndUnderstanding": this.props.profile.respectAndUnderstanding,
+            "communicationAndUnderstanding": this.props.profile.communicationAndUnderstanding,
             "sameInterests": this.props.profile.sameInterests,
             "oppositeAttracs": this.props.profile.oppositeAttracs,
             "growingFamily": this.props.profile.growingFamily,
@@ -30,7 +30,7 @@ class MyProfileLustarsQuestions extends Component {
             }
         })
 
-        return counter <= 5 ? true : false
+        return counter <= 3 ? true : false
     }
 
     updateProfileBooleanField = (field, event) => {
@@ -38,7 +38,7 @@ class MyProfileLustarsQuestions extends Component {
 
         let contrinue = this.checkIfThereAreFiveBoxesChecked(field, value)
         if (!contrinue) {
-            NotificationManager.info('Only 5 Lustars questions can be chosen', ':(', 5000)
+            NotificationManager.info('Only 3 Lustars answers can be chosen', ':(', 5000)
             return
         }
 
@@ -46,8 +46,8 @@ class MyProfileLustarsQuestions extends Component {
         let newState = Object.assign({}, oldState)
 
         switch (field) {
-            case 'love':
-                newState.love = value
+            case 'partnerVisualAppearance':
+                newState.partnerVisualAppearance = value
                 this.props.updateUserProfileBoleanField(newState)
                 return
             case 'trust':
@@ -62,8 +62,8 @@ class MyProfileLustarsQuestions extends Component {
                 newState.financialStability = value
                 this.props.updateUserProfileBoleanField(newState)
                 return
-            case 'respectAndUnderstanding':
-                newState.respectAndUnderstanding = value
+            case 'communicationAndUnderstanding':
+                newState.communicationAndUnderstanding = value
                 this.props.updateUserProfileBoleanField(newState)
                 return
             case 'sameInterests':
@@ -99,17 +99,17 @@ class MyProfileLustarsQuestions extends Component {
     render() {
         return (
             <div className="lustars-questions-container">
-                <h2>Lustars questions</h2>
-                <div>What is the most important for you in a relationship ?</div>
+                <h2>Lustars priorities</h2>
+                <div>What is the most important for you in a relationship ? (3 options)</div>
                 <br/>
                 <div>
                     <label className="lustars-questions-checkbox">
-                        <span className="lustarts-questions-label">Love</span>
+                        <span className="lustarts-questions-label">Partner visual appearance</span>
                         <input
                             type="checkbox"
-                            checked={ this.props.profile.love }
-                            value={ this.props.profile.love }
-                            onClick={ (event) => this.updateProfileBooleanField('love', event) }
+                            checked={ this.props.profile.partnerVisualAppearance }
+                            value={ this.props.profile.partnerVisualAppearance }
+                            onClick={ (event) => this.updateProfileBooleanField('partnerVisualAppearance', event) }
                         />
                         <span className="lustars-questions-checkmark"></span>
                     </label>
@@ -144,12 +144,12 @@ class MyProfileLustarsQuestions extends Component {
                         <span className="lustars-questions-checkmark"></span>
                     </label>
                     <label className="lustars-questions-checkbox">
-                    <span className="lustarts-questions-label">Respect and understanding</span>
+                    <span className="lustarts-questions-label">Communication and understanding</span>
                         <input
                             type="checkbox"
-                            checked={ this.props.profile.respectAndUnderstanding }
-                            value={ this.props.profile.respectAndUnderstanding }
-                            onClick={ (event) => this.updateProfileBooleanField('respectAndUnderstanding', event) }
+                            checked={ this.props.profile.communicationAndUnderstanding }
+                            value={ this.props.profile.communicationAndUnderstanding }
+                            onClick={ (event) => this.updateProfileBooleanField('communicationAndUnderstanding', event) }
                         />
                         <span className="lustars-questions-checkmark"></span>
                     </label>
