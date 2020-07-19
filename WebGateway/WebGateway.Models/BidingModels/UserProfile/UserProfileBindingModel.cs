@@ -62,16 +62,14 @@
 
         // Lustars questions
         // What is most important for you in a partner relationship
-        public bool Love { get; set; }
+        public bool PartnerVisualAppearance { get; set; }
         public bool Trust { get; set; }
         public bool Sex { get; set; }
         public bool FinancialStability { get; set; }
-        public bool RespectAndUnderstanding { get; set; }
+        public bool CommunicationAndUnderstanding { get; set; }
         public bool SameInterests { get; set; }
         public bool OppositeAttracs { get; set; }
-        public bool ExploreNewCulturesAndLanguages { get; set; }
         public bool GrowingFamily { get; set; }
-        public bool LongGoodConversation { get; set; }
         public bool LoveForAnimals { get; set; }
         public bool ShareSameReligion { get; set; }
         public bool KeepTraditions { get; set; }

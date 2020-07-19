@@ -64,7 +64,7 @@
         public async Task<IActionResult> GetUserProfile(string id)
         {
             var userId = new Guid();
-            if (id != string.Empty)
+            if (id == null)
             {
                 userId = IdentityManager.CurrentUserId;
             }
