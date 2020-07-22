@@ -1,8 +1,8 @@
 version: '3.7'
 
 services:
-    
-#React Frontend service
+
+#React FRONT-END SERVICE
 
   frontend:
     container_name: ${FE_APP_NAME}
@@ -17,7 +17,7 @@ services:
     environment:
       - NODE_ENV=NODE_ENV
 
-#DOTNET BACKEND SERVICES 
+#DOTNET BACK-END SERVICES
 
   api-gateway:
     container_name: ${APIGWAY_NAME}
@@ -34,16 +34,16 @@ services:
       dockerfile: Dockerfile
     ports:
         - '5001:80'
-  
+
   profile-backend:
     container_name: ${PROFILE_BACKEND_NAME}
-    build: 
+    build:
       context: ./${PROFILE_BACKEND_NAME}
       dockerfile: Dockerfile
     ports:
       - '5002:80'
 
-#Database Sections 
+#DATABASE SSECTION
 
   lustar-auth-database:
     container_name: pg-auth-srv
