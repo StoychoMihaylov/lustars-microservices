@@ -1,6 +1,7 @@
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS base
 LABEL maintainer="Lustars dev team"
 WORKDIR /app
+EXPOSE 5001
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
