@@ -3,7 +3,6 @@ namespace AuthAPI.App
     using AuthAPI.Data.Context;
     using AuthAPI.App.Infrastructure;
     using AuthAPI.Data.DBInitializer;
-
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
