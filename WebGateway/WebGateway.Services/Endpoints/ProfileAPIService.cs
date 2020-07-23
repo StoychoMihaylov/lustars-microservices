@@ -1,25 +1,12 @@
 ﻿namespace WebGateway.Services.Endpoints
 {
-    using System.Diagnostics;
-
-    public class ProfileAPIService
+    public static class ProfileAPIService
     {
-        private static string authAPIinDebug = "http://localhost:5002/";
+        private static string profileAPI = "http://localhost:5002/";
 
-        private static string authAPIinRelease = "http://ProfileAPI:80/";
-
-        public static string Endpoint = GetEndpoint();
-
-        private static string GetEndpoint()
+        public static string Endpoint
         {
-            if (Debugger.IsAttached)
-            {
-                return authAPIinDebug;
-            }
-            else
-            {
-                return authAPIinRelease;
-            }
+            get { return profileAPI; }
         }
     }
 }

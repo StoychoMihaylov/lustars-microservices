@@ -404,3 +404,9 @@ export function editTextFieldSuccess(newProfileData) {
         payload: newProfileData
     }
 }
+
+//*************************** Get user location from GOOGLE ***************************
+
+export function getUserLocationFromGOOGLE(latitude, longitude) {
+    return axios.post('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&sensor=fase&key=AIzaSyCReeeqP32sURxShaQ2XHxtirN6AWGDkAY')
+}
