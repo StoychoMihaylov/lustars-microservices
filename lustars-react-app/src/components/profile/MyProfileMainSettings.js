@@ -1,12 +1,12 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import axios from 'axios'
 import { NotificationManager } from 'react-notifications'
 import {
     updateUserProfileBoleanField,
     updateUserProfileTextField,
     editMyUserProfileDetails,
-    updateUserProfileGeaolocation
+    updateUserProfileGeaolocation,
+    getUserLocationFromGOOGLE
 } from '../../store/actions/myProfileActions'
 import YesNoInputField from './YesNoInputField'
 import NumbersField from '../common/NumbersField'
@@ -40,12 +40,7 @@ class MyProfileMainSettings extends Component {
         let latitude = position.coords.latitude
         let longitude = position.coords.longitude
 
-        axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' +
-            latitude +
-            ',' +
-            longitude +
-            '&sensor=fase&key=AIzaSyCReeeqP32sURxShaQ2XHxtirN6AWGDkAY'
-        )
+        getUserLocationFromGOOGLE(latitude, longitude)
         .then(response => {
             let location = response.data.results[0].formatted_address
             let arrLocation = location.split(',')
