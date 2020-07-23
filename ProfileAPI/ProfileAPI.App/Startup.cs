@@ -4,7 +4,6 @@ namespace ProfileAPI.App
     using ProfileAPI.Data.Context;
     using ProfileAPI.App.Infrastructure;
     using ProfileAPI.Data.DBInitializer;
-
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
