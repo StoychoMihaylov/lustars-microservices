@@ -2,7 +2,7 @@
 {
     public static class AuthAPIService
     {
-        private static string authAPI = "http://localhost:5001/";
+        private static string authAPI = "http://AuthAPI:80/";
 
         public static string Endpoint
         {

@@ -2,7 +2,7 @@
 {
     public static class ProfileAPIService
     {
-        private static string profileAPI = "http://localhost:5002/";
+        private static string profileAPI = "http://ProfileAPI:80/";
 
         public static string Endpoint
         {

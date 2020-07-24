@@ -34,6 +34,9 @@ services:
       dockerfile: Dockerfile
     ports:
         - '5001:80'
+    restart: on-failure
+    depends_on:
+      - lustar-auth-database
 
   profile-backend:
     container_name: ${PROFILE_BACKEND_NAME}
@@ -42,6 +45,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - '5002:80'
+    restart: on-failure
+    depends_on:
+      - lustar-profile-database
 
   image-backend:
     container_name: ${IMAGE_BACKEND_NAME}

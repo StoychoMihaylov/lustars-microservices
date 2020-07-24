@@ -2,7 +2,7 @@
 {
     public static class ImageAPIService
     {
-        private static string imageAPI = "http://localhost:5003/";
+        private static string imageAPI = "http://ImageAPI:80/";
 
         public static string Endpoint
         {
