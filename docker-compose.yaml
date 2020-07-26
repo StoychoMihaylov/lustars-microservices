@@ -54,8 +54,6 @@ services:
     build:
       context: ./${IMAGE_BACKEND_NAME}
       dockerfile: Dockerfile
-    volumes:
-      - image-store:/${IMAGE_BACKEND_NAME}/wwwroot
     restart: on-failure
     ports:
       - '5003:80'
@@ -91,4 +89,3 @@ services:
 volumes:
   lustar-auth-db:
   lustar-profile-db:
-  image-store:
