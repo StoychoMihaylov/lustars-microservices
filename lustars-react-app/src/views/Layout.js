@@ -7,9 +7,9 @@ import '../styles/views/Layout.css'
 export default props => (
   <div className="layout-container">
     <NavMenu />
-    <Container>
-      {props.children}
-    </Container>
+      <Container>
+        {props.children}
+      </Container>
     <Footer />
   </div>
 );

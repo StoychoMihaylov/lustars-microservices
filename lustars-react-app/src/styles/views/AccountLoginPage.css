@@ -1,4 +1,5 @@
 .account-login-page-conteiner {
+    margin-top: 60px;
     position: absolute;
     top:0;
     left:0;
@@ -8,6 +9,7 @@
     width:100%;
     text-align: center;
     background-image: url("/couple-corn-field.jpg");
+    background-color: gray;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

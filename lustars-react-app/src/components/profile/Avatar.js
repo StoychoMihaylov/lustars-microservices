@@ -153,12 +153,12 @@ class Avatar extends Component {
                     <div>
                         {src && (
                             <ReactCrop
-                            className="image-to-crop"
-                            src={src}
-                            crop={crop}
-                            onImageLoaded={this.onImageLoaded}
-                            onComplete={this.onCropComplete}
-                            onChange={this.onCropChange}
+                                className="image-to-crop"
+                                src={src}
+                                crop={crop}
+                                onImageLoaded={this.onImageLoaded}
+                                onComplete={this.onCropComplete}
+                                onChange={this.onCropChange}
                             />)
                         }
                     </div>
