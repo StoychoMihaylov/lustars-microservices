@@ -1,3 +1,10 @@
 .logout-btn:hover {
     cursor: pointer;
 }
+
+.avatar-image-navbar-menu {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    margin-right: 5px;
+}

@@ -85,7 +85,7 @@ export default class NumberAdjusterInput extends Component {
                 <button
                     className="double-number-adjuster-input-btn-left"
                     onClick={ this.setInputNumberDownBy10.bind(this) }
-                    >&#8659;
+                    >-10
                 </button>
                 <input
                     type="text"
@@ -95,7 +95,7 @@ export default class NumberAdjusterInput extends Component {
                 <button
                     className="double-number-adjuster-input-btn-right"
                     onClick={ this.setInputNumberUpBy10.bind(this) }
-                    >&#8657;
+                    >+10
                 </button>
                 <button
                     className="number-adjuster-input-button-right"
