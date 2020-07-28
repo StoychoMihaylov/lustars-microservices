@@ -1,7 +1,13 @@
 .activities-menu {
     color: white;
     text-align: center;
-    margin-top: 60px;
+    height: 450px;
+    width: 250px;
+    right: 0;
+    position: fixed;
+    margin-top: 100px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     background-color: rgb(255, 0, 102);
 }
 
@@ -31,7 +37,6 @@
 }
 
 .activities-attributes {
-    margin-right: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
     display: inline-block;
@@ -41,4 +46,8 @@
 .vertical-line {
     border-left: 1px solid white;
     height: 100px;
+}
+
+.hr-activities-menu {
+    background-color: white;
 }

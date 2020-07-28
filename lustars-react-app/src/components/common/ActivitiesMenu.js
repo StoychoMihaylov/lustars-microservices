@@ -3,7 +3,6 @@ import { connect } from "react-redux"
 import { push, goBack } from "connected-react-router"
 import { api } from '../../constants/endpoints'
 import { getUserProfileShortPreviewData } from '../../store/actions/myProfileActions'
-
 import '../../styles/components/common/ActivitiesMenu.css'
 
 class ActiitiesMenu extends Component {
@@ -38,7 +37,7 @@ class ActiitiesMenu extends Component {
                         <span>Creadits: { this.props.profilePreviewData.credits } </span>
                         <span>Super Likes: { this.props.profilePreviewData.superlikes }</span>
                     </div>
-                    <div class="vertical-line activities-attributes"></div>
+                    <hr className="hr-activities-menu" />
                     <div className="activities-attributes">
                         <span onClick={() => this.props.push('/people-nearby') } className="activities-menu-link">People nearby</span>
                         <br/>
@@ -50,14 +49,13 @@ class ActiitiesMenu extends Component {
                         <br/>
                         <span className="activities-menu-link">Visitors</span>
                     </div>
-                    <div class="vertical-line activities-attributes"></div>
                 </div>
             :   null
 
         return (
-            <div className="activities-menu">
+            <section className="activities-menu">
                 { userProfileShortDataAndLinks }
-            </div>
+            </section>
         )
     }
 }
