@@ -38,8 +38,6 @@ class MyProfileDetailedInfo extends Component {
 
     render() {
         let isProfileDifined = this.props.profile !== undefined ? true : false
-
-        console.log(this.props.profile)
         return (
             <div className="user-profile-container">
                 <div className="profile-main-settings">

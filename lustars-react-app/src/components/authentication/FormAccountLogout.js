@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from 'react-redux'
-import { NavItem, NavLink } from 'reactstrap';
 import { push, goBack } from "connected-react-router"
+import { api } from '../../constants/endpoints'
 import { logoutAccount } from '../../store/actions/accountActions'
 import { NotificationManager} from 'react-notifications'
 import '../../styles/components/authentication/FormAccountLogout.css'
@@ -28,13 +28,19 @@ class FormAccountLogout extends Component {
     }
 
     render() {
+        let avatarImg =  this.props.profile.avatarImage !== null && this.props.profile.avatarImage !== undefined
+            ?   <span><img className="avatar-image-navbar-menu" src={ api.imageAPI + this.props.profile.avatarImage } alt="" /></span>
+            :   null
         return (
             <div>
                 {
                     localStorage.getItem('lustars_token') !== null
                     ?
                     <div className="navbar-nav-attribute">
-                        <button className="cursor-pointer navbar-link" onClick={ () => this.props.push("/my-profile") }>Hello { localStorage.getItem("lustars_user_name") }!</button>
+                        { avatarImg }
+                        <button className="cursor-pointer navbar-link" onClick={ () => this.props.push("/my-profile") }>
+                            Hello { localStorage.getItem("lustars_user_name") }!
+                        </button>
                         <button className="logout-btn cursor-pointer navbar-link rightmost-link" onClick={ this.logoutUser.bind(this) }>LogOut</button>
                     </div>
                     :
@@ -48,6 +54,12 @@ class FormAccountLogout extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        profile: state.myProfile.userProfileDetails,
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
         logoutAccount: (userToken) => dispatch(logoutAccount(userToken)),
@@ -58,4 +70,4 @@ const mapDispatchToProps = dispatch => {
     }
   }
 
-export default connect(null, mapDispatchToProps)(FormAccountLogout)
+export default connect(mapStateToProps, mapDispatchToProps)(FormAccountLogout)
