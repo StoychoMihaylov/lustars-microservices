@@ -17,5 +17,6 @@
         bool DeleteUserProfileImage(Guid userGuidId, long imageGuidId);
         UserProfileShortPreviewDataViewModel GetUserProfileShortPreviewDataById(Guid guidOutput);
         List<UserProfileInDistanceViewModel> GetAllUsersInDistance(Guid guidId, int v);
+        string GetCurrentUserAvatarImageUrl(Guid guidId);
     }
 }

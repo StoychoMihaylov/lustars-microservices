@@ -3,7 +3,6 @@ namespace WebGateway.App
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.DependencyInjection;
-
     using WebGateway.App.Infrastructure;
 
     public class Startup
