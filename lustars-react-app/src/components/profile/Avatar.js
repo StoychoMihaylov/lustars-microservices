@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Form } from 'reactstrap'
 import { api } from '../../constants/endpoints'
 import ReactCrop from 'react-image-crop'

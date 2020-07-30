@@ -2,6 +2,9 @@ import {
     REQUEST_MY_PROFILE_DETAILS,
     REQUEST_MY_PROFILE_DETAILS_SUCCESS,
     REQUEST_MY_PROFILE_DETAILS_FAIL,
+    REQUEST_SOME_PROFILE_DETAILS,
+    REQUEST_SOME_PROFILE_DETAILS_SUCCESS,
+    REQUEST_SOME_PROFILE_DETAILS_FAIL,
     REQUEST_EDIT_MY_PROFILE_DETAILS,
     REQUEST_EDIT_MY_PROFILE_DETAILS_SUCCESS,
     REQUEST_EDIT_MY_PROFILE_DETAILS_FAIL,
@@ -33,6 +36,48 @@ import {
 import { NotificationManager} from 'react-notifications'
 import { api } from '../../constants/endpoints'
 import axios from 'axios'
+
+//*************************** Get get some profile details by ID ***************************
+
+export function getSomeUserProfileDetailsById(id) {
+    let url = "user-profile" + (id !== "" ? `?ID=${id}` : "")
+
+    return dispatch => {
+        dispatch(requestUserProfileDetailsById(id))
+
+        axios.get(api.domain + url, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
+            }
+        })
+        .then(response => {
+            dispatch(requestUserProfileDetailsByIdSuccess(response.data))
+        })
+        .catch(err => {
+            dispatch(requestMUserProfileDetailsByIdFail(err))
+        })
+    }
+}
+
+export function requestUserProfileDetailsById() {
+    return {
+        type: REQUEST_SOME_PROFILE_DETAILS
+    }
+}
+
+export function requestUserProfileDetailsByIdSuccess(data) {
+    return {
+        type: REQUEST_SOME_PROFILE_DETAILS_SUCCESS,
+        payload: data
+    }
+}
+
+export function requestMUserProfileDetailsByIdFail(error) {
+    return {
+        type: REQUEST_SOME_PROFILE_DETAILS_FAIL,
+        payload: error
+    }
+}
 
 //*************************** Get current user avatar image url ***************************
 
@@ -271,14 +316,12 @@ export function requestUserProfileShortPreviewDataFail(error) {
 }
 
 //*************************** Get my user profile details ***************************
-// id is optional! If id is not provided it will take the id of the currunt loged user on server level
-export function getMyUserProfileDetails(id) {
-    let url = "user-profile" + (id !== "" ? `?ID=${id}` : "")
 
+export function getMyUserProfileDetails() {
     return dispatch => {
-        dispatch(requestMyUserProfileDetails(id))
+        dispatch(requestMyUserProfileDetails())
 
-        axios.get(api.domain + url, {
+        axios.get(api.domain + 'user-profile', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
             }
