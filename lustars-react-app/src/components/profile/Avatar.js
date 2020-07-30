@@ -110,7 +110,6 @@ class Avatar extends Component {
                     })
                     NotificationManager.success('Avatar image uploaded!', 'Congrats!', 3000);
                 } else {
-                    this.props.errorNotification("Something went wrong! Please check your connection!")
                     NotificationManager.error('Something went wrong! Please check your connection!', 'Please try again!', 5000, () => {
                         alert('Something went wrong! Please check your connection!');
                       })

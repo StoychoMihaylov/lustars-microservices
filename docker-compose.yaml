@@ -58,7 +58,7 @@ services:
     ports:
       - '5003:80'
 
-#DATABASES
+#POSTGRESQL SERVERS AND DATABASES
 
   lustar-auth-database:
     container_name: pg-auth-srv
