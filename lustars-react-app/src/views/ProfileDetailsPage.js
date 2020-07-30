@@ -103,8 +103,8 @@ class ProfileDetailsPage extends Component {
                     </div>
                     <div className="intro-bar-element">
                         <div className="profile-details-label">Location</div>
-                        { profile.geoLocation !== undefined ? profile.geoLocation.city : null},
-                        { profile.geoLocation !== undefined ? profile.geoLocation.country : null}
+                        { profile.geoLocation !== undefined && profile.geoLocation !== null ? profile.geoLocation.city : null},
+                        { profile.geoLocation !== undefined && profile.geoLocation !== null ? profile.geoLocation.country : null}
                     </div>
                     <div className="intro-bar-element">
                         <button className="profile-details-like-bttn">&#10084;</button>

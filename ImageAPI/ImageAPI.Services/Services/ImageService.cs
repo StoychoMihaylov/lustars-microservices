@@ -23,7 +23,7 @@
             
             try
             {
-                string path = Path.Combine(this.env.ContentRootPath + $"\\wwwroot\\Images\\{userId}");
+                string path = Path.Combine(this.env.ContentRootPath + $"/wwwroot/images/{userId}");
 
                 if (!Directory.Exists(path))
                 {
