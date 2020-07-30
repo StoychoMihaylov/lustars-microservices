@@ -1,5 +1,6 @@
 ﻿namespace ProfileAPI.App.Infrastructure
 {
+    using System.Diagnostics;
     using ProfileAPI.Data.Context;
     using ProfileAPI.Data.Interfaces;
     using ProfileAPI.Services.Services;
@@ -23,9 +24,17 @@
             services
                 .AddEntityFrameworkNpgsql()
                 .AddDbContext<ProfileDBContext>((sp, opt) =>
-                {          
-                    opt.UseNpgsql(configuration.GetConnectionString("LustarsProfileDB"))
-                        .UseInternalServiceProvider(sp);
+                {
+                    if (Debugger.IsAttached)
+                    {
+                        opt.UseNpgsql(configuration.GetConnectionString("LustarsProfileDBDebug"))
+                           .UseInternalServiceProvider(sp);
+                    }
+                    else
+                    {
+                        opt.UseNpgsql(configuration.GetConnectionString("LustarsProfileBRelease"))
+                           .UseInternalServiceProvider(sp);
+                    }
                 });
 
             return services;

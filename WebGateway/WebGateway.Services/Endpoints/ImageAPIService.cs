@@ -1,12 +1,25 @@
 ﻿namespace WebGateway.Services.Endpoints
 {
+    using System.Diagnostics;
+
     public static class ImageAPIService
     {
-        private static string imageAPI = "http://ImageAPI:80/";
+        private static string imageAPIinDebug = "http://localhost:5003/";
 
-        public static string Endpoint
+        private static string imageAPIinRelease = "http://ImageAPI:80/";
+
+        public static string Endpoint = GetEndpoint();
+
+        private static string GetEndpoint()
         {
-            get { return imageAPI; }
+            if (Debugger.IsAttached)
+            {
+                return imageAPIinDebug;
+            }
+            else
+            {
+                return imageAPIinRelease;
+            }
         }
     }
 }

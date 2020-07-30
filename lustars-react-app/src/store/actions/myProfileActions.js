@@ -26,11 +26,46 @@ import {
     DELETE_USER_PROFILE_IMAGE_FAIL,
     REQUEST_MY_PROFILE_SHORT_DATA,
     REQUEST_MY_PROFILE_SHORT_DATA_SUCCESS,
-    REQUEST_MY_PROFILE_SHORT_DATA_FAIL
+    REQUEST_MY_PROFILE_SHORT_DATA_FAIL,
+    REQUEST_GET_CURRENT_USER_AVATAR_URL,
+    REQUEST_GET_CURRENT_USER_AVATAR_URL_SUCCESS
 } from '../../constants/actionTypes/myProfileActionTypes'
+import { NotificationManager} from 'react-notifications'
 import { api } from '../../constants/endpoints'
 import axios from 'axios'
 
+//*************************** Get current user avatar image url ***************************
+
+export function getCurrentUserAvatarImageURL() {
+    return dispatch => {
+        dispatch(requestGetCurrentUserAvatarImageURL())
+            axios.get(api.domain + 'user-profile/avatar-image', {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+        .then(response => {
+            dispatch(requestGetCurrentUserAvatarImageURLSuccess(response.data))
+        })
+        .catch(() => {
+            NotificationManager.info('Please upload "Avatar Image" to complete your profile', `Hello ${localStorage.getItem("lustars_user_name")}`, 10000);
+        })
+    }
+}
+
+export function requestGetCurrentUserAvatarImageURL() {
+    return {
+        type: REQUEST_GET_CURRENT_USER_AVATAR_URL
+    }
+}
+
+export function requestGetCurrentUserAvatarImageURLSuccess(url) {
+    return {
+        type: REQUEST_GET_CURRENT_USER_AVATAR_URL_SUCCESS,
+        payload: url
+    }
+}
 
 //*************************** Delete user profile image ***************************
 
@@ -133,7 +168,6 @@ export function deleteLanguage(newValues) {
 //*************************** Add country language ***************************
 
 export function addUserCountryLanguage(newValues) {
-    console.log(newValues)
     return dispatch => {
         dispatch(addLanguage())
         dispatch(addLanguageSuccess(newValues))

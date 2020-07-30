@@ -83,7 +83,7 @@
             return false;
         }
 
-        public async Task<bool> CallProfileAPI_SaveAvatarImageURL(Guid userId, ImageUrlBindingModel url)
+        public async Task<string> CallProfileAPI_SaveAvatarImageURL(Guid userId, ImageUrlBindingModel url)
         {
             var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(url);
 
@@ -91,10 +91,10 @@
 
             if (response.StatusCode == HttpStatusCode.Created)
             {
-                return true;
+                return response.Content.ReadAsStringAsync().Result;
             }
 
-            return false;
+            return null;
         }
 
         public async Task<string> CallImageAPI_UploadImage(Guid userId, IFormFile formData)
@@ -150,6 +150,20 @@
         public async Task<string> GetAllUserInDistance(Guid guidId)
         {
             var response = await this.HttpClient.GetAsync(ProfileAPIService.Endpoint + $"profile/people-nearby/{guidId.ToString()}");
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return response.Content.ReadAsStringAsync().Result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<string> CallProfileAPI_GetCurrentUserAvatarImage(Guid guidId)
+        {
+            var response = await this.HttpClient.GetAsync(ProfileAPIService.Endpoint + $"profile/{guidId.ToString()}/avatar-image-url");
 
             if (response.StatusCode == HttpStatusCode.OK)
             {

@@ -3,10 +3,15 @@ import { connect } from 'react-redux'
 import { push, goBack } from "connected-react-router"
 import { api } from '../../constants/endpoints'
 import { logoutAccount } from '../../store/actions/accountActions'
+import { getCurrentUserAvatarImageURL } from '../../store/actions/myProfileActions'
 import { NotificationManager} from 'react-notifications'
 import '../../styles/components/authentication/FormAccountLogout.css'
 
 class FormAccountLogout extends Component {
+
+    componentWillMount() {
+        this.props.getCurrentUserAvatarImageURL()
+    }
 
     logoutUser() {
         let userToken = {
@@ -28,8 +33,8 @@ class FormAccountLogout extends Component {
     }
 
     render() {
-        let avatarImg =  this.props.profile.avatarImage !== null && this.props.profile.avatarImage !== undefined
-            ?   <span><img className="avatar-image-navbar-menu" src={ api.imageAPI + this.props.profile.avatarImage } alt="" /></span>
+        let avatarImg =  this.props.currentUserAvatarImgURL !== null && this.props.currentUserAvatarImgURL !== undefined
+            ?   <span><img className="avatar-image-navbar-menu" src={ api.imageAPI + this.props.currentUserAvatarImgURL } alt="" /></span>
             :   null
         return (
             <div>
@@ -56,13 +61,14 @@ class FormAccountLogout extends Component {
 
 const mapStateToProps = state => {
     return {
-        profile: state.myProfile.userProfileDetails,
+        currentUserAvatarImgURL: state.myProfile.currentUserAvatarImgURL,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         logoutAccount: (userToken) => dispatch(logoutAccount(userToken)),
+        getCurrentUserAvatarImageURL: () => dispatch(getCurrentUserAvatarImageURL()),
 
         // Navigation
         goBack: () => dispatch(goBack()),

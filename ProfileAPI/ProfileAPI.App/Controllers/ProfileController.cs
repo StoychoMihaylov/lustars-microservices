@@ -127,22 +127,37 @@
 
         [HttpPost]
         [Route("{userId}/avatar-image-url")]
-        public IActionResult SaveAvatarImageUrl(string userId, [FromBody]AddImageUrlBindingModel imageUrl)
+        public IActionResult SaveAvatarImageUrl(string userId, [FromBody]AddImageUrlBindingModel image)
         {
             var guidId = Guid.Parse(userId);   
 
-            if (imageUrl.Url == string.Empty)
+            if (image.Url == string.Empty)
             {
                 return StatusCode(400, "Image url can't be empty string");
             }
 
-            var isImageCreated = this.profileService.SaveUserProfileAvatarImage(guidId, imageUrl.Url);
+            var isImageCreated = this.profileService.SaveUserProfileAvatarImage(guidId, image.Url);
             if (!isImageCreated)
             {
                 return StatusCode(501); // NotImplemented!
             }
 
-            return StatusCode(201); // Created!
+            return StatusCode(201, image.Url); // Created!
+        }
+
+        [HttpGet]
+        [Route("{userId}/avatar-image-url")]
+        public IActionResult GetCurrentUserAvatarImageUrl(string userId)
+        {
+            var guidId = Guid.Parse(userId);
+
+            var avatarImg = this.profileService.GetCurrentUserAvatarImageUrl(guidId);
+            if (avatarImg == null)
+            {
+                return StatusCode(404); // Not found!!
+            }
+
+            return StatusCode(200, avatarImg); // OK
         }
 
         [HttpPost]

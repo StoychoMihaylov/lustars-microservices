@@ -23,10 +23,13 @@ import {
     DELETE_USER_PROFILE_IMAGE_FAIL,
     REQUEST_MY_PROFILE_SHORT_DATA,
     REQUEST_MY_PROFILE_SHORT_DATA_SUCCESS,
-    REQUEST_MY_PROFILE_SHORT_DATA_FAIL
+    REQUEST_MY_PROFILE_SHORT_DATA_FAIL,
+    REQUEST_GET_CURRENT_USER_AVATAR_URL,
+    REQUEST_GET_CURRENT_USER_AVATAR_URL_SUCCESS
 } from '../../constants/actionTypes/myProfileActionTypes'
 
 const initialState = {
+    currentUserAvatarImgURL: "",
     userProfileDetails: {},
 
     isLoading: false,
@@ -37,6 +40,12 @@ const myProfileReducer = (state, action) => {
     state = state || initialState
 
     switch (action.type) {
+        case REQUEST_GET_CURRENT_USER_AVATAR_URL:
+        case REQUEST_GET_CURRENT_USER_AVATAR_URL_SUCCESS:
+            return {
+                ...state,
+                currentUserAvatarImgURL: action.payload
+            }
         case DELETE_USER_PROFILE_IMAGE:
         case DELETE_USER_PROFILE_IMAGE_SUCCESS:
             return {

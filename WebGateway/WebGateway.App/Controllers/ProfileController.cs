@@ -71,12 +71,12 @@
             else
             {
                 var isValid = Guid.TryParse(id, out userId);
-                if (! isValid)
+                if (!isValid)
                 {
                     return StatusCode(400); // BadRequest!
                 }
             }
-            
+
             var userProfileJSON = await this.profileService.CallProfileAPI_GetUserProfileById(userId);
             if (userProfileJSON == null)
             {
@@ -149,18 +149,34 @@
                 return StatusCode(501);
             }
 
-            var isImageCreated = await this.profileService.CallProfileAPI_SaveAvatarImageURL(userId, 
-                new ImageUrlBindingModel() 
-                { 
+            var avatarImgUrl = await this.profileService.CallProfileAPI_SaveAvatarImageURL(userId,
+                new ImageUrlBindingModel()
+                {
                     Url = imageUrl
                 });
 
-            if (!isImageCreated)
+            if (avatarImgUrl == null)
             {
                 return StatusCode(501); // NotImplemented!
             }
 
-            return StatusCode(201); // Created!
+            return StatusCode(201, avatarImgUrl); // Created!
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("avatar-image")]
+        public async Task<IActionResult> getCurrentUserAvatarImage()
+        {
+            var userId = IdentityManager.CurrentUserId;
+
+            var avatarURL = await this.profileService.CallProfileAPI_GetCurrentUserAvatarImage(userId);
+            if (avatarURL != null)
+            {
+                return StatusCode(200, avatarURL); // OK
+            }
+
+            return StatusCode(200); // Not Found!
         }
 
         [HttpPost]

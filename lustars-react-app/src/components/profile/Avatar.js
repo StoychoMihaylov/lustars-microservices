@@ -104,14 +104,16 @@ class Avatar extends Component {
         this.props.uploadAvatarImage(formData)
             .then(response => {
                 if (response.status === 201) {
+                    console.log(response)
                     this.setState({
                         croppedImageUrl: imgUrl,
                         showImageCropper: false
                     })
-                    NotificationManager.success('Avatar image uploaded!', 'Congrats!', 3000);
+                    localStorage.setItem("avatar-img-url", response.data)
+                    NotificationManager.success('Avatar image uploaded!', 'Congrats!', 3000)
                 } else {
                     NotificationManager.error('Something went wrong! Please check your connection!', 'Please try again!', 5000, () => {
-                        alert('Something went wrong! Please check your connection!');
+                        alert('Something went wrong! Please check your connection!')
                       })
                 }
             })

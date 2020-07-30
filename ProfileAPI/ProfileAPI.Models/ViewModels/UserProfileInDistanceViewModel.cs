@@ -15,7 +15,7 @@
         {
             get 
             {
-                return $"{Name}, {Age}";
+                return $"{Name}{AgeReplacement()}";
             }
         }
 
@@ -38,5 +38,10 @@
         public string Country { get; set; }
 
         public GeoLocation GeoLocation { get; set; }
+
+        private string AgeReplacement()
+        {
+            return Age != string.Empty ? Age : "";
+        }
     }
 }
