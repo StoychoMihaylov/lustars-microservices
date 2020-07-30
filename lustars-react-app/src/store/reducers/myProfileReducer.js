@@ -25,11 +25,15 @@ import {
     REQUEST_MY_PROFILE_SHORT_DATA_SUCCESS,
     REQUEST_MY_PROFILE_SHORT_DATA_FAIL,
     REQUEST_GET_CURRENT_USER_AVATAR_URL,
-    REQUEST_GET_CURRENT_USER_AVATAR_URL_SUCCESS
+    REQUEST_GET_CURRENT_USER_AVATAR_URL_SUCCESS,
+    REQUEST_SOME_PROFILE_DETAILS,
+    REQUEST_SOME_PROFILE_DETAILS_SUCCESS,
+    REQUEST_SOME_PROFILE_DETAILS_FAIL,
 } from '../../constants/actionTypes/myProfileActionTypes'
 
 const initialState = {
     currentUserAvatarImgURL: "",
+    currentUserProfileDetails: {},
     userProfileDetails: {},
 
     isLoading: false,
@@ -40,6 +44,21 @@ const myProfileReducer = (state, action) => {
     state = state || initialState
 
     switch (action.type) {
+        case REQUEST_SOME_PROFILE_DETAILS:
+            return {
+                ...state,
+                isLoading: true,
+            }
+        case REQUEST_SOME_PROFILE_DETAILS_SUCCESS:
+            return {
+                ...state,
+                userProfileDetails: action.payload,
+                isLoading: false
+            }
+        case REQUEST_SOME_PROFILE_DETAILS_FAIL:
+            return {
+                isLoading: false
+            }
         case REQUEST_GET_CURRENT_USER_AVATAR_URL:
         case REQUEST_GET_CURRENT_USER_AVATAR_URL_SUCCESS:
             return {
@@ -111,7 +130,7 @@ const myProfileReducer = (state, action) => {
         case REQUEST_MY_PROFILE_DETAILS_SUCCESS:
             return {
                 ...state,
-                userProfileDetails: action.payload,
+                currentUserProfileDetails: action.payload,
                 isLoading: false,
             }
         case REQUEST_MY_PROFILE_DETAILS_FAIL:

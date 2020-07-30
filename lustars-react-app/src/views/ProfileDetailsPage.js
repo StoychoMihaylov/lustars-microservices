@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
 import { api } from '../constants/endpoints'
-import { getMyUserProfileDetails } from '../store/actions/myProfileActions'
+import { getSomeUserProfileDetailsById } from '../store/actions/myProfileActions'
 import '../styles/views/ProfileDetailsPage.css'
 
 class ProfileDetailsPage extends Component {
@@ -71,7 +71,7 @@ class ProfileDetailsPage extends Component {
     }
 
     componentDidMount() {
-        this.props.getMyUserProfileDetails(this.props.match.params.id) // Takes the id from url
+        this.props.getSomeUserProfileDetailsById(this.props.match.params.id) // Takes the id from url
 
         //Add event listener
         this.adjustHowManyImagesToShow();
@@ -305,7 +305,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getMyUserProfileDetails: (id) => dispatch(getMyUserProfileDetails(id)),
+        getSomeUserProfileDetailsById: (id) => dispatch(getSomeUserProfileDetailsById(id)),
     }
 }
 
