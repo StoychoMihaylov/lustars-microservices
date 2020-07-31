@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from "react-redux"
 import { api } from '../constants/endpoints'
 import { getSomeUserProfileDetailsById } from '../store/actions/myProfileActions'
+import ImageSlider from '../components/common/ImageSlider'
 import '../styles/views/ProfileDetailsPage.css'
 
 class ProfileDetailsPage extends Component {
@@ -10,8 +11,23 @@ class ProfileDetailsPage extends Component {
 
         this.state = {
             imagesStart: 0,
-            imagesEnd: 0
+            imagesEnd: 0,
+            position: 0,
+            imageSliderImages: null
         }
+    }
+
+    closeImageSlider() {
+        this.setState({
+            imageSliderImages: null
+        })
+    }
+
+    openImageSlider(index) {
+        this.setState({
+            position: index - 1,
+            imageSliderImages: this.props.profile.images
+        })
     }
 
     moveImageBarOnTheLeft() {
@@ -113,18 +129,32 @@ class ProfileDetailsPage extends Component {
                 </div>
                 <hr/>
                 <div className="profile-details-image-container">
-                    <button id="left-angular" className="profile-details-angular-image-bar" onClick={ this.moveImageBarOnTheLeft.bind(this) }>&#10094;</button>
+                    <button
+                        id="left-angular"
+                        className="profile-details-angular-image-bar"
+                        onClick={ this.moveImageBarOnTheLeft.bind(this) }>&#10094;
+                    </button>
                     {
                         profile.images !== undefined && profile.images !== null
                         ?   profile.images.slice(this.state.imagesStart, this.state.imagesEnd).map((image, index) => {
                                 return (
-                                    <img key={index} className="profile-details-image" src={ api.imageAPI + image.url } alt="" />
+                                    <img
+                                        key={index}
+                                        className="profile-details-image"
+                                        src={ api.imageAPI + image.url }
+                                        onClick={ () => this.openImageSlider(index) }
+                                        alt=""
+                                    />
                                 )
                             })
                         :   null
                     }
                     <span className="profile-details-camera-img-number">&#128247; { profile.images !== undefined ? profile.images.length : null}</span>
-                    <button id="right-angular" className="profile-details-angular-image-bar" onClick={ this.moveImageBarOnTheRight.bind(this) }>&#10095;</button>
+                    <button
+                        id="right-angular"
+                        className="profile-details-angular-image-bar"
+                        onClick={ this.moveImageBarOnTheRight.bind(this) }>&#10095;
+                    </button>
                 </div>
                 {
                     profile.feelInMood && profile.feelInMood !== null
@@ -283,6 +313,11 @@ class ProfileDetailsPage extends Component {
         return (
 
             <div className="profile-details-container">
+                <ImageSlider
+                    images={ this.state.imageSliderImages }
+                    position={ this.state.position }
+                    closeCurrentOverlay={ () => this.closeImageSlider() }
+                    />
                 {
                     this.props.isLoading == false
                         ?   profile !== undefined && profile !== null
