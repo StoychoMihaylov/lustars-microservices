@@ -111,7 +111,7 @@ class MyProfileImagesContainer extends Component {
         let imageUploadOverlay = this.state.previewUploadImage !== null
             ?   <div className="img-previewer-overlay">
                     <Form onSubmit={ this.uploadUserProfileImage.bind(this) }>
-                        <img className="image-preview" src={this.state.previewUploadImage} alt="" />
+                        <img className="image-preview" src={ this.state.previewUploadImage } alt="" />
                         <br/>
                         <button
                             type="submit"

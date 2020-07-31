@@ -25,7 +25,7 @@ class ProfileDetailsPage extends Component {
 
     openImageSlider(index) {
         this.setState({
-            position: index - 1,
+            position: index,
             imageSliderImages: this.props.profile.images
         })
     }

@@ -7,29 +7,43 @@ export default class ImageSlider extends Component {
         super(props)
 
         this.state = {
-            position: this.props.position
+            position: null
         }
     }
 
-    moveImageBarOnTheLeft() {
-        let images = this.props.images !== undefined ? this.props.images : null
-        if (images !== null && this.state.position > 0) {
+    async moveImageBarOnTheLeft() {
+        if(this.state.position === null) {
+            await this.setState({
+                position: this.props.position
+            })
+        }
+
+        if (this.state.position > 0) {
             this.setState({
-                position: (this.state.position - 1),
+                position: (this.state.position - 1)
             })
         }
     }
 
-    moveImageBarOnTheRight() {
-        let images = this.props.images !== undefined ? this.props.images : null
-        if (images !== null && this.state.position < images.length - 1) {
+    async moveImageBarOnTheRight() {
+        if(this.state.position === null) {
+            await this.setState({
+                position: this.props.position
+            })
+        }
+
+        let images = this.props.images
+        if (this.state.position < images.length - 1) {
             this.setState({
-                position: (this.state.position + 1),
+                position: (this.state.position + 1)
             })
         }
     }
 
-    closeOverlay() {
+    async closeOverlay() {
+        await this.setState({
+            position: null
+        })
         this.props.closeCurrentOverlay()
     }
 
@@ -45,12 +59,11 @@ export default class ImageSlider extends Component {
                     </button>
                     <img
                         className="image-slider-image"
-                        src={ api.imageAPI + this.props.images[this.state.position].url }
+                        src={ api.imageAPI + this.props.images[this.state.position === null ? this.props.position : this.state.position].url }
                         alt=""
                     />
-                    <span className="image-slider-camera-img-number">&#128247; { this.state.position + 1}/{ imageCount }
-                        <button onClick={ this.closeOverlay.bind(this) } >X</button>
-                    </span>
+                    <span className="image-slider-camera-img-number">&#128247; { this.state.position === null ? this.props.position + 1 : this.state.position + 1}/{ imageCount }</span>
+                    <button className="image-slider-close-bttn" onClick={ this.closeOverlay.bind(this) } >X</button>
                     <button
                         id="image-slider-right-angular"
                         className="image-slider-angular-bttn"
