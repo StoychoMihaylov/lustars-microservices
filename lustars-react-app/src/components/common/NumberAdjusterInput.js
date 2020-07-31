@@ -6,7 +6,6 @@ export default class NumberAdjusterInput extends Component {
         super(props)
 
         let numberInput = this.props.numberInput
-        console.log(numberInput)
         this.state = {
             number: numberInput !== null && numberInput !== undefined
                 ? numberInput
