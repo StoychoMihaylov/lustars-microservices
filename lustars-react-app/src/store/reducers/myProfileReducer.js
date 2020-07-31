@@ -57,7 +57,8 @@ const myProfileReducer = (state, action) => {
             }
         case REQUEST_SOME_PROFILE_DETAILS_FAIL:
             return {
-                isLoading: false
+                isLoading: false,
+                error: action.payload
             }
         case REQUEST_GET_CURRENT_USER_AVATAR_URL:
         case REQUEST_GET_CURRENT_USER_AVATAR_URL_SUCCESS:
