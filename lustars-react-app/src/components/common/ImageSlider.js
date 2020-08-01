@@ -63,7 +63,7 @@ export default class ImageSlider extends Component {
                         alt=""
                     />
                     <span className="image-slider-camera-img-number">&#128247; { this.state.position === null ? this.props.position + 1 : this.state.position + 1}/{ imageCount }</span>
-                    <button className="image-slider-close-bttn" onClick={ this.closeOverlay.bind(this) } >X</button>
+                    <button className="image-slider-close-bttn" onClick={ this.closeOverlay.bind(this) } >&#9587;</button>
                     <button
                         id="image-slider-right-angular"
                         className="image-slider-angular-bttn"
