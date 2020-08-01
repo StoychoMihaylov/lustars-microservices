@@ -10,7 +10,7 @@
     display: none;
 }
 
-.overlay {
+.avatar-img-overlay {
     height: 100%;
     width: 100%;
     position: fixed;
@@ -23,7 +23,7 @@
     text-align: center;
 }
 
-.image-to-crop {
+.avatar-image-to-crop {
     margin: 30px;
     max-width: auto;
     max-width: 50%;
@@ -36,4 +36,17 @@
     border-radius: 50px;
     border-color:  rgb(255, 0, 102);
     background-color: rgb(255, 0, 102);
+}
+
+.avatar-image-croper-close-bttn {
+    color: white;
+    font-size: 36px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 15px;
+    margin-right: 15px;
 }

@@ -140,6 +140,12 @@ class Avatar extends Component {
         }
     }
 
+    closeOverlay() {
+        this.setState({
+            showImageCropper: false
+        })
+    }
+
     render() {
         const { crop, profile_pic, src } = this.state
 
@@ -148,13 +154,13 @@ class Avatar extends Component {
 
         let imageCropper = this.state.showImageCropper === true
             ?
-            <div className="overlay">
+            <div className="avatar-img-overlay">
                 <Form onSubmit={this.handleSubmit}>
                     <label htmlFor="profile_pic"></label>
                     <div>
                         {src && (
                             <ReactCrop
-                                className="image-to-crop"
+                                className="avatar-image-to-crop"
                                 src={src}
                                 crop={crop}
                                 onImageLoaded={this.onImageLoaded}
@@ -165,6 +171,7 @@ class Avatar extends Component {
                     </div>
                     <button type="submit" className="crop-img-btn" >Crop image</button>
                 </Form>
+                <button className="avatar-image-croper-close-bttn" onClick={ this.closeOverlay.bind(this) } >X</button>
             </div>
             : ""
 

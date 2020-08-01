@@ -8,7 +8,6 @@ import {
     REQUEST_EDIT_MY_PROFILE_DETAILS,
     REQUEST_EDIT_MY_PROFILE_DETAILS_SUCCESS,
     REQUEST_EDIT_MY_PROFILE_DETAILS_FAIL,
-    UPDATE_USER_PROFILE_BOOLEAN_FIELD,
     UPDATE_USER_PROFILE_BOOLEAN_FIELD_SUCCESS,
     UPDATE_USER_PROFILE_TEXT_FIELD,
     UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS,
@@ -400,14 +399,8 @@ export function requestEditMyUserProfileDetailsFail(error) {
 
 export function updateUserProfileBoleanField(newProfileData) {
     return dispatch => {
-        dispatch(updateBoleanField())
+        console.log(newProfileData)
         dispatch(updateBoleanFieldSuccess(newProfileData))
-    }
-}
-
-export function updateBoleanField() {
-    return {
-        type: UPDATE_USER_PROFILE_BOOLEAN_FIELD
     }
 }
 
