@@ -12,7 +12,12 @@ class MyProfileImagesContainer extends Component {
 
         this.state = {
             previewUploadImage: null,
-            imageSettingsPreview: null
+            imageSettingsPreview: null,
+
+            // show more images
+            imagesLength: 9,
+            showMoreImagesBttn: "see more...",
+            showMoreImages: false
         }
     }
 
@@ -107,29 +112,47 @@ class MyProfileImagesContainer extends Component {
             })
     }
 
+    showAllUserImages() {
+        if(this.state.showMoreImages === false) {
+            this.setState({
+                imagesLength: this.props.userProfileImages.length,
+                showMoreImagesBttn: "see less",
+                showMoreImages: true
+            })
+        } else {
+            this.setState({
+                imagesLength: 9,
+                showMoreImagesBttn: "see more...",
+                showMoreImages: false
+            })
+        }
+    }
+
     render () {
         let imageUploadOverlay = this.state.previewUploadImage !== null
             ?   <div className="img-previewer-overlay">
                     <Form onSubmit={ this.uploadUserProfileImage.bind(this) }>
                         <img className="image-preview" src={ this.state.previewUploadImage } alt="" />
                         <br/>
-                        <button
-                            type="submit"
-                            className="upload-img-bttn"
-                        >Upload
-                        </button>
-                        <button
-                            type="button"
-                            className="exit-uplad-img-bttn"
-                            onClick={ this.preventSubmitImageUpload.bind(this) }
-                        >&#9587;
-                        </button>
+                        <span className="profile-preview-bttns-overlay">
+                            <button
+                                type="submit"
+                                className="upload-img-bttn"
+                            >Upload
+                            </button>
+                            <button
+                                type="button"
+                                className="exit-uplad-img-bttn"
+                                onClick={ this.preventSubmitImageUpload.bind(this) }
+                            >&#9587;
+                            </button>
+                        </span>
                     </Form>
                 </div>
             :   null
 
         let userProfileImages =  this.props.userProfileImages !== undefined && this.props.userProfileImages !== null
-            ?   this.props.userProfileImages.slice(0, 9).map((image, index) => {
+            ?   this.props.userProfileImages.slice(0, this.state.imagesLength).map((image, index) => {
                     return (
                         <label
                             key={index}
@@ -169,18 +192,20 @@ class MyProfileImagesContainer extends Component {
                         alt=""
                     />
                     <br/>
-                    <button
-                        type="button"
-                        className="delete-img-bttn"
-                        onClick={ this.deleteUserProfileImage.bind(this) }
-                    >&#128465;
+                    <div className="img-previewer-settins-bttns">
+                        <button
+                            type="button"
+                            className="delete-img-bttn"
+                            onClick={ this.deleteUserProfileImage.bind(this) }
+                        >&#128465;
+                        </button>
+                        <button
+                            type="button"
+                            className="exit-uplad-img-bttn"
+                            onClick={ this.closeImageSettingPreview.bind(this) }
+                        >&#9587;
                     </button>
-                    <button
-                        type="button"
-                        className="exit-uplad-img-bttn"
-                        onClick={ this.closeImageSettingPreview.bind(this) }
-                    >&#9587;
-                    </button>
+                    </div>
                 </div>
             :   null
 
@@ -222,7 +247,10 @@ class MyProfileImagesContainer extends Component {
                     }
                     {
                         this.props.userProfileImages !== undefined && this.props.userProfileImages.length > 9
-                            ?   <button className="show-more-images-bttn">...</button>
+                            ?   <button
+                                    onClick={ this.showAllUserImages.bind(this) }
+                                    className="show-more-images-bttn">{ this.state.showMoreImagesBttn }
+                                </button>
                             :   null
                     }
 

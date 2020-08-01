@@ -2,6 +2,7 @@
     height: 100%;
     width: 100%;
     position: fixed;
+    display: grid;
     z-index: 1;
     top: 0;
     left: 0;
@@ -13,15 +14,24 @@
 }
 
 .image-preview {
-    margin: 30px;
-    max-width: auto;
-    max-width: 50%;
+    max-width: 100%;
+    max-height: 100vh;
+    margin: auto;
+}
+
+.profile-preview-bttns-overlay, .img-previewer-settins-bttns {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 20px;
 }
 
 .upload-img-bttn {
     color: white;
     padding: 10px;
     border: none;
+    margin-right: 15px;
     margin-bottom: 20px;
     border-radius: 50px;
     border-color:  rgb(255, 0, 102);
@@ -165,16 +175,14 @@
     border-top-right-radius: 20px;
 }
 
-#image6 {
-    border-bottom-left-radius: 20px;
-}
-
-#image8 {
-    border-bottom-right-radius: 20px;
-}
-
 .show-more-images-bttn {
+    margin-left: 10px;
     border: none;
-    background-color: transparent;
-    font-size: 28px;
+    padding: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-style: italic;
+    background-color:rgba(255, 0, 102, 0.466);
 }
