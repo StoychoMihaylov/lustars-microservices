@@ -32,7 +32,7 @@ class ProfileDetailsPage extends Component {
 
     moveImageBarOnTheLeft() {
         let images = this.props.profile.images !== undefined ? this.props.profile.images : null
-        if (images !== null && images.length > 6 && this.state.imagesStart > 0) {
+        if (images !== null && this.state.imagesStart > 0) {
             this.setState({
                 imagesStart: this.state.imagesStart - 1,
                 imagesEnd: this.state.imagesEnd - 1
@@ -42,7 +42,7 @@ class ProfileDetailsPage extends Component {
 
     moveImageBarOnTheRight() {
         let images = this.props.profile.images !== undefined ? this.props.profile.images : null
-        if (images !== null && images.length > 6 &&  this.state.imagesEnd <= images.length) {
+        if (images !== null && images.length >= this.state.imagesEnd &&  this.state.imagesEnd <= images.length) {
             this.setState({
                 imagesStart: this.state.imagesStart + 1,
                 imagesEnd: this.state.imagesEnd + 1
