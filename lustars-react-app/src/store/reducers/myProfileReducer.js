@@ -5,7 +5,6 @@ import {
     REQUEST_EDIT_MY_PROFILE_DETAILS,
     REQUEST_EDIT_MY_PROFILE_DETAILS_SUCCESS,
     REQUEST_EDIT_MY_PROFILE_DETAILS_FAIL,
-    UPDATE_USER_PROFILE_BOOLEAN_FIELD,
     UPDATE_USER_PROFILE_BOOLEAN_FIELD_SUCCESS,
     UPDATE_USER_PROFILE_TEXT_FIELD,
     UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS,
@@ -89,7 +88,7 @@ const myProfileReducer = (state, action) => {
         case DELETE_COUNTRY_LANGUAGE:
             return {
                 ...state,
-                userProfileDetails: action.payload
+                currentUserProfileDetails: action.payload
             }
         case ADD_COUNTRY_LANGUAGE:
             return {
@@ -98,7 +97,7 @@ const myProfileReducer = (state, action) => {
         case ADD_COUNTRY_LANGUAGE_SUCCESS:
             return {
                 ...state,
-                userProfileDetails: action.payload
+                currentUserProfileDetails: action.payload
             }
         case UPDATE_USER_PROFILE_GEOLOCATION:
         case UPDATE_USER_PROFILE_GEOLOCATION_SUCCESS:
@@ -154,19 +153,16 @@ const myProfileReducer = (state, action) => {
                 ...state,
                 error: action.payload
             }
-        case UPDATE_USER_PROFILE_BOOLEAN_FIELD:
         case UPDATE_USER_PROFILE_BOOLEAN_FIELD_SUCCESS:
             return {
                 ...state,
-                userProfileDetails: action.payload,
-                refresh: true
+                currentUserProfileDetails: action.payload
             }
         case UPDATE_USER_PROFILE_TEXT_FIELD:
         case UPDATE_USER_PROFILE_TEXT_FIELD_SUCCESS:
             return {
                 ...state,
-                userProfileDetails: action.payload,
-                refresh: true
+                currentUserProfileDetails: action.payload
             }
         default:
             return state
