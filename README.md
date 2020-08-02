@@ -13,7 +13,7 @@ The app is base on microservices architecture and technologies such as:
 # How to run Lustars app
 1. Make sure you have installed on your machine: 
     - Docker for Windows(if you are with Window OS)
-    - Docker gitbash
+    - Gitbash
 
 2. Open Gitbash in the directory where you want to have the project and put the following command to download the project:
     - git clone https://github.com/StoychoMihaylov/lustars-microservices.git
