@@ -1,4 +1,4 @@
-# Lustars is a dating app focused targeting bulgarians living in the country or abroad. 
+# Lustars is a dating app targeting bulgarians living in the country or abroad. 
 The app is base on microservices architecture and technologies sucha as: 
   - ReactJS for front-end browser access
   - React Native for mobile app
