@@ -329,5 +329,13 @@
 
             return 6376500.0 * (2.0 * Math.Atan2(Math.Sqrt(d3), Math.Sqrt(1.0 - d3)));
         }
+
+        public bool AddUserProfileLike(UserProfileLikeBindingModel like)
+        {
+            var userToLike = this.Context
+                .UserProfiles
+                .Where(u => u.Id == like.LikeTo)
+                .FirstOrDefault();
+        }
     }
 }
