@@ -17,6 +17,19 @@
             this.profileService = profileService;
         }
 
+        [HttpPost]
+        [Route("like")]
+        public IActionResult LikeUserProfile([FromBody] UserProfileLikeBindingModel like)
+        {
+            var isAdded = this.profileService.AddUserProfileLike(like);
+            if (!isAdded)
+            {
+                return StatusCode(501); // Not Implemented!
+            }
+
+            return StatusCode(200); // OK!
+        }
+
         [HttpGet]
         [Route("people-nearby/{userId}")]
         public IActionResult GetPeopleNearby(string userId)

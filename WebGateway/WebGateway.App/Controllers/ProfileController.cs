@@ -2,6 +2,7 @@
 {
     using System;
     using System.Threading.Tasks;
+    using WebGateway.Models.DTOs;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Http;
     using WebGateway.Services.Identity;
@@ -60,12 +61,39 @@
             return StatusCode(200); // Ok!
         }
 
+        [HttpPost]
+        [Authorize]
+        [Route("like")]
+        public async Task<IActionResult> LikeUserProfile(string id)
+        {
+            var userId = new Guid();
+            var isIdValid = Guid.TryParse(id, out userId);
+            if (!isIdValid)
+            {
+                return StatusCode(400); // BadRequest
+            }
+
+            var like = new UserProfileLikeDTO()
+            {
+                LikeFrom = IdentityManager.CurrentUserId,
+                LitoTo = userId
+            };
+
+            var response = this.profileService.CallProfileAPI_LikeUserProfileById(like).Result;
+            if (!response)
+            {
+                return StatusCode(501); // NotImplemented! 
+            }
+
+            return StatusCode(200); // OK
+        }
+
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> GetUserProfile(string id)
         {
             var userId = new Guid();
-            if (id == null)
+            if (id == null)  // If ID is provided return user by ID otherwise return current user
             {
                 userId = IdentityManager.CurrentUserId;
             }

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Threading.Tasks;
+    using WebGateway.Models.DTOs;
     using Microsoft.AspNetCore.Http;
     using WebGateway.Models.BidingModels.UserProfile;
 
@@ -18,5 +19,6 @@
         Task<string> CallProfileAPI_GetUserProfileShortreviewDataById(Guid userId);
         Task<string> GetAllUserInDistance(Guid guidId);
         Task<string> CallProfileAPI_GetCurrentUserAvatarImage(Guid guidId);
+        Task<bool> CallProfileAPI_LikeUserProfileById(UserProfileLikeDTO like);
     }
 }

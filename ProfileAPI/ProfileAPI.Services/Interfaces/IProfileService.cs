@@ -13,6 +13,7 @@
         UserProfileDetailedDataViewModel GetUserProfileById(Guid userId);
         bool UpdateUserProfileGeolocation(Guid userIdGuid, GeoLocation geolocation);
         UserProfileShortPreviewDataViewModel GetUserProfileShortPreviewDataById(Guid guidOutput);
-        List<UserProfileInDistanceViewModel> GetAllUsersInDistance(Guid guidId, int v);      
+        List<UserProfileInDistanceViewModel> GetAllUsersInDistance(Guid guidId, int v);
+        bool AddUserProfileLike(UserProfileLikeBindingModel like);
     }
 }

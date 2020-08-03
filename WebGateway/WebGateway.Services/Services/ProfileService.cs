@@ -10,6 +10,7 @@
     using WebGateway.Services.Endpoints;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.UserProfile;
+    using WebGateway.Models.DTOs;
 
     public class ProfileService : Service, IProfileService
     {
@@ -172,6 +173,21 @@
             else
             {
                 return null;
+            }
+        }
+
+        public async Task<bool> CallProfileAPI_LikeUserProfileById(UserProfileLikeDTO like)
+        {
+            var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(like);
+
+            var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + $"profile/like", stringContent);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
