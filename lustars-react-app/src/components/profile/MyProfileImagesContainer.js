@@ -106,7 +106,6 @@ class MyProfileImagesContainer extends Component {
                     this.props.getMyUserProfileDetails()
                     NotificationManager.success('Image deleted!', '', 3000)
                 } else {
-                    this.props.errorNotification("Something went wrong! Please check your connection!")
                     NotificationManager.error('Conection propblem!', 'Ops...', 3000)
                 }
             })

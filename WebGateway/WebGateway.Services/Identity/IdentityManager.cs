@@ -1,9 +1,8 @@
-﻿namespace WebGateway.App.Authorization
+﻿namespace WebGateway.Services.Identity
 {
     using System;
 
-    // Every time when AuthAttributeService is executed it will set the current user id and token in cache
-    public static class IdentityManager
+    public class IdentityManager
     {
         private static Guid userId;
 
@@ -11,7 +10,7 @@
 
         public static Guid CurrentUserId
         {
-            get 
+            get
             {
                 if (userId == Guid.Empty)
                 {
@@ -31,7 +30,7 @@
                     throw new Exception("User 'token' need to be set before try to access it!");
                 }
 
-                return userToken; 
+                return userToken;
             }
         }
 

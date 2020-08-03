@@ -3,11 +3,12 @@
     using System;
     using System.Net.Http;
     using Microsoft.AspNetCore.Mvc;
+    using WebGateway.Services.Common;
+    using WebGateway.Services.Services;
+    using WebGateway.Services.Interfaces;
     using Microsoft.Extensions.Primitives;
     using Microsoft.AspNetCore.Mvc.Filters;
     using Microsoft.Extensions.Caching.Memory;
-
-    using WebGateway.Services.Common;
 
     public class Authorize : Attribute, IAuthorizationFilter
     {
@@ -70,7 +71,7 @@
         private MemoryCacheEntryOptions SetCacheExpirationOptions()
         {
             MemoryCacheEntryOptions cacheExpirationOptions = new MemoryCacheEntryOptions();
-            cacheExpirationOptions.SlidingExpiration = TimeSpan.FromMinutes(1);
+            cacheExpirationOptions.SlidingExpiration = TimeSpan.FromMinutes(30);
             cacheExpirationOptions.Priority = CacheItemPriority.Normal;
 
             return cacheExpirationOptions;

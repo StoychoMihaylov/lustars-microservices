@@ -1,7 +1,6 @@
 ﻿namespace WebGateway.Services.Interfaces
 {
     using System.Threading.Tasks;
-
     using WebGateway.Models.ViewModels;
     using WebGateway.Models.BidingModels.Account;
 

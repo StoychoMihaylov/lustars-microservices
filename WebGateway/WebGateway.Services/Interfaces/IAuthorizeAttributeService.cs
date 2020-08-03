@@ -1,9 +1,8 @@
-﻿namespace WebGateway.App.Authorization
+﻿namespace WebGateway.Services.Interfaces
 {
     using System;
-    using Microsoft.Extensions.Primitives;
-
     using WebGateway.Models.DTOs;
+    using Microsoft.Extensions.Primitives;
 
     public interface IAuthorizeAttributeService
     {

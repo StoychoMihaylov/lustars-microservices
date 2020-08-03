@@ -4,7 +4,6 @@
     using System.Net.Http;
     using Newtonsoft.Json;
     using System.Threading.Tasks;
-
     using WebGateway.Services.Common;
     using WebGateway.Models.ViewModels;
     using WebGateway.Services.Endpoints;
