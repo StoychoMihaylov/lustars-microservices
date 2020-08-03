@@ -15,6 +15,7 @@
         {
             services.AddTransient<IProfileService, ProfileService>();
             services.AddTransient<IProfileDBContext, ProfileDBContext>();
+            services.AddTransient<IImageService, ImageService>();
 
             return services;
         }

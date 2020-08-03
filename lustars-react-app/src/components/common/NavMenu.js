@@ -22,35 +22,35 @@ class NavMenu extends React.Component {
         <li>
           <div className="navbar-nav-attribute">
             <button onClick={() => this.props.push('/people-nearby') } className="cursor-pointer navbar-link">
-              <span>&#127757;</span> People nearby
+              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/nearby.PNG'} alt="" /></span> People nearby
             </button>
           </div>
         </li>
         <li>
           <div className="navbar-nav-attribute">
             <button onClick={() => this.props.push('/people-nearby') } className="cursor-pointer navbar-link">
-              <span>💬</span> Messages
+              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/messages.PNG'} alt="" /></span> Messages
             </button>
           </div>
         </li>
         <li>
           <div className="navbar-nav-attribute">
             <button onClick={() => this.props.push('/people-nearby') } className="cursor-pointer navbar-link">
-              <span>&#128525;</span>  Matched
+              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/matched.PNG'} alt="" /></span>  Matched
             </button>
           </div>
         </li>
         <li>
           <div className="navbar-nav-attribute">
             <button onClick={() => this.props.push('/people-nearby') } className="cursor-pointer navbar-link">
-              <span>&#10084;</span> Liked you
+              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/likes.PNG'} alt="" /></span> Liked you
             </button>
           </div>
         </li>
         <li>
           <div className="navbar-nav-attribute">
             <button onClick={() => this.props.push('/people-nearby') } className="cursor-pointer navbar-link">
-              <span>&#128065;</span> Visitors
+              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/visitors.PNG'} alt="" /></span> Visitors
             </button>
           </div>
         </li>
