@@ -334,8 +334,32 @@
         {
             var userToLike = this.Context
                 .UserProfiles
+                .Include(u => u.Likes)
                 .Where(u => u.Id == like.LikeTo)
                 .FirstOrDefault();
+
+            if (userToLike == null) return false;
+
+            var newLike = new Like()
+            {
+                LikeFromId = like.LikeFrom,
+                LikeToId = like.LikeTo,
+                onDate = DateTime.UtcNow
+            };
+
+            var currentUser = this.Context
+                .UserProfiles
+                .Include(u => u.WhoILiked)
+                .Where(u => u.Id == like.LikeFrom)
+                .FirstOrDefault();
+
+            currentUser.WhoILiked.Add(newLike);
+            userToLike.Likes.Add(newLike);
+
+            this.Context.UserProfiles.UpdateRange(userToLike, currentUser);
+            this.Context.SaveChanges();
+
+            return true;
         }
     }
 }

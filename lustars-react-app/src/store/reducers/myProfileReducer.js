@@ -28,6 +28,9 @@ import {
     REQUEST_SOME_PROFILE_DETAILS,
     REQUEST_SOME_PROFILE_DETAILS_SUCCESS,
     REQUEST_SOME_PROFILE_DETAILS_FAIL,
+    REQUEST_LIKE_USER_PROFILE,
+    REQUEST_LIKE_USER_PROFILE_SUCCESS,
+    REQUEST_LIKE_USER_PROFILE_FAIL,
 } from '../../constants/actionTypes/myProfileActionTypes'
 
 const initialState = {
@@ -43,6 +46,22 @@ const myProfileReducer = (state, action) => {
     state = state || initialState
 
     switch (action.type) {
+        case REQUEST_LIKE_USER_PROFILE:
+            return {
+                ...state,
+                isLoading: true,
+            }
+        case REQUEST_LIKE_USER_PROFILE_SUCCESS:
+            return {
+                ...state,
+                isLoading: false
+            }
+        case REQUEST_LIKE_USER_PROFILE_FAIL:
+            return {
+                ...state,
+                isLoading: false,
+                error: action.payload
+            }
         case REQUEST_SOME_PROFILE_DETAILS:
             return {
                 ...state,

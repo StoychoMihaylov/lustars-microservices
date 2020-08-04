@@ -1,8 +1,7 @@
 ﻿namespace ProfileAPI.Data.Interfaces
 {
-    using Microsoft.EntityFrameworkCore;
-
     using ProfileAPI.Data.Entities;
+    using Microsoft.EntityFrameworkCore;
 
     public interface IProfileDBContext
     {
@@ -13,6 +12,8 @@
         DbSet<GeoLocation> GeoLocations { get; set; }
 
         DbSet<Image> Images { get; set; }
+
+        DbSet<Like> Likes { get; set; }
 
         int SaveChanges();
     }

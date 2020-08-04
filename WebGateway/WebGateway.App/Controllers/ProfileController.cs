@@ -76,10 +76,10 @@
             var like = new UserProfileLikeDTO()
             {
                 LikeFrom = IdentityManager.CurrentUserId,
-                LitoTo = userId
+                LikeTo = userId
             };
 
-            var response = this.profileService.CallProfileAPI_LikeUserProfileById(like).Result;
+            var response = await this.profileService.CallProfileAPI_LikeUserProfileById(like);
             if (!response)
             {
                 return StatusCode(501); // NotImplemented! 

@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace ProfileAPI.Data.Entities
+﻿namespace ProfileAPI.Data.Entities
 {
+    using System;
+
     public class Like
     {
         public Guid LikeFromId { get; set; }
