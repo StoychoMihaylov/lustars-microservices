@@ -30,11 +30,54 @@ import {
     REQUEST_MY_PROFILE_SHORT_DATA_SUCCESS,
     REQUEST_MY_PROFILE_SHORT_DATA_FAIL,
     REQUEST_GET_CURRENT_USER_AVATAR_URL,
-    REQUEST_GET_CURRENT_USER_AVATAR_URL_SUCCESS
+    REQUEST_GET_CURRENT_USER_AVATAR_URL_SUCCESS,
+    REQUEST_LIKE_USER_PROFILE,
+    REQUEST_LIKE_USER_PROFILE_SUCCESS,
+    REQUEST_LIKE_USER_PROFILE_FAIL
 } from '../../constants/actionTypes/myProfileActionTypes'
 import { NotificationManager} from 'react-notifications'
 import { api } from '../../constants/endpoints'
 import axios from 'axios'
+
+//*************************** Like User Profile ***************************
+
+export function likeUserProfile(id) {
+    return dispatch => {
+        dispatch(requestLikeUserProfile())
+
+        axios.post(api.domain + `user-profile/like?ID=${id}`, {}, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+        .then( () => {
+            dispatch(requestLikeUserProfileSuccess())
+        })
+        .catch(err => {
+            dispatch(requestLikeUserProfileFail(err))
+        })
+    }
+}
+
+export function requestLikeUserProfile() {
+    return {
+        type: REQUEST_LIKE_USER_PROFILE
+    }
+}
+
+export function requestLikeUserProfileSuccess() {
+    return {
+        type: REQUEST_LIKE_USER_PROFILE_SUCCESS
+    }
+}
+
+export function requestLikeUserProfileFail(error) {
+    return {
+        type: REQUEST_LIKE_USER_PROFILE_FAIL,
+        payload: error
+    }
+}
 
 //*************************** Get get some profile details by ID ***************************
 
@@ -47,6 +90,7 @@ export function getSomeUserProfileDetailsById(id) {
         axios.get(api.domain + url, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
+                'Access-Control-Allow-Origin': '*'
             }
         })
         .then(response => {

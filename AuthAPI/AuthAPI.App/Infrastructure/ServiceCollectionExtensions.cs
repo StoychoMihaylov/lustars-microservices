@@ -1,12 +1,13 @@
 ﻿namespace AuthAPI.App.Infrastructure
 {
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
+    using System.Diagnostics;
     using AuthAPI.Data.Context;
     using AuthAPI.Data.Interfaces;
     using AuthAPI.Services.Services;
     using AuthAPI.Services.Interfaces;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
 
     public static class ServiceCollectionExtensions
     {
@@ -23,8 +24,18 @@
             return services.AddEntityFrameworkNpgsql()
                 .AddDbContext<AuthDBContext>((sp, opt) =>
                 {
-                    opt.UseNpgsql(configuration.GetConnectionString("LustarsAuthDB"))
+                    
+
+                    if (Debugger.IsAttached)
+                    {
+                        opt.UseNpgsql(configuration.GetConnectionString("LustarsAuthDBDebug"))
                         .UseInternalServiceProvider(sp);
+                    }
+                    else
+                    {
+                        opt.UseNpgsql(configuration.GetConnectionString("LustarsAuthDBRelease"))
+                           .UseInternalServiceProvider(sp);
+                    }
                 });
         }
     }

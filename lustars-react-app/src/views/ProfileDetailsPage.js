@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
 import { api } from '../constants/endpoints'
-import { getSomeUserProfileDetailsById } from '../store/actions/myProfileActions'
+import { getSomeUserProfileDetailsById, likeUserProfile } from '../store/actions/myProfileActions'
 import ImageSlider from '../components/common/ImageSlider'
 import '../styles/views/ProfileDetailsPage.css'
 
@@ -94,6 +94,11 @@ class ProfileDetailsPage extends Component {
         window.addEventListener("resize", this.adjustHowManyImagesToShow.bind(this));
     }
 
+    likeThisUserProfile() {
+
+        this.props.likeUserProfile(this.props.match.params.id) // Id from url
+    }
+
     render() {
         let profile = this.props.profile
 
@@ -123,7 +128,7 @@ class ProfileDetailsPage extends Component {
                         { profile.geoLocation !== undefined && profile.geoLocation !== null ? profile.geoLocation.country : null}
                     </div>
                     <div className="intro-bar-element">
-                        <button className="profile-details-like-bttn">&#10084;</button>
+                        <button className="profile-details-like-bttn" onClick={ this.likeThisUserProfile.bind(this) }>&#10084;</button>
                         <button className="profile-details-start-chating-bttn" ><span className="chat-box-icon">💬</span></button>
                     </div>
                 </div>
@@ -341,6 +346,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getSomeUserProfileDetailsById: (id) => dispatch(getSomeUserProfileDetailsById(id)),
+        likeUserProfile: (id) => dispatch(likeUserProfile(id))
     }
 }
 
