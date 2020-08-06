@@ -45,17 +45,19 @@ export function likeUserProfile(id) {
     return dispatch => {
         dispatch(requestLikeUserProfile())
 
-        axios.post(api.domain + `user-profile/like?ID=${id}`, {}, {
+        return axios.post(api.domain + `user-profile/like?ID=${id}`, {}, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
                 'Access-Control-Allow-Origin': '*'
             }
         })
-        .then( () => {
+        .then(response => {
             dispatch(requestLikeUserProfileSuccess())
+            return response
         })
         .catch(err => {
             dispatch(requestLikeUserProfileFail(err))
+            return err
         })
     }
 }
@@ -364,7 +366,7 @@ export function getMyUserProfileDetails() {
     return dispatch => {
         dispatch(requestMyUserProfileDetails())
 
-        axios.get(api.domain + 'user-profile', {
+        axios.get(api.domain + 'user-profile/current', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
             }

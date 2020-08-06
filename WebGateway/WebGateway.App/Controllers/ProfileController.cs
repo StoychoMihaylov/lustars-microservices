@@ -90,26 +90,38 @@
 
         [HttpGet]
         [Authorize]
+
         public async Task<IActionResult> GetUserProfile(string id)
         {
             var userId = new Guid();
-            if (id == null)  // If ID is provided return user by ID otherwise return current user
+            var currentUserId = IdentityManager.CurrentUserId;
+ 
+            var isValid = Guid.TryParse(id, out userId);
+            if (!isValid)
             {
-                userId = IdentityManager.CurrentUserId;
+                return StatusCode(400); // Bad Request!
             }
-            else
-            {
-                var isValid = Guid.TryParse(id, out userId);
-                if (!isValid)
-                {
-                    return StatusCode(400); // BadRequest!
-                }
-            }
-
-            var userProfileJSON = await this.profileService.CallProfileAPI_GetUserProfileById(userId);
+            
+            var userProfileJSON = await this.profileService.CallProfileAPI_GetUserProfileById(currentUserId, userId);
             if (userProfileJSON == null)
             {
-                return StatusCode(404); // NotFound!
+                return StatusCode(404); // Not Found!
+            }
+
+            return StatusCode(200, userProfileJSON);
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("current")]
+        public async Task<IActionResult> GetCurrentUserProfile()
+        {
+            var userId = IdentityManager.CurrentUserId;
+            
+            var userProfileJSON = await this.profileService.CallProfileAPI_GetCurrentUserProfile(userId);
+            if (userProfileJSON == null)
+            {
+                return StatusCode(404); // Not Found!
             }
 
             return StatusCode(200, userProfileJSON);
@@ -125,7 +137,7 @@
             var userProfileJSON = await this.profileService.CallProfileAPI_GetUserProfileShortreviewDataById(userId);
             if (userProfileJSON == null)
             {
-                return StatusCode(404); // NotFound!
+                return StatusCode(404); // Not Found!
             }
 
             return StatusCode(200, userProfileJSON);
@@ -146,7 +158,7 @@
 
             if (imageUrl == null)
             {
-                return StatusCode(501); // NotImplemented!
+                return StatusCode(501); // Not Implemented!
             }
 
             var isImageCreated = await this.profileService
@@ -154,7 +166,7 @@
 
             if (!isImageCreated)
             {
-                return StatusCode(501); // NotImplemented!
+                return StatusCode(501); // Not Implemented!
             }
 
             return StatusCode(201); // Created!
@@ -186,7 +198,7 @@
 
             if (avatarImgUrl == null)
             {
-                return StatusCode(501); // NotImplemented!
+                return StatusCode(501); // Not Implemented!
             }
 
             return StatusCode(201, avatarImgUrl); // Created!
@@ -224,7 +236,7 @@
 
             if (!isImageDeleted)
             {
-                return StatusCode(501); // NotImplemented!
+                return StatusCode(501); // Not Implemented!
             }
 
             return StatusCode(200); // OK!
@@ -240,7 +252,7 @@
             var allUsersInDistance = await this.profileService.GetAllUserInDistance(userId);
             if (allUsersInDistance == null)
             {
-                return StatusCode(404); // NotFound!
+                return StatusCode(404); // Not Found!
             }
 
             return StatusCode(200, allUsersInDistance);

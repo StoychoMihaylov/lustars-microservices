@@ -73,12 +73,25 @@
 
         [HttpGet]
         [Route("my-user-profile/{userId}")]
-        public IActionResult GetMyUserProfile(string userId)
+        public IActionResult GetCurrentUserProfile(string userId)
         {
             var guidId = Guid.Parse(userId);
 
 
-            var userProfileVm = this.profileService.GetUserProfileById(guidId);
+            var userProfileVm = this.profileService.GetCurrentUserProfileDetails(guidId);
+            if (userProfileVm == null)
+            {
+                return StatusCode(404); // NotFound!
+            }
+
+            return StatusCode(200, userProfileVm);
+        }
+
+        [HttpGet]
+        [Route("user-profile")]
+        public IActionResult GetUserProfile(Guid currentUserId, Guid userId)
+        {
+            var userProfileVm = this.profileService.GetUserProfileDetailsById(currentUserId, userId);
             if (userProfileVm == null)
             {
                 return StatusCode(404); // NotFound!

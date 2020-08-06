@@ -31,6 +31,7 @@
         public ICollection<Image> Images { get; set; }
         public GeoLocation GeoLocation { get; set; }
         public int Likes { get; set; }
+        public bool disableLikeButton { get; set; }
 
         // Social status
         public ICollection<Language> Languages { get; set; }

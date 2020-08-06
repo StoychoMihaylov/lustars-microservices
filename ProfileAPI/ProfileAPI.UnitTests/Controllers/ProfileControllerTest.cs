@@ -89,13 +89,13 @@
 
             var profileService = new Mock<IProfileService>();
             profileService
-                .Setup(p => p.GetUserProfileById(new Guid(userId)))
+                .Setup(p => p.GetCurrentUserProfileDetails(new Guid(userId)))
                 .Returns(userProfile);
 
             var profileController = new ProfileController(profileService.Object);
 
             // Act
-            var response = profileController.GetMyUserProfile(userId);
+            var response = profileController.GetCurrentUserProfile(userId);
 
             // Assert
             Assert.NotNull(response);
