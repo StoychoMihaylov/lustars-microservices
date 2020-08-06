@@ -204,5 +204,18 @@
                 return false;
             }
         }
+
+        public async Task<string> CallProfileAPI_GetWhoLikedMe(Guid currentUserId)
+        {
+            var response = await this.HttpClient.GetAsync(ProfileAPIService.Endpoint + $"profile/{currentUserId}/likes");
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return response.Content.ReadAsStringAsync().Result;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

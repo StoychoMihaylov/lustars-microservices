@@ -21,6 +21,49 @@
             this.profileService = profileService;
         }
 
+        [HttpGet]
+        [Authorize]
+        [Route("likes")]
+        public async Task<IActionResult> GetProfilesWhoLikedMe()
+        {
+            var currentUserId = IdentityManager.CurrentUserId;
+
+            var whoLikedMe = await this.profileService.CallProfileAPI_GetWhoLikedMe(currentUserId);
+            if (whoLikedMe == null)
+            {
+                return StatusCode(404); // Not Found!
+            }
+
+            return StatusCode(200, whoLikedMe);
+        }
+
+        [HttpPost]
+        [Authorize]
+        [Route("like")]
+        public async Task<IActionResult> LikeUserProfile(string id)
+        {
+            var userId = new Guid();
+            var isIdValid = Guid.TryParse(id, out userId);
+            if (!isIdValid)
+            {
+                return StatusCode(400); // Bad Request
+            }
+
+            var like = new UserProfileLikeDTO()
+            {
+                LikeFrom = IdentityManager.CurrentUserId,
+                LikeTo = userId
+            };
+
+            var response = await this.profileService.CallProfileAPI_LikeUserProfileById(like);
+            if (!response)
+            {
+                return StatusCode(501); // Not Implemented! 
+            }
+
+            return StatusCode(200); // OK
+        }
+
         [HttpPost]
         [Authorize]
         [Route("geolocation/update")]
@@ -36,7 +79,7 @@
             var isUpdated = await this.profileService.CallProfileAPI_UpdateUserProfileGeoLocation(userId, bm);
             if (!isUpdated)
             {
-                return StatusCode(501); // NotImplemented!
+                return StatusCode(501); // Not Implemented!
             }
 
             return StatusCode(200); // Ok!
@@ -55,37 +98,10 @@
             var isUpdated = await this.profileService.CallProfileAPI_EditUserProfile(bm);
             if (!isUpdated)
             {
-                return StatusCode(501); // NotImplemented!
+                return StatusCode(501); // Not Implemented!
             }
 
             return StatusCode(200); // Ok!
-        }
-
-        [HttpPost]
-        [Authorize]
-        [Route("like")]
-        public async Task<IActionResult> LikeUserProfile(string id)
-        {
-            var userId = new Guid();
-            var isIdValid = Guid.TryParse(id, out userId);
-            if (!isIdValid)
-            {
-                return StatusCode(400); // BadRequest
-            }
-
-            var like = new UserProfileLikeDTO()
-            {
-                LikeFrom = IdentityManager.CurrentUserId,
-                LikeTo = userId
-            };
-
-            var response = await this.profileService.CallProfileAPI_LikeUserProfileById(like);
-            if (!response)
-            {
-                return StatusCode(501); // NotImplemented! 
-            }
-
-            return StatusCode(200); // OK
         }
 
         [HttpGet]
