@@ -48,6 +48,7 @@ class PeopleNearbyPage extends Component {
 
       return (
           <div className="people-nearby-page-container">
+            <h1>People nearby</h1>
             { userProfiles }
           </div>
       )

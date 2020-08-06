@@ -16,7 +16,6 @@ class WhoLikedMePage extends Component {
     }
 
     render() {
-        console.log(this.props.whoLikedMe)
        let whoLikedMeList = this.props.whoLikedMe !== undefined && this.props.whoLikedMe !== null
             ?   this.props.whoLikedMe.map((userProfile, index) => {
                     return (
@@ -25,16 +24,16 @@ class WhoLikedMePage extends Component {
                             id={ userProfile.id }
                             onClick={ this.retrieveDetailsForProfile.bind(this) }
                         >
-                            <div className="profile-image-container">
+                            <div className="wholikedme-profile-image-container">
                                 <div>{ userProfile.distance } away</div>
                                     <img
                                         id={ userProfile.id }
-                                        className="profile-in-distance-image"
+                                        className="wholikedme-profile-in-distance-image"
                                         src={ api.imageAPI + userProfile.avatarImage }
                                         alt=""
                                     />
-                                    <span className="profile-nearby-camera-img-number">&#128247; { userProfile.countImages }</span>
-                                    <div id={ userProfile.id } className="profile-name-and-location">
+                                    <span className="wholikedme-profile-nearby-camera-img-number">&#128247; { userProfile.countImages }</span>
+                                    <div id={ userProfile.id } className="wholikedme-profile-name-and-location">
                                     <div>{ userProfile.nameAndAge }</div>
                                     <div>{ userProfile.location }</div>
                                 </div>
@@ -46,6 +45,7 @@ class WhoLikedMePage extends Component {
 
         return (
             <div className="who-liked-me-page-container">
+                <h1>Who liked me</h1>
                 { whoLikedMeList }
             </div>
         )
