@@ -97,7 +97,7 @@
             var profileService = new ProfileService(db, this.mapper);
 
             // Act
-            var response = profileService.GetUserProfileById(userId);
+            var response = profileService.GetCurrentUserProfileDetails(userId);
 
             // Assert
             Assert.NotNull(response);

@@ -42,7 +42,21 @@
             return false;
         }
 
-        public async Task<string> CallProfileAPI_GetUserProfileById(Guid guidUserId)
+        public async Task<string> CallProfileAPI_GetUserProfileById(Guid currentUserId, Guid userId)
+        {
+            var response = await this.HttpClient.GetAsync(ProfileAPIService.Endpoint + $"profile/user-profile?currentUserId={currentUserId}&userId={userId}");
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return response.Content.ReadAsStringAsync().Result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<string> CallProfileAPI_GetCurrentUserProfile(Guid guidUserId)
         {
             var response = await this.HttpClient.GetAsync(ProfileAPIService.Endpoint + $"profile/my-user-profile/{guidUserId.ToString()}");
 

@@ -10,7 +10,8 @@
     {
         bool EditUserProfile(EditUserProfileBindingModel userProfile);
         bool CreateNewUserProfile(CreateUserProfileBindingModel createUserProfileBm);
-        UserProfileDetailedDataViewModel GetUserProfileById(Guid userId);
+        UserProfileDetailedDataViewModel GetUserProfileDetailsById(Guid currentUserId, Guid userId);
+        UserProfileDetailedDataViewModel GetCurrentUserProfileDetails(Guid userId);
         bool UpdateUserProfileGeolocation(Guid userIdGuid, GeoLocation geolocation);
         UserProfileShortPreviewDataViewModel GetUserProfileShortPreviewDataById(Guid guidOutput);
         List<UserProfileInDistanceViewModel> GetAllUsersInDistance(Guid guidId, int v);

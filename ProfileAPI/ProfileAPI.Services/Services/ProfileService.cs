@@ -128,7 +128,7 @@
             return true;
         }
 
-        public UserProfileDetailedDataViewModel GetUserProfileById(Guid userId)
+        public UserProfileDetailedDataViewModel GetCurrentUserProfileDetails(Guid userId)
         {
             var userProfile = this.mapper.Map<UserProfileDetailedDataViewModel>(this.Context
                 .UserProfiles
@@ -173,13 +173,76 @@
                 .ToList();
 
             var likes = this.Context
-                .UserProfiles
+                .Likes
                 .AsNoTracking()
-                .Where(u => u.Id == userId)
-                .Select(u => u.WhoILiked)
+                .Where(l => l.LikeToId == userId)
                 .Count();
 
             userProfile.Likes = likes;
+            userProfile.Images = userImages;
+            userProfile.GeoLocation = geoLocation;
+            userProfile.Languages = languages;
+
+            return userProfile;
+        }
+
+        public UserProfileDetailedDataViewModel GetUserProfileDetailsById(Guid currentUserId, Guid userId)
+        {
+            var userProfile = this.mapper.Map<UserProfileDetailedDataViewModel>(this.Context
+                .UserProfiles
+                .AsNoTracking()
+                .Where(u => u.Id == userId)
+                .FirstOrDefault());
+
+            if (userProfile == null) { return null; }
+
+            var userImages = this.Context
+                .Images
+                .AsNoTracking()
+                .Where(img => img.UserProfile.Id == userId)
+                .Select(img => new Image
+                {
+                    Id = img.Id,
+                    Url = img.Url
+                })
+                .ToList();
+
+            var geoLocation = this.Context
+                .GeoLocations
+                .AsNoTracking()
+                .Where(g => g.IsActive == true && g.UserProfile.Id == userId)
+                .Select(g => new GeoLocation
+                {
+                    Id = g.Id,
+                    City = g.City,
+                    Country = g.Country
+                })
+                .FirstOrDefault();
+
+            var languages = this.Context
+                .Languages
+                .AsNoTracking()
+                .Where(l => l.UserProfile.Id == userId)
+                .Select(l => new Language
+                {
+                    Id = l.Id,
+                    Name = l.Name
+                })
+                .ToList();
+
+            var likes = this.Context
+                .Likes
+                .AsNoTracking()
+                .Where(l => l.LikeToId == userId)
+                .ToListAsync()
+                .Result;
+
+            var isAlreadyLikedByCurrentUser = likes
+                .Where(l => l.LikeFromId == currentUserId)
+                .FirstOrDefault();
+
+            userProfile.disableLikeButton = isAlreadyLikedByCurrentUser != null ? true : false;
+            userProfile.Likes = likes.Count;
             userProfile.Images = userImages;
             userProfile.GeoLocation = geoLocation;
             userProfile.Languages = languages;

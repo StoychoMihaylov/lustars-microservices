@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from "react-redux"
 import { api } from '../constants/endpoints'
 import { getSomeUserProfileDetailsById, likeUserProfile } from '../store/actions/myProfileActions'
+import { NotificationManager } from 'react-notifications'
 import ImageSlider from '../components/common/ImageSlider'
 import '../styles/views/ProfileDetailsPage.css'
 
@@ -97,12 +98,20 @@ class ProfileDetailsPage extends Component {
     likeThisUserProfile() {
 
         this.props.likeUserProfile(this.props.match.params.id) // Id from url
+            .then((response) => {
+                if(response.status === 200) {
+                    NotificationManager.success(`You liked ${this.props.profile.name}`, '', 3000)
+                    this.props.getSomeUserProfileDetailsById(this.props.match.params.id) // Refresh data
+                } else {
+                    NotificationManager.error(`Sorry a problem occurred while trying to like ${this.props.profile.name}`, ':(', 3000)
+                }
+            })
     }
 
     render() {
         let profile = this.props.profile
 
-        let laguages = profile.languages !== undefined
+        let laguages = profile.languages !== undefined && profile !== null
             ?   profile.languages.map((language, index) => {
                     return (
                         <div key={index} >{ language.name }</div>
@@ -128,7 +137,11 @@ class ProfileDetailsPage extends Component {
                         { profile.geoLocation !== undefined && profile.geoLocation !== null ? profile.geoLocation.country : null}
                     </div>
                     <div className="intro-bar-element">
-                        <button className="profile-details-like-bttn" onClick={ this.likeThisUserProfile.bind(this) }>&#10084;</button>
+                        <button
+                            className={ profile.disableLikeButton === false ? "profile-details-like-bttn" : "profile-details-like-bttn-disabled"}
+                            disabled={ profile.disableLikeButton }
+                            onClick={ this.likeThisUserProfile.bind(this) }>&#10084;
+                        </button>
                         <button className="profile-details-start-chating-bttn" ><span className="chat-box-icon">💬</span></button>
                     </div>
                 </div>

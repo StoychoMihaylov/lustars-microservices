@@ -10,7 +10,7 @@
     {
         Task<bool> CallProfileAPI_CreateUserProfile(CreateUserProfileBindingModel createUserProfileViewModel);
         Task<bool> CallProfileAPI_EditUserProfile(UserProfileBindingModel bm);
-        Task<string> CallProfileAPI_GetUserProfileById(Guid guidUserId);
+        Task<string> CallProfileAPI_GetCurrentUserProfile(Guid guidUserId);
         Task<string> CallProfileAPI_SaveAvatarImageURL(Guid userId, ImageUrlBindingModel url);
         Task<bool> CallProfileAPI_CreateNewUserProfileImage(Guid userId, ImageUrlBindingModel url);
         Task<string> CallImageAPI_UploadImage(Guid userId, IFormFile formData);
@@ -20,5 +20,6 @@
         Task<string> GetAllUserInDistance(Guid guidId);
         Task<string> CallProfileAPI_GetCurrentUserAvatarImage(Guid guidId);
         Task<bool> CallProfileAPI_LikeUserProfileById(UserProfileLikeDTO like);
+        Task<string> CallProfileAPI_GetUserProfileById(Guid currentUserId, Guid userId);
     }
 }
