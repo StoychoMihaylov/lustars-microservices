@@ -19,8 +19,6 @@ class PeopleNearbyPage extends Component {
   }
 
   render() {
-    console.log(this.props.peopleNearby)
-
     let userProfiles = this.props.peopleNearby !== undefined && this.props.peopleNearby !== null
       ? this.props.peopleNearby.map((userProfile, index) => {
           return (

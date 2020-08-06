@@ -33,11 +33,55 @@ import {
     REQUEST_GET_CURRENT_USER_AVATAR_URL_SUCCESS,
     REQUEST_LIKE_USER_PROFILE,
     REQUEST_LIKE_USER_PROFILE_SUCCESS,
-    REQUEST_LIKE_USER_PROFILE_FAIL
+    REQUEST_LIKE_USER_PROFILE_FAIL,
+    REQUEST_GET_WHO_LIKED_ME,
+    REQUEST_GET_WHO_LIKED_ME_SUCCESS,
+    REQUEST_GET_WHO_LIKED_ME_FAIL
 } from '../../constants/actionTypes/myProfileActionTypes'
 import { NotificationManager} from 'react-notifications'
 import { api } from '../../constants/endpoints'
 import axios from 'axios'
+
+//*************************** Get Who liked me ***************************
+
+export function getAllUsersWhoLikedMe() {
+    return dispatch => {
+        dispatch(requestGetWhoLikedMe())
+
+        axios.get(api.domain + 'user-profile/likes', {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+        .then(response => {
+            dispatch(requestGetWhoLikedMeSuccess(response.data))
+        })
+        .catch(err => {
+            dispatch(requestGetWhoLikedMeFail(err))
+        })
+    }
+}
+
+export function requestGetWhoLikedMe() {
+    return {
+        type: REQUEST_GET_WHO_LIKED_ME
+    }
+}
+
+export function requestGetWhoLikedMeSuccess(data) {
+    return {
+        type: REQUEST_GET_WHO_LIKED_ME_SUCCESS,
+        payload: data
+    }
+}
+
+export function requestGetWhoLikedMeFail(error) {
+    return {
+        type: REQUEST_GET_WHO_LIKED_ME_FAIL,
+        payload: error
+    }
+}
 
 //*************************** Like User Profile ***************************
 

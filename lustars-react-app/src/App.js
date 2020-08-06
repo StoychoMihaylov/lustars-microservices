@@ -8,6 +8,7 @@ import AccountRegistrationPage from './views/Account/AccountRegistrationPage'
 import AccountLoginPage from './views/Account/AccountLoginPage'
 import PeopleNearbyPage from './views/PeopleNearbyPage'
 import ProfileDetailsPage from './views/ProfileDetailsPage'
+import WhoLikedMePage from './views/WhoLikedMePage'
 
 import 'react-notifications/lib/notifications.css'
 
@@ -33,5 +34,6 @@ export default () => (
       <PrivateRoute exact path='/my-profile' component={ MyProfileEditPage } />
       <PrivateRoute exact path='/people-nearby' component={ PeopleNearbyPage } />
       <PrivateRoute exact path='/profile/:id' component={ ProfileDetailsPage } />
+      <PrivateRoute exact path='/who-liked-me' component={ WhoLikedMePage } />
     </Layout>
 )

@@ -16,6 +16,7 @@
         Task<string> CallImageAPI_UploadImage(Guid userId, IFormFile formData);
         Task<bool> CallProfileAPI_UpdateUserProfileGeoLocation(Guid userId, GeoLocationBindingModel bm);
         Task<bool> CallProfileaPI_DeleteImage(Guid userId, DeleteUserProfileImageBindingModel image);
+        Task<string> CallProfileAPI_GetWhoLikedMe(Guid currentUserId);
         Task<string> CallProfileAPI_GetUserProfileShortreviewDataById(Guid userId);
         Task<string> GetAllUserInDistance(Guid guidId);
         Task<string> CallProfileAPI_GetCurrentUserAvatarImage(Guid guidId);

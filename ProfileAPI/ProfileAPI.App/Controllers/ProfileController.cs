@@ -17,6 +17,21 @@
             this.profileService = profileService;
         }
 
+        [HttpGet]
+        [Route("{id}/likes")]
+        public IActionResult GetWhyLikedMe(string id)
+        {
+            var guidId = Guid.Parse(id);
+
+            var whoLikedMe = this.profileService.GetUsersWhoLikedMe(guidId);
+            if (whoLikedMe.Count == 0)
+            {
+                return StatusCode(404); // Not Found!
+            }
+
+            return StatusCode(200, whoLikedMe); // OK!
+        }
+
         [HttpPost]
         [Route("like")]
         public IActionResult LikeUserProfile([FromBody] UserProfileLikeBindingModel like)
@@ -39,7 +54,7 @@
             var allUsersInDistanceOf10km = this.profileService.GetAllUsersInDistance(guidId, 10);
             if (allUsersInDistanceOf10km == null)
             {
-                return StatusCode(404); // NotFound!
+                return StatusCode(404); // Not Found!
             }
 
             return StatusCode(200, allUsersInDistanceOf10km);
@@ -52,7 +67,7 @@
             var isCreated = this.profileService.CreateNewUserProfile(bm);
             if (!isCreated)
             {
-                return StatusCode(501); // NotImplemented!
+                return StatusCode(501); // Not Implemented!
             }
 
             return StatusCode(201); // Created!
@@ -65,7 +80,7 @@
             var isUpdated = this.profileService.EditUserProfile(bm);
             if (!isUpdated)
             {
-                return StatusCode(501); // NotImplemented!
+                return StatusCode(501); // Not Implemented!
             }
 
             return StatusCode(200); // Ok!
@@ -81,7 +96,7 @@
             var userProfileVm = this.profileService.GetCurrentUserProfileDetails(guidId);
             if (userProfileVm == null)
             {
-                return StatusCode(404); // NotFound!
+                return StatusCode(404); // Not Found!
             }
 
             return StatusCode(200, userProfileVm);
@@ -94,7 +109,7 @@
             var userProfileVm = this.profileService.GetUserProfileDetailsById(currentUserId, userId);
             if (userProfileVm == null)
             {
-                return StatusCode(404); // NotFound!
+                return StatusCode(404); // Not Found!
             }
 
             return StatusCode(200, userProfileVm);
@@ -109,7 +124,7 @@
             var userProfileVm = this.profileService.GetUserProfileShortPreviewDataById(guidId);
             if (userProfileVm == null)
             {
-                return StatusCode(404); // NotFound!
+                return StatusCode(404); // Not Found!
             }
 
             return StatusCode(200, userProfileVm);
@@ -124,7 +139,7 @@
             var updated = this.profileService.UpdateUserProfileGeolocation(guidId, geolocation);
             if (!updated)
             {
-                return StatusCode(501); // NotImplemented!
+                return StatusCode(501); // Not Implemented!
             }
 
             return StatusCode(200); // Ok

@@ -31,12 +31,16 @@ import {
     REQUEST_LIKE_USER_PROFILE,
     REQUEST_LIKE_USER_PROFILE_SUCCESS,
     REQUEST_LIKE_USER_PROFILE_FAIL,
+    REQUEST_GET_WHO_LIKED_ME,
+    REQUEST_GET_WHO_LIKED_ME_SUCCESS,
+    REQUEST_GET_WHO_LIKED_ME_FAIL
 } from '../../constants/actionTypes/myProfileActionTypes'
 
 const initialState = {
     currentUserAvatarImgURL: "",
     currentUserProfileDetails: {},
     userProfileDetails: {},
+    userProfilesWhoLikedMe: [],
 
     isLoading: false,
     error: false
@@ -46,6 +50,23 @@ const myProfileReducer = (state, action) => {
     state = state || initialState
 
     switch (action.type) {
+        case REQUEST_GET_WHO_LIKED_ME:
+            return {
+                ...state,
+                isLoading: true,
+            }
+        case REQUEST_GET_WHO_LIKED_ME_SUCCESS:
+            return {
+                ...state,
+                userProfilesWhoLikedMe: action.payload,
+                isLoading: false
+            }
+        case REQUEST_GET_WHO_LIKED_ME_FAIL:
+            return {
+                ...state,
+                error: action.payload,
+                isLoading: false
+            }
         case REQUEST_LIKE_USER_PROFILE:
             return {
                 ...state,
