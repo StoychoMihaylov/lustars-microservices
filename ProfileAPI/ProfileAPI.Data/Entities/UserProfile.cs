@@ -39,6 +39,8 @@
         public virtual ICollection<GeoLocation> GeoLocations { get; set; }
         public virtual ICollection<Like> WhoILiked { get; set; }
         public virtual ICollection<Like> Likes { get; set; }
+        public virtual ICollection<ProfileVisitor> ProfileVisits { get; set; }
+        public virtual ICollection<ProfileVisitor> VisitedProfiles { get; set; }
 
         // Social status
         public ICollection<Language> Languages { get; set; }

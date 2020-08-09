@@ -15,6 +15,8 @@
 
         DbSet<Like> Likes { get; set; }
 
+        public DbSet<ProfileVisitor> ProfileVisitor { get; set; }
+
         int SaveChanges();
     }
 }
