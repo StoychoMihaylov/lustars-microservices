@@ -23,6 +23,22 @@
 
         [HttpGet]
         [Authorize]
+        [Route("visitors")]
+        public async Task<IActionResult> GetAllProfileVisitors()
+        {
+            var currentUserId = IdentityManager.CurrentUserId;
+
+            var visitorsVm = await this.profileService.CallProfileAPI_GetAllProfileVisitors();
+            if (visitorsVm == null)
+            {
+                return StatusCode(404); // Not found;
+            }
+
+            return StatusCode(200, visitorsVm);
+        }
+
+        [HttpGet]
+        [Authorize]
         [Route("likes")]
         public async Task<IActionResult> GetProfilesWhoLikedMe()
         {
@@ -106,7 +122,6 @@
 
         [HttpGet]
         [Authorize]
-
         public async Task<IActionResult> GetUserProfile(string id)
         {
             var userId = new Guid();

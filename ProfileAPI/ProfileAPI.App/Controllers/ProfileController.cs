@@ -18,6 +18,19 @@
         }
 
         [HttpGet]
+        [Route("{id}/visitors")]
+        public IActionResult GetAllProfileVisitors(Guid id)
+        {
+            var visitorsVm = this.profileService.GetAllProfileVisitors(id);
+            if (visitorsVm.Count == 0)
+            {
+                return StatusCode(404); // Not Found!
+            }
+
+            return StatusCode(200, visitorsVm);
+        }
+
+        [HttpGet]
         [Route("{id}/likes")]
         public IActionResult GetWhyLikedMe(string id)
         {

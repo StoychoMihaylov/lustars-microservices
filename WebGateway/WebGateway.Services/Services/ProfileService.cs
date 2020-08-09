@@ -217,5 +217,18 @@
                 return null;
             }
         }
+
+        public async Task<string> CallProfileAPI_GetAllProfileVisitors(Guid userId)
+        {
+            var response = await this.HttpClient.GetAsync(ProfileAPIService.Endpoint + $"profile/{userId}/visitors");
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return response.Content.ReadAsStringAsync().Result;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
