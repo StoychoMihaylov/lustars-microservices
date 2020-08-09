@@ -495,5 +495,49 @@
 
             return whoLikedMe;
         }
+
+        public List<UserProfileVisitorViewModel> GetAllProfileVisitors(Guid id)
+        {
+            var visitors = this.Context
+                .ProfileVisitor
+                .AsNoTracking()
+                .Include(v => v.Visitor)
+                    .ThenInclude(v => v.GeoLocations)
+                .Where(v => v.VisitedId == id)
+                .Select(visit => new UserProfileVisitorViewModel()
+                {
+                    Id = visit.Visitor.Id,
+                    Name = visit.Visitor.Name,
+                    AvatarImage = visit.Visitor.AvatarImage,
+                    CountImages = visit.Visitor.Images.Count(),
+                    GeoLocation = visit.Visitor.GeoLocations.Where(g => g.IsActive == true).FirstOrDefault()
+                })
+                .ToList();
+
+            if (visitors.Count == 0) return visitors;
+
+            var currentUserGeoLocation = this
+               .Context
+               .GeoLocations
+               .Where(g => g.IsActive == true && g.UserProfile.Id == id)
+               .FirstOrDefault();
+
+            foreach (var user in visitors)
+            {
+                var calcDistance = GetDistance(
+                   user.GeoLocation.Longitude,
+                   user.GeoLocation.Latitude,
+                   currentUserGeoLocation.Longitude,
+                   currentUserGeoLocation.Latitude
+                   );
+
+                user.Distance = Math.Round(calcDistance / 1000, 1).ToString() + "km";
+                user.City = user.GeoLocation.City;
+                user.Country = user.GeoLocation.Country;
+                user.GeoLocation = null;
+            }
+
+            return visitors;
+        }
     }
 }

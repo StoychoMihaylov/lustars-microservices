@@ -13,6 +13,7 @@
         UserProfileDetailedDataViewModel GetUserProfileDetailsById(Guid currentUserId, Guid userId);
         UserProfileDetailedDataViewModel GetCurrentUserProfileDetails(Guid userId);
         bool UpdateUserProfileGeolocation(Guid userIdGuid, GeoLocation geolocation);
+        List<UserProfileVisitorViewModel> GetAllProfileVisitors(Guid id);
         UserProfileShortPreviewDataViewModel GetUserProfileShortPreviewDataById(Guid guidOutput);
         List<UserWhoLikedMeViewModel> GetUsersWhoLikedMe(Guid id);
         List<UserProfileInDistanceViewModel> GetAllUsersInDistance(Guid guidId, int v);
