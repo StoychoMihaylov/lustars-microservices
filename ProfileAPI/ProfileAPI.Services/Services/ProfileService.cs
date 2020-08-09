@@ -262,7 +262,17 @@
                 onDate = DateTime.UtcNow
             };
 
-            userProfile.ProfileVisits.Add(newVisit);
+            var visit = userProfile.ProfileVisits.Where(v => v.VisitorId == currentUserId).FirstOrDefault();
+            if (visit == null)
+            {
+                userProfile.ProfileVisits.Add(newVisit);
+            }
+            else
+            {
+                visit.onDate = DateTime.UtcNow;
+                this.Context.ProfileVisitor.Update(visit);
+            }
+
             this.Context.SaveChanges();
 
             return this.mapper.Map<UserProfileDetailedDataViewModel>(userProfile);
