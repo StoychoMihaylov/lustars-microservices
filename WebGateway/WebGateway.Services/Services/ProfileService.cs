@@ -4,13 +4,13 @@
     using System.IO;
     using System.Net;
     using System.Net.Http;
+    using WebGateway.Models.DTOs;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Http;
     using WebGateway.Services.Common;
     using WebGateway.Services.Endpoints;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.UserProfile;
-    using WebGateway.Models.DTOs;
 
     public class ProfileService : Service, IProfileService
     {

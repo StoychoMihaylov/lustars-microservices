@@ -18,6 +18,8 @@
 
         public DbSet<Like> Likes { get; set; }
 
+        public DbSet<ProfileVisitor> ProfileVisitor { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserProfile>()
@@ -35,7 +37,8 @@
                .WithOne(l => l.UserProfile)
                .OnDelete(DeleteBehavior.SetNull);
 
-            // Many to many self relation ************************
+            // Many to many Profile likes self relation **********
+
             modelBuilder.Entity<Like>()
                 .HasKey(e => new { e.LikeFromId, e.LikeToId });
 
@@ -48,6 +51,24 @@
                 .HasOne(e => e.LikeTo)
                 .WithMany(e => e.Likes)
                 .HasForeignKey(e => e.LikeToId);
+
+            //*****************************************************
+
+            // Many to may Profile visits self relation ***********
+
+            modelBuilder.Entity<ProfileVisitor>()
+                .HasKey(v => new { v.VisitorId, v.VisitedId });
+
+            modelBuilder.Entity<ProfileVisitor>()
+                .HasOne(v => v.Visitor)
+                .WithMany(v => v.VisitedProfiles)
+                .HasForeignKey(v => v.VisitorId);
+
+            modelBuilder.Entity<ProfileVisitor>()
+                .HasOne(v => v.Visited)
+                .WithMany(v => v.ProfileVisits)
+                .HasForeignKey(e => e.VisitedId);
+
             //*****************************************************
         }
     }

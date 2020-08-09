@@ -188,13 +188,8 @@
 
         public UserProfileDetailedDataViewModel GetUserProfileDetailsById(Guid currentUserId, Guid userId)
         {
-            var userProfile = this.mapper.Map<UserProfileDetailedDataViewModel>(this.Context
-                .UserProfiles
-                .AsNoTracking()
-                .Where(u => u.Id == userId)
-                .FirstOrDefault());
-
-            if (userProfile == null) { return null; }
+            var userProfile = MarkUserProfileAsVisited(currentUserId, userId);
+            if (userProfile == null) return null;
 
             var userImages = this.Context
                 .Images
@@ -248,6 +243,29 @@
             userProfile.Languages = languages;
 
             return userProfile;
+        }
+
+        private UserProfileDetailedDataViewModel MarkUserProfileAsVisited(Guid currentUserId, Guid userId)
+        {
+            var userProfile = this.Context
+                .UserProfiles
+                .Include(u => u.ProfileVisits)
+                .Where(u => u.Id == userId)
+                .FirstOrDefault();
+
+            if (userProfile == null) { return null; }
+
+            var newVisit = new ProfileVisitor()
+            {
+                VisitorId = currentUserId,
+                VisitedId = userId,
+                onDate = DateTime.UtcNow
+            };
+
+            userProfile.ProfileVisits.Add(newVisit);
+            this.Context.SaveChanges();
+
+            return this.mapper.Map<UserProfileDetailedDataViewModel>(userProfile);
         }
 
         public bool UpdateUserProfileGeolocation(Guid userIdGuid, GeoLocation geolocation)
