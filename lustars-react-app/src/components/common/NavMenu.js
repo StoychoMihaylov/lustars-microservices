@@ -49,7 +49,7 @@ class NavMenu extends React.Component {
         </li>
         <li>
           <div className="navbar-nav-attribute">
-            <button onClick={() => this.props.push('/people-nearby') } className="cursor-pointer navbar-link">
+            <button onClick={() => this.props.push('/who-visited-me') } className="cursor-pointer navbar-link">
               <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/visitors.PNG'} alt="" /></span> Visitors
             </button>
           </div>
