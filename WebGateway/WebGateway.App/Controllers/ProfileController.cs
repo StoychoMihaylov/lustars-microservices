@@ -28,7 +28,7 @@
         {
             var currentUserId = IdentityManager.CurrentUserId;
 
-            var visitorsVm = await this.profileService.CallProfileAPI_GetAllProfileVisitors();
+            var visitorsVm = await this.profileService.CallProfileAPI_GetAllProfileVisitors(currentUserId);
             if (visitorsVm == null)
             {
                 return StatusCode(404); // Not found;

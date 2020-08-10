@@ -1,0 +1,45 @@
+.who-visited-me-page-container {
+    margin-top: 60px;
+}
+
+.who-visited-me-profile-image-container {
+    margin: 10px;
+    position: relative;
+    display: inline;
+    top: 0;
+    left: 0;
+}
+
+.who-visited-me-profile-in-distance-image {
+    width:  200px;
+    height: 230px;
+    object-fit: cover;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.who-visited-me-profile-camera-img-number {
+    right: 50px;
+    bottom: 80px;
+    position: relative;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: transparent;
+}
+
+.who-visited-me-profile-name-and-location {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(85, 92, 97, 0.61);
+    color: white;
+    height: auto;
+    width: 180px;
+    position: absolute;
+    top: 200px;
+    right: 0;
+    left: 0;
+}

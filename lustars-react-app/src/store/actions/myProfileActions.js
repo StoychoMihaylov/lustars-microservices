@@ -36,11 +36,55 @@ import {
     REQUEST_LIKE_USER_PROFILE_FAIL,
     REQUEST_GET_WHO_LIKED_ME,
     REQUEST_GET_WHO_LIKED_ME_SUCCESS,
-    REQUEST_GET_WHO_LIKED_ME_FAIL
+    REQUEST_GET_WHO_LIKED_ME_FAIL,
+    REQUEST_GET_PROFILE_VISITORS,
+    REQUEST_GET_PROFILE_VISITORS_SUCCESS,
+    REQUEST_GET_PROFILE_VISITORS_FAIL
 } from '../../constants/actionTypes/myProfileActionTypes'
 import { NotificationManager} from 'react-notifications'
 import { api } from '../../constants/endpoints'
 import axios from 'axios'
+
+//*************************** Get my profile visitors ***************************
+
+export function getMyProfileVisitors() {
+    return dispatch => {
+        dispatch(requestGetMyProfileVisitors())
+
+        axios.get(api.domain + 'user-profile/visitors', {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+        .then(response => {
+            dispatch(requestGetMyProfileVisitorsSuccess(response.data))
+        })
+        .catch(err => {
+            dispatch(requestGetMyProfileVisitorsFail(err))
+        })
+    }
+}
+
+export function requestGetMyProfileVisitors() {
+    return {
+        type: REQUEST_GET_PROFILE_VISITORS
+    }
+}
+
+export function requestGetMyProfileVisitorsSuccess(data) {
+    return {
+        type: REQUEST_GET_PROFILE_VISITORS_SUCCESS,
+        payload: data
+    }
+}
+
+export function requestGetMyProfileVisitorsFail(error) {
+    return {
+        type: REQUEST_GET_PROFILE_VISITORS_FAIL,
+        payload: error
+    }
+}
 
 //*************************** Get Who liked me ***************************
 
