@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { Form } from 'reactstrap'
-import { NotificationManager} from 'react-notifications';
+import { NotificationManager} from 'react-notifications'
 import { api } from '../../constants/endpoints'
 import { uploadUserProfileImage, deleteUserProfileImage, getMyUserProfileDetails } from '../../store/actions/myProfileActions'
 import '../../styles/components/profile/MyProfileImagesContainer.css'

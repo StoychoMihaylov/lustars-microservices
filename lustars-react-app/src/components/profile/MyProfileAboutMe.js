@@ -6,8 +6,10 @@ import {
     updateUserProfileBoleanField,
     updateUserProfileTextField,
     addUserCountryLanguage,
-    deleteUserCountryLanguage
+    deleteUserCountryLanguage,
+    editMyUserProfileDetails
 } from '../../store/actions/myProfileActions'
+import { NotificationManager} from 'react-notifications'
 import YesNoInputField from './YesNoInputField'
 import NumberAdjusterInput from '../common/NumberAdjusterInput'
 import { countryLanguages } from '../../constants/countryLanguages'
@@ -22,11 +24,30 @@ class MyProfileAboutMe extends Component {
         }
     }
 
+    async updateBirtDayDate(date) {
+        await this.updateProfileTextField("dateOfBirth", date)
+        await this.updateUserProfile()
+    }
+
+    updateUserProfile() {
+        this.props.editMyUserProfileDetails(this.props.profile)
+            .then(response => {
+                if (response.status === 200) {
+                    NotificationManager.success('Your profile has been updated successfully', 'Updated!', 3000)
+                } else {
+                    NotificationManager.error('Something went wrong! Please check your connection!', 'Error!', 5000, () => {
+                        alert('There is some problem! Please try again or check your network!');
+                      });
+                }
+            })
+    }
+
     updateProfileTextField(field, value) {
         if (this.props.profile === undefined ||
             this.props.profile === null ||
             Object.keys(this.props.profile).length === 0) {
             // TO DO: Notification for connection problem
+            NotificationManager.error('An error ocured connection you, please try again.', ':(' , 3000)
             return
         }
 
@@ -36,6 +57,7 @@ class MyProfileAboutMe extends Component {
         switch (field) {
             case 'name':
                 newState.name = value
+                localStorage.setItem("lustars_user_name", value)
                 this.props.updateUserProfileTextField(newState)
                 return
             case 'lastName':
@@ -48,10 +70,10 @@ class MyProfileAboutMe extends Component {
                 return
             case 'dateOfBirth':
                 newState.dateOfBirth = value
-                this.props.updateUserProfileTextField(newState)
                 this.setState({
                     isDatePickerClicked: false
                 })
+                this.props.updateUserProfileTextField(newState)
                 return
             case 'gender':
                 newState.gender = value
@@ -81,7 +103,6 @@ class MyProfileAboutMe extends Component {
                     newState.languages.push({ name: value })
                     this.props.addUserCountryLanguage(newState)
                 }
-
                 return
             case 'deleteLanguage':
                 let index = 0
@@ -94,6 +115,7 @@ class MyProfileAboutMe extends Component {
 
                     index++
                 })
+                this.updateUserProfile()
                 return
             case 'educationDegree':
                 newState.educationDegree = value
@@ -149,26 +171,32 @@ class MyProfileAboutMe extends Component {
             case 'howOftenSmoke':
                 newState.doingSport = newValue
                 this.props.updateUserProfileBoleanField(newState)
+                this.updateUserProfile()
                 return
             case 'haveKids':
                 newState.haveKids = newValue
                 this.props.updateUserProfileBoleanField(newState)
+                this.updateUserProfile()
                 return
             case 'wantToHaveKids':
                 newState.wantKids = newValue
                 this.props.updateUserProfileBoleanField(newState)
+                this.updateUserProfile()
                 return
             case 'drinkAlcohol':
                 newState.drinkAlcohol = newValue
                 this.props.updateUserProfileBoleanField(newState)
+                this.updateUserProfile()
                 return
             case 'smoker':
                 newState.smoker = newValue
                 this.props.updateUserProfileBoleanField(newState)
+                this.updateUserProfile()
                 return
             case 'doSport':
                 newState.doSport = newValue
                 this.props.updateUserProfileBoleanField(newState)
+                this.updateUserProfile()
                 return
 
             default:
@@ -192,6 +220,7 @@ class MyProfileAboutMe extends Component {
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.name }
                                     onChange={(e) => this.updateProfileTextField("name", e.target.value)}
+                                    onBlur={ this.updateUserProfile.bind(this)}
                                 />
                             </th>
                         </tr>
@@ -205,6 +234,7 @@ class MyProfileAboutMe extends Component {
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.lastName }
                                     onChange={(e) => this.updateProfileTextField("lastName", e.target.value)}
+                                    onBlur={ this.updateUserProfile.bind(this)}
                                 />
                             </td>
                         </tr>
@@ -218,6 +248,7 @@ class MyProfileAboutMe extends Component {
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.feelInMood }
                                     onChange={(e) => this.updateProfileTextField("mood", e.target.value)}
+                                    onBlur={ this.updateUserProfile.bind(this)}
                                 />
                             </td>
                         </tr>
@@ -237,14 +268,14 @@ class MyProfileAboutMe extends Component {
                                                     ? new Date(this.props.profile.dateOfBirth)
                                                     : new Date()
                                             }
-                                            onChange={(date) => this.updateProfileTextField("dateOfBirth", date)}
+                                            onChange={(date) => this.updateBirtDayDate(date)}
                                         />
                                     :   <DatePicker
                                             id="date-of-birth"
                                             className="text-input-profile-about"
                                             showPopperArrow={false}
                                             selected={ new Date() }
-                                            onChange={(date) => this.updateProfileTextField("dateOfBirth", date)}
+                                            onChange={(date) => this.updateBirtDayDate(date)}
                                         />
                                 }
                             </td>
@@ -256,7 +287,8 @@ class MyProfileAboutMe extends Component {
                                     id="gender"
                                     className="text-input-profile-about"
                                     value={ this.props.profile.gender }
-                                    onChange={(e) => this.updateProfileTextField("gender", e.target.value)}>
+                                    onChange={(e) => this.updateProfileTextField("gender", e.target.value)}
+                                    onBlur={ this.updateUserProfile.bind(this)}>
                                     {
                                         this.props.profile.gender === null || this.props.profile.gender === undefined
                                             ? <option selected="selected">Select Gender</option>
@@ -274,7 +306,8 @@ class MyProfileAboutMe extends Component {
                                     id="merital-status"
                                     className="text-input-profile-about"
                                     value={ this.props.profile.meritalStatus }
-                                    onChange={(e) => this.updateProfileTextField("meritalStatus", e.target.value)}>
+                                    onChange={(e) => this.updateProfileTextField("meritalStatus", e.target.value)}
+                                    onBlur={ this.updateUserProfile.bind(this)}>
                                     {
                                         this.props.profile.meritalStatus === null || this.props.profile.meritalStatus === undefined
                                             ? <option selected="selected">Select Marital Status</option>
@@ -294,7 +327,8 @@ class MyProfileAboutMe extends Component {
                                     id="looking-for"
                                     className="text-input-profile-about"
                                     value={ this.props.profile.lookingFor }
-                                    onChange={(e) => this.updateProfileTextField("lookingFor", e.target.value)}>
+                                    onChange={(e) => this.updateProfileTextField("lookingFor", e.target.value)}
+                                    onBlur={ this.updateUserProfile.bind(this)}>
                                     {
                                         this.props.profile.lookingFor === null || this.props.profile.lookingFor === undefined
                                             ? <option>Select Interests</option>
@@ -332,7 +366,8 @@ class MyProfileAboutMe extends Component {
                                 <select
                                     id="languages"
                                     className="text-input-profile-about"
-                                    onChange={(e) => this.updateProfileTextField("addLanguage", e.target.value)}>
+                                    onChange={(e) => this.updateProfileTextField("addLanguage", e.target.value)}
+                                    onBlur={ this.updateUserProfile.bind(this)}>
                                     <option selected="selected" disabled>Add language</option>
                                     {
                                         countryLanguages.map((language, index) => {
@@ -359,7 +394,8 @@ class MyProfileAboutMe extends Component {
                                     id="education-degree"
                                     className="text-input-profile-about"
                                     value={ this.props.profile.educationDegree }
-                                    onChange={(e) => this.updateProfileTextField("educationDegree", e.target.value)}>
+                                    onChange={(e) => this.updateProfileTextField("educationDegree", e.target.value)}
+                                    onBlur={ this.updateUserProfile.bind(this)}>
                                     {
                                         this.props.profile.educationDegree === null || this.props.profile.educationDegree === undefined
                                             ? <option selected="selected">Select Education degree</option>
@@ -382,6 +418,7 @@ class MyProfileAboutMe extends Component {
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.university }
                                     onChange={(e) => this.updateProfileTextField("university", e.target.value)}
+                                    onBlur={ this.updateUserProfile.bind(this)}
                                 />
                             </td>
                         </tr>
@@ -395,6 +432,7 @@ class MyProfileAboutMe extends Component {
                                 className="text-input-profile-about"
                                 defaultValue={ this.props.profile.work }
                                 onChange={(e) => this.updateProfileTextField("work", e.target.value)}
+                                onBlur={ this.updateUserProfile.bind(this)}
                                 />
                             </td>
                         </tr>
@@ -407,7 +445,8 @@ class MyProfileAboutMe extends Component {
                                     placeholder="Type something that describes you."
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.biographyAndInterests }
-                                    onChange={(e) => this.updateProfileTextField("biography", e.target.value)}>
+                                    onChange={(e) => this.updateProfileTextField("biography", e.target.value)}
+                                    onBlur={ this.updateUserProfile.bind(this)}>
                                 </textarea>
                             </td>
                         </tr>
@@ -450,7 +489,8 @@ class MyProfileAboutMe extends Component {
                                     id="figure"
                                     className="text-input-profile-about"
                                     value={ this.props.profile.figure }
-                                    onChange={(e) => this.updateProfileTextField("figure", e.target.value)}>
+                                    onChange={(e) => this.updateProfileTextField("figure", e.target.value)}
+                                    onBlur={ this.updateUserProfile.bind(this)}>
                                     {
                                         this.props.profile.figure === null || this.props.profile.figure === undefined
                                             ? <option selected="selected">Select your figure</option>
@@ -527,7 +567,8 @@ class MyProfileAboutMe extends Component {
                                                     id="how-often-do-port"
                                                     className="text-input-profile-about"
                                                     value={ this.props.profile.howOftenDoSport }
-                                                    onChange={(e) => this.updateProfileTextField("howOftenDoSport", e.target.value)}>
+                                                    onChange={(e) => this.updateProfileTextField("howOftenDoSport", e.target.value)}
+                                                    onBlur={ this.updateUserProfile.bind(this)}>
                                                     {
                                                         this.props.profile.howOftenDoSport === null || this.props.profile.howOftenDoSport === undefined
                                                             ?   <option selected="selected">Sport activity</option>
@@ -551,7 +592,8 @@ class MyProfileAboutMe extends Component {
                                                     id="how-often-drin-alcohol"
                                                     className="text-input-profile-about"
                                                     value={ this.props.profile.howOftenDrinkAlcohol }
-                                                    onChange={(e) => this.updateProfileTextField("howOftenDrinkAlcohol", e.target.value)}>
+                                                    onChange={(e) => this.updateProfileTextField("howOftenDrinkAlcohol", e.target.value)}
+                                                    onBlur={ this.updateUserProfile.bind(this)}>
                                                     {
                                                         this.props.profile.howOftenDrinkAlcohol === null || this.props.profile.howOftenDrinkAlcohol === undefined
                                                             ?   <option selected="selected">Drinking frequency</option>
@@ -576,7 +618,8 @@ class MyProfileAboutMe extends Component {
                                                     id="how-often-smoke"
                                                     className="text-input-profile-about"
                                                     defaultValue={ this.props.profile.howOftenSmoke }
-                                                    onChange={(e) => this.updateProfileTextField("howOftenSmoke", e.target.value)}>
+                                                    onChange={(e) => this.updateProfileTextField("howOftenSmoke", e.target.value)}
+                                                    onBlur={ this.updateUserProfile.bind(this)}>
                                                     {
                                                         this.props.profile.howOftenSmoke === null || this.props.profile.howOftenSmoke === undefined
                                                             ?   <option selected="selected">Smoking frequency</option>
@@ -599,8 +642,17 @@ class MyProfileAboutMe extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        profile: state.myProfile.currentUserProfileDetails,
+        isLoading: state.myProfile.isLoading,
+        error: state.myProfile.error
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
+        editMyUserProfileDetails: (userProfileDetails) => dispatch(editMyUserProfileDetails(userProfileDetails)),
         deleteUserCountryLanguage: (newValue) => dispatch(deleteUserCountryLanguage(newValue)),
         addUserCountryLanguage: (newValue) => dispatch(addUserCountryLanguage(newValue)),
         updateUserProfileBoleanField: (newValue) => dispatch(updateUserProfileBoleanField(newValue)),
@@ -608,4 +660,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(MyProfileAboutMe)
+export default connect(mapStateToProps, mapDispatchToProps)(MyProfileAboutMe)

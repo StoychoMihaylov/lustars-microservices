@@ -45,7 +45,7 @@ class FormAccountLogout extends Component {
                         { avatarImg }
                         <button
                             className="cursor-pointer navbar-link"
-                            onClick={ () => this.props.push("/my-profile") }>Hello { localStorage.getItem("lustars_user_name") }!
+                            onClick={ () => this.props.push("/my-profile") }>{ localStorage.getItem("lustars_user_name") }
                         </button>
                         <button className="logout-btn cursor-pointer navbar-link rightmost-link" onClick={ this.logoutUser.bind(this) }>LogOut</button>
                     </div>
