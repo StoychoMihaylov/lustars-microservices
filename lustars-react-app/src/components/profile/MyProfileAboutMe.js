@@ -20,7 +20,8 @@ class MyProfileAboutMe extends Component {
         super(props)
 
         this.state = {
-            isDatePickerClicked: false
+            isDatePickerClicked: false,
+            timerIdentified: false
         }
     }
 
@@ -40,6 +41,13 @@ class MyProfileAboutMe extends Component {
                       });
                 }
             })
+    }
+
+    async updateUserProfileWithDelay() {
+        await this.updateUserProfile()
+        this.setState({
+            timerIdentified: false
+        })
     }
 
     updateProfileTextField(field, value) {
@@ -136,10 +144,22 @@ class MyProfileAboutMe extends Component {
             case 'height':
                 newState.height = parseInt(value)
                 this.props.updateUserProfileTextField(newState)
+                if(this.state.timerIdentified === false) {
+                    this.setState({
+                        timerIdentified: true
+                    })
+                    setTimeout(() => { this.updateUserProfileWithDelay() }, 3000);
+                }
                 return
             case 'weight':
                 newState.weight = parseInt(value)
                 this.props.updateUserProfileTextField(newState)
+                if(this.state.timerIdentified === false) {
+                    this.setState({
+                        timerIdentified: true
+                    })
+                    setTimeout(() => { this.updateUserProfileWithDelay() }, 3000);
+                }
                 return
             case 'figure':
                 newState.figure = value
@@ -446,7 +466,7 @@ class MyProfileAboutMe extends Component {
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.biographyAndInterests }
                                     onChange={(e) => this.updateProfileTextField("biography", e.target.value)}
-                                    onBlur={ this.updateUserProfile.bind(this)}>
+                                    onBlur={ this.updateUserProfile.bind(this) }>
                                 </textarea>
                             </td>
                         </tr>
