@@ -10,11 +10,9 @@
     margin: 20px;
     vertical-align:top;
     display: inline-block;
-    color: rgba(128, 128, 128);
 }
 
 .user-profile-info-details {
-    color: rgba(128, 128, 128);
     width: 600px;
     margin: 20px;
     overflow: hidden;
