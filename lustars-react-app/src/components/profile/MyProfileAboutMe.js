@@ -21,7 +21,7 @@ class MyProfileAboutMe extends Component {
 
         this.state = {
             isDatePickerClicked: false,
-            timerIdentified: false,
+            timerIdentified: {},
 
             // Show or hide fields
             editFirstName: false,
@@ -38,6 +38,9 @@ class MyProfileAboutMe extends Component {
             editHeight: false,
             editWeight: false,
             editFigure: false,
+            editHowOftenDrinkAlcohol: false,
+            editHowOftenDoSport: false,
+            editHowOftenSmoke: false
         }
     }
 
@@ -57,11 +60,11 @@ class MyProfileAboutMe extends Component {
                       });
                 }
 
-                this.closdeFieldForModification(field)
+                this.closeFieldForModification(field)
             })
     }
 
-    closdeFieldForModification(field) {
+    closeFieldForModification(field) {
         switch (field) {
             case 'name':
                 this.setState({ editFirstName: false })
@@ -99,6 +102,15 @@ class MyProfileAboutMe extends Component {
             case 'figure':
                 this.setState({ editFigure: false })
                 return
+            case 'howOftenDrinkAlcohol':
+                this.setState({ editHowOftenDrinkAlcohol: false })
+                return
+            case 'howOftenDoSport':
+                this.setState({ editHowOftenDoSport: false })
+                return
+            case 'howOftenSmoke':
+                this.setState({ editHowOftenSmoke: false })
+                return
 
             default:
                 return
@@ -107,9 +119,6 @@ class MyProfileAboutMe extends Component {
 
     async updateUserProfileWithDelay(field) {
         await this.updateUserProfile()
-        this.setState({
-            timerIdentified: false
-        })
 
         switch(field) {
             case 'height':
@@ -217,22 +226,18 @@ class MyProfileAboutMe extends Component {
             case 'height':
                 newState.height = parseInt(value)
                 this.props.updateUserProfileTextField(newState)
-                if(this.state.timerIdentified === false) {
-                    this.setState({
-                        timerIdentified: true
-                    })
-                    setTimeout(() => { this.updateUserProfileWithDelay(field) }, 3000);
-                }
+                clearTimeout(this.state.timerIdentified.height)
+                this.setState({
+                    timerIdentified: { height: setTimeout(() => { this.updateUserProfileWithDelay(field) }, 3000) }
+                })
                 return
             case 'weight':
                 newState.weight = parseInt(value)
                 this.props.updateUserProfileTextField(newState)
-                if(this.state.timerIdentified === false) {
-                    this.setState({
-                        timerIdentified: true
-                    })
-                    setTimeout(() => { this.updateUserProfileWithDelay(field) }, 3000);
-                }
+                clearTimeout(this.state.timerIdentified.weight)
+                this.setState({
+                    timerIdentified: { weight: setTimeout(() => { this.updateUserProfileWithDelay(field) }, 3000) }
+                })
                 return
             case 'figure':
                 newState.figure = value
@@ -720,23 +725,28 @@ class MyProfileAboutMe extends Component {
                             {
                                 this.props.profile.doSport !== null && this.props.profile.doSport !== undefined && this.props.profile.doSport === true
                                     ?   <tr>
-                                            <td><label htmlFor="how-often-do-port">How often Drink:&nbsp;</label></td>
+                                            <td><label htmlFor="how-often-do-port">How often do sport:&nbsp;</label></td>
                                             <td>
+                                                <span
+                                                    style={{ display:!this.state.editHowOftenDoSport ? "block" : "none" }}
+                                                    onClick={ () => this.setState({ editHowOftenDoSport: true })}>{ this.props.profile.howOftenDoSport }
+                                                </span>
                                                 <select
                                                     id="how-often-do-port"
+                                                    style={{ display:this.state.editHowOftenDoSport ? "block" : "none" }}
                                                     className="text-input-profile-about"
                                                     value={ this.props.profile.howOftenDoSport }
                                                     onChange={(e) => this.updateProfileTextField("howOftenDoSport", e.target.value)}
-                                                    onBlur={ this.updateUserProfile.bind(this)}>
+                                                    onBlur={ () => this.updateUserProfile("howOftenDoSport")}>
                                                     {
                                                         this.props.profile.howOftenDoSport === null || this.props.profile.howOftenDoSport === undefined
                                                             ?   <option selected="selected">Sport activity</option>
                                                             :   null
                                                     }
-                                                    <option value="Rarely">Once a week</option>
-                                                    <option value="Often">1-3 times per week</option>
-                                                    <option value="When celebrate">Every day</option>
-                                                    <option value="Every night">Few times per day</option>
+                                                    <option value="Once a week">Once a week</option>
+                                                    <option value="1-3 times per week">1-3 times per week</option>
+                                                    <option value="Every day">Every day</option>
+                                                    <option value="Few times per day">Few times per day</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -747,12 +757,17 @@ class MyProfileAboutMe extends Component {
                                     ?   <tr>
                                             <td><label htmlFor="how-often-drin-alcohol">How often Drink:&nbsp;</label></td>
                                             <td>
+                                                <span
+                                                    style={{ display:!this.state.editHowOftenDrinkAlcohol ? "block" : "none" }}
+                                                    onClick={ () => this.setState({ editHowOftenDrinkAlcohol: true })}>{ this.props.profile.howOftenDrinkAlcohol }
+                                                </span>
                                                 <select
                                                     id="how-often-drin-alcohol"
+                                                    style={{ display:this.state.editHowOftenDrinkAlcohol ? "block" : "none" }}
                                                     className="text-input-profile-about"
                                                     value={ this.props.profile.howOftenDrinkAlcohol }
                                                     onChange={(e) => this.updateProfileTextField("howOftenDrinkAlcohol", e.target.value)}
-                                                    onBlur={ this.updateUserProfile.bind(this)}>
+                                                    onBlur={ () => this.updateUserProfile("howOftenDrinkAlcohol") }>
                                                     {
                                                         this.props.profile.howOftenDrinkAlcohol === null || this.props.profile.howOftenDrinkAlcohol === undefined
                                                             ?   <option selected="selected">Drinking frequency</option>
@@ -773,12 +788,17 @@ class MyProfileAboutMe extends Component {
                                     ?   <tr>
                                             <td><label htmlFor="how-often-smoke">How often smoke:&nbsp;</label></td>
                                             <td>
+                                                <span
+                                                    style={{ display:!this.state.editHowOftenSmoke ? "block" : "none" }}
+                                                    onClick={ () => this.setState({ editHowOftenSmoke: true })}>{ this.props.profile.howOftenSmoke }
+                                                </span>
                                                 <select
                                                     id="how-often-smoke"
+                                                    style={{ display:this.state.editHowOftenSmoke ? "block" : "none" }}
                                                     className="text-input-profile-about"
                                                     defaultValue={ this.props.profile.howOftenSmoke }
                                                     onChange={(e) => this.updateProfileTextField("howOftenSmoke", e.target.value)}
-                                                    onBlur={ this.updateUserProfile.bind(this)}>
+                                                    onBlur={ () => this.updateUserProfile("howOftenSmoke")}>
                                                     {
                                                         this.props.profile.howOftenSmoke === null || this.props.profile.howOftenSmoke === undefined
                                                             ?   <option selected="selected">Smoking frequency</option>
