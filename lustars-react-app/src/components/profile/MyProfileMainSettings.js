@@ -20,7 +20,11 @@ class MyProfileMainSettings extends Component {
 
         this.state = {
             location: "",
-            isFromCountrySelected: false
+            isFromCountrySelected: false,
+
+            // Show/hide fields
+            editCountry: false,
+            editCity: false
         }
     }
 
@@ -106,6 +110,35 @@ class MyProfileMainSettings extends Component {
         }
     }
 
+    closeFieldForModification(field) {
+        switch (field) {
+            case 'country':
+                this.setState({ editCountry: false })
+                return
+            case 'city':
+                this.setState({ editCity: false })
+                return
+
+            default:
+                return
+        }
+    }
+
+    updateUserProfile(field) {
+        this.props.editMyUserProfileDetails(this.props.profile)
+            .then(response => {
+                if (response.status === 200) {
+                    NotificationManager.success('Your profile has been updated successfully', 'Updated!', 3000)
+                } else {
+                    NotificationManager.error('Something went wrong! Please check your connection!', 'Error!', 5000, () => {
+                        alert('There is some problem! Please try again or check your network!');
+                      });
+                }
+
+                this.closeFieldForModification(field)
+            })
+    }
+
     render() {
         let getLocationBtn = this.state.location !== ""
             ?  <span>{ this.state.location }<span onClick={ this.setGeolocation.bind(this) } className="location-refresh-btn">&#8634;</span></span>
@@ -166,11 +199,17 @@ class MyProfileMainSettings extends Component {
                             <tr>
                                 <td><label htmlFor="from-country">From Country:</label></td>
                                 <td>
+                                    <span
+                                        style={{ display:!this.state.editCountry ? "block" : "none" }}
+                                        onClick={ () => this.setState({ editCountry: true })}>{ this.props.profile.fromCountry }
+                                    </span>
                                     <select
                                         id="from-country"
+                                        style={{ display:this.state.editCountry ? "block" : "none" }}
                                         className="text-input-profile-about"
                                         value={ this.props.profile.fromCountry }
-                                        onChange={(e) => this.updateProfileTextField("country", e.target.value)}>
+                                        onChange={(e) => this.updateProfileTextField("country", e.target.value)}
+                                        onBlur={ () => this.updateUserProfile("country") }>
                                         {
                                             this.props.profile.fromCountry === null || this.props.profile.fromCountry === undefined
                                                 ? <option selected="selected">Select Country</option>
@@ -183,11 +222,17 @@ class MyProfileMainSettings extends Component {
                             <tr>
                             <td><label htmlFor="from-city">From City:</label></td>
                                 <td>
+                                    <span
+                                        style={{ display:!this.state.editCity ? "block" : "none" }}
+                                        onClick={ () => this.setState({ editCity: true })}>{ this.props.profile.fromCity }
+                                    </span>
                                     <select
                                         id="from-city"
+                                        style={{ display:this.state.editCity ? "block" : "none" }}
                                         className="text-input-profile-about"
                                         value={ this.props.profile.fromCity }
-                                        onChange={(e) => this.updateProfileTextField("city", e.target.value)}>
+                                        onChange={(e) => this.updateProfileTextField("city", e.target.value)}
+                                        onBlur={ () => this.updateUserProfile("city") }>
                                         { citySelectOptions }
                                     </select>
                                 </td>
@@ -234,6 +279,7 @@ class MyProfileMainSettings extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
+        editMyUserProfileDetails: (userProfileDetails) => dispatch(editMyUserProfileDetails(userProfileDetails)),
         updateUserProfileGeaolocation: (geolocation) => dispatch(updateUserProfileGeaolocation(geolocation)),
         editMyUserProfileDetails: (details) => dispatch(editMyUserProfileDetails(details)),
         updateUserProfileBoleanField: (newValue) => dispatch(updateUserProfileBoleanField(newValue)),
