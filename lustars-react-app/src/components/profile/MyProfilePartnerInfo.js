@@ -1,11 +1,74 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { updateUserProfileTextField } from '../../store/actions/myProfileActions'
+import { NotificationManager } from 'react-notifications'
+import { updateUserProfileTextField, editMyUserProfileDetails } from '../../store/actions/myProfileActions'
 import YesNoInputField from './YesNoInputField'
 import NumberAdjusterInput from '../common/NumberAdjusterInput'
 import '../../styles/components/profile/MyProfilePartnerInfo.css'
 
 class MyProfilePartnerInfo extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            timerIdentified: {},
+
+            // Show/hide fields
+            editPartnerAgeRangeFrom: false,
+            editPartnerAgeRangeTo: false,
+            editPartnerFigure: false
+        }
+    }
+
+    updateUserProfile(field) {
+        this.props.editMyUserProfileDetails(this.props.profile)
+            .then(response => {
+                if (response.status === 200) {
+                    NotificationManager.success('Your profile has been updated successfully', 'Updated!', 3000)
+                } else {
+                    NotificationManager.error('Something went wrong! Please check your connection!', 'Error!', 5000, () => {
+                        alert('There is some problem! Please try again or check your network!');
+                      });
+                }
+
+                this.closeFieldForModification(field)
+            })
+    }
+
+    closeFieldForModification(field) {
+        switch (field) {
+            case 'partnerAgeRangeFrom':
+                this.setState({ editPartnerAgeRangeFrom: false })
+                return
+            case 'partnerAgeRangeTo':
+                this.setState({ editPartnerAgeRangeTo: false })
+                return
+            case 'partnerFigure':
+                this.setState({ editPartnerFigure: false })
+                return
+
+            default:
+                return
+        }
+    }
+
+
+    async updateUserProfileWithDelay(field) {
+        await this.updateUserProfile()
+
+        switch(field) {
+            case 'partnerAgeRangeFrom':
+                this.setState({ editPartnerAgeRangeFrom: false })
+                return
+            case 'partnerAgeRangeTo':
+                this.setState({ editPartnerAgeRangeTo: false })
+                return
+
+            default:
+                return
+        }
+    }
+
     updateProfileTextField(field, value) {
         let oldState = this.props.profile
         let newState = Object.assign({}, oldState)
@@ -14,10 +77,18 @@ class MyProfilePartnerInfo extends Component {
             case 'partnerAgeRangeFrom':
                 newState.partnerAgeRangeFrom = parseInt(value)
                 this.props.updateUserProfileTextField(newState)
+                clearTimeout(this.state.timerIdentified.partnerAgeRangeFrom)
+                this.setState({
+                    timerIdentified: { partnerAgeRangeFrom: setTimeout(() => { this.updateUserProfileWithDelay(field) }, 3000) }
+                })
                 return
             case 'partnerAgeRangeTo':
                 newState.partnerAgeRangeTo = parseInt(value)
                 this.props.updateUserProfileTextField(newState)
+                clearTimeout(this.state.timerIdentified.partnerAgeRangeTo)
+                this.setState({
+                    timerIdentified: { partnerAgeRangeTo: setTimeout(() => { this.updateUserProfileWithDelay(field) }, 3000) }
+                })
                 return
             case 'partnerFigure':
                 newState.partnerFigure = value
@@ -68,40 +139,50 @@ class MyProfilePartnerInfo extends Component {
                         </tr>
                         <tr>
                             <td><label htmlFor="partner-age-range-from" >Age range from:</label></td>
-                            {
-                                this.props.profile.partnerAgeRangeFrom !== undefined
-                                    ?   <td>
-                                            <NumberAdjusterInput
-                                                id="partner-age-range-from"
-                                                numberInput={ this.props.profile.partnerAgeRangeFrom }
-                                                numberResult={ (value) => this.updateProfileTextField("partnerAgeRangeFrom", value) }
-                                            />
-                                        </td>
-                                    :   null
-                            }
+                            <td>
+                                <span
+                                    style={{ display:!this.state.editPartnerAgeRangeFrom ? "block" : "none" }}
+                                    onClick={ () => this.setState({ editPartnerAgeRangeFrom: true })}>{ this.props.profile.partnerAgeRangeFrom }
+                                </span>
+                                <span style={{ display:this.state.editPartnerAgeRangeFrom ? "block" : "none" }}>
+                                        <NumberAdjusterInput
+                                            id="partner-age-range-from"
+                                            numberInput={ this.props.profile.partnerAgeRangeFrom }
+                                            numberResult={ (value) => this.updateProfileTextField("partnerAgeRangeFrom", value) }
+                                        />
+                                </span>
+                            </td>
                         </tr>
                         <tr>
                             <td><label htmlFor="partner-age-range-to">Age range to:</label></td>
-                            {
-                                this.props.profile.partnerAgeRangeTo !== undefined
-                                    ?   <td>
-                                            <NumberAdjusterInput
-                                                id="partner-age-range-to"
-                                                numberInput={ this.props.profile.partnerAgeRangeTo }
-                                                numberResult={ (value) => this.updateProfileTextField("partnerAgeRangeTo", value) }
-                                            />
-                                        </td>
-                                    :   null
-                            }
+                            <td>
+                                <span
+                                    style={{ display:!this.state.editPartnerAgeRangeTo ? "block" : "none" }}
+                                    onClick={ () => this.setState({ editPartnerAgeRangeTo: true })}>{ this.props.profile.partnerAgeRangeTo }
+                                </span>
+                                <span style={{ display:this.state.editPartnerAgeRangeTo ? "block" : "none" }}>
+                                    <NumberAdjusterInput
+                                        id="partner-age-range-to"
+                                        numberInput={ this.props.profile.partnerAgeRangeTo }
+                                        numberResult={ (value) => this.updateProfileTextField("partnerAgeRangeTo", value) }
+                                    />
+                                </span>
+                            </td>
                         </tr>
                         <tr>
                             <td><label htmlFor="partner-figure">Figure:</label></td>
                             <td>
+                                <span
+                                    style={{ display:!this.state.editPartnerFigure ? "block" : "none" }}
+                                    onClick={ () => this.setState({ editPartnerFigure: true })}>{ this.props.profile.partnerFigure }
+                                </span>
                                 <select
                                     id="partner-figure"
+                                    style={{ display:this.state.editPartnerFigure ? "block" : "none" }}
                                     className="text-input-profile-about"
                                     value={ this.props.profile.partnerFigure }
-                                    onChange={(e) => this.updateProfileTextField("partnerFigure", e.target.value)}>
+                                    onChange={(e) => this.updateProfileTextField("partnerFigure", e.target.value)}
+                                    onBlur={ () => this.updateUserProfile("partnerFigure") }>
                                     {
                                         this.props.profile.partnerFigure === null || this.props.profile.partnerFigure === undefined
                                             ? <option selected="selected">Partner figure</option>
@@ -168,6 +249,7 @@ class MyProfilePartnerInfo extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
+        editMyUserProfileDetails: (userProfileDetails) => dispatch(editMyUserProfileDetails(userProfileDetails)),
         updateUserProfileTextField: (newValue) => dispatch(updateUserProfileTextField(newValue))
     }
 }
