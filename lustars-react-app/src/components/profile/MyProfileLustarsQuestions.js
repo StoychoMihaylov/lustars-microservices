@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { updateUserProfileBoleanField } from '../../store/actions/myProfileActions'
+import { updateUserProfileBoleanField, editMyUserProfileDetails } from '../../store/actions/myProfileActions'
 import { NotificationManager } from 'react-notifications'
 import '../../styles/components/profile/MyProfileLustarsQuestions.css'
 
@@ -33,7 +33,20 @@ class MyProfileLustarsQuestions extends Component {
         return counter <= 3 ? true : false
     }
 
-    updateProfileBooleanField = (field, event) => {
+    updateUserProfile(field) {
+        this.props.editMyUserProfileDetails(this.props.profile)
+            .then(response => {
+                if (response.status === 200) {
+                    NotificationManager.success('Your profile has been updated successfully', 'Updated!', 3000)
+                } else {
+                    NotificationManager.error('Something went wrong! Please check your connection!', 'Error!', 5000, () => {
+                        alert('There is some problem! Please try again or check your network!');
+                      });
+                }
+            })
+    }
+
+    updateProfileBooleanField = async (field, event) => {
         let value = event.target.value === "true" ? false : true
 
         let contrinue = this.checkIfThereAreFiveBoxesChecked(field, value)
@@ -48,47 +61,58 @@ class MyProfileLustarsQuestions extends Component {
         switch (field) {
             case 'partnerVisualAppearance':
                 newState.partnerVisualAppearance = value
-                this.props.updateUserProfileBoleanField(newState)
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
             case 'trust':
                 newState.trust = value
-                this.props.updateUserProfileBoleanField(newState)
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
             case 'sex':
                 newState.sex = value
-                this.props.updateUserProfileBoleanField(newState)
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
             case 'financialStability':
                 newState.financialStability = value
-                this.props.updateUserProfileBoleanField(newState)
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
             case 'communicationAndUnderstanding':
                 newState.communicationAndUnderstanding = value
-                this.props.updateUserProfileBoleanField(newState)
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
             case 'sameInterests':
                 newState.sameInterests = value
-                this.props.updateUserProfileBoleanField(newState)
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
             case 'oppositeAttracs':
                 newState.oppositeAttracs = value
-                this.props.updateUserProfileBoleanField(newState)
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
             case 'growingFamily':
                 newState.growingFamily = value
-                this.props.updateUserProfileBoleanField(newState)
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
             case 'loveForAnimals':
                 newState.loveForAnimals = value
-                this.props.updateUserProfileBoleanField(newState)
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
             case 'shareSameReligion':
                 newState.shareSameReligion = value
-                this.props.updateUserProfileBoleanField(newState)
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
             case 'keepTraditions':
                 newState.keepTraditions = value
-                this.props.updateUserProfileBoleanField(newState)
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
 
             default:
@@ -222,6 +246,7 @@ class MyProfileLustarsQuestions extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
+        editMyUserProfileDetails: (userProfileDetails) => dispatch(editMyUserProfileDetails(userProfileDetails)),
         updateUserProfileBoleanField: (newValue) => dispatch(updateUserProfileBoleanField(newValue))
     }
 }

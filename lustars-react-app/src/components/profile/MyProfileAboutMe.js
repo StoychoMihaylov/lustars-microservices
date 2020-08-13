@@ -9,7 +9,7 @@ import {
     deleteUserCountryLanguage,
     editMyUserProfileDetails
 } from '../../store/actions/myProfileActions'
-import { NotificationManager} from 'react-notifications'
+import { NotificationManager } from 'react-notifications'
 import YesNoInputField from './YesNoInputField'
 import NumberAdjusterInput from '../common/NumberAdjusterInput'
 import { countryLanguages } from '../../constants/countryLanguages'
@@ -261,40 +261,40 @@ class MyProfileAboutMe extends Component {
         }
     }
 
-    updateProfileBooleanField = (field, newValue) => {
+    updateProfileBooleanField = async (field, newValue) => {
         let oldState = this.props.profile
         let newState = Object.assign({}, oldState)
 
         switch (field) {
             case 'howOftenSmoke':
                 newState.doingSport = newValue
-                this.props.updateUserProfileBoleanField(newState)
-                this.updateUserProfile()
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
             case 'haveKids':
                 newState.haveKids = newValue
-                this.props.updateUserProfileBoleanField(newState)
-                this.updateUserProfile()
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
             case 'wantToHaveKids':
                 newState.wantKids = newValue
-                this.props.updateUserProfileBoleanField(newState)
-                this.updateUserProfile()
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
             case 'drinkAlcohol':
                 newState.drinkAlcohol = newValue
-                this.props.updateUserProfileBoleanField(newState)
-                this.updateUserProfile()
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
             case 'smoker':
                 newState.smoker = newValue
-                this.props.updateUserProfileBoleanField(newState)
-                this.updateUserProfile()
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
             case 'doSport':
                 newState.doSport = newValue
-                this.props.updateUserProfileBoleanField(newState)
-                this.updateUserProfile()
+                await this.props.updateUserProfileBoleanField(newState)
+                await this.updateUserProfile()
                 return
 
             default:

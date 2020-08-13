@@ -187,7 +187,7 @@ class ProfileDetailsPage extends Component {
                     <hr/>
                     <div className="profile-details-label">Looking for</div>
                     <div>
-                        Here to meet with { profile.lookingFor }
+                        Here to meet with { profile.lookingFor === 'Man' ? ' men ' : ' women ' }
                         {
                             profile.partnerAgeRangeFrom !== null &&  profile.partnerAgeRangeTo !== null
                             ?   <span>between { profile.partnerAgeRangeFrom } and { profile.partnerAgeRangeTo }</span>
