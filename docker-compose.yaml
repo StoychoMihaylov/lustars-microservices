@@ -17,6 +17,20 @@ services:
     environment:
       - NODE_ENV=NODE_ENV
 
+# RABBITMQ MESSAGE QUEUE
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    hostname: rabbitmq
+    volumes:
+      #- ./rabbitmq/etc/definitions.json:/etc/rabbitmq/definitions.json  Add custom config
+      #- ./rabbitmq/etc/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf        Mount custom config
+      - ./rabbitmq/data:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
+      - ./rabbitmq/logs:/var/log/rabbitmq/log
+    ports:
+      - 5672:5672
+      - 15672:15672
+
 #DOTNET BACK-END SERVICES
 
   api-gateway:
