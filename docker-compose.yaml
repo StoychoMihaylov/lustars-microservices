@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
 
-#React FRONT-END SERVICE
+#REACT FRONT-END SERVICE
 
   frontend:
     container_name: ${FE_APP_NAME}
