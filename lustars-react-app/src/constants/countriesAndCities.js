@@ -143,38 +143,237 @@ city_states["Croatia"] = ["Zagreb","Bjelovarsko-Bilogorska","Brodsko-Posavska","
 city_states["Czech Republic"] = ["Prague (Praha)","Jihocesky","Jihomoravsky","Karlovarsky","Kralovehradecky","Liberecky","Moravskoslezsky","Olomoucky","Pardubicky","Plzensky","Stredocesky","Ustecky","Vysocina","Zlinsky"]
 city_states["Denmark"] = ["Copenhagen (Kobenhavn)","Arhus","Bornholm","Fredericksberg","Frederiksborg","Fyn","Kobenhavns","Nordjylland","Ribe","Ringkobing","Roskilde","Sonderjylland","Storstrom","Vejle","Vestsjalland","Viborg"]
 city_states["Estonia"] = ["Harjumaa (Tallinn)","Hiiumaa (Kardla)","Ida-Virumaa (Johvi)","Jarvamaa (Paide)","Jogevamaa (Jogeva)","Laanemaa (Haapsalu)","Laane-Virumaa (Rakvere)","Parnumaa (Parnu)","Polvamaa (Polva)","Raplamaa (Rapla)","Saaremaa (Kuressaare)","Tartumaa (Tartu)","Valgamaa (Valga)","Viljandimaa (Viljandi)","Vorumaa (Voru)"]
-city_states["Finland"] = ["Helsinki","Aland","Etela-Suomen Laani","Ita-Suomen Laani","Lansi-Suomen Laani","Lappi","Oulun Laani"]
-city_states["France"] = ["Paris","Alsace","Aquitaine","Auvergne","Basse-Normandie","Bourgogne","Bretagne","Centre","Champagne-Ardenne","Corse","Franche-Comte","Haute-Normandie","Ile-de-France","Languedoc-Roussillon","Limousin","Lorraine","Midi-Pyrenees","Nord-Pas-de-Calais","Pays de la Loire","Picardie","Poitou-Charentes","Provence-Alpes-Cote d'Azur","Rhone-Alpes"]
-city_states["Georgia"] = ["T'bilisi","Bat'umi","Chiat'ura","Gori","Guria","Imereti","Kakheti","K'ut'aisi","Kvemo Kartli","Mtskheta-Mtianeti","P'ot'i","Racha-Lechkhumi/Kvemo Svaneti","Rust'avi","Samegrelo/Zemo Svaneti","Samtskhe-Javakheti","Shida Kartli","Sokhumi","Tqibuli","Tsqaltubo","Zugdidi"]
-city_states["Germany"] = ["Berlin","Baden-Wuerttemberg","Bayern","Berlin","Brandenburg","Bremen","Hamburg","Hessen","Mecklenburg-Vorpommern","Niedersachsen","Nordrhein-Westfalen","Rheinland-Pfalz","Saarland","Sachsen","Sachsen-Anhalt","Schleswig-Holstein","Thueringen"]
-city_states["Greece"] = ["Athens","Agion Oros (Mt. Athos)","Achaia","Aitolia kai Akarmania","Argolis","Arkadia","Arta","Attiki","Chalkidiki","Chanion","Chios","Dodekanisos","Drama","Evros","Evrytania","Evvoia","Florina","Fokidos","Fthiotis","Grevena","Ileia","Imathia","Ioannina","Irakleion","Karditsa","Kastoria","Kavala","Kefallinia","Kerkyra","Kilkis","Korinthia","Kozani","Kyklades","Lakonia","Larisa","Lasithi","Lefkas","Lesvos","Magnisia","Messinia","Pella","Pieria","Preveza","Rethynnis","Rodopi","Samos","Serrai","Thesprotia","Thessaloniki","Trikala","Voiotia","Xanthi","Zakynthos"]
-city_states["Hungary"] = ["Budapest","Bacs-Kiskun","Baranya","Bekes","Bekescsaba","Borsod-Abauj-Zemplen","Csongrad","Debrecen","Dunaujvaros","Eger","Fejer","Gyor","Gyor-Moson-Sopron","Hajdu-Bihar","Heves","Hodmezovasarhely","Jasz-Nagykun-Szolnok","Kaposvar","Kecskemet","Komarom-Esztergom","Miskolc","Nagykanizsa","Nograd","Nyiregyhaza","Pecs","Pest","Somogy","Sopron","Szabolcs-Szatmar-Bereg","Szeged","Szekesfehervar","Szolnok","Szombathely","Tatabanya","Tolna","Vas","Veszprem","Veszprem","Zala","Zalaegerszeg"]
-city_states["Iceland"] = ["Reykjavik","Akranes","Akureyri","Arnessysla","Austur-Bardhastrandarsysla","Austur-Hunavatnssysla","Austur-Skaftafellssysla","Borgarfjardharsysla","Dalasysla","Eyjafjardharsysla","Gullbringusysla","Hafnarfjordhur","Husavik","Isafjordhur","Keflavik","Kjosarsysla","Kopavogur","Myrasysla","Neskaupstadhur","Nordhur-Isafjardharsysla","Nordhur-Mulasys-la","Nordhur-Thingeyjarsysla","Olafsfjordhur","Rangarvallasysla","Saudharkrokur","Seydhisfjordhur","Siglufjordhur","Skagafjardharsysla","Snaefellsnes-og Hnappadalssysla","Strandasysla","Sudhur-Mulasysla","Sudhur-Thingeyjarsysla","Vesttmannaeyjar","Vestur-Bardhastrandarsysla","Vestur-Hunavatnssysla","Vestur-Isafjardharsysla","Vestur-Skaftafellssysla"]
-city_states["Ireland"] = ["Dublin","Carlow","Cavan","Clare","Cork","Donegal","Galway","Kerry","Kildare","Kilkenny","Laois","Leitrim","Limerick","Longford","Louth","Mayo","Meath","Monaghan","Offaly","Roscommon","Sligo","Tipperary","Waterford","Westmeath","Wexford","Wicklow"]
-city_states["Italy"] = ["Rome","Abruzzi","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria","Lombardia","Marche","Molise","Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria","Valle d'Aosta","Veneto"]
-city_states["Latvia"] = ["Riga","Aizkraukles","Aluksnes","Balvu","Bauskas","Cesu","Daugavpils","Daugavpils","Dobeles","Gulbenes","Jekabpils","Jelgava","Jelgavas","Jurmala","Kraslavas","Kuldigas","Liepaja","Liepajas","Limbazu","Ludzas","Madonas","Ogres","Preilu","Rezekne","Rezeknes","Riga","Rigas","Saldus","Talsu","Tukuma","Valkas","Valmieras","Ventspils","Ventspils"]
-city_states["Liechtenstein"] = ["Vaduz","Balzers","Eschen","Gamprin","Mauren","Planken","Ruggell","Schaan","Schellenberg","Triesen","Triesenberg"]
-city_states["Lithuania"] = ["Vilnius","Alytaus","Kauno","Klaipedos","Marijampoles","Panevezio","Siauliu","Taurages","Telsiu","Utenos"]
-city_states["Luxembourg"] = ["Luxembourg","Diekirch","Grevenmacher"]
-city_states["Macedonia"] = ["Skopje","Aracinovo","Bac","Belcista","Berovo","Bistrica","Bitola","Blatec","Bogdanci","Bogomila","Bogovinje","Bosilovo","Brvenica","Cair","Capari","Caska","Cegrane","Centar","Centar Zupa","Cesinovo","Cucer-Sandevo","Debar","Delcevo","Delogozdi","Demir Hisar","Demir Kapija","Dobrusevo","Dolna Banjica","Dolneni","Dorce Petrov","Drugovo","Dzepciste","Gazi Baba","Gevgelija","Gostivar","Gradsko","Ilinden","Izvor","Jegunovce","Kamenjane","Karbinci","Karpos","Kavadarci","Kicevo","Kisela Voda","Klecevce","Kocani","Konce","Kondovo","Konopiste","Kosel","Kratovo","Kriva Palanka","Krivogastani","Krusevo","Kuklis","Kukurecani","Kumanovo","Labunista","Lipkovo","Lozovo","Lukovo","Makedonska Kamenica","Makedonski Brod","Mavrovi Anovi","Meseista","Miravci","Mogila","Murtino","Negotino","Negotino-Polosko","Novaci","Novo Selo","Oblesevo","Ohrid","Orasac","Orizari","Oslomej","Pehcevo","Petrovec","Plasnica","Podares","Prilep","Probistip","Radovis","Rankovce","Resen","Rosoman","Rostusa","Samokov","Saraj","Sipkovica","Sopiste","Sopotnica","Srbinovo","Star Dojran","Staravina","Staro Nagoricane","Stip","Struga","Strumica","Studenicani","Suto Orizari","Sveti Nikole","Tearce","Tetovo","Topolcani","Valandovo","Vasilevo","Velesta","Veles","Vevcani","Vinica","Vitoliste","Vranestica","Vrapciste","Vratnica","Vrutok","Zajas","Zelenikovo","Zeleno","Zitose","Zletovo","Zrnovci"]
+city_states["Finland"] =[ "Helsinki", "Aland", "Etela-Suomen Laani", "Ita-Suomen Laani", "Lansi-Suomen Laani", "Lappi", "Oulun Laani" ]
+city_states["France"] =
+[
+    "Paris", "Alsace", "Aquitaine", "Auvergne", "Basse-Normandie", "Bourgogne", "Bretagne", "Centre", "Champagne-Ardenne",
+    "Corse", "Franche-Comte", "Haute-Normandie", "Ile-de-France", "Languedoc-Roussillon", "Limousin", "Lorraine", "Midi-Pyrenees",
+    "Nord-Pas-de-Calais", "Pays de la Loire", "Picardie", "Poitou-Charentes", "Provence-Alpes-Cote d'Azur", "Rhone-Alpes"
+]
+
+city_states["Georgia"] =
+[
+    "T'bilisi", "Bat'umi", "Chiat'ura", "Gori", "Guria", "Imereti", "Kakheti", "K'ut'aisi", "Kvemo Kartli", "Mtskheta-Mtianeti",
+    "P'ot'i", "Racha-Lechkhumi/Kvemo Svaneti", "Rust'avi", "Samegrelo/Zemo Svaneti", "Samtskhe-Javakheti", "Shida Kartli",
+    "Sokhumi", "Tqibuli", "Tsqaltubo", "Zugdidi"
+]
+
+city_states["Germany"] =
+[
+    "Berlin", "Baden-Wuerttemberg", "Bayern", "Berlin", "Brandenburg", "Bremen", "Hamburg", "Hessen", "Mecklenburg-Vorpommern",
+    "Niedersachsen", "Nordrhein-Westfalen", "Rheinland-Pfalz", "Saarland", "Sachsen", "Sachsen-Anhalt", "Schleswig-Holstein",
+    "Thueringen"
+]
+
+city_states["Greece"] =
+[
+    "Athens", "Agion Oros (Mt. Athos)", "Achaia", "Aitolia kai Akarmania", "Argolis", "Arkadia", "Arta", "Attiki", "Chalkidiki",
+    "Chanion", "Chios", "Dodekanisos", "Drama", "Evros", "Evrytania", "Evvoia", "Florina", "Fokidos", "Fthiotis", "Grevena", "Ileia",
+    "Imathia", "Ioannina", "Irakleion", "Karditsa", "Kastoria", "Kavala", "Kefallinia", "Kerkyra", "Kilkis", "Korinthia", "Kozani",
+    "Kyklades", "Lakonia", "Larisa", "Lasithi", "Lefkas", "Lesvos", "Magnisia", "Messinia", "Pella", "Pieria", "Preveza", "Rethynnis",
+    "Rodopi", "Samos", "Serrai", "Thesprotia", "Thessaloniki", "Trikala", "Voiotia", "Xanthi", "Zakynthos"
+]
+
+city_states["Hungary"] =
+[
+    "Budapest", "Bacs-Kiskun", "Baranya", "Bekes", "Bekescsaba", "Borsod-Abauj-Zemplen", "Csongrad", "Debrecen", "Dunaujvaros",
+    "Eger", "Fejer", "Gyor", "Gyor-Moson-Sopron", "Hajdu-Bihar", "Heves", "Hodmezovasarhely", "Jasz-Nagykun-Szolnok", "Kaposvar",
+    "Kecskemet", "Komarom-Esztergom", "Miskolc", "Nagykanizsa", "Nograd", "Nyiregyhaza", "Pecs", "Pest", "Somogy", "Sopron",
+    "Szabolcs-Szatmar-Bereg", "Szeged", "Szekesfehervar", "Szolnok", "Szombathely", "Tatabanya", "Tolna", "Vas", "Veszprem",
+    "Veszprem", "Zala", "Zalaegerszeg"
+]
+
+city_states["Iceland"] =
+[
+    "Reykjavik","Akranes","Akureyri","Arnessysla","Austur-Bardhastrandarsysla","Austur-Hunavatnssysla",
+    "Austur-Skaftafellssysla","Borgarfjardharsysla","Dalasysla","Eyjafjardharsysla","Gullbringusysla",
+    "Hafnarfjordhur","Husavik","Isafjordhur","Keflavik","Kjosarsysla","Kopavogur","Myrasysla","Neskaupstadhur",
+    "Nordhur-Isafjardharsysla","Nordhur-Mulasys-la","Nordhur-Thingeyjarsysla","Olafsfjordhur","Rangarvallasysla",
+    "Saudharkrokur","Seydhisfjordhur","Siglufjordhur","Skagafjardharsysla","Snaefellsnes-og Hnappadalssysla",
+    "Strandasysla","Sudhur-Mulasysla","Sudhur-Thingeyjarsysla","Vesttmannaeyjar","Vestur-Bardhastrandarsysla",
+    "Vestur-Hunavatnssysla","Vestur-Isafjardharsysla","Vestur-Skaftafellssysla"
+]
+
+city_states["Ireland"] =
+[
+    "Dublin","Carlow","Cavan","Clare","Cork","Donegal","Galway","Kerry","Kildare","Kilkenny","Laois","Leitrim",
+    "Limerick","Longford","Louth","Mayo","Meath","Monaghan","Offaly","Roscommon","Sligo","Tipperary","Waterford",
+    "Westmeath","Wexford","Wicklow"
+]
+
+city_states["Italy"] =
+[
+    "Rome","Abruzzi","Basilicata","Calabria","Campania","Emilia-Romagna","Friuli-Venezia Giulia","Lazio","Liguria",
+    "Lombardia","Marche","Molise","Piemonte","Puglia","Sardegna","Sicilia","Toscana","Trentino-Alto Adige","Umbria",
+    "Valle d'Aosta","Veneto"
+]
+
+city_states["Latvia"] =
+[
+    "Riga", "Aizkraukles", "Aluksnes", "Balvu", "Bauskas", "Cesu", "Daugavpils", "Daugavpils", "Dobeles", "Gulbenes", "Jekabpils",
+    "Jelgava", "Jelgavas", "Jurmala", "Kraslavas", "Kuldigas", "Liepaja", "Liepajas", "Limbazu", "Ludzas", "Madonas", "Ogres", "Preilu",
+    "Rezekne", "Rezeknes", "Riga", "Rigas", "Saldus", "Talsu", "Tukuma", "Valkas", "Valmieras", "Ventspils", "Ventspils"
+]
+city_states["Liechtenstein"] =
+[
+    "Vaduz","Balzers","Eschen","Gamprin","Mauren","Planken","Ruggell","Schaan","Schellenberg","Triesen","Triesenberg"
+]
+
+city_states["Lithuania"] = [ "Vilnius", "Alytaus", "Kauno", "Klaipedos", "Marijampoles", "Panevezio", "Siauliu", "Taurages", "Telsiu", "Utenos" ]
+
+city_states["Luxembourg"] = [ "Luxembourg", "Diekirch", "Grevenmacher" ]
+
+city_states["Macedonia"] =
+[
+    "Skopje", "Aracinovo", "Bac", "Belcista", "Berovo", "Bistrica", "Bitola", "Blatec", "Bogdanci", "Bogomila", "Bogovinje",
+    "Bosilovo", "Brvenica", "Cair", "Capari", "Caska", "Cegrane", "Centar", "Centar Zupa", "Cesinovo", "Cucer-Sandevo", "Debar",
+    "Delcevo", "Delogozdi", "Demir Hisar", "Demir Kapija", "Dobrusevo", "Dolna Banjica", "Dolneni", "Dorce Petrov", "Drugovo",
+    "Dzepciste", "Gazi Baba", "Gevgelija", "Gostivar", "Gradsko", "Ilinden", "Izvor", "Jegunovce", "Kamenjane", "Karbinci", "Karpos",
+    "Kavadarci", "Kicevo", "Kisela Voda", "Klecevce", "Kocani", "Konce", "Kondovo", "Konopiste", "Kosel", "Kratovo", "Kriva Palanka",
+    "Krivogastani", "Krusevo", "Kuklis", "Kukurecani", "Kumanovo", "Labunista", "Lipkovo", "Lozovo", "Lukovo", "Makedonska Kamenica",
+    "Makedonski Brod", "Mavrovi Anovi", "Meseista", "Miravci", "Mogila", "Murtino", "Negotino", "Negotino-Polosko", "Novaci", "Novo Selo",
+    "Oblesevo", "Ohrid", "Orasac", "Orizari", "Oslomej", "Pehcevo", "Petrovec", "Plasnica", "Podares", "Prilep", "Probistip", "Radovis",
+    "Rankovce", "Resen", "Rosoman", "Rostusa", "Samokov", "Saraj", "Sipkovica", "Sopiste", "Sopotnica", "Srbinovo", "Star Dojran", "Staravina",
+    "Staro Nagoricane", "Stip", "Struga", "Strumica", "Studenicani", "Suto Orizari", "Sveti Nikole", "Tearce", "Tetovo", "Topolcani",
+    "Valandovo", "Vasilevo", "Velesta", "Veles", "Vevcani", "Vinica", "Vitoliste", "Vranestica", "Vrapciste", "Vratnica", "Vrutok", "Zajas",
+    "Zelenikovo", "Zeleno", "Zitose", "Zletovo", "Zrnovci"
+]
+
 city_states["Malta"] = ["Valletta"]
-city_states["Moldova"] = ["Chisinau","Balti","Cahul","Chisinau","Chisinau","Edinet","Gagauzia","Lapusna","Orhei","Soroca","Stinga Nistrului","Tighina","Ungheni"]
-city_states["Monaco"] = ["Monaco","Fontvieille","La Condamine","Monaco-Ville","Monte-Carlo"]
-city_states["Netherlands"] = ["Amsterdam","The Hague","Drenthe","Flevoland","Friesland","Gelderland","Groningen","Limburg","Noord-Brabant","Noord-Holland","Overijssel","Utrecht","Zeeland","Zuid-Holland"]
-city_states["Norway"] = ["Oslo","Akershus","Aust-Agder","Buskerud","Finnmark","Hedmark","Hordaland","More og Romsdal","Nordland","Nord-Trondelag","Oppland","Ostfold","Rogaland","Sogn og Fjordane","Sor-Trondelag","Telemark","Troms","Vest-Agder","Vestfold"]
-city_states["Poland"] = ["Warsaw","Dolnoslaskie","Kujawsko-Pomorskie","Lodzkie","Lubelskie","Lubuskie","Malopolskie","Mazowieckie","Opolskie","Podkarpackie","Podlaskie","Pomorskie","Slaskie","Swietokrzyskie","Warminsko-Mazurskie","Wielkopolskie","Zachodniopomorskie"]
-city_states["Portugal"] = ["Lisbon","Aveiro","Acores (Azores)","Beja","Braga","Braganca","Castelo Branco","Coimbra","Evora","Faro","Guarda","Leiria","Lisboa","Madeira","Portalegre","Porto","Santarem","Setubal","Viana do Castelo","Vila Real","Viseu"]
-city_states["Romania"] = ["Bucharest (Bucuresti)","Alba","Arad","Arges","Bacau","Bihor","Bistrita-Nasaud","Botosani","Braila","Brasov","Buzau","Calarasi","Caras-Severin","Cluj","Constanta","Covasna","Dimbovita","Dolj","Galati","Gorj","Giurgiu","Harghita","Hunedoara","Ialomita","Iasi","Ilfov","Maramures","Mehedinti","Mures","Neamt","Olt","Prahova","Salaj","Satu Mare","Sibiu","Suceava","Teleorman","Timis","Tulcea","Vaslui","Vilcea","Vrancea"]
-city_states["San Marino"] = ["San Marino","Acquaviva","Borgo Maggiore","Chiesanuova","Domagnano","Faetano","Fiorentino","Monte Giardino","Serravalle"]
-city_states["Serbia/Montenegro (Yugoslavia)"] = ["Belgrade","Kosovo","Montenegro","Serbia","Vojvodina"]
-city_states["Slovakia"] = ["Bratislava","Banskobystricky","Kosicky","Nitriansky","Presovsky","Trenciansky","Trnavsky","Zilinsky"]
-city_states["Slovenia"] = ["Ljubljana","Ajdovscina","Beltinci","Bled","Bohinj","Borovnica","Bovec","Brda","Brezice","Brezovica","Cankova-Tisina","Celje","Cerklje na Gorenjskem","Cerknica","Cerkno","Crensovci","Crna na Koroskem","Crnomelj","Destrnik-Trnovska Vas","Divaca","Dobrepolje","Dobrova-Horjul-Polhov Gradec","Dol pri Ljubljani","Domzale","Dornava","Dravograd","Duplek","Gorenja Vas-Poljane","Gorisnica","Gornja Radgona","Gornji Grad","Gornji Petrovci","Grosuplje","Hodos Salovci","Hrastnik","Hrpelje-Kozina","Idrija","Ig","Ilirska Bistrica","Ivancna Gorica","Izola","Jesenice","Jursinci","Kamnik","Kanal","Kidricevo","Kobarid","Kobilje","Kocevje","Komen","Koper","Kozje","Kranj","Kranjska Gora","Krsko","Kungota","Kuzma","Lasko","Lenart","Lendava","Litija","Ljubno","Ljutomer","Logatec","Loska Dolina","Loski Potok","Luce","Lukovica","Majsperk","Maribor","Medvode","Menges","Metlika","Mezica","Miren-Kostanjevica","Mislinja","Moravce","Moravske Toplice","Mozirje","Murska Sobota","Muta","Naklo","Nazarje","Nova Gorica","Novo Mesto","Odranci","Ormoz","Osilnica","Pesnica","Piran","Pivka","Podcetrtek","Podvelka-Ribnica","Postojna","Preddvor","Ptuj","Puconci","Race-Fram","Radece","Radenci","Radlje ob Dravi","Radovljica","Ravne-Prevalje","Ribnica","Rogasevci","Rogaska Slatina","Rogatec","Ruse","Semic","Sencur","Sentilj","Sentjernej","Sentjur pri Celju","Sevnica","Sezana","Skocjan","Skofja Loka","Skofljica","Slovenj Gradec","Slovenska Bistrica","Slovenske Konjice","Smarje pri Jelsah","Smartno ob Paki","Sostanj","Starse","Store","Sveti Jurij","Tolmin","Trbovlje","Trebnje","Trzic","Turnisce","Velenje","Velike Lasce","Videm","Vipava","Vitanje","Vodice","Vojnik","Vrhnika","Vuzenica","Zagorje ob Savi","Zalec","Zavrc","Zelezniki","Ziri","Zrece"]
-city_states["Spain"] = ["Madrid","Andalucia","Aragon","Asturias","Baleares (Balearic Islands)","Ceuta","Canarias (Canary Islands)","Cantabria","Castilla-La Mancha","Castilla y Leon","Cataluna","Communidad Valencian","Extremadura","Galicia","La Rioja","Melilla","Murcia","Navarra","Pais Vasco (Basque Country)"]
-city_states["Sweden"] = ["Stockholm","Blekinge","Dalarnas","Gavleborgs","Gotlands","Hallands","Jamtlands","Jonkopings","Kalmar","Kronobergs","Norrbottens","Orebro","Ostergotlands","Skane","Sodermanlands","Uppsala","Varmlands","Vasterbottens","Vasternorrlands","Vastmanlands","Vastra Gotalands"]
-city_states["Switzerland"] = ["Bern","Aargau","Appenzell Ausser-Rhoden","Appenzell Inner-Rhoden","Basel-Landschaft","Basel-Stadt","Fribourg","Geneve","Glarus","Graubunden","Jura","Luzern","Neuchatel","Nidwalden","Obwalden","Sankt Gallen","Schaffhausen","Schwyz","Solothurn","Thurgau","Ticino","Uri","Valais","Vaud","Zug","Zurich"]
-city_states["Ukraine"] = ["Kiev (Kyyiv)","Cherkas'ka (Cherkasy)","Chernihivs'ka (Chernihiv)","Chernivets'ka (Chernivtsi)","Dnipropetrovs'ka (Dnipropetrovs'k)","Donets'ka (Donets'k)","Ivano-Frankivs'ka (Ivano-Frankivs'k)","Izmail (Izmayl)","Kharkivs'ka (Kharkiv)","Khersons'ka (Kherson)","Khmel'nyts'ka (Khmel'nyts'kyy)","Kirovohrads'ka (Kirovohrad)","Luhans'ka (Luhans'k)","L'vivs'ka (L'viv)","Mykolayivs'ka (Mykolayiv)","Odes'ka (Odesa)","Poltavs'ka (Poltava)","Avtonomna Respublika Krym","Rivnens'ka (Rivne)","Sevastopol","Sums'ka (Sumy)","Ternopil's'ka (Ternopil')","Vinnyts'ka (Vinnytsya)","Volyns'ka (Luts'k)","Zakarpats'ka (Uzhhorod)","Zaporiz'ka (Zaporizhzhya)","Zhytomyrs'ka (Zhytomyr)"]
-city_states["United Kingdom"] = ["Barking/Dagenham","Barnet","Barnsley","Bath/North East Somerset","Bedfordshire","Bexley","Birmingham","Blackburn with Darwen","Blackpool","Bolton","Bournemouth","Bracknell Forest","Bradford","Brent","Brighton/Hove","City of Bristol","Bromley","Buckinghamshire","Bury","Calderdale","Cambridgeshire","Camden","Cheshire","Cornwall","Coventry","Croydon","Cumbria","Darlington","Derby","Derbyshire","Devon","Doncaster","Dorset","Dudley","Durham","Ealing","East Riding of Yorkshire","East Sussex","Enfield","Essex","Gateshead","Gloucestershire","Greenwich","Hackney","Halton","Hammersmith/Fulham","Hampshire","Haringey","Harrow","Hartlepool","Havering","Herefordshire","Hertfordshire","Hillingdon","Hounslow","Isle of Wight","Islington","Kensington/Chelsea","Kent","City of Kingston upon Hull","Kingston upon Thames","Kirklees","Knowsley","Lambeth","Lancashire","Leeds","Leicester","Leicestershire","Lewisham","Lincolnshire","Liverpool","City of London","Luton","Manchester","Medway","Merton","Middlesbrough","Milton Keynes","Newcastle upon Tyne","Newham","Norfolk","Northamptonshire","North East Lincolnshire","North Lincolnshire","North Somerset","North Tyneside","Northumberl/","North Yorkshire","Nottingham","Nottinghamshire","Oldham","Oxfordshire","Peterborough","Plymouth","Poole","Portsmouth","Reading","Redbridge","Redcar/Clevel/","Richmond upon Thames","Rochdale","Rotherham","Rutl/","Salford","Shropshire","S/well","Sefton","Sheffield","Slough","Solihull","Somerset","Southampton","Southend-on-Sea","South Gloucestershire","South Tyneside","Southwark","Staffordshire","St. Helens","Stockport","Stockton-on-Tees","Stoke-on-Trent","Suffolk","Sunderl/","Surrey","Sutton","Swindon","Tameside","Telford/Wrekin","Thurrock","Torbay","Tower Hamlets","Trafford","Wakefield","Walsall","Waltham Forest","W/sworth","Warrington","Warwickshire","West Berkshire","Westminster","West Sussex","Wigan","Wiltshire","Windsor/Maidenhead","Wirral","Wokingham","Wolverhampton","Worcestershire","York","-----NORTHERN IRELAND:-----","Antrim","County Antrim","Ards","Armagh","County Armagh","Ballymena","Ballymoney","Banbridge","Belfast","Carrickfergus","Castlereagh","Coleraine","Cookstown","Craigavon","Down","County Down","Dungannon","Fermanagh","County Fermanagh","Larne","Limavady","Lisburn","County Londonderry","Derry","Magherafelt","Moyle","Newry/Mourne","Newtownabbey","North Down","Omagh","Strabane","County Tyrone","-----SCOTLAND:-----","Aberdeen City","Aberdeenshire","Angus","Argyll/Bute","The Scottish Borders","Clackmannanshire","Dumfries/Galloway","Dundee City","East Ayrshire","East Dunbartonshire","East Lothian","East Renfrewshire","City of Edinburgh","Falkirk","Fife","Glasgow City","Highland","Inverclyde","Midlothian","Moray","North Ayrshire","North Lanarkshire","Orkney Islands","Perth/Kinross","Renfrewshire","Shetland Islands","South Ayrshire","South Lanarkshire","Stirling","West Dunbartonshire","Eilean Siar (Western Isles)","West Lothian","-----WALES-----:","Isle of Anglesey","Blaenau Gwent","Bridgend","Caerphilly","Cardiff","Ceredigion","Carmarthenshire","Conwy","Denbighshire","Flintshire","Gwynedd","Merthyr Tydfil","Monmouthshire","Neath Port Talbot","Newport","Pembrokeshire","Powys","Rhondda Cynon Taff","Swansea","Torfaen","The Vale of Glamorgan","Wrexham"]
+
+city_states["Moldova"] =
+[
+    "Chisinau","Balti","Cahul","Chisinau","Chisinau","Edinet","Gagauzia",
+    "Lapusna","Orhei","Soroca","Stinga Nistrului","Tighina","Ungheni"
+]
+
+city_states["Monaco"] = [ "Monaco", "Fontvieille", "La Condamine", "Monaco-Ville", "Monte-Carlo" ]
+
+city_states["Netherlands"] =
+[
+    "Amsterdam", "The Hague", "Drenthe", "Flevoland", "Friesland", "Gelderland", "Groningen", "Limburg", "Noord-Brabant",
+    "Noord-Holland", "Overijssel", "Utrecht", "Zeeland", "Zuid-Holland"
+]
+
+city_states["Norway"] =
+[
+    "Oslo", "Akershus", "Aust-Agder", "Buskerud", "Finnmark", "Hedmark", "Hordaland", "More og Romsdal", "Nordland",
+    "Nord-Trondelag", "Oppland", "Ostfold", "Rogaland", "Sogn og Fjordane", "Sor-Trondelag", "Telemark", "Troms",
+    "Vest-Agder", "Vestfold"
+]
+
+city_states["Poland"] =
+[
+    "Warsaw", "Dolnoslaskie", "Kujawsko-Pomorskie", "Lodzkie", "Lubelskie", "Lubuskie", "Malopolskie", "Mazowieckie",
+    "Opolskie", "Podkarpackie", "Podlaskie", "Pomorskie", "Slaskie", "Swietokrzyskie", "Warminsko-Mazurskie",
+    "Wielkopolskie", "Zachodniopomorskie"
+]
+
+city_states["Portugal"] =
+[
+    "Lisbon", "Aveiro", "Acores (Azores)", "Beja", "Braga", "Braganca", "Castelo Branco", "Coimbra", "Evora", "Faro", "Guarda",
+    "Leiria", "Lisboa", "Madeira", "Portalegre", "Porto", "Santarem", "Setubal", "Viana do Castelo", "Vila Real", "Viseu"
+]
+city_states["Romania"] =
+[
+    "Bucharest (Bucuresti)", "Alba", "Arad", "Arges", "Bacau", "Bihor", "Bistrita-Nasaud", "Botosani", "Braila", "Brasov",
+    "Buzau", "Calarasi", "Caras-Severin", "Cluj", "Constanta", "Covasna", "Dimbovita", "Dolj", "Galati", "Gorj","Giurgiu",
+    "Harghita", "Hunedoara", "Ialomita", "Iasi", "Ilfov", "Maramures", "Mehedinti", "Mures", "Neamt", "Olt", "Prahova", "Salaj",
+    "Satu Mare", "Sibiu", "Suceava", "Teleorman", "Timis", "Tulcea", "Vaslui", "Vilcea", "Vrancea"
+]
+
+city_states["San Marino"] =
+[
+    "San Marino", "Acquaviva", "Borgo Maggiore", "Chiesanuova", "Domagnano",
+    "Faetano", "Fiorentino", "Monte Giardino", "Serravalle"
+]
+
+city_states["Serbia/Montenegro (Yugoslavia)"] = [ "Belgrade", "Kosovo", "Montenegro", "Serbia", "Vojvodina" ]
+
+city_states["Slovakia"] = [ "Bratislava", "Banskobystricky", "Kosicky", "Nitriansky", "Presovsky", "Trenciansky", "Trnavsky", "Zilinsky" ]
+
+city_states["Slovenia"] =
+[
+    "Ljubljana", "Ajdovscina", "Beltinci", "Bled", "Bohinj", "Borovnica", "Bovec", "Brda", "Brezice", "Brezovica", "Cankova-Tisina",
+    "Celje", "Cerklje na Gorenjskem", "Cerknica", "Cerkno", "Crensovci", "Crna na Koroskem", "Crnomelj", "Destrnik-Trnovska Vas",
+    "Divaca", "Dobrepolje", "Dobrova-Horjul-Polhov Gradec", "Dol pri Ljubljani", "Domzale", "Dornava", "Dravograd", "Duplek",
+    "Gorenja Vas-Poljane", "Gorisnica", "Gornja Radgona", "Gornji Grad", "Gornji Petrovci", "Grosuplje", "Hodos Salovci",
+    "Hrastnik", "Hrpelje-Kozina", "Idrija", "Ig", "Ilirska Bistrica", "Ivancna Gorica", "Izola", "Jesenice", "Jursinci", "Kamnik",
+    "Kanal", "Kidricevo", "Kobarid", "Kobilje", "Kocevje", "Komen", "Koper", "Kozje", "Kranj", "Kranjska Gora", "Krsko", "Kungota",
+    "Kuzma", "Lasko", "Lenart", "Lendava", "Litija", "Ljubno", "Ljutomer", "Logatec", "Loska Dolina", "Loski Potok", "Luce","Lukovica",
+    "Majsperk", "Maribor", "Medvode", "Menges", "Metlika", "Mezica", "Miren-Kostanjevica", "Mislinja", "Moravce", "Moravske Toplice",
+    "Mozirje", "Murska Sobota", "Muta", "Naklo", "Nazarje", "Nova Gorica", "Novo Mesto", "Odranci", "Ormoz", "Osilnica", "Pesnica",
+    "Piran", "Pivka", "Podcetrtek", "Podvelka-Ribnica", "Postojna", "Preddvor", "Ptuj", "Puconci", "Race-Fram", "Radece", "Radenci",
+    "Radlje ob Dravi", "Radovljica", "Ravne-Prevalje", "Ribnica", "Rogasevci", "Rogaska Slatina", "Rogatec", "Ruse","Semic", "Sencur",
+    "Sentilj", "Sentjernej", "Sentjur pri Celju", "Sevnica", "Sezana", "Skocjan", "Skofja Loka", "Skofljica", "Slovenj Gradec",
+    "Slovenska Bistrica", "Slovenske Konjice", "Smarje pri Jelsah", "Smartno ob Paki", "Sostanj", "Starse", "Store", "Sveti Jurij",
+    "Tolmin", "Trbovlje", "Trebnje", "Trzic", "Turnisce", "Velenje", "Velike Lasce", "Videm", "Vipava", "Vitanje", "Vodice", "Vojnik",
+    "Vrhnika", "Vuzenica", "Zagorje ob Savi", "Zalec", "Zavrc", "Zelezniki", "Ziri", "Zrece"
+]
+city_states["Spain"] =
+[
+    "Madrid", "Andalucia", "Aragon", "Asturias", "Baleares (Balearic Islands)", "Ceuta", "Canarias (Canary Islands)",
+    "Cantabria", "Castilla-La Mancha", "Castilla y Leon", "Cataluna", "Communidad Valencian", "Extremadura", "Galicia",
+    "La Rioja", "Melilla", "Murcia", "Navarra", "Pais Vasco (Basque Country)"
+]
+city_states["Sweden"] =
+[
+    "Stockholm", "Blekinge", "Dalarnas", "Gavleborgs", "Gotlands", "Hallands", "Jamtlands", "Jonkopings", "Kalmar",
+    "Kronobergs", "Norrbottens", "Orebro", "Ostergotlands", "Skane", "Sodermanlands", "Uppsala", "Varmlands",
+    "Vasterbottens", "Vasternorrlands", "Vastmanlands", "Vastra Gotalands"
+]
+city_states["Switzerland"] =
+[
+    "Bern", "Aargau", "Appenzell Ausser-Rhoden", "Appenzell Inner-Rhoden", "Basel-Landschaft","Basel-Stadt",
+    "Fribourg", "Geneve", "Glarus", "Graubunden", "Jura", "Luzern", "Neuchatel", "Nidwalden", "Obwalden", "Sankt Gallen",
+    "Schaffhausen", "Schwyz", "Solothurn", "Thurgau", "Ticino", "Uri", "Valais", "Vaud", "Zug", "Zurich"
+]
+city_states["Ukraine"] =
+[
+    "Kiev (Kyyiv)", "Cherkas'ka (Cherkasy)", "Chernihivs'ka (Chernihiv)", "Chernivets'ka (Chernivtsi)",
+    "Dnipropetrovs'ka (Dnipropetrovs'k)", "Donets'ka (Donets'k)", "Ivano-Frankivs'ka (Ivano-Frankivs'k)",
+    "Izmail (Izmayl)", "Kharkivs'ka (Kharkiv)", "Khersons'ka (Kherson)", "Khmel'nyts'ka (Khmel'nyts'kyy)",
+    "Kirovohrads'ka (Kirovohrad)", "Luhans'ka (Luhans'k)", "L'vivs'ka (L'viv)", "Mykolayivs'ka (Mykolayiv)",
+    "Odes'ka (Odesa)", "Poltavs'ka (Poltava)", "Avtonomna Respublika Krym", "Rivnens'ka (Rivne)","Sevastopol",
+    "Sums'ka (Sumy)", "Ternopil's'ka (Ternopil')", "Vinnyts'ka (Vinnytsya)", "Volyns'ka (Luts'k)", "Zakarpats'ka (Uzhhorod)",
+    "Zaporiz'ka (Zaporizhzhya)", "Zhytomyrs'ka (Zhytomyr)"
+]
+city_states["United Kingdom"] =
+[
+    "Barking/Dagenham", "Barnet", "Barnsley", "Bath/North East Somerset", "Bedfordshire", "Bexley", "Birmingham",
+    "Blackburn with Darwen", "Blackpool", "Bolton", "Bournemouth", "Bracknell Forest", "Bradford", "Brent",
+    "Brighton/Hove", "City of Bristol", "Bromley", "Buckinghamshire", "Bury", "Calderdale", "Cambridgeshire",
+    "Camden", "Cheshire", "Cornwall", "Coventry", "Croydon", "Cumbria", "Darlington", "Derby", "Derbyshire", "Devon",
+    "Doncaster", "Dorset", "Dudley", "Durham", "Ealing", "East Riding of Yorkshire", "East Sussex", "Enfield", "Essex",
+    "Gateshead", "Gloucestershire", "Greenwich", "Hackney", "Halton", "Hammersmith/Fulham", "Hampshire", "Haringey",
+    "Harrow", "Hartlepool", "Havering", "Herefordshire", "Hertfordshire", "Hillingdon", "Hounslow", "Isle of Wight",
+    "Islington", "Kensington/Chelsea", "Kent", "City of Kingston upon Hull", "Kingston upon Thames", "Kirklees",
+    "Knowsley","Lambeth","Lancashire","Leeds","Leicester","Leicestershire","Lewisham","Lincolnshire","Liverpool",
+    "City of London", "Luton", "Manchester", "Medway", "Merton", "Middlesbrough", "Milton Keynes", "Newcastle upon Tyne",
+    "Newham", "Norfolk", "Northamptonshire", "North East Lincolnshire", "North Lincolnshire", "North Somerset",
+    "North Tyneside", "Northumberl/", "North Yorkshire", "Nottingham", "Nottinghamshire", "Oldham","Oxfordshire",
+    "Peterborough", "Plymouth", "Poole", "Portsmouth", "Reading", "Redbridge", "Redcar/Clevel/", "Richmond upon Thames",
+    "Rochdale", "Rotherham", "Rutl/", "Salford", "Shropshire", "S/well", "Sefton", "Sheffield", "Slough", "Solihull", "Somerset",
+    "Southampton", "Southend-on-Sea", "South Gloucestershire", "South Tyneside", "Southwark", "Staffordshire", "St. Helens",
+    "Stockport", "Stockton-on-Tees", "Stoke-on-Trent", "Suffolk", "Sunderl/", "Surrey", "Sutton", "Swindon", "Tameside",
+    "Telford/Wrekin", "Thurrock", "Torbay", "Tower Hamlets", "Trafford", "Wakefield", "Walsall", "Waltham Forest", "W/sworth",
+    "Warrington", "Warwickshire", "West Berkshire", "Westminster", "West Sussex", "Wigan", "Wiltshire", "Windsor/Maidenhead",
+    "Wirral", "Wokingham", "Wolverhampton", "Worcestershire", "York", "-----NORTHERN IRELAND:-----", "Antrim", "County Antrim",
+    "Ards", "Armagh", "County Armagh", "Ballymena", "Ballymoney", "Banbridge", "Belfast", "Carrickfergus", "Castlereagh", "Coleraine",
+    "Cookstown", "Craigavon", "Down", "County Down", "Dungannon", "Fermanagh", "County Fermanagh", "Larne", "Limavady", "Lisburn",
+    "County Londonderry", "Derry", "Magherafelt", "Moyle", "Newry/Mourne", "Newtownabbey", "North Down", "Omagh", "Strabane",
+    "County Tyrone", "-----SCOTLAND:-----", "Aberdeen City", "Aberdeenshire", "Angus", "Argyll/Bute", "The Scottish Borders",
+    "Clackmannanshire", "Dumfries/Galloway", "Dundee City", "East Ayrshire", "East Dunbartonshire", "East Lothian", "East Renfrewshire",
+    "City of Edinburgh", "Falkirk", "Fife", "Glasgow City", "Highland", "Inverclyde", "Midlothian", "Moray", "North Ayrshire",
+    "North Lanarkshire", "Orkney Islands", "Perth/Kinross", "Renfrewshire", "Shetland Islands", "South Ayrshire", "South Lanarkshire",
+    "Stirling", "West Dunbartonshire", "Eilean Siar (Western Isles)", "West Lothian", "-----WALES-----:", "Isle of Anglesey",
+    "Blaenau Gwent", "Bridgend", "Caerphilly", "Cardiff", "Ceredigion", "Carmarthenshire", "Conwy", "Denbighshire", "Flintshire",
+    "Gwynedd", "Merthyr Tydfil", "Monmouthshire", "Neath Port Talbot", "Newport", "Pembrokeshire", "Powys", "Rhondda Cynon Taff",
+    "Swansea", "Torfaen", "The Vale of Glamorgan", "Wrexham"
+]
+
 city_states["Vatican City"] = [""]
+
 
 //Islands
 city_states["Arctic Ocean"] = [ "Franz Josef Land", "Svalbard" ]
@@ -311,6 +510,7 @@ city_states["Pacific Ocean (South)"] =
     "Isla San Salvador", "Isla Santa Cruz", "Isla Santa Maria", "Robinson Crusoe", "San Felix", "Santa Clara"
 ]
 
+
 //Middle East
 city_states["Afghanistan"] =
 [
@@ -429,6 +629,7 @@ city_states["Yemen"] =
     "Sanaa", "Abyan", "Adan", "Al Bayda", "Al Hudaydah", "Al Jawf", "Al Mahrah", "Al Mahwit", "Dhamar",
     "Hadramawt", "Hajjah", "Ibb", "Lahij", "Ma'rib", "Sa'dah", "San'a'", "Shabwah", "Ta'iz"
 ]
+
 
 //North America
 city_states["Bermuda"] =
