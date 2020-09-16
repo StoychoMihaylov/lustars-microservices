@@ -1,31 +1,118 @@
 export const city_states = Object();
 
 //Africa
-city_states["Select Country"] = ["Select City"]
-city_states["Algeria"] = ["Algiers","Adrar","Ain Defla","Ain Temouchent","Alger","Annaba","Batna","Bechar","Bejaia","Biskra","Blida","Bordj Bou Arreridj","Bouira","Boumerdes","Chlef","Constantine","Djelfa","El Bayadh","El Oued","El Tarf","Ghardaia","Guelma","Illizi","Jijel","Khenchela","Laghouat","Mascara","Medea","Mila","Mostaganem","M'Sila","Naama","Oran","Ouargla","Oum el Bouaghi","Relizane","Saida","Setif","Sidi Bel Abbes","Skikda","Souk Ahras","Tamanghasset","Tebessa","Tiaret","Tindouf","Tipaza","Tissemsilt","Tizi Ouzou","Tlemcen"]
-city_states["Angola"] = ["Luanda","Bengo","Benguela","Bie","Cabinda","Cuando Cubango","Cuanza Norte","Cuanza Sul","Cunene","Huambo","Huila","Lunda Norte","Lunda Sul","Malanje","Moxico","Namibe","Uige","Zaire"]
-city_states["Benin"] = ["Porto-Novo","Alibori","Atakora","Atlantique","Borgou","Collines","Couffo","Donga","Littoral","Mono","Oueme","Plateau","Zou"]
-city_states["Botswana"] = ["Gaborone","Central","Chobe","Francistown","Ghanzi","Kgalagadi","Kgatleng","Kweneng","Lobatse","Ngamiland","North-East","Selebi-Pikwe","South-East","Southern"]
-city_states["Burkina Faso"] = ["Ouagadougou","Bale","Bam","Banwa","Bazega","Bougouriba","Boulgou","Boulkiemde","Comoe","Ganzourgou","Gnagna","Gourma","Houet","Ioba","Kadiogo","Kenedougou","Komandjari","Kompienga","Kossi","Koupelogo","Kouritenga","Kourweogo","Leraba","Loroum","Mouhoun","Nahouri","Namentenga","Nayala","Naumbiel","Oubritenga","Oudalan","Passore","Poni","Samentenga","Sanguie","Seno","Sissili","Soum","Sourou","Tapoa","Tuy","Yagha","Yatenga","Ziro","Zondomo","Zoundweogo"]
-city_states["Burundi"] = ["Bujumbura","Bubanza","Bujumbura","Bururi","Cankuzo","Cibitoke","Gitega","Karuzi","Kayanza","Kirundo","Makamba","Muramvya","Muyinga","Mwaro","Ngozi","Rutana","Ruyigi"]
-city_states["Cameroon"] = ["Yaounde","Adamaoua","Centre","Est","Extreme-Nord","Littoral","Nord","Nord-Ouest","Ouest","Sud","Sud-Ouest"]
-city_states["Cape Verde"] = ["Praia","Boa Vista","Brava","Calheta","Maio","Mosteiros","Paul","Porto Novo","Ribeira Grande","Sal","Santa Catarina","Santa Cruz","Sao Domingos","Sao Nicolau","Sao Filipe","Sao Vicente","Tarrafal"]
-city_states["Central African Republic"] = ["Bangui","Bamingui-Bangoran","Basse-Kotto","Gribingui","Haute-Kotto","Haute-Sangha","Haut-Mbomou","Kemo-Gribingui","Lobaye","Mbomou","Nana-Mambere","Ombella-Mpoko","Ouaka","Ouham","Ouham-Pende","Sangha","Vakaga"]
-city_states["Chad"] = ["N'Djamena","Assongha","Baguirmi","Bahr El Gazal","Bahr Koh","Batha Oriental","Batha Occidental","Biltine","Borkou","Dababa","Ennedi","Guera","Hadjer Lamis","Kabia","Kanem","Lac","Lac Iro","Logone Occidental","Logone Oriental","Mandoul","Mayo-Boneye","Mayo-Dallah","Monts de Lam","Ouaddai","Salamat","Sila","Tandjile Oriental","Tandjile Occidental","Tibesti"]
-city_states["Congo, Dem."] = ["Kinshasa","Bandundu","Bas-Congo","Equateur","Kasai-Occidental","Kasai-Oriental","Katanga","Maniema","Nord-Kivu","Orientale","Sud-Kivu"]
-city_states["Congo, Rep."] = ["Brazzaville","Bouenza","Cuvette","Kouilou","Lekoumou","Likouala","Niari","Plateaux","Pool","Sangha"]
-city_states["Djibouti"] = ["Djibouti","Ali Sabih","Dikhil","Obock","Tadjoura"]
-city_states["Egypt"] = ["Cairo","Ad Daqahliyah","Al Bahr al Ahmar","Al Buhayrah","Al Fayyum","Al Gharbiyah","Al Iskandariyah","Al Isma'iliyah","Al Jizah","Al Minufiyah","Al Minya","Al Qahirah","Al Qalyubiyah","Al Wadi al Jadid","Ash Sharqiyah","As Suways","Aswan","Asyut","Bani Suwayf","Bur Sa'id","Dumyat","Janub Sina'",'Kafr ash Shaykh","Matruh","Qina',"Shamal Sina'","Suhaj'"]
-city_states["Equatorial Guinea"] = ["Malabo","Annobon","Bioko Norte","Bioko Sur","Centro Sur","Kie-Ntem","Litoral","Wele-Nzas"]
-city_states["Eritrea"] = ["Asmara","Central","Anelba","Southern Red Sea","Northern Red Sea","Southern","Gash-Barka"]
-city_states["Ethiopia"] = ["Addis Ababa","Adis Abeba (Addis Ababa)","Afar","Amara","Binshangul Gumuz","Dire Dawa","Gambela Hizboch","Hareri Hizb","Oromiya","Sumale (Somali)","Tigray","YeDebub Biheroch Bihereseboch"]
+city_states["Select Country"] = [ "Select City" ]
+
+city_states["Algeria"] =
+[
+    "Algiers", "Adrar", "Ain Defla", "Ain Temouchent", "Alger", "Annaba", "Batna", "Bechar", "Bejaia", "Biskra", "Blida", "Bordj Bou Arreridj",
+    "Bouira", "Boumerdes", "Chlef", "Constantine", "Djelfa", "El Bayadh", "El Oued", "El Tarf", "Ghardaia", "Guelma", "Illizi", "Jijel", "Khenchela",
+    "Laghouat", "Mascara", "Medea", "Mila", "Mostaganem", "M'Sila", "Naama", "Oran", "Ouargla", "Oum el Bouaghi", "Relizane", "Saida", "Setif",
+    "Sidi Bel Abbes", "Skikda", "Souk Ahras", "Tamanghasset", "Tebessa", "Tiaret", "Tindouf", "Tipaza", "Tissemsilt", "Tizi Ouzou", "Tlemcen"
+]
+
+city_states["Angola"] =
+[
+    "Luanda", "Bengo", "Benguela", "Bie", "Cabinda", "Cuando Cubango", "Cuanza Norte", "Cuanza Sul", "Cunene", "Huambo", "Huila", "Lunda Norte",
+    "Lunda Sul", "Malanje", "Moxico", "Namibe", "Uige", "Zaire"
+]
+
+city_states["Benin"] =
+[
+    "Porto-Novo", "Alibori", "Atakora", "Atlantique", "Borgou", "Collines", "Couffo", "Donga", "Littoral", "Mono", "Oueme", "Plateau", "Zou"
+]
+city_states["Botswana"] =
+[
+    "Gaborone", "Central", "Chobe", "Francistown", "Ghanzi", "Kgalagadi", "Kgatleng", "Kweneng", "Lobatse", "Ngamiland", "North-East",
+    "Selebi-Pikwe", "South-East", "Southern"
+]
+
+city_states["Burkina Faso"] =
+[
+    "Ouagadougou", "Bale", "Bam", "Banwa", "Bazega", "Bougouriba", "Boulgou", "Boulkiemde", "Comoe", "Ganzourgou", "Gnagna", "Gourma", "Houet",
+    "Ioba", "Kadiogo", "Kenedougou", "Komandjari", "Kompienga", "Kossi", "Koupelogo", "Kouritenga", "Kourweogo", "Leraba", "Loroum", "Mouhoun",
+    "Nahouri", "Namentenga", "Nayala", "Naumbiel", "Oubritenga", "Oudalan", "Passore", "Poni", "Samentenga", "Sanguie", "Seno", "Sissili", "Soum",
+    "Sourou", "Tapoa", "Tuy", "Yagha", "Yatenga", "Ziro", "Zondomo", "Zoundweogo"
+]
+
+city_states["Burundi"] =
+[
+    "Bujumbura", "Bubanza", "Bujumbura", "Bururi", "Cankuzo", "Cibitoke", "Gitega", "Karuzi", "Kayanza", "Kirundo", "Makamba", "Muramvya", "Muyinga",
+    "Mwaro", "Ngozi", "Rutana", "Ruyigi"
+]
+city_states["Cameroon"] = [ "Yaounde", "Adamaoua", "Centre", "Est", "Extreme-Nord", "Littoral", "Nord", "Nord-Ouest", "Ouest", "Sud", "Sud-Ouest" ]
+city_states["Cape Verde"] =
+[
+    "Praia", "Boa Vista", "Brava", "Calheta", "Maio", "Mosteiros", "Paul", "Porto Novo", "Ribeira Grande", "Sal", "Santa Catarina", "Santa Cruz",
+    "Sao Domingos", "Sao Nicolau", "Sao Filipe", "Sao Vicente", "Tarrafal"
+]
+city_states["Central African Republic"] =
+[
+    "Bangui", "Bamingui-Bangoran", "Basse-Kotto", "Gribingui", "Haute-Kotto", "Haute-Sangha", "Haut-Mbomou", "Kemo-Gribingui", "Lobaye", "Mbomou",
+    "Nana-Mambere", "Ombella-Mpoko", "Ouaka", "Ouham", "Ouham-Pende", "Sangha", "Vakaga"
+]
+
+city_states["Chad"] =
+[
+    "N'Djamena", "Assongha", "Baguirmi", "Bahr El Gazal", "Bahr Koh", "Batha Oriental", "Batha Occidental", "Biltine", "Borkou", "Dababa",
+    "Ennedi", "Guera", "Hadjer Lamis", "Kabia", "Kanem", "Lac", "Lac Iro", "Logone Occidental", "Logone Oriental", "Mandoul", "Mayo-Boneye",
+    "Mayo-Dallah", "Monts de Lam", "Ouaddai", "Salamat", "Sila", "Tandjile Oriental", "Tandjile Occidental", "Tibesti"
+]
+
+city_states["Congo, Dem."] =
+[
+    "Kinshasa", "Bandundu", "Bas-Congo", "Equateur", "Kasai-Occidental", "Kasai-Oriental", "Katanga", "Maniema", "Nord-Kivu", "Orientale", "Sud-Kivu"
+]
+
+city_states["Congo, Rep."] = [ "Brazzaville", "Bouenza", "Cuvette", "Kouilou", "Lekoumou", "Likouala", "Niari", "Plateaux", "Pool", "Sangha" ]
+
+city_states["Djibouti"] = [ "Djibouti", "Ali Sabih", "Dikhil", "Obock", "Tadjoura" ]
+
+city_states["Egypt"] =
+[
+    "Cairo", "Ad Daqahliyah", "Al Bahr al Ahmar", "Al Buhayrah", "Al Fayyum", "Al Gharbiyah", "Al Iskandariyah", "Al Isma'iliyah",
+    "Al Jizah", "Al Minufiyah", "Al Minya", "Al Qahirah", "Al Qalyubiyah", "Al Wadi al Jadid", "Ash Sharqiyah", "As Suways", "Aswan",
+    "Asyut", "Bani Suwayf", "Bur Sa'id", "Dumyat", "Janub Sina", "Kafr ash Shaykh", "Matruh", "Qina", "Shamal Sina", "Suhaj"
+]
+
+city_states["Equatorial Guinea"] = [ "Malabo", "Annobon", "Bioko Norte", "Bioko Sur", "Centro Sur", "Kie-Ntem", "Litoral", "Wele-Nzas" ]
+
+city_states["Eritrea"] = [ "Asmara", "Central", "Anelba", "Southern Red Sea", "Northern Red Sea", "Southern", "Gash-Barka" ]
+
+city_states["Ethiopia"] =
+[
+    "Addis Ababa", "Adis Abeba (Addis Ababa)", "Afar", "Amara", "Binshangul Gumuz", "Dire Dawa", "Gambela Hizboch", "Hareri Hizb",
+    "Oromiya", "Sumale (Somali)", "Tigray", "YeDebub Biheroch Bihereseboch"
+]
+
 city_states["Gabon"] = ["Libreville"]
-city_states["Gambia"] = ["Estuaire","Haut-Ogooue","Moyen-Ogooue","Ngounie","Nyanga","Ogooue-Ivindo","Ogooue-Lolo","Ogooue-Maritime","Woleu-Ntem"]
-city_states["Ghana"] = ["Accra","Ashanti","Brong-Ahafo","Central","Eastern","Northern","Upper East","Upper West","Volta","Western"]
-city_states["Guinea"] = ["Conakry","Beyla","Boffa","Boke","Coyah","Dabola","Dalaba","Dinguiraye","Dubreka","Faranah","Forecariah","Fria","Gaoual","Gueckedou","Kankan","Kerouane","Kindia","Kissidougou","Koubia","Koundara","Kouroussa","Labe","Lelouma","Lola","Macenta","Mali","Mamou","Mandiana","Nzerekore","Pita","Siguiri","Telimele","Tougue","Yomou"]
-city_states["Guinea-Bissau"] = ["Bissau","Bafata","Biombo","Bolama/Bijagos","Cacheu","Gabu","Oio","Quinara","Tombali"]
-city_states["Kenya"] = ["Nairobi","Central","Coast","Eastern","Nairobi Area","North Eastern","Nyanza","Rift Valley","Western"]
-city_states["Lesotho"] = ["Maseru","Berea","Butha-Buthe","Leribe","Mafeteng","Mohales Hoek","Mokhotlong","Qacha's Nek","Quthing","Thaba-Tseka"]
+
+city_states["Gambia"] =
+[
+    "Estuaire", "Haut-Ogooue", "Moyen-Ogooue", "Ngounie", "Nyanga", "Ogooue-Ivindo", "Ogooue-Lolo", "Ogooue-Maritime", "Woleu-Ntem"
+]
+
+city_states["Ghana"] = [ "Accra", "Ashanti", "Brong-Ahafo", "Central","Eastern", "Northern", "Upper East", "Upper West", "Volta", "Western" ]
+
+city_states["Guinea"] =
+[
+    "Conakry", "Beyla", "Boffa", "Boke", "Coyah", "Dabola", "Dalaba", "Dinguiraye", "Dubreka", "Faranah", "Forecariah", "Fria", "Gaoual",
+    "Gueckedou", "Kankan", "Kerouane", "Kindia", "Kissidougou", "Koubia", "Koundara", "Kouroussa", "Labe", "Lelouma", "Lola", "Macenta",
+    "Mali", "Mamou", "Mandiana", "Nzerekore", "Pita", "Siguiri", "Telimele", "Tougue", "Yomou"
+]
+
+city_states["Guinea-Bissau"] = [ "Bissau", "Bafata", "Biombo", "Bolama/Bijagos", "Cacheu", "Gabu", "Oio", "Quinara", "Tombali" ]
+
+city_states["Kenya"] =
+[
+    "Nairobi", "Central", "Coast", "Eastern", "Nairobi Area", "North Eastern", "Nyanza", "Rift Valley", "Western"
+]
+
+city_states["Lesotho"] =
+[
+    "Maseru", "Berea", "Butha-Buthe", "Leribe", "Mafeteng", "Mohales Hoek", "Mokhotlong", "Qacha's Nek", "Quthing", "Thaba-Tseka"
+]
+
 city_states["Liberia"] =
 [
     "Monrovia", "Bomi", "Bong", "Gparbolu", "Grand Bassa", "Grand Cape Mount", "Grand Gedeh", "Grand Kru", "Lofa", "Margibi", "Maryland",
