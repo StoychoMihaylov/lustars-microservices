@@ -26,124 +26,586 @@ city_states["Guinea"] = ["Conakry","Beyla","Boffa","Boke","Coyah","Dabola","Dala
 city_states["Guinea-Bissau"] = ["Bissau","Bafata","Biombo","Bolama/Bijagos","Cacheu","Gabu","Oio","Quinara","Tombali"]
 city_states["Kenya"] = ["Nairobi","Central","Coast","Eastern","Nairobi Area","North Eastern","Nyanza","Rift Valley","Western"]
 city_states["Lesotho"] = ["Maseru","Berea","Butha-Buthe","Leribe","Mafeteng","Mohales Hoek","Mokhotlong","Qacha's Nek","Quthing","Thaba-Tseka"]
-city_states["Liberia"] = ["Monrovia","Bomi","Bong","Gparbolu","Grand Bassa","Grand Cape Mount","Grand Gedeh","Grand Kru","Lofa","Margibi","Maryland","Montserrado","Nimba","River Cess","River Gee","Sinoe"]
-city_states["Libya"] = ["Tripoli","Ajdabiya","Al'Aziziyah","Al Fatih","Al Jabal al Akhdar","Al Jufrah","Al Khums","Al Kufrah","An Nuqat al Khams","Ash Shati","Awbari","Az Zawiyah","Banghazi","Darnah","Ghadamis","Gharyan","Misratah","Murzuq","Sabha","Sawfajjin","Surt","Tarabulus","Tarhunah","Tubruq","Yafran","Zlitan"]
-city_states["Madagascar"] = ["Antananarivo","Antsiranana","Fianarantsoa","Mahajanga","Toamasina","Toliara"]
-city_states["Malawi"] = ["Lilongwe","Balaka","Blantyre","Chikwawa","Chiradzulu","Chitipa","Dedza","Dowa","Karonga","Kasungu","Likoma","Machinga (Kasupe)","Mangochi","Mchinji","Mulanje","Mwanza","Mzimba","Ntcheu","Nkhata Bay","Nkhotakota","Nsanje","Ntchisi","Phalombe","Rumphi","Salima","Thyolo","Zomba"]
-city_states["Mali"] = ["Bamako","Gao","Kayes","Kidal","Koulikoro","Mopti","Segou","Sikasso","Tombouctou"]
-city_states["Mauritania"] = ["Nouakchott","Adrar","Assaba","Brakna","Dakhlet Nouadhibou","Gorgol","Guidimaka","Hodh Ech Chargui","Hodh El Gharbi","Inchiri","Tagant","Tiris Zemmour","Trarza"]
-city_states["Mauritius"] = ["Port Louis","Agalega Islands","Black River","Cargados Carajos Shoals","Flacq","Grand Port","Moka","Pamplemousses","Plaines Wilhems","Riviere du Rempart","Rodrigues","Savanne"]
-city_states["Morocco"] = ["Rabat","Ad Dakhla (Oued Eddahab)","Agadir","Al Hoceima","Azilal","Beni Mellal","Ben Slimane","Boujdour","Boulemane","Casablanca","Chaouen","El Jadida","El Kelaa des Sraghna","Er Rachidia","Essaouira","Es Smara","Fes","Figuig","Guelmim","Ifrane","Kenitra","Khemisset","Khenifra","Khouribga","Laayoune","Larache","Marrakech","Meknes","Nador","Ouarzazate","Oujda","Safi","Settat","Sidi Kacem","Tanger","Tan-Tan","Taounate","Taroudannt","Tata","Taza","Tetouan","Tiznit"]
-city_states["Mozambique"] = ["Maputo","Cabo Delgado","Gaza","Inhambane","Manica","Maputo","Nampula","Niassa","Sofala","Tete","Zambezia"]
-city_states["Namibia"] = ["Windhoek","Caprivi","Erongo","Hardap","Karas","Khomas","Kunene","Ohangwena","Okavango","Omaheke","Omusati","Oshana","Oshikoto","Otjozondjupa"]
-city_states["Niger"] = ["Niamey","Agadez","Diffa","Dosso","Maradi","Tahoua","Tillaberi","Zinder"]
-city_states["Nigeria"] = ["Abuja","Abia","Adamawa","Akwa Ibom","Anambra","Bauchi","Bayelsa","Benue","Borno","Cross River","Delta","Ebonyi","Edo","Ekiti","Enugu","Gombe","Imo","Jigawa","Kaduna","Kano","Katsina","Kebbi","Kogi","Kwara","Lagos","Nassarawa","Niger","Ogun","Ondo","Osun","Oyo","Plateau","Rivers","Sokoto","Taraba","Yobe","Zamfara"]
-city_states["Rwanda"] = ["Kigali","Butare","Byumba","Cyangugu","Gikongoro","Gisenyi","Gitarama","Kibungo","Kibuye","Ruhengeri","Umutara"]
-city_states["Sao Tome/Principe"] = ["Sao Tome","Principe"]
-city_states["Senegal"] = ["Dakar","Diourbel","Fatick","Kaolack","Kolda","Louga","Matam","Saint-Louis","Tambacounda","Thies","Ziguinchor"]
-city_states["Seychelles"] = ["Victoria","Anse aux Pins","Anse Boileau","Anse Etoile","Anse Louis","Anse Royale","Baie Lazare","Baie Sainte Anne","Beau Vallon","Bel Air","Bel Ombre","Cascade","Glacis","Grand'Anse (on Mahe)","Grand' Anse (on Praslin)","La Digue","La Riviere Anglaise","Mont Buxton","Mont Fleuri","Plaisance","Pointe La Rue","Port Glaud","Saint Louis","Takamaka"]
-city_states["Sierra Leone"] = ["Freetown","Eastern","Northern","Southern","Western"]
-city_states["Somalia"] = ["Mogadishu","Awdal","Bakool","Banaadir","Bari","Bay","Galguduud","Gedo","Hiiraan","Jubbada Dhexe","Jubbada Hoose","Mudug","Nugaal","Sanaag","Shabeellaha Dhexe","Shabeellaha Hoose","Sool","Togdheer","Woqooyi Galbeed"]
-city_states["South Africa"] = ["Pretoria","Eastern Cape","Free State","Gauteng","KwaZulu-Natal","Mpumalanga","North-West","Northern Cape","Northern Province/Limpopo","Western Cape"]
-city_states["Sudan"] = ["Khartoum","A'ali an Nil","Al Bahr al Ahmar","Al Buhayrat","Al Jazirah","Al Khartum","Al Qadarif","Al Wahdah","An Nil al Abyad","An Nil al Azraq","Ash Shamaliyah","Bahr al Jabal","Gharb al Istiwa'iyah","Gharb Bahr al Ghazal","Gharb Darfur","Gharb Kurdufan","Janub Darfur","Janub Kurdufan","Junqali","Kassala","Nahr an Nil","Shamal Bahr al Ghazal","Shamal Darfur","Shamal Kurdufan","Sharq al Istiwa'iyah","Sinnar","Warab"]
-city_states["Swaziland"] = ["Lobamba/Mbabane","Hhohho","Lubombo","Manzini","Shiselweni"]
-city_states["Tanzania"] = ["Dodoma","Arusha","Dar es Salaam","Iringa","Kagera","Kigoma","Kilimanjaro","Lindi","Mara","Mbeya","Morogoro","Mtwara","Mwanza","Pemba North","Pemba South","Pwani","Rukwa","Ruvuma","Shinyanga","Singida","Tabora","Tanga","Zanzibar Central/South","Zanzibar North","Zanzibar Urban/West"]
-city_states["Togo"] = ["Lome","De La Kara","Des Plateaux","Des Savanes","Centrale","Maritime"]
-city_states["Tunisia"] = ["Tunis","Ariana","Beja","Ben Arous","Bizerte","El Kef","Gabes","Gafsa","Jendouba","Kairouan","Kasserine","Kebili","Mahdia","Medenine","Monastir","Nabeul","Sfax","Sidi Bou Zid","Siliana","Sousse","Tataouine","Tozeur","Zaghouan"]
-city_states["Uganda"] = ["Kampala","Adjumani","Apac","Arua","Bugiri","Bundibugyo","Bushenyi","Busia","Gulu","Hoima","Iganga","Jinja","Kabale","Kabarole","Kaberamaido","Kalangala","Kamuli","Kamwenge","Kanungu","Kapchorwa","Kasese","Katakwi","Kayunga","Kibale","Kiboga","Kisoro","Kitgum","Kotido","Kumi","Kyenjojo","Lira","Luwero","Masaka","Masindi","Mayngc","Mbale","Mbarara","Moroto","Moyo","Mpigi","Mubende","Mukono","Nakapiripiti","Nakasongola","Nebbi","Ntungamo","Pader","Pallisa","Rakai","Rukungiri","Sembabule","Sironko","Soroti","Tororo","Wakiso","Yumbe"]
-city_states["Zambia"] = ["Lusaka","Central","Copperbelt","Eastern","Luapula","Lusaka","Northern","North-Western","Southern","Western"]
-city_states["Zimbabwe"] = ["Harare","Bulawayo","Manicaland","Mashonaland Central","Mashonaland East","Mashonaland West","Masvingo","Matabeleland North","Matabeleland South","Midlands"]
+city_states["Liberia"] =
+[
+    "Monrovia", "Bomi", "Bong", "Gparbolu", "Grand Bassa", "Grand Cape Mount", "Grand Gedeh", "Grand Kru", "Lofa", "Margibi", "Maryland",
+    "Montserrado", "Nimba", "River Cess", "River Gee", "Sinoe"
+]
+
+city_states["Libya"] =
+[
+    "Tripoli", "Ajdabiya", "Al'Aziziyah", "Al Fatih", "Al Jabal al Akhdar", "Al Jufrah", "Al Khums", "Al Kufrah", "An Nuqat al Khams",
+    "Ash Shati", "Awbari", "Az Zawiyah", "Banghazi", "Darnah", "Ghadamis", "Gharyan", "Misratah", "Murzuq", "Sabha", "Sawfajjin",
+    "Surt", "Tarabulus", "Tarhunah","Tubruq", "Yafran","Zlitan"
+]
+
+city_states["Madagascar"] = [ "Antananarivo", "Antsiranana", "Fianarantsoa", "Mahajanga", "Toamasina", "Toliara" ]
+
+city_states["Malawi"] =
+[
+    "Lilongwe", "Balaka", "Blantyre", "Chikwawa", "Chiradzulu", "Chitipa", "Dedza", "Dowa", "Karonga", "Kasungu", "Likoma",
+    "Machinga (Kasupe)", "Mangochi", "Mchinji", "Mulanje", "Mwanza", "Mzimba", "Ntcheu", "Nkhata Bay", "Nkhotakota", "Nsanje",
+    "Ntchisi", "Phalombe", "Rumphi", "Salima", "Thyolo", "Zomba"
+]
+
+city_states["Mali"] = [ "Bamako", "Gao", "Kayes", "Kidal", "Koulikoro", "Mopti", "Segou", "Sikasso", "Tombouctou" ]
+
+city_states["Mauritania"] =
+[
+    "Nouakchott", "Adrar", "Assaba", "Brakna", "Dakhlet Nouadhibou", "Gorgol", "Guidimaka", "Hodh Ech Chargui", "Hodh El Gharbi", "Inchiri",
+    "Tagant", "Tiris Zemmour", "Trarza"
+]
+city_states["Mauritius"] =
+[
+    "Port Louis", "Agalega Islands", "Black River", "Cargados Carajos Shoals", "Flacq", "Grand Port", "Moka", "Pamplemousses", "Plaines Wilhems",
+    "Riviere du Rempart", "Rodrigues", "Savanne"
+]
+
+city_states["Morocco"] =
+[
+    "Rabat", "Ad Dakhla (Oued Eddahab)", "Agadir", "Al Hoceima", "Azilal", "Beni Mellal", "Ben Slimane", "Boujdour", "Boulemane", "Casablanca",
+    "Chaouen", "El Jadida", "El Kelaa des Sraghna", "Er Rachidia", "Essaouira", "Es Smara", "Fes", "Figuig", "Guelmim", "Ifrane", "Kenitra",
+    "Khemisset", "Khenifra", "Khouribga", "Laayoune", "Larache", "Marrakech", "Meknes", "Nador", "Ouarzazate", "Oujda", "Safi", "Settat",
+    "Sidi Kacem", "Tanger", "Tan-Tan", "Taounate", "Taroudannt", "Tata", "Taza", "Tetouan", "Tiznit"
+]
+
+city_states["Mozambique"] =
+[
+    "Maputo", "Cabo Delgado", "Gaza", "Inhambane", "Manica", "Maputo", "Nampula", "Niassa", "Sofala", "Tete", "Zambezia"
+]
+city_states["Namibia"] =
+[
+    "Windhoek", "Caprivi", "Erongo", "Hardap", "Karas", "Khomas", "Kunene", "Ohangwena", "Okavango", "Omaheke", "Omusati", "Oshana",
+    "Oshikoto", "Otjozondjupa"
+]
+
+city_states["Niger"] = [ "Niamey", "Agadez", "Diffa", "Dosso", "Maradi", "Tahoua", "Tillaberi", "Zinder" ]
+
+city_states["Nigeria"] =
+[
+    "Abuja", "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River", "Delta", "Ebonyi", "Edo", "Ekiti",
+    "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Kogi", "Kwara", "Lagos", "Nassarawa", "Niger", "Ogun", "Ondo",
+    "Osun", "Oyo", "Plateau", "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara"
+]
+
+city_states["Rwanda"] =
+[
+    "Kigali", "Butare", "Byumba", "Cyangugu", "Gikongoro", "Gisenyi", "Gitarama", "Kibungo", "Kibuye", "Ruhengeri", "Umutara"
+]
+
+city_states["Sao Tome/Principe"] = [ "Sao Tome", "Principe" ]
+
+city_states["Senegal"] =
+[
+    "Dakar", "Diourbel", "Fatick", "Kaolack", "Kolda", "Louga", "Matam", "Saint-Louis", "Tambacounda", "Thies", "Ziguinchor"
+]
+
+city_states["Seychelles"] =
+[
+    "Victoria", "Anse aux Pins", "Anse Boileau", "Anse Etoile", "Anse Louis", "Anse Royale", "Baie Lazare", "Baie Sainte Anne", "Beau Vallon",
+    "Bel Air", "Bel Ombre", "Cascade", "Glacis", "Grand'Anse (on Mahe)", "Grand' Anse (on Praslin)", "La Digue", "La Riviere Anglaise",
+    "Mont Buxton", "Mont Fleuri", "Plaisance", "Pointe La Rue", "Port Glaud", "Saint Louis", "Takamaka"
+]
+
+city_states["Sierra Leone"] = [ "Freetown", "Eastern", "Northern", "Southern", "Western" ]
+
+city_states["Somalia"] =
+[
+    "Mogadishu", "Awdal", "Bakool", "Banaadir", "Bari", "Bay", "Galguduud", "Gedo", "Hiiraan", "Jubbada Dhexe", "Jubbada Hoose", "Mudug",
+    "Nugaal", "Sanaag", "Shabeellaha Dhexe", "Shabeellaha Hoose", "Sool", "Togdheer", "Woqooyi Galbeed"
+]
+
+city_states["South Africa"] =
+[
+    "Pretoria", "Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Mpumalanga", "North-West", "Northern Cape", "Northern Province/Limpopo",
+    "Western Cape"
+]
+
+city_states["Sudan"] =
+[
+    "Khartoum", "A'ali an Nil", "Al Bahr al Ahmar", "Al Buhayrat", "Al Jazirah", "Al Khartum", "Al Qadarif", "Al Wahdah", "An Nil al Abyad",
+    "An Nil al Azraq", "Ash Shamaliyah", "Bahr al Jabal", "Gharb al Istiwa'iyah", "Gharb Bahr al Ghazal", "Gharb Darfur", "Gharb Kurdufan",
+    "Janub Darfur", "Janub Kurdufan", "Junqali", "Kassala", "Nahr an Nil", "Shamal Bahr al Ghazal", "Shamal Darfur", "Shamal Kurdufan",
+    "Sharq al Istiwa'iyah", "Sinnar", "Warab"
+]
+
+city_states["Swaziland"] = [ "Lobamba/Mbabane", "Hhohho", "Lubombo", "Manzini", "Shiselweni" ]
+
+city_states["Tanzania"] =
+[
+    "Dodoma", "Arusha", "Dar es Salaam", "Iringa", "Kagera", "Kigoma", "Kilimanjaro", "Lindi", "Mara", "Mbeya", "Morogoro", "Mtwara",
+    "Mwanza", "Pemba North", "Pemba South", "Pwani", "Rukwa", "Ruvuma", "Shinyanga", "Singida", "Tabora", "Tanga", "Zanzibar Central/South",
+    "Zanzibar North", "Zanzibar Urban/West"
+]
+
+city_states["Togo"] = [ "Lome", "De La Kara", "Des Plateaux", "Des Savanes", "Centrale", "Maritime" ]
+
+city_states["Tunisia"] =
+[
+    "Tunis", "Ariana", "Beja", "Ben Arous", "Bizerte", "El Kef", "Gabes", "Gafsa", "Jendouba", "Kairouan", "Kasserine", "Kebili", "Mahdia",
+    "Medenine", "Monastir", "Nabeul", "Sfax", "Sidi Bou Zid", "Siliana", "Sousse", "Tataouine", "Tozeur", "Zaghouan"
+]
+
+city_states["Uganda"] =
+[
+    "Kampala","Adjumani","Apac","Arua","Bugiri","Bundibugyo","Bushenyi","Busia","Gulu","Hoima","Iganga","Jinja","Kabale",
+    "Kabarole","Kaberamaido","Kalangala","Kamuli","Kamwenge","Kanungu","Kapchorwa","Kasese","Katakwi","Kayunga","Kibale",
+    "Kiboga","Kisoro","Kitgum","Kotido","Kumi","Kyenjojo","Lira","Luwero","Masaka","Masindi","Mayngc","Mbale","Mbarara",
+    "Moroto","Moyo","Mpigi","Mubende","Mukono","Nakapiripiti","Nakasongola","Nebbi","Ntungamo","Pader","Pallisa","Rakai",
+    "Rukungiri","Sembabule","Sironko","Soroti","Tororo","Wakiso","Yumbe"
+]
+
+city_states["Zambia"] =
+[
+    "Lusaka", "Central", "Copperbelt", "Eastern", "Luapula", "Lusaka", "Northern", "North-Western", "Southern", "Western"
+]
+
+city_states["Zimbabwe"] =
+[
+    "Harare", "Bulawayo", "Manicaland", "Mashonaland Central", "Mashonaland East", "Mashonaland West", "Masvingo", "Matabeleland North",
+    "Matabeleland South", "Midlands"
+]
+
 
 //Asia
-city_states["Bangladesh"] = ["Dhaka","Barisal","Chittagong","Khulna","Rajshahi","Sylhet"]
-city_states["Bhutan"] = ["Thimphu","Bumthang","Chhukha","Chirang","Dagana","Gasa","Geylegphug","Ha","Lhuntshi","Mongar","Paro","Pemagatsel","Punakha","Samchi","Samdrup Jongkhar","Shemgang","Tashigang","Tongsa","Wangdi Phodrang","Yangtse"]
-city_states["Brunei"] = ["Bandar Seri Begawan","Belait","Brunei/Muara","Temburong","Tutong"]
-city_states["Burma (Myanmar)"] = ["Rangoon","Ayeyarwady","Bago","Chin","Kachin","Kayin","Kayah","Magway","Mandalay","Mon","Rakhine","Sagaing","Shan","Tanintharyi","Yangon"]
-city_states["Cambodia"] = ["Phnom Penh","Banteay Mean Cheay","Batdambang","Kampong Cham","Kampong Chhnang","Kampong Spoe","Kampong Thum","Kampot","Kandal","Kaoh Kong","Keb","Kracheh","Mondol Kiri","Otdar Mean Cheay","Pailin","Pouthisat","Preah Seihanu (Sihanoukville)","Preah Vihear","Prey Veng","Rotanah Kiri","Siem Reab","Stoeng Treng","Svay Rieng","Takev"]
-city_states["China"] = ["Beijing","Anhui","Chongqing","Fujian","Gansu","Guangdong","Guangxi","Guizhou","Hainan","Hebei","Heilongjiang","Henan","Hubei","Hunan","Jiangsu","Jiangxi","Jilin","Liaoning","Nei Mongol","Ningxia","Qinghai","Shaanxi","Shandong","Shanghai","Shanxi","Sichuan","Tianjin","Xinjiang","Xizang (Tibet)","Yunnan","Zhejiang"]
-city_states["East Timor"] = ["Dili","Aileu","Ainaro","Baucau","Bobonaro (Maliana)","Cova-Lima (Suai)","Ermera","Lautem (Los Palos)","Liquica","Manatuto","Manufahi (Same)","Oecussi (Ambeno)","Viqueque"]
-city_states["India"] = ["New Delhi","Andaman/Nicobar Islands","Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chandigarh","Chhattisgarh","Dadra/Nagar Haveli","Daman/Diu","Goa","Gujarat","Haryana","Himachal Pradesh","Jammu/Kashmir","Jharkhand","Karnataka","Kerala","Lakshadweep","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Orissa","Pondicherry","Punjab","Rajasthan","Sikkim","Tamil Nadu","Tripura","Uttaranchal","Uttar Pradesh","West Bengal"]
-city_states["Indonesia"] = ["Jakarta","Aceh","Bali","Banten","Bengkulu","Gorontalo","Jakarta Raya","Jambi","Jawa Barat","Jawa Tengah","Jawa Timur","Kalimantan Barat","Kalimantan Selatan","Kalimantan Tengah","Kalimantan Timur","Kepulauan Bangka Belitung","Lampung","Maluku","Maluku Utara","Nusa Tenggara Barat","Nusa Tenggara Timur","Papua","Riau","Sulawesi Selatan","Sulawesi Tengah","Sulawesi Tenggara","Sulawesi Utara","Sumatera Barat","Sumatera Selatan","Sumatera Utara","Yogyakarta"]
-city_states["Japan"] = ["Tokyo","Aichi","Akita","Aomori","Chiba","Ehime","Fukui","Fukuoka","Fukushima","Gifu","Gumma","Hiroshima","Hokkaido","Hyogo","Ibaraki","Ishikawa","Iwate","Kagawa","Kagoshima","Kanagawa","Kochi","Kumamoto","Kyoto","Mie","Miyagi","Miyazaki","Nagano","Nagasaki","Nara","Niigata","Oita","Okayama","Okinawa","Osaka","Saga","Saitama","Shiga","Shimane","Shizuoka","Tochigi","Tokushima","Tokyo","Tottori","Toyama","Wakayama","Yamagata","Yamaguchi","Yamanashi"]
-city_states["Kazakhstan"] = ["Astana","Almaty","Almaty","Aqmola","Aqtobe","Astana","Atyrau","Batys Qazaqstan","Bayqongyr","Mangghystau","Ongtustik Qazaqstan","Pavlodar","Qaraghandy","Qostanay","Qyzylorda","Shyghys Qazaqstan","Soltustik Qazaqstan","Zhambyl"]
-city_states["Korea (north)"] = ["P'yongyang",'Chagang-do","Hamgyong-bukto","Hamgyong-namdo","Hwanghae-bukto","Hwanghae-namdo","Kaesong-si","Kangwon-do","Najin Sonbong-si',"Namp'o-si","P'yongan-bukto","P'yongan-namdo","P'yongyang-si","Yanggang-do"]
-city_states["Korea (south)"] = ["Seoul","Cheju-do","Cholla-bukto","Cholla-namdo","Ch'ungch'ong-bukto","Ch'ungch'ong-namdo","Inch'on-gwangyoksi",'Kangwon-do","Kwangju-gwangyoksi","Kyonggi-do","Kyongsang-bukto","Kyongsang-namdo","Pusan-gwangyoksi',"Soul-t'ukpyolsi","Taegu-gwangyoksi","Taejon-gwangyoksi","Ulsan-gwangyoksi"]
-city_states["Laos"] = ["Vientiane","Attapu","Bokeo","Bolikhamxai","Champasak","Houaphan","Khammouan","Louangnamtha","Louangphabang","Oudomxai","Phongsali","Salavan","Savannakhet","Viangchan","Viangchan","Xaignabouli","Xaisomboun","Xekong","Xiangkhoang"]
-city_states["Malaysia"] = ["Kuala Lumpur","Johor","Kedah","Kelantan","Labuan","Melaka","Negeri Sembilan","Pahang","Perak","Perlis","Pulau Pinang","Putrajaya","Sabah","Sarawak","Selangor","Terengganu","Wilayah Persekutuan"]
-city_states["Maldives"] = ["Maale","Alifu","Baa","Dhaalu","Faafu","Gaafu Alifu","Gaafu Dhaalu","Gnaviyani","Haa Alifu","Haa Dhaalu","Kaafu","Laamu","Lhaviyani","Meemu","Noonu","Raa","Seenu","Shaviyani","Thaa","Vaavu"]
-city_states["Mongolia"] = ["Ulaanbaatar","Arhangay","Bayanhongor","Bayan-Olgiy","Bulgan","Darhan Uul","Dornod","Dornogovi","Dundgovi","Dzavhan","Govi-Altay","Govi-Sumber","Hentiy","Hovd","Hovsgol","Omnogovi","Orhon","Ovorhangay","Selenge","Suhbaatar","Tov","Uvs"]
-city_states["Nepal"] = ["Kathmandu","Bagmati","Bheri","Dhawalagiri","Gandaki","Janakpur","Karnali","Kosi","Lumbini","Mahakali","Mechi","Narayani","Rapti","Sagarmatha","Seti"]
-city_states["Philippines"] = ["Manila","Oriental","North Cotabato","Northern Samar","Nueva Ecija","Nueva Vizcaya","Olongapo","Ormoc","Oroquieta","Ozamis","Pagadian","Palawan","Palayan","Pampanga","Pangasinan","Pasay","Puerto Princesa","Quezon","Quezon City","Quirino","Rizal","Romblon","Roxas","Samar","San Carlos (Negros Occidental)","San Carlos (Pangasinan)","San Jose","San Pablo","Silay","Siquijor","Sorsogon","South Cotabato","Southern Leyte","Sultan Kudarat","Sulu","Surigao","Surigao del Norte","Surigao del Sur","Tacloban","Tagaytay","Tagbilaran","Tangub","Tarlac","Tawi-Tawi","Toledo","Trece Martires","Zambales","Zamboanga","Zamboanga del Norte","Zamboanga del Sur"]
-city_states["Russian Federation"] = ["Moskva (Moscow)","Adygeya (Maykop)","Aginskiy Buryatskiy (Aginskoye)","Altay (Gorno-Altaysk)","Altayskiy (Barnaul)","Amurskaya (Blagoveshchensk)","Arkhangel'skaya","Astrakhanskaya","Bashkortostan (Ufa)","Belgorodskaya","Bryanskaya","Buryatiya (Ulan-Ude)","Chechnya (Groznyy)","Chelyabinskaya","Chitinskaya","Chukotskiy (Anadyr)","Chuvashiya (Cheboksary)","Dagestan (Makhachkala)","Evenkiyskiy (Tura)","Ingushetiya (Nazran)","Irkutskaya","Ivanovskaya","Kabardino-Balkariya (Nal'chik)","Kaliningradskaya","Kalmykiya (Elista)","Kaluzhskaya","Kamchatskaya (Petropavlovsk-Kamchatskiy)","Karachayevo-Cherkesiya (Cherkessk)","Kareliya (Petrozavodsk)","Kemerovskaya","Khabarovskiy","Khakasiya (Abakan)","Khanty-Mansiyskiy (Khanty-Mansiysk)","Kirovskaya","Komi (Syktyvkar)","Koryakskiy (Palana)","Kostromskaya","Krasnodarskiy","Krasnoyarskiy","Kurganskaya","Kurskaya","Leningradskaya","Lipetskaya","Magadanskaya","Mariy-El (Yoshkar-Ola)","Mordoviya (Saransk)","Moskovskaya","Murmanskaya","Nenetskiy (Nar'yan-Mar)","Nizhegorodskaya","Novgorodskaya","Novosibirskaya","Omskaya","Orenburgskaya","Orlovskaya (Orel)","Penzenskaya","Permskaya","Komi-Permyatskiy (Kudymkar)","Primorskiy (Vladivostok)","Pskovskaya","Rostovskaya","Ryazanskaya","Sakha (Yakutiya)","Sakhalinskaya (Yuzhno-Sakhalinsk)","Samarskaya","Sankt-Peterburg (Saint Petersburg)","Saratovskaya","Severnaya Osetiya-Alaniya [North Ossetia] (Vladikavkaz)","Smolenskaya","Stavropol","skiy","Sverdlovskaya (Yekaterinburg)","Tambovskaya","Tatarstan (Kazan)","Taymyrskiy (Dudinka)","Tomskaya","Tul'skaya","Tverskaya","Tyumenskaya","Tyva (Kyzyl)","Udmurtiya (Izhevsk)","Ul'yanovskaya","Ust'-Ordynskiy Buryatskiy (Ust'-Ordynskiy)","Vladimirskaya","Volgogradskaya","Vologodskaya","Voronezhskaya","Yamalo-Nenetskiy (Salekhard)","Yaroslavskaya","Yevreyskaya"]
+city_states["Bangladesh"] = [ "Dhaka", "Barisal", "Chittagong", "Khulna", "Rajshahi", "Sylhet" ]
+
+city_states["Bhutan"] =
+[
+    "Thimphu", "Bumthang", "Chhukha", "Chirang", "Dagana", "Gasa", "Geylegphug", "Ha", "Lhuntshi", "Mongar", "Paro", "Pemagatsel",
+    "Punakha", "Samchi", "Samdrup Jongkhar", "Shemgang", "Tashigang", "Tongsa", "Wangdi Phodrang", "Yangtse"
+]
+
+city_states["Brunei"] = [ "Bandar Seri Begawan", "Belait", "Brunei/Muara", "Temburong", "Tutong" ]
+
+city_states["Burma (Myanmar)"] =
+[
+    "Rangoon", "Ayeyarwady", "Bago", "Chin", "Kachin", "Kayin", "Kayah", "Magway", "Mandalay", "Mon", "Rakhine", "Sagaing",
+    "Shan", "Tanintharyi", "Yangon"
+]
+
+city_states["Cambodia"] =
+[
+    "Phnom Penh", "Banteay Mean Cheay", "Batdambang", "Kampong Cham", "Kampong Chhnang", "Kampong Spoe", "Kampong Thum", "Kampot", "Kandal",
+    "Kaoh Kong", "Keb", "Kracheh", "Mondol Kiri", "Otdar Mean Cheay", "Pailin", "Pouthisat", "Preah Seihanu (Sihanoukville)", "Preah Vihear",
+    "Prey Veng", "Rotanah Kiri", "Siem Reab", "Stoeng Treng", "Svay Rieng", "Takev"
+]
+
+city_states["China"] =
+[
+    "Beijing", "Anhui", "Chongqing", "Fujian", "Gansu", "Guangdong", "Guangxi", "Guizhou", "Hainan", "Hebei", "Heilongjiang", "Henan", "Hubei",
+    "Hunan", "Jiangsu", "Jiangxi", "Jilin", "Liaoning", "Nei Mongol", "Ningxia", "Qinghai", "Shaanxi", "Shandong", "Shanghai", "Shanxi",
+    "Sichuan", "Tianjin", "Xinjiang", "Xizang (Tibet)", "Yunnan", "Zhejiang"
+]
+
+city_states["East Timor"] =
+[
+    "Dili", "Aileu", "Ainaro", "Baucau", "Bobonaro (Maliana)", "Cova-Lima (Suai)", "Ermera", "Lautem (Los Palos)", "Liquica", "Manatuto",
+    "Manufahi (Same)", "Oecussi (Ambeno)", "Viqueque"
+]
+
+city_states["India"] =
+[
+    "New Delhi", "Andaman/Nicobar Islands", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh",
+    "Dadra/Nagar Haveli", "Daman/Diu", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu/Kashmir", "Jharkhand", "Karnataka",
+    "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Orissa", "Pondicherry",
+    "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Tripura", "Uttaranchal", "Uttar Pradesh", "West Bengal"
+]
+
+city_states["Indonesia"] =
+[
+    "Jakarta", "Aceh", "Bali", "Banten", "Bengkulu", "Gorontalo", "Jakarta Raya", "Jambi", "Jawa Barat", "Jawa Tengah", "Jawa Timur",
+    "Kalimantan Barat", "Kalimantan Selatan", "Kalimantan Tengah", "Kalimantan Timur", "Kepulauan Bangka Belitung", "Lampung",
+    "Maluku", "Maluku Utara", "Nusa Tenggara Barat", "Nusa Tenggara Timur", "Papua", "Riau", "Sulawesi Selatan", "Sulawesi Tengah",
+    "Sulawesi Tenggara", "Sulawesi Utara", "Sumatera Barat", "Sumatera Selatan", "Sumatera Utara", "Yogyakarta"
+]
+
+city_states["Japan"] =
+[
+    "Tokyo", "Aichi", "Akita", "Aomori", "Chiba", "Ehime", "Fukui", "Fukuoka", "Fukushima", "Gifu", "Gumma", "Hiroshima", "Hokkaido",
+    "Hyogo", "Ibaraki", "Ishikawa", "Iwate", "Kagawa", "Kagoshima", "Kanagawa", "Kochi", "Kumamoto", "Kyoto", "Mie", "Miyagi", "Miyazaki",
+    "Nagano", "Nagasaki", "Nara", "Niigata", "Oita", "Okayama", "Okinawa", "Osaka", "Saga", "Saitama", "Shiga", "Shimane", "Shizuoka",
+    "Tochigi", "Tokushima", "Tokyo", "Tottori", "Toyama", "Wakayama", "Yamagata", "Yamaguchi", "Yamanashi"
+]
+
+city_states["Kazakhstan"] =
+[
+    "Astana", "Almaty", "Almaty", "Aqmola", "Aqtobe", "Astana", "Atyrau", "Batys Qazaqstan", "Bayqongyr", "Mangghystau", "Ongtustik Qazaqstan",
+    "Pavlodar", "Qaraghandy", "Qostanay", "Qyzylorda", "Shyghys Qazaqstan", "Soltustik Qazaqstan", "Zhambyl"
+]
+
+city_states["Korea (north)"] =
+[
+    "P'yongyang", "Chagang-do", "Hamgyong-bukto", "Hamgyong-namdo", "Hwanghae-bukto", "Hwanghae-namdo", "Kaesong-si", "Kangwon-do", "Najin Sonbong-si",
+    "Namp'o-si", "P'yongan-bukto", "P'yongan-namdo", "P'yongyang-si", "Yanggang-do"
+]
+
+city_states["Korea (south)"] =
+[
+    "Seoul", "Cheju-do", "Cholla-bukto", "Cholla-namdo", "Ch'ungch'ong-bukto", "Ch'ungch'ong-namdo", "Inch'on-gwangyoksi",
+    "Kangwon-do", "Kwangju-gwangyoksi", "Kyonggi-do", "Kyongsang-bukto", "Kyongsang-namdo", "Pusan-gwangyoksi", "Soul-t'ukpyolsi",
+    "Taegu-gwangyoksi", "Taejon-gwangyoksi", "Ulsan-gwangyoksi"
+]
+
+city_states["Laos"] =
+[
+    "Vientiane", "Attapu", "Bokeo", "Bolikhamxai", "Champasak", "Houaphan", "Khammouan", "Louangnamtha", "Louangphabang", "Oudomxai", "Phongsali",
+    "Salavan", "Savannakhet", "Viangchan", "Viangchan", "Xaignabouli", "Xaisomboun", "Xekong", "Xiangkhoang"
+]
+
+city_states["Malaysia"] =
+[
+    "Kuala Lumpur", "Johor", "Kedah", "Kelantan", "Labuan", "Melaka", "Negeri Sembilan", "Pahang", "Perak", "Perlis", "Pulau Pinang", "Putrajaya",
+    "Sabah", "Sarawak", "Selangor", "Terengganu", "Wilayah Persekutuan"
+]
+
+city_states["Maldives"] =
+[
+    "Maale", "Alifu", "Baa", "Dhaalu", "Faafu", "Gaafu Alifu", "Gaafu Dhaalu", "Gnaviyani", "Haa Alifu", "Haa Dhaalu", "Kaafu", "Laamu",
+    "Lhaviyani", "Meemu", "Noonu", "Raa", "Seenu", "Shaviyani", "Thaa", "Vaavu"
+]
+
+city_states["Mongolia"] =
+[
+    "Ulaanbaatar", "Arhangay", "Bayanhongor", "Bayan-Olgiy", "Bulgan", "Darhan Uul", "Dornod", "Dornogovi", "Dundgovi", "Dzavhan", "Govi-Altay",
+    "Govi-Sumber", "Hentiy", "Hovd", "Hovsgol", "Omnogovi", "Orhon", "Ovorhangay", "Selenge", "Suhbaatar", "Tov", "Uvs"
+]
+
+city_states["Nepal"] =
+[
+    "Kathmandu", "Bagmati", "Bheri", "Dhawalagiri", "Gandaki", "Janakpur", "Karnali", "Kosi", "Lumbini", "Mahakali", "Mechi", "Narayani",
+    "Rapti", "Sagarmatha", "Seti"
+]
+
+city_states["Philippines"] =
+[
+    "Manila", "Oriental", "North Cotabato", "Northern Samar", "Nueva Ecija", "Nueva Vizcaya", "Olongapo", "Ormoc", "Oroquieta", "Ozamis",
+    "Pagadian", "Palawan", "Palayan", "Pampanga", "Pangasinan", "Pasay", "Puerto Princesa", "Quezon", "Quezon City", "Quirino", "Rizal", "Romblon",
+    "Roxas", "Samar", "San Carlos (Negros Occidental)", "San Carlos (Pangasinan)", "San Jose", "San Pablo", "Silay", "Siquijor", "Sorsogon",
+    "South Cotabato", "Southern Leyte", "Sultan Kudarat", "Sulu", "Surigao", "Surigao del Norte", "Surigao del Sur", "Tacloban", "Tagaytay",
+    "Tagbilaran", "Tangub", "Tarlac", "Tawi-Tawi", "Toledo", "Trece Martires", "Zambales", "Zamboanga", "Zamboanga del Norte", "Zamboanga del Sur"
+]
+
+city_states["Russian Federation"] =
+[
+    "Moskva (Moscow)", "Adygeya (Maykop)", "Aginskiy Buryatskiy (Aginskoye)", "Altay (Gorno-Altaysk)", "Altayskiy (Barnaul)",
+    "Amurskaya (Blagoveshchensk)", "Arkhangel'skaya", "Astrakhanskaya", "Bashkortostan (Ufa)", "Belgorodskaya", "Bryanskaya",
+    "Buryatiya (Ulan-Ude)", "Chechnya (Groznyy)", "Chelyabinskaya", "Chitinskaya", "Chukotskiy (Anadyr)", "Chuvashiya (Cheboksary)",
+    "Dagestan (Makhachkala)", "Evenkiyskiy (Tura)", "Ingushetiya (Nazran)", "Irkutskaya", "Ivanovskaya", "Kabardino-Balkariya (Nal'chik)",
+    "Kaliningradskaya", "Kalmykiya (Elista)", "Kaluzhskaya", "Kamchatskaya (Petropavlovsk-Kamchatskiy)", "Karachayevo-Cherkesiya (Cherkessk)",
+    "Kareliya (Petrozavodsk)", "Kemerovskaya", "Khabarovskiy", "Khakasiya (Abakan)", "Khanty-Mansiyskiy (Khanty-Mansiysk)", "Kirovskaya",
+    "Komi (Syktyvkar)", "Koryakskiy (Palana)", "Kostromskaya", "Krasnodarskiy", "Krasnoyarskiy", "Kurganskaya", "Kurskaya", "Leningradskaya",
+    "Lipetskaya", "Magadanskaya", "Mariy-El (Yoshkar-Ola)", "Mordoviya (Saransk)", "Moskovskaya", "Murmanskaya", "Nenetskiy (Nar'yan-Mar)",
+    "Nizhegorodskaya", "Novgorodskaya", "Novosibirskaya", "Omskaya", "Orenburgskaya", "Orlovskaya (Orel)", "Penzenskaya", "Permskaya",
+    "Komi-Permyatskiy (Kudymkar)", "Primorskiy (Vladivostok)", "Pskovskaya", "Rostovskaya", "Ryazanskaya", "Sakha (Yakutiya)",
+    "Sakhalinskaya (Yuzhno-Sakhalinsk)", "Samarskaya", "Sankt-Peterburg (Saint Petersburg)", "Saratovskaya",
+    "Severnaya Osetiya-Alaniya [North Ossetia] (Vladikavkaz)", "Smolenskaya", "Stavropol", "skiy", "Sverdlovskaya (Yekaterinburg)",
+    "Tambovskaya", "Tatarstan (Kazan)", "Taymyrskiy (Dudinka)", "Tomskaya", "Tul'skaya", "Tverskaya", "Tyumenskaya", "Tyva (Kyzyl)",
+    "Udmurtiya (Izhevsk)", "Ul'yanovskaya", "Ust'-Ordynskiy Buryatskiy (Ust'-Ordynskiy)", "Vladimirskaya", "Volgogradskaya", "Vologodskaya",
+    "Voronezhskaya", "Yamalo-Nenetskiy (Salekhard)", "Yaroslavskaya", "Yevreyskaya"
+]
+
 city_states["Singapore"] = [""]
-city_states["Sri Lanka"] = ["Colombo","Central","North Central","Northern","Eastern","North Western","Sabaragamuwa","Southern","Uva","Western"]
-city_states["Taiwan"] = ["Taipei","Chang-hua","Chia-i","Chi-lung","Chung-hsing-hsin-ts'un","Hsin-chu","Hua-lien","I-lan","Kao-hsiung","Miao-li","Nan-t'ou","P'eng-hu","P'ing-tung","T'ai-chung","T'ai-nan","T'ai-pei","T'ai-tung","T'ao-yuan/Yun-lin"]
-city_states["Thailand"] = ["Bangkok","Amnat Charoen","Ang Thong","Buriram","Chachoengsao","Chai Nat","Chaiyaphum","Chanthaburi","Chiang Mai","Chiang Rai","Chon Buri","Chumphon","Kalasin","Kamphaeng Phet","Kanchanaburi","Khon Kaen","Krabi","Lampang","Lamphun","Loei","Lop Buri","Mae Hong Son","Maha Sarakham","Mukdahan","Nakhon Nayok","Nakhon Pathom","Nakhon Phanom","Nakhon Ratchasima","Nakhon Sawan","Nakhon Si Thammarat","Nan","Narathiwat","Nong Bua Lamphu","Nong Khai","Nonthaburi","Pathum Thani","Pattani","Phangnga","Phatthalung","Phayao","Phetchabun","Phetchaburi","Phichit","Phitsanulok","Phra Nakhon Si Ayutthaya","Phrae","Phuket","Prachin Buri","Prachuap Khiri Khan","Ranong","Ratchaburi","Rayong","Roi Et","Sa Kaeo","Sakon Nakhon","Samut Prakan","Samut Sakhon","Samut Songkhram","Sara Buri","Satun","Sing"]
-city_states["Vietnam"] = ["Hanoi","An Giang","Bac Giang","Bac Kan","Bac Lieu","Bac Ninh","Ba Ria-Vung Tau","Ben Tre","Binh Dinh","Binh Duong","Binh Phuoc","Binh Thuan","Ca Mau","Can Tho","Cao Bang","Dac Lak","Da Nang","Dong Nai","Dong Thap","Gia Lai","Ha Giang","Hai Duong","Hai Phong","Ha Nam","Ha Noi","Ha Tay","Ha Tinh","Hoa Binh","Ho Chi Minh","Hung Yen","Khanh Hoa","Kien Giang","Kon Tum","Lai Chau","Lam Dong","Lang Son","Lao Cai","Long An","Nam Dinh","Nghe An","Ninh Binh","Ninh Thuan","Phu Tho","Phu Yen","Quang Binh","Quang Nam","Quang Ngai","Quang Ninh","Quang Tri","Soc Trang","Son La","Tay Ninh","Thai Binh","Thai Nguyen","Thanh Hoa","Thua Thien-Hue","Tien Giang","Tra Vinh","Tuyen Quang","Vinh Long","Vinh Phuc","Yen Bai"]
+
+city_states["Sri Lanka"] =
+[
+    "Colombo", "Central", "North Central", "Northern", "Eastern", "North Western", "Sabaragamuwa", "Southern", "Uva", "Western"
+]
+
+city_states["Taiwan"] =
+[
+    "Taipei", "Chang-hua", "Chia-i", "Chi-lung", "Chung-hsing-hsin-ts'un", "Hsin-chu", "Hua-lien", "I-lan", "Kao-hsiung", "Miao-li",
+    "Nan-t'ou", "P'eng-hu", "P'ing-tung", "T'ai-chung", "T'ai-nan", "T'ai-pei", "T'ai-tung", "T'ao-yuan/Yun-lin"
+]
+
+city_states["Thailand"] =
+[
+    "Bangkok", "Amnat Charoen", "Ang Thong", "Buriram", "Chachoengsao", "Chai Nat", "Chaiyaphum", "Chanthaburi", "Chiang Mai",
+    "Chiang Rai", "Chon Buri", "Chumphon", "Kalasin", "Kamphaeng Phet", "Kanchanaburi", "Khon Kaen", "Krabi", "Lampang", "Lamphun",
+    "Loei", "Lop Buri", "Mae Hong Son", "Maha Sarakham", "Mukdahan", "Nakhon Nayok", "Nakhon Pathom", "Nakhon Phanom", "Nakhon Ratchasima",
+    "Nakhon Sawan", "Nakhon Si Thammarat", "Nan", "Narathiwat", "Nong Bua Lamphu", "Nong Khai", "Nonthaburi", "Pathum Thani", "Pattani",
+    "Phangnga", "Phatthalung", "Phayao", "Phetchabun", "Phetchaburi", "Phichit", "Phitsanulok", "Phra Nakhon Si Ayutthaya", "Phrae","Phuket",
+    "Prachin Buri", "Prachuap Khiri Khan", "Ranong", "Ratchaburi" ,"Rayong", "Roi Et", "Sa Kaeo", "Sakon Nakhon", "Samut Prakan", "Samut Sakhon",
+    "Samut Songkhram", "Sara Buri", "Satun", "Sing"
+]
+city_states["Vietnam"] =
+[
+    "Hanoi", "An Giang", "Bac Giang", "Bac Kan", "Bac Lieu", "Bac Ninh", "Ba Ria-Vung Tau", "Ben Tre", "Binh Dinh", "Binh Duong",
+    "Binh Phuoc", "Binh Thuan", "Ca Mau", "Can Tho", "Cao Bang", "Dac Lak", "Da Nang", "Dong Nai", "Dong Thap", "Gia Lai", "Ha Giang",
+    "Hai Duong", "Hai Phong", "Ha Nam", "Ha Noi", "Ha Tay", "Ha Tinh", "Hoa Binh", "Ho Chi Minh", "Hung Yen", "Khanh Hoa", "Kien Giang",
+    "Kon Tum", "Lai Chau", "Lam Dong", "Lang Son", "Lao Cai", "Long An", "Nam Dinh", "Nghe An", "Ninh Binh", "Ninh Thuan", "Phu Tho",
+    "Phu Yen", "Quang Binh", "Quang Nam", "Quang Ngai", "Quang Ninh", "Quang Tri", "Soc Trang", "Son La", "Tay Ninh", "Thai Binh",
+    "Thai Nguyen", "Thanh Hoa", "Thua Thien-Hue", "Tien Giang", "Tra Vinh", "Tuyen Quang", "Vinh Long", "Vinh Phuc", "Yen Bai"
+]
+
 
 //Australia-Oceania
-city_states["Australia"] = ["Canberra","Australian Capital Territory","New South Wales","Northern Territory","Queensland","South Australia","Tasmania","Victoria","Western Australia"]
-city_states["Fiji"] = ["Suva","Central","Eastern","Northern","Rotuma","Western"]
-city_states["Kiribati"] = ["Tarawa","Abaiang","Abemama","Aranuka","Arorae","Banaba","Beru","Butaritari","Gilberts (Central)","Gilberts (Northern)","Gilberts (Southern)","Kanton","Kiritimati","Kuria","Line Islands","Maiana","Makin","Marakei","Nikunau","Nonouti","Onotoa","Phoenix Islands","Tabiteuea","Tabuaeran","Tamana","Teraina"]
-city_states["Micronesia"] = ["Palikir","Chuuk (Truk)","Kosrae","Pohnpei","Yap"]
-city_states["Nauru"] = ["Yaren","Aiwo","Anabar","Anetan","Anibare","Baiti","Boe","Buada","Denigomodu","Ewa","Ijuw","Meneng","Nibok","Uaboe"]
-city_states["New Zealand"] = ["Wellington","Akaroa","Amuri","Ashburton","Auckland","Banks Peninsula","Bay of Islands","Bay of Plenty","Bruce","Buller","Canterbury","Carterton","Chatham Islands","Cheviot","Christchurch","Clifton","Clutha","Cook","Dannevirke","Dunedin","Egmont","Eketahuna","Ellesmere","Eltham","Eyre","Far North","Featherston","Franklin","Gisborne","Golden Bay","Gore","Great Barrier Island","Grey","Hamilton","Hastings","Hauraki Plains","Hawera","Hawke's Bay","Heathcote","Hikurangi","Hobson","Hokianga","Horowhenua","Hurunui","Hutt","Inangahua","Inglewood","Invercargill","Kaikoura","Kaipara","Kairanga","Kapiti Coast","Kawerau","Kiwitea","Lake","Mackenzie","Malvern","Manaia","Manawatu","Mangonui","Maniototo","Manukau","Marlborough","Masterton","Matamata","Matamata Piako","Mount Herbert","Napier","Nelson","Nelson","New Plymouth","Northland","North Shore","Ohinemuri","Opotiki","Oroua","Otago","Otamatea","Otorohanga","Oxford","Palmerston North","Pahiatua","Papakura","Paparua","Patea","Piako","Pohangina","Porirua","Queenstown Lakes","Raglan","Rangiora","Rangitikei","Rodney","Rotorua","Ruapehu","Runanga","Saint Kilda","Selwyn","Silverpeaks","Southland","South Taranaki","South Waikato","South Wairarapa","Stewart Island","Stratford","Strathallan","Taranaki","Tararua","Tasman","Taumarunui","Taupo","Tauranga","Thames Coromandel","Timaru","Tuapeka","Upper Hutt","Vincent","Waiapu","Waiheke","Waihemo","Waikato","Waikohu","Waimairi","Waimarino","Waimate","Waimate West","Waimea","Waipa","Waipawa","Waipukurau","Wairarapa South","Wairewa","Wairoa","Waitakere","Waitaki","Waitomo","Waitotara","Wallace","Wanganui","Wanganui-Manawatu","Waverley","West Coast","Western Bay of Plenty","Westland","Whakatane","Whangarei","Whangaroa","Woodville"]
-city_states["Palau"] = ["Koror","Aimeliik","Airai","Angaur","Hatobohei","Kayangel","Melekeok","Ngaraard","Ngarchelong","Ngardmau","Ngatpang","Ngchesar","Ngeremlengui","Ngiwal","Peleliu","Sonsoral"]
-city_states["Papua New Guinea"] = ["Port Moresby","Bougainville","Central","Chimbu","Eastern Highlands","East New Britain","East Sepik","Enga","Gulf","Madang","Manus","Milne Bay","Morobe","National Capital","New Ireland","Northern","Sandaun","Southern Highlands","Western","Western Highlands","West New Britain"]
-city_states["Samoa"] = ["Apia","A'ana","Aiga-i-le-Tai","Atua","Fa'asaleleaga","Gaga'emauga","Gagaifomauga","Palauli","Satupa'itea","Tuamasaga","Va'a-o-Fonoti","Vaisigano"]
-city_states["Tonga"] = ["Nuku'alofa","Ha'apai","Tongatapu","Vava'u"]
-city_states["Tuvalu"] = ["Fongafale"]
-city_states["Vanuatu"] = ["Port-Vila","Malampa","Penama","Sanma","Shefa","Tafea","Torba"]
+city_states["Australia"] =
+[
+    "Canberra", "Australian Capital Territory", "New South Wales", "Northern Territory", "Queensland", "South Australia", "Tasmania",
+    "Victoria", "Western Australia"
+]
+
+city_states["Fiji"] = [ "Suva", "Central", "Eastern", "Northern", "Rotuma", "Western" ]
+
+city_states["Kiribati"] =
+[
+    "Tarawa", "Abaiang", "Abemama", "Aranuka", "Arorae", "Banaba", "Beru", "Butaritari", "Gilberts (Central)", "Gilberts (Northern)",
+    "Gilberts (Southern)", "Kanton", "Kiritimati", "Kuria", "Line Islands", "Maiana", "Makin", "Marakei", "Nikunau", "Nonouti", "Onotoa",
+    "Phoenix Islands", "Tabiteuea", "Tabuaeran", "Tamana", "Teraina"
+]
+
+city_states["Micronesia"] = [ "Palikir", "Chuuk (Truk)", "Kosrae", "Pohnpei", "Yap" ]
+
+city_states["Nauru"] =
+[
+    "Yaren", "Aiwo", "Anabar", "Anetan", "Anibare", "Baiti", "Boe", "Buada", "Denigomodu", "Ewa", "Ijuw", "Meneng", "Nibok", "Uaboe"
+]
+
+city_states["New Zealand"] =
+[
+    "Wellington", "Akaroa", "Amuri", "Ashburton", "Auckland", "Banks Peninsula", "Bay of Islands", "Bay of Plenty", "Bruce", "Buller",
+    "Canterbury", "Carterton", "Chatham Islands", "Cheviot", "Christchurch", "Clifton", "Clutha", "Cook", "Dannevirke", "Dunedin", "Egmont",
+    "Eketahuna", "Ellesmere", "Eltham", "Eyre", "Far North", "Featherston", "Franklin", "Gisborne", "Golden Bay", "Gore", "Great Barrier Island",
+    "Grey", "Hamilton", "Hastings", "Hauraki Plains", "Hawera", "Hawke's Bay", "Heathcote", "Hikurangi", "Hobson", "Hokianga", "Horowhenua",
+    "Hurunui", "Hutt", "Inangahua", "Inglewood", "Invercargill", "Kaikoura", "Kaipara", "Kairanga", "Kapiti Coast", "Kawerau", "Kiwitea", "Lake",
+    "Mackenzie", "Malvern", "Manaia", "Manawatu", "Mangonui", "Maniototo", "Manukau", "Marlborough", "Masterton", "Matamata", "Matamata Piako",
+    "Mount Herbert", "Napier", "Nelson", "Nelson", "New Plymouth", "Northland", "North Shore", "Ohinemuri", "Opotiki", "Oroua", "Otago", "Otamatea",
+    "Otorohanga", "Oxford", "Palmerston North", "Pahiatua", "Papakura", "Paparua", "Patea", "Piako", "Pohangina", "Porirua", "Queenstown Lakes",
+    "Raglan", "Rangiora", "Rangitikei", "Rodney", "Rotorua", "Ruapehu", "Runanga", "Saint Kilda", "Selwyn", "Silverpeaks", "Southland",
+    "South Taranaki", "South Waikato", "South Wairarapa", "Stewart Island", "Stratford", "Strathallan", "Taranaki", "Tararua", "Tasman",
+    "Taumarunui", "Taupo", "Tauranga", "Thames Coromandel", "Timaru", "Tuapeka", "Upper Hutt", "Vincent", "Waiapu", "Waiheke", "Waihemo",
+    "Waikato", "Waikohu", "Waimairi", "Waimarino", "Waimate", "Waimate West", "Waimea", "Waipa", "Waipawa", "Waipukurau", "Wairarapa South",
+    "Wairewa", "Wairoa", "Waitakere", "Waitaki", "Waitomo", "Waitotara", "Wallace", "Wanganui", "Wanganui-Manawatu", "Waverley", "West Coast",
+    "Western Bay of Plenty", "Westland", "Whakatane", "Whangarei", "Whangaroa", "Woodville"
+]
+
+city_states["Palau"] =
+[
+    "Koror", "Aimeliik", "Airai", "Angaur", "Hatobohei", "Kayangel", "Melekeok", "Ngaraard", "Ngarchelong", "Ngardmau", "Ngatpang",
+    "Ngchesar", "Ngeremlengui", "Ngiwal", "Peleliu", "Sonsoral"
+]
+
+city_states["Papua New Guinea"] =
+[
+    "Port Moresby", "Bougainville", "Central", "Chimbu", "Eastern Highlands", "East New Britain", "East Sepik", "Enga","Gulf",
+    "Madang", "Manus", "Milne Bay", "Morobe", "National Capital", "New Ireland", "Northern", "Sandaun", "Southern Highlands",
+    "Western", "Western Highlands", "West New Britain"
+]
+
+city_states["Samoa"] =
+[
+    "Apia", "A'ana", "Aiga-i-le-Tai", "Atua", "Fa'asaleleaga", "Gaga'emauga", "Gagaifomauga", "Palauli",
+    "Satupa'itea", "Tuamasaga", "Va'a-o-Fonoti", "Vaisigano"
+]
+
+city_states["Tonga"] = [ "Nuku'alofa", "Ha'apai", "Tongatapu", "Vava'u"]
+
+city_states["Tuvalu"] = [ "Fongafale" ]
+
+city_states["Vanuatu"] = [ "Port-Vila", "Malampa", "Penama", "Sanma", "Shefa", "Tafea", "Torba" ]
 
 
 //Caribbean
-city_states["Anguilla"] = ["The Valley"]
-city_states["Antigua/Barbuda"] = ["Saint John","Barbuda","Redonda","Saint George","Saint Mary","Saint Paul","Saint Peter","Saint Philip"]
-city_states["Aruba"] = ["Oranjestad"]
-city_states["Bahamas"] = ["Nassau","Acklins/Crooked Islands","Bimini","Cat Island","Exuma","Freeport","Fresh Creek","Governor's Harbour","Green Turtle Cay","Harbour Island","High Rock","Inagua","Kemps Bay","Long Island","Marsh Harbour","Mayaguana","New Providence","Nichollstown/Berry Islands","Ragged Island","Rock Sound","Sandy Point","San Salvador/Rum Cay"]
-city_states["Barbados"] = ["Bridgetown","Christ Church","Saint Andrew","Saint George","Saint James","Saint John","Saint Joseph","Saint Lucy","Saint Michael","Saint Peter","Saint Philip","Saint Thomas"]
-city_states["Cuba"] = ["Havana","Camaguey","Ciego de Avila","Cienfuegos","Ciudad de La Habana","Granma","Guantanamo","Holguin","Isla de la Juventud","La Habana","Las Tunas","Matanzas","Pinar del Rio","Sancti Spiritus","Santiago de Cuba","Villa Clara"]
-city_states["Dominica"] = ["Roseau","Saint Andrew","Saint David","Saint George","Saint John","Saint Joseph","Saint Luke","Saint Mark","Saint Patrick","Saint Paul","Saint Peter"]
-city_states["Dominican Republic"] = ["Santo Domingo","Azua","Baoruco","Barahona","Dajabon","Distrito Nacional","Duarte","Elias Pina","El Seibo","Espaillat","Hato Mayor","Independencia","La Altagracia","La Romana","La Vega","Maria Trinidad Sanchez","Monsenor Nouel","Monte Cristi","Monte Plata","Pedernales","Peravia","Puerto Plata","Salcedo","Samana","Sanchez Ramirez","San Cristobal","San Juan","San Pedro de Macoris","Santiago","Santiago Rodriguez","Valverde"]
-city_states["Grenada"] = ["Saint George's","Carriacou/Petit Martinique","Saint Andrew","Saint David","Saint John","Saint Mark","Saint Patrick"]
-city_states["Guadeloupe"] = ["Basse-Terre"]
-city_states["Haiti"] = ["Port-au-Prince","Artibonite","Centre","Grand 'Anse","Nord","Nord-Est","Nord-Ouest","Ouest","Sud","Sud-Est"]
-city_states["Jamaica"] = ["Kingston","Clarendon","Hanover","Manchester","Portland","Saint Andrew","Saint Ann","Saint Catherine","Saint Elizabeth","Saint James","Saint Mary","Saint Thomas","Trelawny","Westmoreland"]
+city_states["Anguilla"] = [ "The Valley" ]
+
+city_states["Antigua/Barbuda"] = [ "Saint John", "Barbuda", "Redonda", "Saint George", "Saint Mary", "Saint Paul", "Saint Peter", "Saint Philip" ]
+
+city_states["Aruba"] = [ "Oranjestad" ]
+
+city_states["Bahamas"] =
+[
+    "Nassau", "Acklins/Crooked Islands", "Bimini", "Cat Island", "Exuma", "Freeport", "Fresh Creek", "Governor's Harbour",
+    "Green Turtle Cay", "Harbour Island", "High Rock", "Inagua", "Kemps Bay", "Long Island", "Marsh Harbour", "Mayaguana",
+    "New Providence", "Nichollstown/Berry Islands", "Ragged Island", "Rock Sound", "Sandy Point", "San Salvador/Rum Cay"
+]
+
+city_states["Barbados"] =
+[
+    "Bridgetown", "Christ Church", "Saint Andrew", "Saint George", "Saint James", "Saint John", "Saint Joseph", "Saint Lucy",
+    "Saint Michael", "Saint Peter", "Saint Philip", "Saint Thomas"
+]
+
+city_states["Cuba"] =
+[
+    "Havana", "Camaguey", "Ciego de Avila", "Cienfuegos", "Ciudad de La Habana", "Granma", "Guantanamo", "Holguin", "Isla de la Juventud",
+    "La Habana", "Las Tunas", "Matanzas", "Pinar del Rio", "Sancti Spiritus", "Santiago de Cuba", "Villa Clara"
+]
+
+city_states["Dominica"] =
+[
+    "Roseau", "Saint Andrew", "Saint David", "Saint George", "Saint John", "Saint Joseph", "Saint Luke", "Saint Mark", "Saint Patrick",
+    "Saint Paul", "Saint Peter"
+]
+
+city_states["Dominican Republic"] =
+[
+    "Santo Domingo", "Azua", "Baoruco", "Barahona", "Dajabon", "Distrito Nacional", "Duarte", "Elias Pina", "El Seibo", "Espaillat",
+    "Hato Mayor", "Independencia", "La Altagracia", "La Romana", "La Vega", "Maria Trinidad Sanchez", "Monsenor Nouel", "Monte Cristi",
+    "Monte Plata", "Pedernales", "Peravia", "Puerto Plata", "Salcedo", "Samana", "Sanchez Ramirez", "San Cristobal", "San Juan",
+    "San Pedro de Macoris", "Santiago", "Santiago Rodriguez", "Valverde"
+]
+
+city_states["Grenada"] = [ "Saint George's", "Carriacou/Petit Martinique", "Saint Andrew", "Saint David", "Saint John", "Saint Mark", "Saint Patrick"]
+
+city_states["Guadeloupe"] = [ "Basse-Terre" ]
+
+city_states["Haiti"] = [ "Port-au-Prince", "Artibonite", "Centre", "Grand 'Anse", "Nord", "Nord-Est", "Nord-Ouest", "Ouest", "Sud", "Sud-Est" ]
+
+city_states["Jamaica"] =
+[
+    "Kingston", "Clarendon", "Hanover", "Manchester", "Portland", "Saint Andrew", "Saint Ann", "Saint Catherine", "Saint Elizabeth",
+    "Saint James", "Saint Mary", "Saint Thomas", "Trelawny", "Westmoreland"
+]
+
 city_states["Martinique"] = ["Fort-de-France"]
-city_states["Montserrat"] = ["Brades Estate","Plymouth","Saint Anthony","Saint Georges","Saint Peter"]
-city_states["Netherlands Antilles"] = ["Willemstad"]
-city_states["Puerto Rico"] = ["San Juan","Adjuntas","Aguada","Aguadilla","Aguas Buenas","Aibonito","Anasco","Arecibo","Arroyo","Barceloneta","Barranquitas","Bayamon","Cabo Rojo","Caguas","Camuy","Canovanas","Carolina","Catano","Cayey","Ceiba","Ciales","Cidra","Coamo","Comerio","Corozal","Culebra","Dorado","Fajardo","Florida","Guanica","Guayama","Guayanilla","Guaynabo","Gurabo","Hatillo","Hormigueros","Humacao","Isabela","Jayuya","Juana Diaz","Juncos","Lajas","Lares","Las Marias","Las Piedras","Loiza","Luquillo","Manati","Maricao","Maunabo","Mayaguez","Moca","Morovis","Naguabo","Naranjito","Orocovis","Patillas","Penuelas","Ponce","Quebradillas","Rincon","Rio Grande","Sabana Grande","Salinas","San German","San Lorenzo","San Sebastian","Santa Isabel","Toa Alta","Toa Baja","Trujillo Alto","Utuado","Vega Alta","Vega Baja","Vieques","Villalba","Yabucoa","Yauco"]
+
+city_states["Montserrat"] = [ "Brades Estate", "Plymouth", "Saint Anthony", "Saint Georges", "Saint Peter" ]
+
+city_states["Netherlands Antilles"] = [ "Willemstad" ]
+
+city_states["Puerto Rico"] =
+[
+    "San Juan", "Adjuntas", "Aguada", "Aguadilla", "Aguas Buenas", "Aibonito", "Anasco", "Arecibo", "Arroyo", "Barceloneta", "Barranquitas",
+    "Bayamon", "Cabo Rojo", "Caguas", "Camuy", "Canovanas", "Carolina", "Catano", "Cayey", "Ceiba", "Ciales","Cidra", "Coamo", "Comerio",
+    "Corozal", "Culebra", "Dorado", "Fajardo", "Florida", "Guanica", "Guayama", "Guayanilla", "Guaynabo", "Gurabo", "Hatillo", "Hormigueros",
+    "Humacao", "Isabela", "Jayuya", "Juana Diaz", "Juncos", "Lajas", "Lares", "Las Marias", "Las Piedras", "Loiza", "Luquillo", "Manati", "Maricao",
+    "Maunabo", "Mayaguez", "Moca", "Morovis", "Naguabo", "Naranjito", "Orocovis", "Patillas", "Penuelas", "Ponce", "Quebradillas", "Rincon",
+    "Rio Grande", "Sabana Grande", "Salinas", "San German", "San Lorenzo", "San Sebastian", "Santa Isabel", "Toa Alta", "Toa Baja", "Trujillo Alto",
+    "Utuado", "Vega Alta", "Vega Baja", "Vieques", "Villalba", "Yabucoa", "Yauco"
+]
+
 city_states["St. Barts"] = [""]
-city_states["St. Kitts/Nevis"] = ["Basseterre","Christ Church Nichola Town","St. Anne Sandy Point","St. George Basseterre","St. George Gingerland","St. James Windward","St. John Capesterre","St. John Figtree","St. Mary Cayon","St. Paul Capesterre","St. Paul Charlestown","St. Peter Basseterre","St. Thomas Lowland","St. Thomas Middle Island","Trinity Palmetto Point"]
-city_states["St. Lucia"] = ["Castries","Anse-la-Raye","Castries","Choiseul","Dauphin","Dennery","Gros-Islet","Laborie","Micoud","Praslin","Soufriere","Vieux-Fort"]
+
+city_states["St. Kitts/Nevis"] =
+[
+    "Basseterre", "Christ Church Nichola Town", "St. Anne Sandy Point", "St. George Basseterre", "St. George Gingerland",
+    "St. James Windward", "St. John Capesterre", "St. John Figtree", "St. Mary Cayon", "St. Paul Capesterre", "St. Paul Charlestown",
+    "St. Peter Basseterre", "St. Thomas Lowland", "St. Thomas Middle Island", "Trinity Palmetto Point"
+]
+
+city_states["St. Lucia"] =
+[
+    "Castries", "Anse-la-Raye", "Castries", "Choiseul", "Dauphin", "Dennery",
+    "Gros-Islet", "Laborie", "Micoud", "Praslin", "Soufriere", "Vieux-Fort"
+]
+
 city_states["St. Martin/Sint Maarten"] = [""]
-city_states["St Vincent/Grenadines"] = ["Kingstown","Charlotte","Grenadines","Saint Andrew","Saint David","Saint George","Saint Patrick"]
+
+city_states["St Vincent/Grenadines"] =
+[
+    "Kingstown","Charlotte","Grenadines","Saint Andrew","Saint David","Saint George","Saint Patrick"
+]
+
 city_states["San Andres"] = [""]
-city_states["Trinidad/Tobago"] = ["Port-of-Spain","Arima","Caroni","Mayaro","Nariva","Saint Andrew","Saint David","Saint George","Saint Patrick","San Fernando","Tobago","Victoria"]
-city_states["Turks/Caicos"] = ["Grand Turk (Cockburn Town)"]
+
+city_states["Trinidad/Tobago"] =
+[
+    "Port-of-Spain", "Arima", "Caroni", "Mayaro", "Nariva", "Saint Andrew", "Saint David",
+    "Saint George", "Saint Patrick", "San Fernando", "Tobago", "Victoria"
+]
+
+city_states["Turks/Caicos"] = [ "Grand Turk (Cockburn Town)" ]
+
 
 //Central America
-city_states["Belize"] = ["Belmopan","Belize","Cayo","Corozal","Orange Walk","Stann Creek","Toledo"]
-city_states["Costa Rica"] = ["San Jose","Alajuela","Cartago","Guanacaste","Heredia","Limon","Puntarenas"]
-city_states["El Salvador"] = ["San Salvador","Ahuachapan","Cabanas","Chalatenango","Cuscatlan","La Libertad","La Paz","La Union","Morazan","San Miguel","Santa Ana","San Vicente","Sonsonate","Usulutan"]
-city_states["Guatemala"] = ["Guatemala","Alta Verapaz","Baja Verapaz","Chimaltenango","Chiquimula","El Progreso","Escuintla","Guatemala","Huehuetenango","Izabal","Jalapa","Jutiapa","Peten","Quetzaltenango","Quiche","Retalhuleu","Sacatepequez","San Marcos","Santa Rosa","Solola","Suchitepequez","Totonicapan","Zacapa"]
-city_states["Honduras"] = ["Tegucigalpa","Atlantida","Choluteca","Colon","Comayagua","Copan","Cortes","El Paraiso","Francisco Morazan","Gracias a Dios","Intibuca","Islas de la Bahia","La Paz","Lempira","Ocotepeque","Olancho","Santa Barbara","Valle","Yoro"]
-city_states["Nicaragua"] = ["Managua","Boaco","Carazo","Chinandega","Chontales","Esteli","Granada","Jinotega","Leon","Madriz","Managua","Masaya","Matagalpa","Nueva Segovia","Rio San Juan","Rivas","Atlantico Norte","Atlantico Sur"]
-city_states["Panama"] = ["Panama","Bocas del Toro","Chiriqui","Cocle","Colon","Darien","Herrera","Los Santos","San Blas","Veraguas"]
+city_states["Belize"] = [ "Belmopan", "Belize", "Cayo", "Corozal", "Orange Walk", "Stann Creek", "Toledo" ]
+
+city_states["Costa Rica"] = [ "San Jose", "Alajuela", "Cartago", "Guanacaste", "Heredia", "Limon", "Puntarenas" ]
+
+city_states["El Salvador"] =
+[
+    "San Salvador", "Ahuachapan", "Cabanas", "Chalatenango", "Cuscatlan", "La Libertad", "La Paz", "La Union", "Morazan", "San Miguel",
+    "Santa Ana", "San Vicente", "Sonsonate", "Usulutan"
+]
+
+city_states["Guatemala"] =
+[
+    "Guatemala","Alta Verapaz","Baja Verapaz","Chimaltenango","Chiquimula","El Progreso","Escuintla","Guatemala","Huehuetenango",
+    "Izabal","Jalapa","Jutiapa","Peten","Quetzaltenango","Quiche","Retalhuleu","Sacatepequez","San Marcos","Santa Rosa","Solola",
+    "Suchitepequez","Totonicapan","Zacapa"
+]
+
+city_states["Honduras"] =
+[
+    "Tegucigalpa","Atlantida","Choluteca","Colon","Comayagua","Copan","Cortes","El Paraiso","Francisco Morazan",
+    "Gracias a Dios","Intibuca","Islas de la Bahia","La Paz","Lempira","Ocotepeque","Olancho","Santa Barbara",
+    "Valle","Yoro"
+]
+
+city_states["Nicaragua"] =
+[
+    "Managua","Boaco","Carazo","Chinandega","Chontales","Esteli","Granada","Jinotega","Leon","Madriz","Managua",
+    "Masaya","Matagalpa","Nueva Segovia","Rio San Juan","Rivas","Atlantico Norte","Atlantico Sur"
+]
+
+city_states["Panama"] =
+[
+    "Panama", "Bocas del Toro", "Chiriqui", "Cocle", "Colon", "Darien", "Herrera", "Los Santos", "San Blas", "Veraguas"
+]
+
 
 //Europe
-city_states["Albania"] = ["Tirana","Berat","Bulqize","Delvine","Devoll","Diber","Durres","Elbasan","Fier","Gjirokaster","Gramsh","Has","Kavaje","Kolonje","Korce","Kruje","Kucove","Kukes","Kurbin","Lezhe","Librazhd","Lushnje","Malesi e Madhe","Mallakaster","Mat","Mirdite","Peqin","Permet","Pogradec","Puke","Sarande","Shkoder","Skrapar","Tepelene","Tirane","Tropoje","Vlore"]
-city_states["Andorra"] = ["Andorra la Vella","Canillo","Encamp","La Massana","Escaldes-Engordany","Ordino","Sant Julia de Loria"]
-city_states["Austria"] = ["Vienna","Burgenland","Kaernten","Niederoesterreich","Oberoesterreich","Salzburg","Steiermark","Tirol","Vorarlberg","Wien"]
-city_states["Belarus"] = ["Minsk","Brest","Homyel","Horad Minsk","Hrodna","Mahilyow","Vitsyebsk"]
-city_states["Belgium"] = ["Brussels","Antwerpen","Brabant Wallon","Brussels (Bruxelles)","Hainaut","Liege","Limburg","Luxembourg","Namur","Oost-Vlaanderen","Vlaams-Brabant","West-Vlaanderen"]
-city_states["Bosnia/Herzegovina"] = ["Sarajevo"]
-city_states["Bulgaria"] = ["Sofiya","Blagoevgrad","Burgas","Dobrich","Gabrovo","Khaskovo","Kurdzhali","Kyustendil","Lovech","Montana","Pazardzhik","Pernik","Pleven","Plovdiv","Razgrad","Ruse","Shumen","Silistra","Sliven","Smolyan","Sofiya-Grad","Stara Zagora","Turgovishte","Varna","Veliko Turnovo","Vidin","Vratsa","Yambol"]
-city_states["Croatia"] = ["Zagreb","Bjelovarsko-Bilogorska","Brodsko-Posavska","Dubrovacko-Neretvanska","Istarska","Karlovacka","Koprivnicko-Krizevacka","Krapinsko-Zagorska","Licko-Senjska","Medimurska","Osjecko-Baranjska","Pozesko-Slavonska","Primorsko-Goranska","Sibensko-Kninska","Sisacko-Moslavacka","Splitsko-Dalmatinska","Varazdinska","Viroviticko-Podravska","Vukovarsko-Srijemska","Zadarska","Zagrebacka"]
-city_states["Czech Republic"] = ["Prague (Praha)","Jihocesky","Jihomoravsky","Karlovarsky","Kralovehradecky","Liberecky","Moravskoslezsky","Olomoucky","Pardubicky","Plzensky","Stredocesky","Ustecky","Vysocina","Zlinsky"]
-city_states["Denmark"] = ["Copenhagen (Kobenhavn)","Arhus","Bornholm","Fredericksberg","Frederiksborg","Fyn","Kobenhavns","Nordjylland","Ribe","Ringkobing","Roskilde","Sonderjylland","Storstrom","Vejle","Vestsjalland","Viborg"]
-city_states["Estonia"] = ["Harjumaa (Tallinn)","Hiiumaa (Kardla)","Ida-Virumaa (Johvi)","Jarvamaa (Paide)","Jogevamaa (Jogeva)","Laanemaa (Haapsalu)","Laane-Virumaa (Rakvere)","Parnumaa (Parnu)","Polvamaa (Polva)","Raplamaa (Rapla)","Saaremaa (Kuressaare)","Tartumaa (Tartu)","Valgamaa (Valga)","Viljandimaa (Viljandi)","Vorumaa (Voru)"]
-city_states["Finland"] =[ "Helsinki", "Aland", "Etela-Suomen Laani", "Ita-Suomen Laani", "Lansi-Suomen Laani", "Lappi", "Oulun Laani" ]
+city_states["Albania"] =
+[
+    "Tirana", "Berat", "Bulqize", "Delvine", "Devoll", "Diber", "Durres", "Elbasan", "Fier", "Gjirokaster", "Gramsh",
+    "Has", "Kavaje", "Kolonje", "Korce", "Kruje", "Kucove", "Kukes", "Kurbin", "Lezhe", "Librazhd", "Lushnje", "Malesi e Madhe",
+    "Mallakaster", "Mat", "Mirdite", "Peqin", "Permet", "Pogradec", "Puke", "Sarande", "Shkoder", "Skrapar", "Tepelene", "Tirane",
+    "Tropoje", "Vlore"
+]
+
+city_states["Andorra"] =
+[
+    "Andorra la Vella", "Canillo", "Encamp", "La Massana", "Escaldes-Engordany", "Ordino", "Sant Julia de Loria"
+]
+city_states["Austria"] =
+[
+    "Vienna", "Burgenland", "Kaernten", "Niederoesterreich", "Oberoesterreich", "Salzburg", "Steiermark", "Tirol", "Vorarlberg"
+]
+
+city_states["Belarus"] = [ "Minsk", "Brest","Homyel", "Horad Minsk", "Hrodna", "Mahilyow", "Vitsyebsk" ]
+
+city_states["Belgium"] =
+[
+    "Brussels", "Antwerpen", "Brabant Wallon", "Brussels (Bruxelles)", "Hainaut", "Liege", "Limburg", "Luxembourg",
+    "Namur", "Oost-Vlaanderen", "Vlaams-Brabant", "West-Vlaanderen"
+]
+city_states["Bosnia/Herzegovina"] = [ "Sarajevo" ]
+
+city_states["Bulgaria"] =
+[
+    "Sofiya", "Blagoevgrad", "Burgas", "Dobrich", "Gabrovo", "Khaskovo", "Kurdzhali", "Kyustendil", "Lovech", "Montana",
+    "Pazardzhik", "Pernik", "Pleven", "Plovdiv", "Razgrad", "Ruse", "Shumen", "Silistra", "Sliven", "Smolyan", "Sofiya-Grad",
+    "Stara Zagora", "Turgovishte", "Varna", "Veliko Turnovo", "Vidin", "Vratsa", "Yambol"
+]
+
+city_states["Croatia"] =
+[
+    "Zagreb","Bjelovarsko-Bilogorska","Brodsko-Posavska","Dubrovacko-Neretvanska","Istarska","Karlovacka",
+    "Koprivnicko-Krizevacka","Krapinsko-Zagorska","Licko-Senjska","Medimurska","Osjecko-Baranjska","Pozesko-Slavonska",
+    "Primorsko-Goranska","Sibensko-Kninska","Sisacko-Moslavacka","Splitsko-Dalmatinska","Varazdinska","Viroviticko-Podravska",
+    "Vukovarsko-Srijemska","Zadarska","Zagrebacka"
+]
+city_states["Czech Republic"] =
+[
+    "Prague (Praha)", "Jihocesky", "Jihomoravsky", "Karlovarsky", "Kralovehradecky", "Liberecky", "Moravskoslezsky",
+    "Olomoucky", "Pardubicky", "Plzensky", "Stredocesky", "Ustecky", "Vysocina", "Zlinsky"
+]
+
+city_states["Denmark"] =
+[
+    "Copenhagen (Kobenhavn)", "Arhus", "Bornholm", "Fredericksberg", "Frederiksborg", "Fyn", "Kobenhavns", "Nordjylland",
+    "Ribe", "Ringkobing", "Roskilde", "Sonderjylland", "Storstrom", "Vejle", "Vestsjalland", "Viborg"
+]
+
+city_states["Estonia"] =
+[
+    "Harjumaa (Tallinn)","Hiiumaa (Kardla)","Ida-Virumaa (Johvi)","Jarvamaa (Paide)","Jogevamaa (Jogeva)",
+    "Laanemaa (Haapsalu)","Laane-Virumaa (Rakvere)","Parnumaa (Parnu)","Polvamaa (Polva)","Raplamaa (Rapla)",
+    "Saaremaa (Kuressaare)","Tartumaa (Tartu)","Valgamaa (Valga)","Viljandimaa (Viljandi)","Vorumaa (Voru)"
+]
+
+city_states["Finland"] = [ "Helsinki", "Aland", "Etela-Suomen Laani", "Ita-Suomen Laani", "Lansi-Suomen Laani", "Lappi", "Oulun Laani" ]
 city_states["France"] =
 [
     "Paris", "Alsace", "Aquitaine", "Auvergne", "Basse-Normandie", "Bourgogne", "Bretagne", "Centre", "Champagne-Ardenne",
