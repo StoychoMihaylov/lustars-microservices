@@ -5,77 +5,94 @@ city_states["Select Country"] = [ "Select City" ]
 
 city_states["Algeria"] =
 [
-    "Algiers", "Adrar", "Ain Defla", "Ain Temouchent", "Alger", "Annaba", "Batna", "Bechar", "Bejaia", "Biskra", "Blida", "Bordj Bou Arreridj",
-    "Bouira", "Boumerdes", "Chlef", "Constantine", "Djelfa", "El Bayadh", "El Oued", "El Tarf", "Ghardaia", "Guelma", "Illizi", "Jijel", "Khenchela",
-    "Laghouat", "Mascara", "Medea", "Mila", "Mostaganem", "M'Sila", "Naama", "Oran", "Ouargla", "Oum el Bouaghi", "Relizane", "Saida", "Setif",
-    "Sidi Bel Abbes", "Skikda", "Souk Ahras", "Tamanghasset", "Tebessa", "Tiaret", "Tindouf", "Tipaza", "Tissemsilt", "Tizi Ouzou", "Tlemcen"
+    "Algiers", "Adrar", "Ain Defla", "Ain Temouchent", "Alger", "Annaba", "Batna", "Bechar", "Bejaia", "Biskra", "Blida",
+    "Bordj Bou Arreridj", "Bouira", "Boumerdes", "Chlef", "Constantine", "Djelfa", "El Bayadh", "El Oued", "El Tarf",
+    "Ghardaia", "Guelma", "Illizi", "Jijel", "Khenchela", "Laghouat", "Mascara", "Medea", "Mila", "Mostaganem", "M'Sila",
+     "Naama", "Oran", "Ouargla", "Oum el Bouaghi", "Relizane", "Saida", "Setif", "Sidi Bel Abbes", "Skikda", "Souk Ahras",
+    "Tamanghasset", "Tebessa", "Tiaret", "Tindouf", "Tipaza", "Tissemsilt", "Tizi Ouzou", "Tlemcen"
 ]
 
 city_states["Angola"] =
 [
-    "Luanda", "Bengo", "Benguela", "Bie", "Cabinda", "Cuando Cubango", "Cuanza Norte", "Cuanza Sul", "Cunene", "Huambo", "Huila", "Lunda Norte",
-    "Lunda Sul", "Malanje", "Moxico", "Namibe", "Uige", "Zaire"
+    "Luanda", "Bengo", "Benguela", "Bie", "Cabinda", "Cuando Cubango", "Cuanza Norte", "Cuanza Sul", "Cunene", "Huambo",
+     "Huila", "Lunda Norte", "Lunda Sul", "Malanje", "Moxico", "Namibe", "Uige", "Zaire"
 ]
 
 city_states["Benin"] =
 [
-    "Porto-Novo", "Alibori", "Atakora", "Atlantique", "Borgou", "Collines", "Couffo", "Donga", "Littoral", "Mono", "Oueme", "Plateau", "Zou"
+    "Porto-Novo", "Alibori", "Atakora", "Atlantique", "Borgou", "Collines", "Couffo", "Donga", "Littoral", "Mono",
+    "Oueme", "Plateau", "Zou"
 ]
 city_states["Botswana"] =
 [
-    "Gaborone", "Central", "Chobe", "Francistown", "Ghanzi", "Kgalagadi", "Kgatleng", "Kweneng", "Lobatse", "Ngamiland", "North-East",
-    "Selebi-Pikwe", "South-East", "Southern"
+    "Gaborone", "Central", "Chobe", "Francistown", "Ghanzi", "Kgalagadi", "Kgatleng", "Kweneng", "Lobatse", "Ngamiland",
+     "North-East", "Selebi-Pikwe", "South-East", "Southern"
 ]
 
 city_states["Burkina Faso"] =
 [
-    "Ouagadougou", "Bale", "Bam", "Banwa", "Bazega", "Bougouriba", "Boulgou", "Boulkiemde", "Comoe", "Ganzourgou", "Gnagna", "Gourma", "Houet",
-    "Ioba", "Kadiogo", "Kenedougou", "Komandjari", "Kompienga", "Kossi", "Koupelogo", "Kouritenga", "Kourweogo", "Leraba", "Loroum", "Mouhoun",
-    "Nahouri", "Namentenga", "Nayala", "Naumbiel", "Oubritenga", "Oudalan", "Passore", "Poni", "Samentenga", "Sanguie", "Seno", "Sissili", "Soum",
-    "Sourou", "Tapoa", "Tuy", "Yagha", "Yatenga", "Ziro", "Zondomo", "Zoundweogo"
+    "Ouagadougou", "Bale", "Bam", "Banwa", "Bazega", "Bougouriba", "Boulgou", "Boulkiemde", "Comoe", "Ganzourgou",
+     "Gnagna", "Gourma", "Houet", "Ioba", "Kadiogo", "Kenedougou", "Komandjari", "Kompienga", "Kossi", "Koupelogo",
+     "Kouritenga", "Kourweogo", "Leraba", "Loroum", "Mouhoun", "Nahouri", "Namentenga", "Nayala", "Naumbiel", "Oubritenga",
+    "Oudalan", "Passore", "Poni", "Samentenga", "Sanguie", "Seno", "Sissili", "Soum", "Sourou", "Tapoa", "Tuy", "Yagha",
+     "Yatenga", "Ziro", "Zondomo", "Zoundweogo"
 ]
 
 city_states["Burundi"] =
 [
-    "Bujumbura", "Bubanza", "Bujumbura", "Bururi", "Cankuzo", "Cibitoke", "Gitega", "Karuzi", "Kayanza", "Kirundo", "Makamba", "Muramvya", "Muyinga",
-    "Mwaro", "Ngozi", "Rutana", "Ruyigi"
+    "Bujumbura", "Bubanza", "Bujumbura", "Bururi", "Cankuzo", "Cibitoke", "Gitega", "Karuzi", "Kayanza", "Kirundo",
+     "Makamba", "Muramvya", "Muyinga", "Mwaro", "Ngozi", "Rutana", "Ruyigi"
 ]
-city_states["Cameroon"] = [ "Yaounde", "Adamaoua", "Centre", "Est", "Extreme-Nord", "Littoral", "Nord", "Nord-Ouest", "Ouest", "Sud", "Sud-Ouest" ]
+city_states["Cameroon"] =
+[
+    "Yaounde", "Adamaoua", "Centre", "Est", "Extreme-Nord", "Littoral", "Nord", "Nord-Ouest","Ouest", "Sud", "Sud-Ouest"
+]
+
 city_states["Cape Verde"] =
 [
-    "Praia", "Boa Vista", "Brava", "Calheta", "Maio", "Mosteiros", "Paul", "Porto Novo", "Ribeira Grande", "Sal", "Santa Catarina", "Santa Cruz",
-    "Sao Domingos", "Sao Nicolau", "Sao Filipe", "Sao Vicente", "Tarrafal"
+    "Praia", "Boa Vista", "Brava", "Calheta", "Maio", "Mosteiros", "Paul", "Porto Novo", "Ribeira Grande", "Sal",
+    "Santa Catarina", "Santa Cruz", "Sao Domingos", "Sao Nicolau", "Sao Filipe", "Sao Vicente", "Tarrafal"
 ]
+
 city_states["Central African Republic"] =
 [
-    "Bangui", "Bamingui-Bangoran", "Basse-Kotto", "Gribingui", "Haute-Kotto", "Haute-Sangha", "Haut-Mbomou", "Kemo-Gribingui", "Lobaye", "Mbomou",
-    "Nana-Mambere", "Ombella-Mpoko", "Ouaka", "Ouham", "Ouham-Pende", "Sangha", "Vakaga"
+    "Bangui", "Bamingui-Bangoran", "Basse-Kotto", "Gribingui", "Haute-Kotto", "Haute-Sangha", "Haut-Mbomou", "Kemo-Gribingui",
+     "Lobaye", "Mbomou", "Nana-Mambere", "Ombella-Mpoko", "Ouaka", "Ouham", "Ouham-Pende", "Sangha", "Vakaga"
 ]
 
 city_states["Chad"] =
 [
-    "N'Djamena", "Assongha", "Baguirmi", "Bahr El Gazal", "Bahr Koh", "Batha Oriental", "Batha Occidental", "Biltine", "Borkou", "Dababa",
-    "Ennedi", "Guera", "Hadjer Lamis", "Kabia", "Kanem", "Lac", "Lac Iro", "Logone Occidental", "Logone Oriental", "Mandoul", "Mayo-Boneye",
-    "Mayo-Dallah", "Monts de Lam", "Ouaddai", "Salamat", "Sila", "Tandjile Oriental", "Tandjile Occidental", "Tibesti"
+    "N'Djamena", "Assongha", "Baguirmi", "Bahr El Gazal", "Bahr Koh", "Batha Oriental", "Batha Occidental", "Biltine",
+    "Borkou", "Dababa", "Ennedi", "Guera", "Hadjer Lamis", "Kabia", "Kanem", "Lac", "Lac Iro", "Logone Occidental",
+    "Logone Oriental", "Mandoul", "Mayo-Boneye", "Mayo-Dallah", "Monts de Lam", "Ouaddai", "Salamat", "Sila",
+    "Tandjile Oriental", "Tandjile Occidental", "Tibesti"
 ]
 
 city_states["Congo, Dem."] =
 [
-    "Kinshasa", "Bandundu", "Bas-Congo", "Equateur", "Kasai-Occidental", "Kasai-Oriental", "Katanga", "Maniema", "Nord-Kivu", "Orientale", "Sud-Kivu"
+    "Kinshasa", "Bandundu", "Bas-Congo", "Equateur", "Kasai-Occidental", "Kasai-Oriental", "Katanga", "Maniema", "Nord-Kivu",
+    "Orientale", "Sud-Kivu"
 ]
 
-city_states["Congo, Rep."] = [ "Brazzaville", "Bouenza", "Cuvette", "Kouilou", "Lekoumou", "Likouala", "Niari", "Plateaux", "Pool", "Sangha" ]
+city_states["Congo, Rep."] =
+[
+    "Brazzaville", "Bouenza", "Cuvette", "Kouilou", "Lekoumou", "Likouala", "Niari", "Plateaux", "Pool", "Sangha"
+]
 
 city_states["Djibouti"] = [ "Djibouti", "Ali Sabih", "Dikhil", "Obock", "Tadjoura" ]
 
 city_states["Egypt"] =
 [
-    "Cairo", "Ad Daqahliyah", "Al Bahr al Ahmar", "Al Buhayrah", "Al Fayyum", "Al Gharbiyah", "Al Iskandariyah", "Al Isma'iliyah",
-    "Al Jizah", "Al Minufiyah", "Al Minya", "Al Qahirah", "Al Qalyubiyah", "Al Wadi al Jadid", "Ash Sharqiyah", "As Suways", "Aswan",
-    "Asyut", "Bani Suwayf", "Bur Sa'id", "Dumyat", "Janub Sina", "Kafr ash Shaykh", "Matruh", "Qina", "Shamal Sina", "Suhaj"
+    "Cairo", "Ad Daqahliyah", "Al Bahr al Ahmar", "Al Buhayrah", "Al Fayyum", "Al Gharbiyah", "Al Iskandariyah",
+    "Al Isma'iliyah", "Al Jizah", "Al Minufiyah", "Al Minya", "Al Qahirah", "Al Qalyubiyah", "Al Wadi al Jadid",
+    "Ash Sharqiyah", "As Suways", "Aswan", "Asyut", "Bani Suwayf", "Bur Sa'id", "Dumyat", "Janub Sina", "Kafr ash Shaykh",
+    "Matruh", "Qina", "Shamal Sina", "Suhaj"
 ]
 
-city_states["Equatorial Guinea"] = [ "Malabo", "Annobon", "Bioko Norte", "Bioko Sur", "Centro Sur", "Kie-Ntem", "Litoral", "Wele-Nzas" ]
+city_states["Equatorial Guinea"] =
+[
+    "Malabo", "Annobon", "Bioko Norte", "Bioko Sur", "Centro Sur", "Kie-Ntem", "Litoral", "Wele-Nzas"
+]
 
 city_states["Eritrea"] = [ "Asmara", "Central", "Anelba", "Southern Red Sea", "Northern Red Sea", "Southern", "Gash-Barka" ]
 
@@ -92,13 +109,16 @@ city_states["Gambia"] =
     "Estuaire", "Haut-Ogooue", "Moyen-Ogooue", "Ngounie", "Nyanga", "Ogooue-Ivindo", "Ogooue-Lolo", "Ogooue-Maritime", "Woleu-Ntem"
 ]
 
-city_states["Ghana"] = [ "Accra", "Ashanti", "Brong-Ahafo", "Central","Eastern", "Northern", "Upper East", "Upper West", "Volta", "Western" ]
+city_states["Ghana"] =
+[
+    "Accra", "Ashanti", "Brong-Ahafo", "Central","Eastern", "Northern", "Upper East", "Upper West", "Volta", "Western"
+]
 
 city_states["Guinea"] =
 [
-    "Conakry", "Beyla", "Boffa", "Boke", "Coyah", "Dabola", "Dalaba", "Dinguiraye", "Dubreka", "Faranah", "Forecariah", "Fria", "Gaoual",
-    "Gueckedou", "Kankan", "Kerouane", "Kindia", "Kissidougou", "Koubia", "Koundara", "Kouroussa", "Labe", "Lelouma", "Lola", "Macenta",
-    "Mali", "Mamou", "Mandiana", "Nzerekore", "Pita", "Siguiri", "Telimele", "Tougue", "Yomou"
+    "Conakry", "Beyla", "Boffa", "Boke", "Coyah", "Dabola", "Dalaba", "Dinguiraye", "Dubreka", "Faranah", "Forecariah",
+    "Fria", "Gaoual", "Gueckedou", "Kankan", "Kerouane", "Kindia", "Kissidougou", "Koubia", "Koundara", "Kouroussa", "Labe",
+    "Lelouma", "Lola", "Macenta", "Mali", "Mamou", "Mandiana", "Nzerekore", "Pita", "Siguiri", "Telimele", "Tougue", "Yomou"
 ]
 
 city_states["Guinea-Bissau"] = [ "Bissau", "Bafata", "Biombo", "Bolama/Bijagos", "Cacheu", "Gabu", "Oio", "Quinara", "Tombali" ]
@@ -115,15 +135,15 @@ city_states["Lesotho"] =
 
 city_states["Liberia"] =
 [
-    "Monrovia", "Bomi", "Bong", "Gparbolu", "Grand Bassa", "Grand Cape Mount", "Grand Gedeh", "Grand Kru", "Lofa", "Margibi", "Maryland",
-    "Montserrado", "Nimba", "River Cess", "River Gee", "Sinoe"
+    "Monrovia", "Bomi", "Bong", "Gparbolu", "Grand Bassa", "Grand Cape Mount", "Grand Gedeh", "Grand Kru", "Lofa", "Margibi",
+    "Maryland", "Montserrado", "Nimba", "River Cess", "River Gee", "Sinoe"
 ]
 
 city_states["Libya"] =
 [
-    "Tripoli", "Ajdabiya", "Al'Aziziyah", "Al Fatih", "Al Jabal al Akhdar", "Al Jufrah", "Al Khums", "Al Kufrah", "An Nuqat al Khams",
-    "Ash Shati", "Awbari", "Az Zawiyah", "Banghazi", "Darnah", "Ghadamis", "Gharyan", "Misratah", "Murzuq", "Sabha", "Sawfajjin",
-    "Surt", "Tarabulus", "Tarhunah","Tubruq", "Yafran","Zlitan"
+    "Tripoli", "Ajdabiya", "Al'Aziziyah", "Al Fatih", "Al Jabal al Akhdar", "Al Jufrah", "Al Khums", "Al Kufrah",
+    "An Nuqat al Khams", "Ash Shati", "Awbari", "Az Zawiyah", "Banghazi", "Darnah", "Ghadamis", "Gharyan", "Misratah",
+    "Murzuq", "Sabha", "Sawfajjin", "Surt", "Tarabulus", "Tarhunah","Tubruq", "Yafran","Zlitan"
 ]
 
 city_states["Madagascar"] = [ "Antananarivo", "Antsiranana", "Fianarantsoa", "Mahajanga", "Toamasina", "Toliara" ]
@@ -139,21 +159,21 @@ city_states["Mali"] = [ "Bamako", "Gao", "Kayes", "Kidal", "Koulikoro", "Mopti",
 
 city_states["Mauritania"] =
 [
-    "Nouakchott", "Adrar", "Assaba", "Brakna", "Dakhlet Nouadhibou", "Gorgol", "Guidimaka", "Hodh Ech Chargui", "Hodh El Gharbi", "Inchiri",
-    "Tagant", "Tiris Zemmour", "Trarza"
+    "Nouakchott", "Adrar", "Assaba", "Brakna", "Dakhlet Nouadhibou", "Gorgol", "Guidimaka", "Hodh Ech Chargui", "Hodh El Gharbi",
+    "Inchiri", "Tagant", "Tiris Zemmour", "Trarza"
 ]
 city_states["Mauritius"] =
 [
-    "Port Louis", "Agalega Islands", "Black River", "Cargados Carajos Shoals", "Flacq", "Grand Port", "Moka", "Pamplemousses", "Plaines Wilhems",
-    "Riviere du Rempart", "Rodrigues", "Savanne"
+    "Port Louis", "Agalega Islands", "Black River", "Cargados Carajos Shoals", "Flacq", "Grand Port", "Moka", "Pamplemousses",
+    "Plaines Wilhems", "Riviere du Rempart", "Rodrigues", "Savanne"
 ]
 
 city_states["Morocco"] =
 [
-    "Rabat", "Ad Dakhla (Oued Eddahab)", "Agadir", "Al Hoceima", "Azilal", "Beni Mellal", "Ben Slimane", "Boujdour", "Boulemane", "Casablanca",
-    "Chaouen", "El Jadida", "El Kelaa des Sraghna", "Er Rachidia", "Essaouira", "Es Smara", "Fes", "Figuig", "Guelmim", "Ifrane", "Kenitra",
-    "Khemisset", "Khenifra", "Khouribga", "Laayoune", "Larache", "Marrakech", "Meknes", "Nador", "Ouarzazate", "Oujda", "Safi", "Settat",
-    "Sidi Kacem", "Tanger", "Tan-Tan", "Taounate", "Taroudannt", "Tata", "Taza", "Tetouan", "Tiznit"
+    "Rabat", "Ad Dakhla (Oued Eddahab)", "Agadir", "Al Hoceima", "Azilal", "Beni Mellal", "Ben Slimane", "Boujdour", "Boulemane",
+    "Casablanca", "Chaouen", "El Jadida", "El Kelaa des Sraghna", "Er Rachidia", "Essaouira", "Es Smara", "Fes", "Figuig", "Guelmim",
+    "Ifrane", "Kenitra", "Khemisset", "Khenifra", "Khouribga", "Laayoune", "Larache", "Marrakech", "Meknes", "Nador", "Ouarzazate",
+    "Oujda", "Safi", "Settat", "Sidi Kacem", "Tanger", "Tan-Tan", "Taounate", "Taroudannt", "Tata", "Taza", "Tetouan", "Tiznit"
 ]
 
 city_states["Mozambique"] =
@@ -170,9 +190,9 @@ city_states["Niger"] = [ "Niamey", "Agadez", "Diffa", "Dosso", "Maradi", "Tahoua
 
 city_states["Nigeria"] =
 [
-    "Abuja", "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River", "Delta", "Ebonyi", "Edo", "Ekiti",
-    "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Kogi", "Kwara", "Lagos", "Nassarawa", "Niger", "Ogun", "Ondo",
-    "Osun", "Oyo", "Plateau", "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara"
+    "Abuja", "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River", "Delta", "Ebonyi",
+    "Edo", "Ekiti", "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Kogi", "Kwara", "Lagos", "Nassarawa",
+    "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau", "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara"
 ]
 
 city_states["Rwanda"] =
@@ -189,48 +209,49 @@ city_states["Senegal"] =
 
 city_states["Seychelles"] =
 [
-    "Victoria", "Anse aux Pins", "Anse Boileau", "Anse Etoile", "Anse Louis", "Anse Royale", "Baie Lazare", "Baie Sainte Anne", "Beau Vallon",
-    "Bel Air", "Bel Ombre", "Cascade", "Glacis", "Grand'Anse (on Mahe)", "Grand' Anse (on Praslin)", "La Digue", "La Riviere Anglaise",
-    "Mont Buxton", "Mont Fleuri", "Plaisance", "Pointe La Rue", "Port Glaud", "Saint Louis", "Takamaka"
+    "Victoria", "Anse aux Pins", "Anse Boileau", "Anse Etoile", "Anse Louis", "Anse Royale", "Baie Lazare", "Baie Sainte Anne",
+    "Beau Vallon", "Bel Air", "Bel Ombre", "Cascade", "Glacis", "Grand'Anse (on Mahe)", "Grand' Anse (on Praslin)", "La Digue",
+    "La Riviere Anglaise", "Mont Buxton", "Mont Fleuri", "Plaisance", "Pointe La Rue", "Port Glaud", "Saint Louis", "Takamaka"
 ]
 
 city_states["Sierra Leone"] = [ "Freetown", "Eastern", "Northern", "Southern", "Western" ]
 
 city_states["Somalia"] =
 [
-    "Mogadishu", "Awdal", "Bakool", "Banaadir", "Bari", "Bay", "Galguduud", "Gedo", "Hiiraan", "Jubbada Dhexe", "Jubbada Hoose", "Mudug",
-    "Nugaal", "Sanaag", "Shabeellaha Dhexe", "Shabeellaha Hoose", "Sool", "Togdheer", "Woqooyi Galbeed"
+    "Mogadishu", "Awdal", "Bakool", "Banaadir", "Bari", "Bay", "Galguduud", "Gedo", "Hiiraan", "Jubbada Dhexe", "Jubbada Hoose",
+    "Mudug", "Nugaal", "Sanaag", "Shabeellaha Dhexe", "Shabeellaha Hoose", "Sool", "Togdheer", "Woqooyi Galbeed"
 ]
 
 city_states["South Africa"] =
 [
-    "Pretoria", "Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Mpumalanga", "North-West", "Northern Cape", "Northern Province/Limpopo",
-    "Western Cape"
+    "Pretoria", "Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Mpumalanga", "North-West", "Northern Cape",
+    "Northern Province/Limpopo", "Western Cape"
 ]
 
 city_states["Sudan"] =
 [
-    "Khartoum", "A'ali an Nil", "Al Bahr al Ahmar", "Al Buhayrat", "Al Jazirah", "Al Khartum", "Al Qadarif", "Al Wahdah", "An Nil al Abyad",
-    "An Nil al Azraq", "Ash Shamaliyah", "Bahr al Jabal", "Gharb al Istiwa'iyah", "Gharb Bahr al Ghazal", "Gharb Darfur", "Gharb Kurdufan",
-    "Janub Darfur", "Janub Kurdufan", "Junqali", "Kassala", "Nahr an Nil", "Shamal Bahr al Ghazal", "Shamal Darfur", "Shamal Kurdufan",
-    "Sharq al Istiwa'iyah", "Sinnar", "Warab"
+    "Khartoum", "A'ali an Nil", "Al Bahr al Ahmar", "Al Buhayrat", "Al Jazirah", "Al Khartum", "Al Qadarif", "Al Wahdah",
+    "An Nil al Abyad", "An Nil al Azraq", "Ash Shamaliyah", "Bahr al Jabal", "Gharb al Istiwa'iyah", "Gharb Bahr al Ghazal",
+    "Gharb Darfur", "Gharb Kurdufan", "Janub Darfur", "Janub Kurdufan", "Junqali", "Kassala", "Nahr an Nil", "Shamal Bahr al Ghazal",
+    "Shamal Darfur", "Shamal Kurdufan", "Sharq al Istiwa'iyah", "Sinnar", "Warab"
 ]
 
 city_states["Swaziland"] = [ "Lobamba/Mbabane", "Hhohho", "Lubombo", "Manzini", "Shiselweni" ]
 
 city_states["Tanzania"] =
 [
-    "Dodoma", "Arusha", "Dar es Salaam", "Iringa", "Kagera", "Kigoma", "Kilimanjaro", "Lindi", "Mara", "Mbeya", "Morogoro", "Mtwara",
-    "Mwanza", "Pemba North", "Pemba South", "Pwani", "Rukwa", "Ruvuma", "Shinyanga", "Singida", "Tabora", "Tanga", "Zanzibar Central/South",
-    "Zanzibar North", "Zanzibar Urban/West"
+    "Dodoma", "Arusha", "Dar es Salaam", "Iringa", "Kagera", "Kigoma", "Kilimanjaro", "Lindi", "Mara", "Mbeya", "Morogoro",
+    "Mtwara", "Mwanza", "Pemba North", "Pemba South", "Pwani", "Rukwa", "Ruvuma", "Shinyanga", "Singida", "Tabora", "Tanga",
+    "Zanzibar Central/South", "Zanzibar North", "Zanzibar Urban/West"
 ]
 
 city_states["Togo"] = [ "Lome", "De La Kara", "Des Plateaux", "Des Savanes", "Centrale", "Maritime" ]
 
 city_states["Tunisia"] =
 [
-    "Tunis", "Ariana", "Beja", "Ben Arous", "Bizerte", "El Kef", "Gabes", "Gafsa", "Jendouba", "Kairouan", "Kasserine", "Kebili", "Mahdia",
-    "Medenine", "Monastir", "Nabeul", "Sfax", "Sidi Bou Zid", "Siliana", "Sousse", "Tataouine", "Tozeur", "Zaghouan"
+    "Tunis", "Ariana", "Beja", "Ben Arous", "Bizerte", "El Kef", "Gabes", "Gafsa", "Jendouba", "Kairouan", "Kasserine",
+    "Kebili", "Mahdia", "Medenine", "Monastir", "Nabeul", "Sfax", "Sidi Bou Zid", "Siliana", "Sousse", "Tataouine", "Tozeur",
+    "Zaghouan"
 ]
 
 city_states["Uganda"] =
@@ -249,8 +270,8 @@ city_states["Zambia"] =
 
 city_states["Zimbabwe"] =
 [
-    "Harare", "Bulawayo", "Manicaland", "Mashonaland Central", "Mashonaland East", "Mashonaland West", "Masvingo", "Matabeleland North",
-    "Matabeleland South", "Midlands"
+    "Harare", "Bulawayo", "Manicaland", "Mashonaland Central", "Mashonaland East", "Mashonaland West", "Masvingo",
+    "Matabeleland North", "Matabeleland South", "Midlands"
 ]
 
 
@@ -273,22 +294,23 @@ city_states["Burma (Myanmar)"] =
 
 city_states["Cambodia"] =
 [
-    "Phnom Penh", "Banteay Mean Cheay", "Batdambang", "Kampong Cham", "Kampong Chhnang", "Kampong Spoe", "Kampong Thum", "Kampot", "Kandal",
-    "Kaoh Kong", "Keb", "Kracheh", "Mondol Kiri", "Otdar Mean Cheay", "Pailin", "Pouthisat", "Preah Seihanu (Sihanoukville)", "Preah Vihear",
-    "Prey Veng", "Rotanah Kiri", "Siem Reab", "Stoeng Treng", "Svay Rieng", "Takev"
+    "Phnom Penh", "Banteay Mean Cheay", "Batdambang", "Kampong Cham", "Kampong Chhnang", "Kampong Spoe", "Kampong Thum",
+    "Kampot", "Kandal", "Kaoh Kong", "Keb", "Kracheh", "Mondol Kiri", "Otdar Mean Cheay", "Pailin", "Pouthisat",
+    "Preah Seihanu (Sihanoukville)", "Preah Vihear", "Prey Veng", "Rotanah Kiri", "Siem Reab", "Stoeng Treng", "Svay Rieng",
+    "Takev"
 ]
 
 city_states["China"] =
 [
-    "Beijing", "Anhui", "Chongqing", "Fujian", "Gansu", "Guangdong", "Guangxi", "Guizhou", "Hainan", "Hebei", "Heilongjiang", "Henan", "Hubei",
-    "Hunan", "Jiangsu", "Jiangxi", "Jilin", "Liaoning", "Nei Mongol", "Ningxia", "Qinghai", "Shaanxi", "Shandong", "Shanghai", "Shanxi",
-    "Sichuan", "Tianjin", "Xinjiang", "Xizang (Tibet)", "Yunnan", "Zhejiang"
+    "Beijing", "Anhui", "Chongqing", "Fujian", "Gansu", "Guangdong", "Guangxi", "Guizhou", "Hainan", "Hebei", "Heilongjiang",
+    "Henan", "Hubei", "Hunan", "Jiangsu", "Jiangxi", "Jilin", "Liaoning", "Nei Mongol", "Ningxia", "Qinghai", "Shaanxi", "Shandong",
+    "Shanghai", "Shanxi", "Sichuan", "Tianjin", "Xinjiang", "Xizang (Tibet)", "Yunnan", "Zhejiang"
 ]
 
 city_states["East Timor"] =
 [
-    "Dili", "Aileu", "Ainaro", "Baucau", "Bobonaro (Maliana)", "Cova-Lima (Suai)", "Ermera", "Lautem (Los Palos)", "Liquica", "Manatuto",
-    "Manufahi (Same)", "Oecussi (Ambeno)", "Viqueque"
+    "Dili", "Aileu", "Ainaro", "Baucau", "Bobonaro (Maliana)", "Cova-Lima (Suai)", "Ermera", "Lautem (Los Palos)", "Liquica",
+    "Manatuto", "Manufahi (Same)", "Oecussi (Ambeno)", "Viqueque"
 ]
 
 city_states["India"] =
@@ -323,8 +345,8 @@ city_states["Kazakhstan"] =
 
 city_states["Korea (north)"] =
 [
-    "P'yongyang", "Chagang-do", "Hamgyong-bukto", "Hamgyong-namdo", "Hwanghae-bukto", "Hwanghae-namdo", "Kaesong-si", "Kangwon-do", "Najin Sonbong-si",
-    "Namp'o-si", "P'yongan-bukto", "P'yongan-namdo", "P'yongyang-si", "Yanggang-do"
+    "P'yongyang", "Chagang-do", "Hamgyong-bukto", "Hamgyong-namdo", "Hwanghae-bukto", "Hwanghae-namdo", "Kaesong-si", "Kangwon-do",
+    "Najin Sonbong-si", "Namp'o-si", "P'yongan-bukto", "P'yongan-namdo", "P'yongyang-si", "Yanggang-do"
 ]
 
 city_states["Korea (south)"] =
@@ -336,14 +358,14 @@ city_states["Korea (south)"] =
 
 city_states["Laos"] =
 [
-    "Vientiane", "Attapu", "Bokeo", "Bolikhamxai", "Champasak", "Houaphan", "Khammouan", "Louangnamtha", "Louangphabang", "Oudomxai", "Phongsali",
-    "Salavan", "Savannakhet", "Viangchan", "Viangchan", "Xaignabouli", "Xaisomboun", "Xekong", "Xiangkhoang"
+    "Vientiane", "Attapu", "Bokeo", "Bolikhamxai", "Champasak", "Houaphan", "Khammouan", "Louangnamtha", "Louangphabang", "Oudomxai",
+    "Phongsali", "Salavan", "Savannakhet", "Viangchan", "Viangchan", "Xaignabouli", "Xaisomboun", "Xekong", "Xiangkhoang"
 ]
 
 city_states["Malaysia"] =
 [
-    "Kuala Lumpur", "Johor", "Kedah", "Kelantan", "Labuan", "Melaka", "Negeri Sembilan", "Pahang", "Perak", "Perlis", "Pulau Pinang", "Putrajaya",
-    "Sabah", "Sarawak", "Selangor", "Terengganu", "Wilayah Persekutuan"
+    "Kuala Lumpur", "Johor", "Kedah", "Kelantan", "Labuan", "Melaka", "Negeri Sembilan", "Pahang", "Perak", "Perlis", "Pulau Pinang",
+    "Putrajaya", "Sabah", "Sarawak", "Selangor", "Terengganu", "Wilayah Persekutuan"
 ]
 
 city_states["Maldives"] =
@@ -354,8 +376,8 @@ city_states["Maldives"] =
 
 city_states["Mongolia"] =
 [
-    "Ulaanbaatar", "Arhangay", "Bayanhongor", "Bayan-Olgiy", "Bulgan", "Darhan Uul", "Dornod", "Dornogovi", "Dundgovi", "Dzavhan", "Govi-Altay",
-    "Govi-Sumber", "Hentiy", "Hovd", "Hovsgol", "Omnogovi", "Orhon", "Ovorhangay", "Selenge", "Suhbaatar", "Tov", "Uvs"
+    "Ulaanbaatar", "Arhangay", "Bayanhongor", "Bayan-Olgiy", "Bulgan", "Darhan Uul", "Dornod", "Dornogovi", "Dundgovi", "Dzavhan",
+    "Govi-Altay", "Govi-Sumber", "Hentiy", "Hovd", "Hovsgol", "Omnogovi", "Orhon", "Ovorhangay", "Selenge", "Suhbaatar", "Tov", "Uvs"
 ]
 
 city_states["Nepal"] =
@@ -366,11 +388,12 @@ city_states["Nepal"] =
 
 city_states["Philippines"] =
 [
-    "Manila", "Oriental", "North Cotabato", "Northern Samar", "Nueva Ecija", "Nueva Vizcaya", "Olongapo", "Ormoc", "Oroquieta", "Ozamis",
-    "Pagadian", "Palawan", "Palayan", "Pampanga", "Pangasinan", "Pasay", "Puerto Princesa", "Quezon", "Quezon City", "Quirino", "Rizal", "Romblon",
-    "Roxas", "Samar", "San Carlos (Negros Occidental)", "San Carlos (Pangasinan)", "San Jose", "San Pablo", "Silay", "Siquijor", "Sorsogon",
-    "South Cotabato", "Southern Leyte", "Sultan Kudarat", "Sulu", "Surigao", "Surigao del Norte", "Surigao del Sur", "Tacloban", "Tagaytay",
-    "Tagbilaran", "Tangub", "Tarlac", "Tawi-Tawi", "Toledo", "Trece Martires", "Zambales", "Zamboanga", "Zamboanga del Norte", "Zamboanga del Sur"
+    "Manila", "Oriental", "North Cotabato", "Northern Samar", "Nueva Ecija", "Nueva Vizcaya", "Olongapo", "Ormoc", "Oroquieta",
+    "Ozamis", "Pagadian", "Palawan", "Palayan", "Pampanga", "Pangasinan", "Pasay", "Puerto Princesa", "Quezon", "Quezon City",
+    "Quirino", "Rizal", "Romblon", "Roxas", "Samar", "San Carlos (Negros Occidental)", "San Carlos (Pangasinan)", "San Jose",
+    "San Pablo", "Silay", "Siquijor", "Sorsogon", "South Cotabato", "Southern Leyte", "Sultan Kudarat", "Sulu", "Surigao",
+    "Surigao del Norte", "Surigao del Sur", "Tacloban", "Tagaytay", "Tagbilaran", "Tangub", "Tarlac", "Tawi-Tawi", "Toledo",
+    "Trece Martires", "Zambales", "Zamboanga", "Zamboanga del Norte", "Zamboanga del Sur"
 ]
 
 city_states["Russian Federation"] =
