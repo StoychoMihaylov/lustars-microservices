@@ -58,3 +58,7 @@ The app is based on microservices architecture and technologies such as:
   ( PostgreSQL )      ( PostgreSQL )                     ( PostgreSQL )         |--MongoDB--|       |--MongoDB--|          ( PostgreSQL )       ( PostgreSQL )
   (------------)      (------------)                     (------------)         |-----------|       |-----------|          (------------)       (------------)
   (------------)      (------------)                     (------------)         |-----------|       |-----------|          (------------)       (------------)
+
+
+
+
