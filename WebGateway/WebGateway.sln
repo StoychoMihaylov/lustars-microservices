@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebGateway.App", "WebGateway.App\WebGateway.App.csproj", "{1330F0CA-D5F9-40A9-B94A-836E272DCE83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebGateway.Models", "WebGateway.Models\WebGateway.Models.csproj", "{92FD2889-D924-4E32-84CA-404F8023BFEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebGateway.Models", "WebGateway.Models\WebGateway.Models.csproj", "{92FD2889-D924-4E32-84CA-404F8023BFEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebGateway.Services", "WebGateway.Services\WebGateway.Services.csproj", "{923C9486-24AF-4C2F-A609-71E8A0E7B990}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebGateway.Services", "WebGateway.Services\WebGateway.Services.csproj", "{923C9486-24AF-4C2F-A609-71E8A0E7B990}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebGateway.UnitTests", "WebGateway.UnitTests\WebGateway.UnitTests.csproj", "{1E2DA53F-035D-4957-A031-7C227CF28325}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebGateway.UnitTests", "WebGateway.UnitTests\WebGateway.UnitTests.csproj", "{1E2DA53F-035D-4957-A031-7C227CF28325}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebGateway.Messaging", "WebGateway.Messaging\WebGateway.Messaging.csproj", "{19D2EE07-7CB5-484F-96C2-D90864E1D3C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1E2DA53F-035D-4957-A031-7C227CF28325}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E2DA53F-035D-4957-A031-7C227CF28325}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E2DA53F-035D-4957-A031-7C227CF28325}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19D2EE07-7CB5-484F-96C2-D90864E1D3C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19D2EE07-7CB5-484F-96C2-D90864E1D3C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19D2EE07-7CB5-484F-96C2-D90864E1D3C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19D2EE07-7CB5-484F-96C2-D90864E1D3C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
