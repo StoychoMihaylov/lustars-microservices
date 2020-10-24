@@ -1,9 +1,11 @@
 namespace WebGateway.App
 {
+    using System;
+    using System.Collections.Generic;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
-    using Microsoft.Extensions.DependencyInjection;
     using WebGateway.App.Infrastructure;
+    using Microsoft.Extensions.DependencyInjection;
 
     public class Startup
     {
@@ -12,13 +14,13 @@ namespace WebGateway.App
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddMassTransitServiceBus(); // MassTransite Configuration
             services.AddControllers();
             //services.AddHealthChecks(); // Healtchecks info for the container
             services.AddSwaggerDocument(); // Swagger
             services.AddMemoryCache();
             services.AddCorsPolicy(apiCorsPolicy);
             services.AddDependanciInjectionResolver(); // DI
+            services.AddMassTransitServiceBus(new List<Type>()); // MassTransite Configuration
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
