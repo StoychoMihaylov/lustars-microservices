@@ -7230,6 +7230,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "MassTransit >= 7.0.4",
       "MassTransit.AspNetCore >= 7.0.4",
       "MassTransit.RabbitMQ >= 7.0.4",
       "Microsoft.AspNetCore.Cors >= 2.2.0",
@@ -7288,6 +7289,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "MassTransit": {
+            "target": "Package",
+            "version": "[7.0.4, )"
+          },
           "MassTransit.AspNetCore": {
             "target": "Package",
             "version": "[7.0.4, )"

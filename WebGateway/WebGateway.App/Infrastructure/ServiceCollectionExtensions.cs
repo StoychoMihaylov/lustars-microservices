@@ -1,11 +1,11 @@
 ﻿namespace WebGateway.App.Infrastructure
 {
+    using MassTransit;
     using System.Net.Http;
-    using Microsoft.Extensions.DependencyInjection;
-
     using WebGateway.Services.Common;
     using WebGateway.Services.Services;
     using WebGateway.Services.Interfaces;
+    using Microsoft.Extensions.DependencyInjection;
 
     public static class ServiceCollectionExtensions
     {
@@ -32,6 +32,18 @@
                         .AllowAnyMethod();
                 });
             });
+        }
+
+        public static IServiceCollection AddMassTransitServiceBus(this IServiceCollection services)
+        {
+            return services.AddMassTransit(x =>
+            {
+                x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
+                {
+                    cfg.Host("rabbitmq");
+                }));
+            })
+            .AddMassTransitHostedService();
         }
     }
 }

@@ -25,6 +25,7 @@ services:
     volumes:
       #- ./rabbitmq/etc/definitions.json:/etc/rabbitmq/definitions.json  Add custom config
       #- ./rabbitmq/etc/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf        Mount custom config
+      #- rabbitmq:/var/lib/rabbitmq/mnesia keep everything after container has restarted
       - ./rabbitmq/data:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
       - ./rabbitmq/logs:/var/log/rabbitmq/log
     ports:

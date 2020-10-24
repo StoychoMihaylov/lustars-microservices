@@ -49,6 +49,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "MassTransit": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
             "MassTransit.AspNetCore": {
               "target": "Package",
               "version": "[7.0.4, )"
