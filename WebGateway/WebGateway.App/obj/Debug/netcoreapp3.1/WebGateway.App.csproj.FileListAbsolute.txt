@@ -123,3 +123,16 @@ C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\RabbitMQ.Client.dll
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\System.Threading.Channels.dll
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\MassTransit.AspNetCoreIntegration.dll
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\MassTransit.ExtensionsDependencyInjectionIntegration.dll
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Diagnostics.HealthChecks.dll
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\obj\Debug\netcoreapp3.1\WebGateway.App.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\obj\Debug\netcoreapp3.1\WebGateway.App.MvcApplicationPartsAssemblyInfo.cache

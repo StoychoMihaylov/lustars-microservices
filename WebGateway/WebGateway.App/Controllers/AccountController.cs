@@ -1,12 +1,14 @@
 ﻿namespace WebGateway.App.Controllers
 {
     using System;
+    using MassTransit;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using WebGateway.App.Authorization;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
     using WebGateway.Models.BidingModels.UserProfile;
+    
 
     [ApiController]
     [Route("account")]
@@ -14,11 +16,13 @@
     {
         private readonly IAccountService accountService;
         private readonly IProfileService profileService;
+        private readonly IBusControl bus;
 
-        public AccountController(IAccountService accountService, IProfileService profileService)
+        public AccountController(IAccountService accountService, IProfileService profileService, IBusControl bus)
         {
             this.accountService = accountService;
             this.profileService = profileService;
+            this.bus = bus;
         }
 
         // account/register
@@ -38,29 +42,36 @@
 
             try
             {
-                var accountCredentials = await this.accountService.CallAuthAPI_AccountRegister(bm);
-                if (accountCredentials == null)
-                {
-                    return StatusCode(400, "Email already exists or wrong credentials!"); // BadRequest!
-                }
+                Uri uri = new Uri("rabbitmq://localhost/register-user-queue");
 
-                var userProfileVm = new CreateUserProfileBindingModel()
-                { 
-                    Id = accountCredentials.UserId,
-                    Name = bm.Name,
-                    Gender = bm.Gender,
-                    Email = bm.Email
-                };
+                var endPoint = await this.bus.GetSendEndpoint(uri);
+                await endPoint.Send(bm);
 
-                var isCreated = await this.profileService.CallProfileAPI_CreateUserProfile(userProfileVm); // Call to ProfileAPI
+                //var accountCredentials = await this.accountService.CallAuthAPI_AccountRegister(bm);
+                //if (accountCredentials == null)
+                //{
+                //    return StatusCode(400, "Email already exists or wrong credentials!"); // BadRequest!
+                //}
 
-                if (!isCreated)
-                {
-                    this.accountService.CallAuthAPI_DeleteAccount(accountCredentials); // Revert account creation(delete it)
-                    return StatusCode(503); // ServiceUnavailable!
-                }
+                //var userProfileVm = new CreateUserProfileBindingModel()
+                //{ 
+                //    Id = accountCredentials.UserId,
+                //    Name = bm.Name,
+                //    Gender = bm.Gender,
+                //    Email = bm.Email
+                //};
 
-                return StatusCode(201, accountCredentials); // Created!
+                //var isCreated = await this.profileService.CallProfileAPI_CreateUserProfile(userProfileVm); // Call to ProfileAPI
+
+                //if (!isCreated)
+                //{
+                //    this.accountService.CallAuthAPI_DeleteAccount(accountCredentials); // Revert account creation(delete it)
+                //    return StatusCode(503); // ServiceUnavailable!
+                //}
+
+                //return StatusCode(201, accountCredentials); // Created!
+
+                return Ok("Seccess");
             }
             catch (Exception ex)
             {

@@ -12,9 +12,10 @@ namespace WebGateway.App
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
+            services.AddMassTransitServiceBus(); // MassTransite Configuration
             services.AddControllers();
             //services.AddHealthChecks(); // Healtchecks info for the container
-            services.AddSwaggerDocument(); //Swagger
+            services.AddSwaggerDocument(); // Swagger
             services.AddMemoryCache();
             services.AddCorsPolicy(apiCorsPolicy);
             services.AddDependanciInjectionResolver(); // DI
