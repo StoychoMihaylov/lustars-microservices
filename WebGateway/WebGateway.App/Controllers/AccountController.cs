@@ -7,8 +7,6 @@
     using WebGateway.App.Authorization;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
-    using WebGateway.Models.BidingModels.UserProfile;
-    
 
     [ApiController]
     [Route("account")]
@@ -16,9 +14,9 @@
     {
         private readonly IAccountService accountService;
         private readonly IProfileService profileService;
-        private readonly IBusControl bus;
+        private readonly IBus bus;
 
-        public AccountController(IAccountService accountService, IProfileService profileService, IBusControl bus)
+        public AccountController(IAccountService accountService, IProfileService profileService, IBus bus)
         {
             this.accountService = accountService;
             this.profileService = profileService;
@@ -30,22 +28,21 @@
         [Route("register")]
         public async Task<IActionResult> RegisterAndLogin([FromBody] RegisterUserBindingModel bm)
         {
-            if (!ModelState.IsValid)
-            {
-                return StatusCode(400, ModelState); // BadRequest!
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return StatusCode(400, ModelState); // BadRequest!
+            //}
 
-            if (bm.Password != bm.ConfirmPassword)
-            {
-                return StatusCode(400, "Invalid credentials!"); // BadRequest!
-            }
+            //if (bm.Password != bm.ConfirmPassword)
+            //{
+            //    return StatusCode(400, "Invalid credentials!"); // BadRequest!
+            //}
 
             try
             {
-                Uri uri = new Uri("rabbitmq://localhost/register-user-queue");
 
-                var endPoint = await this.bus.GetSendEndpoint(uri);
-                await endPoint.Send(bm);
+
+                await this.bus.Publish(bm);
 
                 //var accountCredentials = await this.accountService.CallAuthAPI_AccountRegister(bm);
                 //if (accountCredentials == null)
