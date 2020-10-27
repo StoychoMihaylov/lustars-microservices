@@ -18,6 +18,8 @@
                     });
 
                     rmq.UseHealthCheck(provider);
+
+                    //rmq.Message<IRegisterNewAccountMessage>(m => m.SetEntityName("register-new-account-message"));
                 }));
             })
             .AddMassTransitHostedService();
