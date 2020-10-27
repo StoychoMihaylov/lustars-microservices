@@ -1,6 +1,7 @@
 ﻿namespace WebGateway.App.Infrastructure
 {
     using MassTransit;
+    using MessageExchangeContract;
     using Microsoft.Extensions.DependencyInjection;
 
     public static class ServiceBusConfigExtensions
@@ -19,7 +20,7 @@
 
                     rmq.UseHealthCheck(provider);
 
-                    //rmq.Message<IRegisterNewAccountMessage>(m => m.SetEntityName("register-new-account-message"));
+                    rmq.Message<IRegisterNewAccountMessage>(m => m.SetEntityName("register-account-exchange"));
                 }));
             })
             .AddMassTransitHostedService();

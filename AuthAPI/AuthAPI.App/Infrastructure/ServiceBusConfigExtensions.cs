@@ -2,7 +2,7 @@
 {
     using GreenPipes;
     using MassTransit;
-    using Message.Contract;
+    using MessageExchangeContract;
     using AuthAPI.Messaging.Consumers;
     using Microsoft.Extensions.DependencyInjection;
 
@@ -23,6 +23,8 @@
                     });
 
                     rmq.UseHealthCheck(provider);
+
+                    rmq.Message<IRegisterNewAccountMessage>(m => m.SetEntityName("register-account-exchange"));
 
                     rmq.ReceiveEndpoint("register-new-account", endpoint =>
                     {

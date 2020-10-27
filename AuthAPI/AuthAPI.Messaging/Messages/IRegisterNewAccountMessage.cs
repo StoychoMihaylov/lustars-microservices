@@ -1,4 +1,4 @@
-﻿namespace Message.Contract
+﻿namespace MessageExchangeContract
 {
     public interface IRegisterNewAccountMessage
     {

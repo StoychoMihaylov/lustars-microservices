@@ -2,13 +2,12 @@
 {
     using System;
     using MassTransit;
-    using Message.Contract;
     using System.Threading.Tasks;
+    using MessageExchangeContract;
     using Microsoft.AspNetCore.Mvc;
     using WebGateway.App.Authorization;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
-    using WebGateway.Models.BidingModels.UserProfile;
 
     [ApiController]
     [Route("account")]

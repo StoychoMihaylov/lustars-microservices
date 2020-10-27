@@ -1,10 +1,11 @@
 ﻿namespace AuthAPI.Messaging.Consumers
 {
     using MassTransit;
-    using Message.Contract;
     using System.Threading.Tasks;
+    using MessageExchangeContract;
     using AuthAPI.Services.Interfaces;
     using AuthAPI.Models.BidingModels;
+    
 
     public class RegisterNewAccountConsumer : IConsumer<IRegisterNewAccountMessage>
     {
