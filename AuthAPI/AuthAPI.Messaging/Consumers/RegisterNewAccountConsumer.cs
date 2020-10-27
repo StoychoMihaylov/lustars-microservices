@@ -21,7 +21,7 @@
             var message = context.Message;
 
             var bm = new RegisterUserBindingModel()
-            { 
+            {
                 Name = message.Name,
                 Email = message.Email,
                 Password = message.Password,

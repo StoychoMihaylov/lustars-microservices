@@ -8,6 +8,7 @@
     using WebGateway.App.Authorization;
     using WebGateway.Services.Interfaces;
     using WebGateway.Models.BidingModels.Account;
+    using WebGateway.Models.BidingModels.UserProfile;
 
     [ApiController]
     [Route("account")]
@@ -29,29 +30,23 @@
         [Route("register")]
         public async Task<IActionResult> RegisterAndLogin([FromBody] RegisterUserBindingModel bm)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return StatusCode(400, ModelState); // BadRequest!
-            //}
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400, ModelState); // BadRequest!
+            }
 
-            //if (bm.Password != bm.ConfirmPassword)
-            //{
-            //    return StatusCode(400, "Invalid credentials!"); // BadRequest!
-            //}
+            if (bm.Password != bm.ConfirmPassword)
+            {
+                return StatusCode(400, "Invalid credentials!"); // BadRequest!
+            }
 
             try
             {
                 var endPoint = await this.bus.GetSendEndpoint(new Uri("queue:register-new-account"));
-                await endPoint.Send<IRegisterNewAccountMessage>(new 
-                {
-                    Name = bm.Name,
-                    Gender = bm.Gender,
-                    Email = bm.Email,
-                    Password = bm.Password,
-                    ConfirmPassword = bm.ConfirmPassword
-                });
-                
-                //await this.bus.Publish(registerNewAccountMessage);
+
+                await endPoint.Send<IRegisterNewAccountMessage>(bm);
+
+                //await this.bus.Publish<IRegisterNewAccountMessage>(bm);
 
                 //var accountCredentials = await this.accountService.CallAuthAPI_AccountRegister(bm);
                 //if (accountCredentials == null)
@@ -60,7 +55,7 @@
                 //}
 
                 //var userProfileVm = new CreateUserProfileBindingModel()
-                //{ 
+                //{
                 //    Id = accountCredentials.UserId,
                 //    Name = bm.Name,
                 //    Gender = bm.Gender,
@@ -77,7 +72,7 @@
 
                 //return StatusCode(201, accountCredentials); // Created!
 
-                return Ok("Seccess");
+                return StatusCode(200, "Created!");
             }
             catch (Exception ex)
             {
