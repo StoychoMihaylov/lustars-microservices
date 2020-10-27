@@ -23,6 +23,7 @@ namespace AuthAPI.App
             services.AddSwaggerDocument(); //Swagger
             services.AddPosgreSQLWithEntityFramework(Configuration);
             services.AddDependanciInjectionResolver(); // DI
+            services.AddMassTransitServiceBus(); // MassTransite Configuration
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AuthDBContext context)

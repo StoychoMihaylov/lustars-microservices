@@ -10,4 +10,8 @@
     <PackageReference Include="MassTransit.RabbitMQ" Version="7.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AuthAPI.Services\AuthAPI.Services.csproj" />
+  </ItemGroup>
+
 </Project>

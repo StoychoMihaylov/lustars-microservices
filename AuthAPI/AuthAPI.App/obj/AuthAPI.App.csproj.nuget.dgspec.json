@@ -34,6 +34,9 @@
               "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj": {
                 "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Data\\AuthAPI.Data.csproj"
               },
+              "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Messaging\\AuthAPI.Messaging.csproj": {
+                "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Messaging\\AuthAPI.Messaging.csproj"
+              },
               "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj": {
                 "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Models\\AuthAPI.Models.csproj"
               },
@@ -52,6 +55,18 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "MassTransit": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "MassTransit.AspNetCore": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -140,6 +155,80 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Messaging\\AuthAPI.Messaging.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Messaging\\AuthAPI.Messaging.csproj",
+        "projectName": "AuthAPI.Messaging",
+        "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Messaging\\AuthAPI.Messaging.csproj",
+        "packagesPath": "C:\\Users\\stmih\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Messaging\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\stmih\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://kget.azurewebsites.net/nuget": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj": {
+                "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\AuthAPI\\AuthAPI.Services\\AuthAPI.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "MassTransit": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "MassTransit.AspNetCore": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[7.0.4, )"
             }
           },
           "imports": [

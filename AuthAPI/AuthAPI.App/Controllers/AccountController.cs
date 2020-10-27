@@ -2,7 +2,6 @@
 {
     using System;
     using Microsoft.AspNetCore.Mvc;
-
     using AuthAPI.Models.ViewModels;
     using AuthAPI.Models.BidingModels;
     using AuthAPI.Services.Interfaces;
@@ -19,26 +18,26 @@
         }
        
         // account/register
-        [HttpPost]
-        [Route("register")]
-        public IActionResult RegisterAndLogin([FromBody] RegisterUserBindingModel bm)
-        {
-            var userAlreadyExist = this.service.CheckIfUserExist(bm);
+        //[HttpPost]
+        //[Route("register")]
+        //public IActionResult RegisterAndLogin([FromBody] RegisterUserBindingModel bm)
+        //{
+        //    var userAlreadyExist = this.service.CheckIfUserExist(bm);
 
-            if (userAlreadyExist)
-            {
-                return StatusCode(400, "User with this email already exist!"); // BadRequest!
-            }
+        //    if (userAlreadyExist)
+        //    {
+        //        return StatusCode(400, "User with this email already exist!"); // BadRequest!
+        //    }
 
-            var userCredentials = this.service.CreateNewUserAccount(bm); // User created, will return token(loged-in automaticaly)
+        //    var userCredentials = this.service.CreateNewUserAccount(bm); // User created, will return token(loged-in automaticaly)
 
-            if (userCredentials == null)
-            {
-                return StatusCode(501, "User Registered! Failed to log-in"); // Not Implemented!
-            }
+        //    if (userCredentials == null)
+        //    {
+        //        return StatusCode(501, "User Registered! Failed to log-in"); // Not Implemented!
+        //    }
 
-            return StatusCode(201, userCredentials); // Created!
-        }
+        //    return StatusCode(201, userCredentials); // Created!
+        //}
 
         // account/login
         [HttpPost]

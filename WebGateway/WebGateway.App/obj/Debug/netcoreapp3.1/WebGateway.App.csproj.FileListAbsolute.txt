@@ -136,3 +136,5 @@ C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\obj\Debug\netcoreapp3.1\WebGateway.App.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\obj\Debug\netcoreapp3.1\WebGateway.App.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\WebGateway.Messaging.dll
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\WebGateway.Messaging.pdb

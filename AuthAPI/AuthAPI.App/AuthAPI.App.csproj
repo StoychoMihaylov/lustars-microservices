@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit" Version="7.0.4" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.0.4" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="7.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -17,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AuthAPI.Data\AuthAPI.Data.csproj" />
+    <ProjectReference Include="..\AuthAPI.Messaging\AuthAPI.Messaging.csproj" />
     <ProjectReference Include="..\AuthAPI.Models\AuthAPI.Models.csproj" />
     <ProjectReference Include="..\AuthAPI.Services\AuthAPI.Services.csproj" />
   </ItemGroup>

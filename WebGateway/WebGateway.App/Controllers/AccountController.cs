@@ -2,6 +2,7 @@
 {
     using System;
     using MassTransit;
+    using Message.Contract;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using WebGateway.App.Authorization;
@@ -40,9 +41,17 @@
 
             try
             {
-
-
-                await this.bus.Publish(bm);
+                var endPoint = await this.bus.GetSendEndpoint(new Uri("queue:register-new-account"));
+                await endPoint.Send<IRegisterNewAccountMessage>(new 
+                {
+                    Name = bm.Name,
+                    Gender = bm.Gender,
+                    Email = bm.Email,
+                    Password = bm.Password,
+                    ConfirmPassword = bm.ConfirmPassword
+                });
+                
+                //await this.bus.Publish(registerNewAccountMessage);
 
                 //var accountCredentials = await this.accountService.CallAuthAPI_AccountRegister(bm);
                 //if (accountCredentials == null)

@@ -2,15 +2,14 @@
 {
     using System;
     using System.Linq;
-    using System.Security.Cryptography;
-    using Microsoft.EntityFrameworkCore;
-
     using AuthAPI.Data.Entities;
     using AuthAPI.Data.Interfaces;
     using AuthAPI.Models.ViewModels;
     using AuthAPI.Services.Utilities;
     using AuthAPI.Models.BidingModels;
     using AuthAPI.Services.Interfaces;
+    using System.Security.Cryptography;
+    using Microsoft.EntityFrameworkCore;
 
     public class AccountService : Service, IAccountService
     {
