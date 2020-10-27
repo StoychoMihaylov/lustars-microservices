@@ -1,10 +1,7 @@
 ﻿namespace WebGateway.App.Infrastructure
 {
-    using System;
-    using GreenPipes;
     using MassTransit;
     using System.Net.Http;
-    using System.Collections.Generic;
     using WebGateway.Services.Common;
     using WebGateway.Services.Services;
     using WebGateway.Services.Interfaces;
@@ -37,12 +34,10 @@
             });
         }
 
-        public static IServiceCollection AddMassTransitServiceBus(this IServiceCollection services, List<Type> consumers)
+        public static IServiceCollection AddMassTransitServiceBus(this IServiceCollection services)
         {
             return services.AddMassTransit(mt =>
             {
-                consumers.ForEach(consumer => mt.AddConsumer(consumer));
-
                 mt.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(rmq =>
                 {
                     rmq.Host("rabbitmq", host => 
@@ -52,14 +47,6 @@
                     });
 
                     rmq.UseHealthCheck(provider);
-
-                    consumers.ForEach(consumer => rmq.ReceiveEndpoint(consumer.FullName, endpoint =>
-                    {
-                        endpoint.PrefetchCount = 6;
-                        endpoint.UseMessageRetry(retry => retry.Interval(5, 200));
-
-                        endpoint.ConfigureConsumer(provider, consumer);
-                    }));
                 }));
             })
             .AddMassTransitHostedService();

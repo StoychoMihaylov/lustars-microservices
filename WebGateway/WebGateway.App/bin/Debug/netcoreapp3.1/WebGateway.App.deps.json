@@ -30,6 +30,7 @@
           "Microsoft.AspNetCore.Cors": "2.2.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.9.10",
           "NSwag.AspNetCore": "13.2.2",
+          "WebGateway.Messaging": "1.0.0",
           "WebGateway.Models": "1.0.0",
           "WebGateway.Services": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -1791,6 +1792,19 @@
           "System.Xml.ReaderWriter": "4.3.1",
           "System.Xml.XDocument": "4.3.0",
           "System.Xml.XPath": "4.0.1"
+        }
+      },
+      "WebGateway.Messaging/1.0.0": {
+        "dependencies": {
+          "MassTransit": "7.0.4",
+          "MassTransit.AspNetCore": "7.0.4",
+          "MassTransit.RabbitMQ": "7.0.4"
+        },
+        "runtime": {
+          "WebGateway.Messaging.dll": {}
+        },
+        "compile": {
+          "WebGateway.Messaging.dll": {}
         }
       },
       "WebGateway.Models/1.0.0": {
@@ -4458,6 +4472,11 @@
       "sha512": "sha512-FLhdYJx4331oGovQypQ8JIw2kEmNzCsjVOVYY/16kZTUoquZG85oVn7yUhBE2OZt1yGPSXAL0HTEfzjlbNpM7Q==",
       "path": "system.xml.xpath.xdocument/4.0.1",
       "hashPath": "system.xml.xpath.xdocument.4.0.1.nupkg.sha512"
+    },
+    "WebGateway.Messaging/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "WebGateway.Models/1.0.0": {
       "type": "project",

@@ -1,7 +1,5 @@
 namespace WebGateway.App
 {
-    using System;
-    using System.Collections.Generic;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using WebGateway.App.Infrastructure;
@@ -20,7 +18,7 @@ namespace WebGateway.App
             services.AddMemoryCache();
             services.AddCorsPolicy(apiCorsPolicy);
             services.AddDependanciInjectionResolver(); // DI
-            services.AddMassTransitServiceBus(new List<Type>()); // MassTransite Configuration
+            services.AddMassTransitServiceBus(); // MassTransite Configuration
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WebGateway.Messaging\WebGateway.Messaging.csproj" />
     <ProjectReference Include="..\WebGateway.Models\WebGateway.Models.csproj" />
     <ProjectReference Include="..\WebGateway.Services\WebGateway.Services.csproj" />
   </ItemGroup>
