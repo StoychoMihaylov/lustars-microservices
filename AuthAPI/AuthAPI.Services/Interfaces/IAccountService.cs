@@ -6,7 +6,7 @@
 
     public interface IAccountService
     {
-        bool CheckIfUserExist(RegisterUserBindingModel bm);
+        Task<bool> CheckIfUserExist(RegisterUserBindingModel bm);
         Task<AccountCredentialsViewModel> CreateNewUserAccount(RegisterUserBindingModel bm);
         Task<AccountCredentialsViewModel> LoginUser(LoginUserBindingModel bm);
         void DeleteUserToken(LogoutBindingModel bm);

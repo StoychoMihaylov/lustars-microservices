@@ -24,7 +24,9 @@
                     rmq.Message<IRegisterNewAccountMessage>(m => m.SetEntityName("register-account-exchange"));
                 }));
 
-                mt.AddRequestClient<IRegisterNewAccountMessage>(TimeSpan.FromSeconds(30));
+                //mt.AddRequestClient<IRegisterNewAccountMessage>(TimeSpan.FromSeconds(30));
+
+                //mt.AddRequestClient<IRegisterNewAccountRejection>(TimeSpan.FromSeconds(30));
             })
             .AddMassTransitHostedService();
         }

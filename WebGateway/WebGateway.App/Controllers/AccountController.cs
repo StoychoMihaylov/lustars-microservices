@@ -45,11 +45,23 @@
 
                 //await endPoint.Send<IRegisterNewAccountMessage>(bm);
 
-                var client = this.bus.CreateRequestClient<IRegisterNewAccountMessage>(new Uri("queue:register-new-account"), TimeSpan.FromSeconds(30));
+                var client = this.bus.CreateRequestClient<IRegisterNewAccountMessage>(new Uri("queue:register-new-account-queue"), TimeSpan.FromSeconds(30));
 
                 //var response = await client.GetResponse<IAccountCredentialsMessage>();
 
-                var response = await client.GetResponse<IAccountCredentialsMessage>(new { });
+                var (response, errorMessage) = await client.GetResponse<IAccountCredentialsMessage, IRegisterNewAccountRejection>(new { });
+
+                if (response.IsCompletedSuccessfully)
+                {
+                    var credentials = await response;
+                    return StatusCode(200, credentials.Message);
+                }
+                else
+                {
+                    var error = await errorMessage;
+                    return StatusCode(400, error.Message.Value);
+                }
+
 
                 //await this.bus.Publish<IRegisterNewAccountMessage>(bm);
 
@@ -76,8 +88,6 @@
                 //}
 
                 //return StatusCode(201, accountCredentials); // Created!
-
-                return StatusCode(200, response);
             }
             catch (Exception ex)
             {

@@ -5,6 +5,7 @@
     using MessageExchangeContract;
     using AuthAPI.Services.Interfaces;
     using AuthAPI.Models.BidingModels;
+    using AuthAPI.Models.ViewModels;
 
     public class RegisterNewAccountConsumer : IConsumer<IRegisterNewAccountMessage>
     {
@@ -27,15 +28,33 @@
                 ConfirmPassword = message.ConfirmPassword
             };
 
-            //var userCredentials = await this.service.CreateNewUserAccount(bm); // User created, will return token(loged-in automaticaly)
-
-            await context.RespondAsync<IAccountCredentialsMessage>(new 
+            var userAlreadyExist = await this.service.CheckIfUserExist(bm);
+            if (userAlreadyExist)
             {
-                UserId = "222",
-                Token = "323232323223232",
-                Name = "MassTransit&RabbitMQ",
-                Email = "rabbit@abv.bg"
-            });
+                await context.RespondAsync<IRegisterNewAccountRejection>(new
+                {
+                    Value = "User with this email already exist!"
+                });
+            }
+
+            var userCredentials = await this.service.CreateNewUserAccount(bm); // User created, will return token(loged-in automaticaly)
+            if (userCredentials.GetType().Equals(typeof(AccountCredentialsViewModel)))
+            {
+                await context.RespondAsync<IAccountCredentialsMessage>(new
+                {
+                    UserId = userCredentials.UserId,
+                    Token = userCredentials.Token,
+                    Name = userCredentials.Name,
+                    Email = userCredentials.Email
+                });
+            }
+            else
+            {
+                await context.RespondAsync<IRegisterNewAccountRejection>(new
+                {
+                    Value = "Account register/login fail!"
+                });
+            }
         }
     }
 }
