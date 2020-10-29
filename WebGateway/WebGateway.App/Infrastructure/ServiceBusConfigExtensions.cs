@@ -1,5 +1,6 @@
 ﻿namespace WebGateway.App.Infrastructure
 {
+    using System;
     using MassTransit;
     using MessageExchangeContract;
     using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +23,8 @@
 
                     rmq.Message<IRegisterNewAccountMessage>(m => m.SetEntityName("register-account-exchange"));
                 }));
+
+                mt.AddRequestClient<IRegisterNewAccountMessage>(TimeSpan.FromSeconds(30));
             })
             .AddMassTransitHostedService();
         }

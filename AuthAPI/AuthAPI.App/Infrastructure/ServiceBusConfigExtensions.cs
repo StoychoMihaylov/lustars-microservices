@@ -28,7 +28,7 @@
 
                     rmq.ReceiveEndpoint("register-new-account", endpoint =>
                     {
-                        endpoint.PrefetchCount = 6;
+                        endpoint.PrefetchCount = 20;
 
                         endpoint.UseMessageRetry(retry => retry.Interval(5, 200));
 
