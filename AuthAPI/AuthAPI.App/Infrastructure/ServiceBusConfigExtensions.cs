@@ -26,7 +26,7 @@
 
                     rmq.Message<IRegisterNewAccountMessage>(m => m.SetEntityName("register-account-exchange"));
 
-                    rmq.ReceiveEndpoint("register-new-account", endpoint =>
+                    rmq.ReceiveEndpoint("register-new-account-queue", endpoint =>
                     {
                         endpoint.PrefetchCount = 20;
 

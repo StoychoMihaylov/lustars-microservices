@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using AuthAPI.Data.Entities;
+    using System.Threading.Tasks;
     using AuthAPI.Data.Interfaces;
     using AuthAPI.Models.ViewModels;
     using AuthAPI.Services.Utilities;
@@ -10,55 +11,64 @@
     using AuthAPI.Services.Interfaces;
     using System.Security.Cryptography;
     using Microsoft.EntityFrameworkCore;
-    using System.Threading.Tasks;
 
     public class AccountService : Service, IAccountService
     {
         public AccountService(IAuthDBContext context)
             : base (context) { }
 
-        public bool CheckIfUserExist(RegisterUserBindingModel bm)
+        public async Task<bool> CheckIfUserExist(RegisterUserBindingModel bm)
         {   
-            var user = this.Context
+            var user = await this.Context
                 .Users
                 .Where(user => user.Email == bm.Email)
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
 
-            if (user == null) return false; 
-
-            return true;
+            if (user == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public async Task<AccountCredentialsViewModel> CreateNewUserAccount(RegisterUserBindingModel bm)
         {
-            try
-            {
-                var passwordHashAndSalt = this.GenerateSaltedHash(bm.Password); // Returns byte[][] array of 2 elements(hashed password and salt)
 
-                User newUser = new User();
-                newUser.Name = bm.Name;
-                newUser.Email = bm.Email;
-                newUser.PasswordHash = Convert.ToBase64String(passwordHashAndSalt[0]);
-                newUser.Salt = Convert.ToBase64String(passwordHashAndSalt[1]);
+            //var passwordHashAndSalt = this.GenerateSaltedHash(bm.Password); // Returns byte[][] array of 2 elements(hashed password and salt)
 
-                this.Context.Users.Add(newUser);
-                this.Context.SaveChanges();
-            }
-            catch
-            {
-                return null;
-            }
+            //User newUser = new User() 
+            //{
+            //    Name = bm.Name,
+            //    Email = bm.Email,
+            //    PasswordHash = Convert.ToBase64String(passwordHashAndSalt[0]),
+            //    Salt = Convert.ToBase64String(passwordHashAndSalt[1]),
+            //};
 
-            // After user has been created login the user (return token)
-            LoginUserBindingModel loginBm = new LoginUserBindingModel()
+            //await this.Context.Users.AddAsync(newUser);
+            //await this.Context.SaveChangesAsync();
+
+
+            //// After user has been created login the user (return token)
+            //LoginUserBindingModel loginBm = new LoginUserBindingModel()
+            //{
+            //    Email = bm.Email,
+            //    Password = bm.Password
+            //};
+
+            //return await LoginUser(loginBm);
+
+            AccountCredentialsViewModel viewModel = new AccountCredentialsViewModel()
             {
-                Email = bm.Email,
-                Password = bm.Password
+                UserId = Guid.NewGuid(),
+                Token = Guid.NewGuid().ToString(),
+                Name = "TEST",
+                Email = "test@abv.bg"
             };
 
-            var accountCredentialsVm = await LoginUser(loginBm);
-
-            return accountCredentialsVm;
+            return viewModel;
         }
 
         public void DeleteUserToken(LogoutBindingModel bm)
@@ -107,10 +117,10 @@
         {
             string tokenBearer = string.Empty;
 
-            var user = this.Context
+            var user = await this.Context
                 .Users
                 .Where(u => u.Email == bm.Email)
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
 
             if (user == null ) return null;
         
@@ -136,7 +146,7 @@
             }
             else
             {
-                return null;
+                throw new Exception("Account Login fail!");
             }
       
             AccountCredentialsViewModel viewModel = new AccountCredentialsViewModel()
