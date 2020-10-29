@@ -10,6 +10,7 @@
     using AuthAPI.Services.Interfaces;
     using System.Security.Cryptography;
     using Microsoft.EntityFrameworkCore;
+    using System.Threading.Tasks;
 
     public class AccountService : Service, IAccountService
     {
@@ -28,7 +29,7 @@
             return true;
         }
 
-        public AccountCredentialsViewModel CreateNewUserAccount(RegisterUserBindingModel bm)
+        public async Task<AccountCredentialsViewModel> CreateNewUserAccount(RegisterUserBindingModel bm)
         {
             try
             {
@@ -55,7 +56,7 @@
                 Password = bm.Password
             };
 
-            var accountCredentialsVm = LoginUser(loginBm);
+            var accountCredentialsVm = await LoginUser(loginBm);
 
             return accountCredentialsVm;
         }
@@ -102,7 +103,7 @@
             }
         }
 
-        public AccountCredentialsViewModel LoginUser(LoginUserBindingModel bm)
+        public async Task<AccountCredentialsViewModel> LoginUser(LoginUserBindingModel bm)
         {
             string tokenBearer = string.Empty;
 

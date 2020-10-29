@@ -70,34 +70,34 @@
         //    Assert.Equal(new Guid(userId), modelId);
         //}
 
-        [Fact]
-        public void Post_Login_ShouldReturnUserCredentials_StausCode200()
-        {
-            // Arrange
-            var userId = "12354321-3123-1122-4332-123456789231";
+        //[Fact]
+        //public void Post_Login_ShouldReturnUserCredentials_StausCode200()
+        //{
+        //    // Arrange
+        //    var userId = "12354321-3123-1122-4332-123456789231";
 
-            var bidingModel = InitializeLogInBm();
-            var userCredentials = InitializeUserCredentials(userId);
+        //    var bidingModel = InitializeLogInBm();
+        //    var userCredentials = InitializeUserCredentials(userId);
 
-            var serviceMock = new Mock<IAccountService>();
-            serviceMock
-                .Setup(s => s.LoginUser(bidingModel))
-                .Returns(userCredentials);
+        //    var serviceMock = new Mock<IAccountService>();
+        //    serviceMock
+        //        .Setup(s => s.LoginUser(bidingModel))
+        //        .Returns(userCredentials);
 
-            var controller = new AccountController(serviceMock.Object);
+        //    var controller = new AccountController(serviceMock.Object);
 
-            // Act
-            var response = controller.Login(bidingModel);
+        //    // Act
+        //    var response = controller.Login(bidingModel);
 
-            // Assert
-            Assert.NotNull(response);
-            Assert.IsType<ObjectResult>(response);
-            var result = response as ObjectResult;
-            Assert.Equal(200, result.StatusCode);
-            var model = result.Value as AccountCredentialsViewModel;
-            var modelId = model.UserId;
-            Assert.Equal(new Guid(userId), modelId);
-        }
+        //    // Assert
+        //    Assert.NotNull(response);
+        //    Assert.IsType<ObjectResult>(response);
+        //    var result = response as ObjectResult;
+        //    Assert.Equal(200, result.StatusCode);
+        //    var model = result.Value as AccountCredentialsViewModel;
+        //    var modelId = model.UserId;
+        //    Assert.Equal(new Guid(userId), modelId);
+        //}
 
         [Fact]
         public void Post_Delete_ShouldReturnStatusCode202()

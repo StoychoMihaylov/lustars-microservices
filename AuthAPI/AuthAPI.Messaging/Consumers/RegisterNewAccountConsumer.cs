@@ -5,7 +5,6 @@
     using MessageExchangeContract;
     using AuthAPI.Services.Interfaces;
     using AuthAPI.Models.BidingModels;
-    
 
     public class RegisterNewAccountConsumer : IConsumer<IRegisterNewAccountMessage>
     {
@@ -15,7 +14,6 @@
         {
             this.service = service;
         }
-
 
         public async Task Consume(ConsumeContext<IRegisterNewAccountMessage> context)
         {
@@ -29,7 +27,15 @@
                 ConfirmPassword = message.ConfirmPassword
             };
 
-            var userCredentials = this.service.CreateNewUserAccount(bm); // User created, will return token(loged-in automaticaly)
+            //var userCredentials = await this.service.CreateNewUserAccount(bm); // User created, will return token(loged-in automaticaly)
+
+            await context.RespondAsync<IAccountCredentialsMessage>(new 
+            {
+                UserId = "222",
+                Token = "323232323223232",
+                Name = "MassTransit&RabbitMQ",
+                Email = "rabbit@abv.bg"
+            });
         }
     }
 }

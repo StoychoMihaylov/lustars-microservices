@@ -41,9 +41,15 @@
 
             try
             {
-                var endPoint = await this.bus.GetSendEndpoint(new Uri("queue:register-new-account"));
+                //var endPoint = await this.bus.GetSendEndpoint(new Uri("queue:register-new-account"));
 
-                await endPoint.Send<IRegisterNewAccountMessage>(bm);
+                //await endPoint.Send<IRegisterNewAccountMessage>(bm);
+
+                var client = this.bus.CreateRequestClient<IRegisterNewAccountMessage>(new Uri("queue:register-new-account"), TimeSpan.FromSeconds(30));
+
+                //var response = await client.GetResponse<IAccountCredentialsMessage>();
+
+                var response = await client.GetResponse<IAccountCredentialsMessage>(new { });
 
                 //await this.bus.Publish<IRegisterNewAccountMessage>(bm);
 
@@ -71,7 +77,7 @@
 
                 //return StatusCode(201, accountCredentials); // Created!
 
-                return StatusCode(200, "Created!");
+                return StatusCode(200, response);
             }
             catch (Exception ex)
             {
