@@ -47,11 +47,11 @@
 
                 //await this.bus.Publish<IRegisterNewAccountMessage>(bm);
 
-                var authAPI = this.bus.CreateRequestClient<IRegisterNewAccountProfile>(new Uri("queue:register-new-account-profile-queue"), TimeSpan.FromSeconds(30));
-                var profileAPI = this.bus.CreateRequestClient<ICreateNewUserProfile>(new Uri("queue:create-new-user-profile-queue"), TimeSpan.FromSeconds(30));
+                var authAPI = this.bus.CreateRequestClient<IRegisterAccountProfile>(new Uri("queue:register-account-profile-queue"), TimeSpan.FromSeconds(30));
+                var profileAPI = this.bus.CreateRequestClient<ICreateUserProfile>(new Uri("queue:create-user-profile-queue"), TimeSpan.FromSeconds(30));
 
-                var (accountResponse, accountRejection) = await authAPI.GetResponse<IAccountCredentialsMessage, IRegisterNewAccountRejection>(new { });
-                var userResponse = await profileAPI.GetResponse<IUserProfileCreated>(new { });
+                var (accountResponse, accountRejection) = await authAPI.GetResponse<IAccountCredentials, IRegisterAccountRejection>(bm);
+                var userResponse = await profileAPI.GetResponse<IUserProfileCreated>(bm);
 
                 if (accountResponse.IsCompletedSuccessfully && userResponse.Message.IsCreated == true)
                 {

@@ -1,6 +1,6 @@
 ﻿namespace MessageExchangeContract
 {
-    public interface IRegisterNewAccountRejection
+    public interface IRegisterAccountRejection
     {
         string Value { get; set; }
     }

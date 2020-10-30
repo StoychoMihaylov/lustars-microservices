@@ -12,7 +12,7 @@
         {
             return services.AddMassTransit(mt =>
             {
-                mt.AddConsumer<RegisterNewAccountConsumer>();
+                mt.AddConsumer<RegisterAccountConsumer>();
 
                 mt.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(rmq =>
                 {
@@ -24,17 +24,17 @@
 
                     rmq.UseHealthCheck(provider);
 
-                    rmq.Message<IRegisterNewAccountMessage>(m => m.SetEntityName("register-account-profile-exchange"));
+                    rmq.Message<IRegisterAccountProfile>(m => m.SetEntityName("register-account-profile-exchange"));
 
-                    rmq.ReceiveEndpoint("register-new-account-profile-queue", endpoint =>
+                    rmq.ReceiveEndpoint("register-account-profile-queue", endpoint =>
                     {
                         endpoint.PrefetchCount = 20;
 
                         endpoint.UseMessageRetry(retry => retry.Interval(5, 200));
 
-                        endpoint.Bind<IRegisterNewAccountMessage>();
+                        endpoint.Bind<IRegisterAccountProfile>();
 
-                        endpoint.ConfigureConsumer<RegisterNewAccountConsumer>(provider);
+                        endpoint.ConfigureConsumer<RegisterAccountConsumer>(provider);
                     });
                 }));
             })

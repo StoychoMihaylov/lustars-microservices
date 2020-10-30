@@ -25,7 +25,7 @@ namespace ProfileAPI.App
             services.AddPosgreSQLWithEntityFramework(Configuration);
             services.AddDependanciInjectionResolver(); // DI
             services.AddAutoMapper(typeof(Startup));
-            services.AddMassTransitServiceBus(); // MassTransite Configuration
+            //services.AddMassTransitServiceBus(); // MassTransite Configuration
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ProfileDBContext context)
