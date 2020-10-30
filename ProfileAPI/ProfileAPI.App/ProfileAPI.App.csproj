@@ -8,6 +8,9 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="MassTransit" Version="7.0.6" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.0.6" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="7.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -18,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProfileAPI.Data\ProfileAPI.Data.csproj" />
+    <ProjectReference Include="..\ProfileAPI.Messaging\ProfileAPI.Messaging.csproj" />
     <ProjectReference Include="..\ProfileAPI.Models\ProfileAPI.Models.csproj" />
     <ProjectReference Include="..\ProfileAPI.Services\ProfileAPI.Services.csproj" />
   </ItemGroup>

@@ -25,12 +25,14 @@
       "ProfileAPI.App/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "7.0.0",
+          "MassTransit": "7.0.6",
           "MassTransit.AspNetCore": "7.0.6",
           "MassTransit.RabbitMQ": "7.0.6",
           "Microsoft.EntityFrameworkCore.Design": "3.1.1",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.9.10",
           "NSwag.AspNetCore": "13.2.3",
           "ProfileAPI.Data": "1.0.0",
+          "ProfileAPI.Messaging": "1.0.0",
           "ProfileAPI.Models": "1.0.0",
           "ProfileAPI.Services": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -2034,6 +2036,20 @@
         },
         "compile": {
           "ProfileAPI.Data.dll": {}
+        }
+      },
+      "ProfileAPI.Messaging/1.0.0": {
+        "dependencies": {
+          "MassTransit": "7.0.6",
+          "MassTransit.AspNetCore": "7.0.6",
+          "MassTransit.RabbitMQ": "7.0.6",
+          "ProfileAPI.Models": "1.0.0"
+        },
+        "runtime": {
+          "ProfileAPI.Messaging.dll": {}
+        },
+        "compile": {
+          "ProfileAPI.Messaging.dll": {}
         }
       },
       "ProfileAPI.Models/1.0.0": {
@@ -4808,6 +4824,11 @@
       "hashPath": "system.xml.xpath.xdocument.4.0.1.nupkg.sha512"
     },
     "ProfileAPI.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ProfileAPI.Messaging/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

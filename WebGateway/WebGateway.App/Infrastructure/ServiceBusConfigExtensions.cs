@@ -20,8 +20,8 @@
 
                     rmq.UseHealthCheck(provider);
 
-                    rmq.Message<IRegisterNewAccountProfile>(m => m.SetEntityName("register-account-profile-exchange"));
-                    rmq.Message<ICreateNewUserProfile>(m => m.SetEntityName("create-user-profile-exchange"));
+                    rmq.Message<IRegisterAccountProfile>(m => m.SetEntityName("register-account-profile-exchange"));
+                    rmq.Message<ICreateUserProfile>(m => m.SetEntityName("create-user-profile-exchange"));
                 }));
             })
             .AddMassTransitHostedService();

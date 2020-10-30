@@ -1,10 +1,8 @@
 ﻿namespace MessageExchangeContract
 {
-    public interface IRegisterNewAccountMessage
+    public interface IRegisterAccountProfile
     {
         string Name { get; set; }
-
-        string Gender { get; set; }
 
         string Email { get; set; }
 

@@ -95,3 +95,6 @@ C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\obj\Debug\netcoreapp3.1\ProfileAPI.App.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\ProfileAPI.Messaging.dll
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\ProfileAPI.Messaging.pdb

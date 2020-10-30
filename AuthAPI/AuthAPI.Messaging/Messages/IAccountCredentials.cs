@@ -2,10 +2,8 @@
 {
     using System;
 
-    public interface IAccountCredentialsMessage
+    public interface IAccountCredentials
     {
-        string OrderId { get; }
-
         Guid UserId { get; set; }
 
         string Token { get; set; }
