@@ -24,9 +24,9 @@
 
                     rmq.UseHealthCheck(provider);
 
-                    rmq.Message<IRegisterNewAccountMessage>(m => m.SetEntityName("register-account-exchange"));
+                    rmq.Message<IRegisterNewAccountMessage>(m => m.SetEntityName("register-account-profile-exchange"));
 
-                    rmq.ReceiveEndpoint("register-new-account-queue", endpoint =>
+                    rmq.ReceiveEndpoint("register-new-account-profile-queue", endpoint =>
                     {
                         endpoint.PrefetchCount = 20;
 
