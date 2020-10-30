@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileAPI.App", "ProfileAPI.App\ProfileAPI.App.csproj", "{A02BBC59-F16A-49F8-8C2C-9241DD554251}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfileAPI.App", "ProfileAPI.App\ProfileAPI.App.csproj", "{A02BBC59-F16A-49F8-8C2C-9241DD554251}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileAPI.Data", "ProfileAPI.Data\ProfileAPI.Data.csproj", "{7ABCBF79-F2B3-4726-AB5B-1DEE80A4159F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfileAPI.Data", "ProfileAPI.Data\ProfileAPI.Data.csproj", "{7ABCBF79-F2B3-4726-AB5B-1DEE80A4159F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileAPI.Services", "ProfileAPI.Services\ProfileAPI.Services.csproj", "{7C560808-CB27-4DDD-8B60-960E3C929BE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfileAPI.Services", "ProfileAPI.Services\ProfileAPI.Services.csproj", "{7C560808-CB27-4DDD-8B60-960E3C929BE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileAPI.Models", "ProfileAPI.Models\ProfileAPI.Models.csproj", "{410F0E06-36D3-4169-9EDE-92267F6126CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfileAPI.Models", "ProfileAPI.Models\ProfileAPI.Models.csproj", "{410F0E06-36D3-4169-9EDE-92267F6126CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileAPI.UnitTests", "ProfileAPI.UnitTests\ProfileAPI.UnitTests.csproj", "{7FEC3F55-5312-42DD-80C5-1D3E0EFD8E7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfileAPI.UnitTests", "ProfileAPI.UnitTests\ProfileAPI.UnitTests.csproj", "{7FEC3F55-5312-42DD-80C5-1D3E0EFD8E7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileAPI.Messaging", "ProfileAPI.Messaging\ProfileAPI.Messaging.csproj", "{0C85FF79-CAA0-4D43-8D28-98557DB75074}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{7FEC3F55-5312-42DD-80C5-1D3E0EFD8E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FEC3F55-5312-42DD-80C5-1D3E0EFD8E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FEC3F55-5312-42DD-80C5-1D3E0EFD8E7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C85FF79-CAA0-4D43-8D28-98557DB75074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C85FF79-CAA0-4D43-8D28-98557DB75074}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C85FF79-CAA0-4D43-8D28-98557DB75074}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C85FF79-CAA0-4D43-8D28-98557DB75074}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

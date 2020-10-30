@@ -45,25 +45,26 @@
 
                 //await endPoint.Send<IRegisterNewAccountMessage>(bm);
 
-                var client = this.bus.CreateRequestClient<IRegisterNewAccountMessage>(new Uri("queue:register-new-account-queue"), TimeSpan.FromSeconds(30));
+                //await this.bus.Publish<IRegisterNewAccountMessage>(bm);
 
-                //var response = await client.GetResponse<IAccountCredentialsMessage>();
+                var authAPI = this.bus.CreateRequestClient<IRegisterNewAccountProfile>(new Uri("queue:register-new-account-profile-queue"), TimeSpan.FromSeconds(30));
+                var profileAPI = this.bus.CreateRequestClient<ICreateNewUserProfile>(new Uri("queue:create-new-user-profile-queue"), TimeSpan.FromSeconds(30));
 
-                var (response, errorMessage) = await client.GetResponse<IAccountCredentialsMessage, IRegisterNewAccountRejection>(new { });
+                var (accountResponse, accountRejection) = await authAPI.GetResponse<IAccountCredentialsMessage, IRegisterNewAccountRejection>(new { });
+                var userResponse = await profileAPI.GetResponse<IUserProfileCreated>(new { });
 
-                if (response.IsCompletedSuccessfully)
+                if (accountResponse.IsCompletedSuccessfully && userResponse.Message.IsCreated == true)
                 {
-                    var credentials = await response;
+                    var credentials = await accountResponse;
+
                     return StatusCode(200, credentials.Message);
                 }
                 else
                 {
-                    var error = await errorMessage;
-                    return StatusCode(400, error.Message.Value);
+                    var errMessage = await accountRejection;
+
+                    return StatusCode(400, errMessage.Message.Value);
                 }
-
-
-                //await this.bus.Publish<IRegisterNewAccountMessage>(bm);
 
                 //var accountCredentials = await this.accountService.CallAuthAPI_AccountRegister(bm);
                 //if (accountCredentials == null)

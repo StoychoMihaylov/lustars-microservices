@@ -2,10 +2,10 @@ namespace ProfileAPI.App
 {
     using AutoMapper;
     using ProfileAPI.Data.Context;
-    using ProfileAPI.App.Infrastructure;
-    using ProfileAPI.Data.DBInitializer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using ProfileAPI.App.Infrastructure;
+    using ProfileAPI.Data.DBInitializer;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
 
@@ -25,6 +25,7 @@ namespace ProfileAPI.App
             services.AddPosgreSQLWithEntityFramework(Configuration);
             services.AddDependanciInjectionResolver(); // DI
             services.AddAutoMapper(typeof(Startup));
+            services.AddMassTransitServiceBus(); // MassTransite Configuration
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ProfileDBContext context)
