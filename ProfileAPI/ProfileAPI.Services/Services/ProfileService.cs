@@ -3,6 +3,7 @@
     using System;
     using AutoMapper;
     using System.Linq;
+    using System.Threading.Tasks;
     using ProfileAPI.Data.Entities;
     using System.Collections.Generic;
     using ProfileAPI.Data.Interfaces;
@@ -103,21 +104,12 @@
             return DBlanguages;
         }
 
-        public bool CreateNewUserProfile(CreateUserProfileBindingModel bm)
+        public async Task<bool> CreateNewUserProfile(UserProfile newProfile)
         {
             try
             {
-                UserProfile newProfile = new UserProfile()
-                {
-                    Id = bm.Id,
-                    Name = bm.Name,
-                    Email = bm.Email,
-                    Gender = bm.Gender,
-                    CreatedOn = DateTime.UtcNow
-                };
-
-                this.Context.UserProfiles.Add(newProfile);
-                this.Context.SaveChanges();
+                await this.Context.UserProfiles.AddAsync(newProfile);
+                await this.Context.SaveChangesAsync();
             }
             catch (Exception ex)
             {

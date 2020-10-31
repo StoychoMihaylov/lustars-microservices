@@ -51,13 +51,22 @@
                 var profileAPI = this.bus.CreateRequestClient<ICreateUserProfile>(new Uri("queue:create-user-profile-queue"), TimeSpan.FromSeconds(30));
 
                 var (accountResponse, accountRejection) = await authAPI.GetResponse<IAccountCredentials, IRegisterAccountRejection>(bm);
-                var userResponse = await profileAPI.GetResponse<IUserProfileCreated>(bm);
-
-                if (accountResponse.IsCompletedSuccessfully && userResponse.Message.IsCreated == true)
+                if (accountResponse.IsCompletedSuccessfully)
                 {
                     var credentials = await accountResponse;
 
-                    return StatusCode(200, credentials.Message);
+                    var userResponse = await profileAPI.GetResponse<IUserProfileCreated>(new
+                    {
+                        Id = credentials.Message.UserId,
+                        Name = bm.Name,
+                        Gender = bm.Gender,
+                        Email = bm.Email,
+                    });
+
+                    if (userResponse.Message.IsCreated == true)
+                    {
+                        return StatusCode(200, credentials.Message);
+                    }
                 }
                 else
                 {
@@ -65,6 +74,8 @@
 
                     return StatusCode(400, errMessage.Message.Value);
                 }
+
+                return StatusCode(501); // Not Implemented!
 
                 //var accountCredentials = await this.accountService.CallAuthAPI_AccountRegister(bm);
                 //if (accountCredentials == null)

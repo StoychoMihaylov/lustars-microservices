@@ -19,32 +19,32 @@
             Email = "test@test.com"
         };
 
-        private Mock<IProfileService> MockCreateNewUserProfileService()
-        {
-            var profileSericeMock = new Mock<IProfileService>();
-            profileSericeMock
-                .Setup(p => p.CreateNewUserProfile(createUserProfileBindingModel))
-                .Returns(true);
+        //private Mock<IProfileService> MockCreateNewUserProfileService()
+        //{
+        //    var profileSericeMock = new Mock<IProfileService>();
+        //    profileSericeMock
+        //        .Setup(p => p.CreateNewUserProfile(createUserProfileBindingModel))
+        //        .Returns(true);
 
-            return profileSericeMock;
-        }
+        //    return profileSericeMock;
+        //}
 
-        [Fact]
-        public void Post_CreateNewUserProfileByAccountId_ShouldReturnStatusCode201Created()
-        {
-            // Arrangev
-            var profileSericeMock = MockCreateNewUserProfileService();
+        //[Fact]
+        //public void Post_CreateNewUserProfileByAccountId_ShouldReturnStatusCode201Created()
+        //{
+        //    // Arrangev
+        //    var profileSericeMock = MockCreateNewUserProfileService();
 
-            var profileController = new ProfileController(profileSericeMock.Object);
+        //    var profileController = new ProfileController(profileSericeMock.Object);
 
-            // Act
-            var response = profileController.CreateUserProfile(createUserProfileBindingModel);
+        //    // Act
+        //    var response = profileController.CreateUserProfile(createUserProfileBindingModel);
 
-            // Assert
-            Assert.NotNull(response);
-            var result = response as StatusCodeResult;
-            Assert.Equal(201, result.StatusCode);
-        }
+        //    // Assert
+        //    Assert.NotNull(response);
+        //    var result = response as StatusCodeResult;
+        //    Assert.Equal(201, result.StatusCode);
+        //}
 
         [Fact]
         public void Post_EditUserProfile_ShouldReturnStatusCode200Ok()

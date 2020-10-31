@@ -1,9 +1,10 @@
 ﻿namespace ProfileAPI.Messaging.Consumers
 {
+    using System;
     using MassTransit;
     using System.Threading.Tasks;
     using MessageExchangeContract;
-    using ProfileAPI.Models.BidingModels;
+    using ProfileAPI.Data.Entities;
     using ProfileAPI.Services.Interfaces;
 
     public class CreateUserProfileConsumer : IConsumer<ICreateUserProfile>
@@ -19,20 +20,21 @@
         {
             var message = context.Message;
 
-            var bm = new CreateUserProfileBindingModel()
+            UserProfile newProfile = new UserProfile()
             {
                 Id = message.Id,
                 Name = message.Name,
                 Gender = message.Gender,
                 Email = message.Email,
+                CreatedOn = DateTime.UtcNow
             };
 
-            var isCreated = this.profileService.CreateNewUserProfile(bm);
+            var isCreated = await this.profileService.CreateNewUserProfile(newProfile);
 
             await context.RespondAsync<IUserProfileCreated>(new
             {
                 isCreated = isCreated
-            }); ;
+            });
         }
     }
 }

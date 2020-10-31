@@ -1,5 +1,7 @@
 ﻿namespace ProfileAPI.Data.Interfaces
 {
+    using System.Threading;
+    using System.Threading.Tasks;
     using ProfileAPI.Data.Entities;
     using Microsoft.EntityFrameworkCore;
 
@@ -18,5 +20,7 @@
         public DbSet<ProfileVisitor> ProfileVisitor { get; set; }
 
         int SaveChanges();
+
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
