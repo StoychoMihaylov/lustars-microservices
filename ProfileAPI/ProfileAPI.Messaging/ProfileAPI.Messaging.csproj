@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProfileAPI.Models\ProfileAPI.Models.csproj" />
+    <ProjectReference Include="..\ProfileAPI.Services\ProfileAPI.Services.csproj" />
   </ItemGroup>
 
 </Project>

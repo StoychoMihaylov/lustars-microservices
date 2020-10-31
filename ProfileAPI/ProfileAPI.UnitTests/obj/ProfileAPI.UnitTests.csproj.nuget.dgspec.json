@@ -213,6 +213,9 @@
             "projectReferences": {
               "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Models\\ProfileAPI.Models.csproj": {
                 "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Models\\ProfileAPI.Models.csproj"
+              },
+              "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Services\\ProfileAPI.Services.csproj": {
+                "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\ProfileAPI\\ProfileAPI.Services\\ProfileAPI.Services.csproj"
               }
             }
           }

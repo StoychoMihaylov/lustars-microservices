@@ -4,28 +4,35 @@
     using System.Threading.Tasks;
     using MessageExchangeContract;
     using ProfileAPI.Models.BidingModels;
+    using ProfileAPI.Services.Interfaces;
 
     public class CreateUserProfileConsumer : IConsumer<ICreateUserProfile>
     {
-        //public Task Consume(ConsumeContext<ICreateNewUserProfile> context)
-        //{
-        //    var message = context.Message;
+        private IProfileService profileService;
 
-        //    var bm = new CreateUserProfileBindingModel()
-        //    { 
-        //        Id = message.Id,
-        //        Name = message.Name,
-        //        Gender = message.Gender,
-        //        Email = message.Email,
-        //    };
-
-        //    // TO DO: Create ne User Profile Async
-
-        //    // TO DO: Return response to the WebGateway API
-        //}
-        public Task Consume(ConsumeContext<ICreateUserProfile> context)
+        public CreateUserProfileConsumer(IProfileService profileService)
         {
-            throw new System.NotImplementedException();
+            this.profileService = profileService;
+        }
+
+        public async Task Consume(ConsumeContext<ICreateUserProfile> context)
+        {
+            var message = context.Message;
+
+            var bm = new CreateUserProfileBindingModel()
+            {
+                Id = message.Id,
+                Name = message.Name,
+                Gender = message.Gender,
+                Email = message.Email,
+            };
+
+            var isCreated = this.profileService.CreateNewUserProfile(bm);
+
+            await context.RespondAsync<IUserProfileCreated>(new
+            {
+                isCreated = isCreated
+            }); ;
         }
     }
 }

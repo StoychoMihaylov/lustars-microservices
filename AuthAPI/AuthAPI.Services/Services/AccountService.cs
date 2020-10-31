@@ -37,38 +37,28 @@
         public async Task<AccountCredentialsViewModel> CreateNewUserAccount(RegisterUserBindingModel bm)
         {
 
-            //var passwordHashAndSalt = this.GenerateSaltedHash(bm.Password); // Returns byte[][] array of 2 elements(hashed password and salt)
+            var passwordHashAndSalt = await Task.Run(() => this.GenerateSaltedHash(bm.Password)); // Returns byte[][] array of 2 elements(hashed password and salt)
 
-            //User newUser = new User() 
-            //{
-            //    Name = bm.Name,
-            //    Email = bm.Email,
-            //    PasswordHash = Convert.ToBase64String(passwordHashAndSalt[0]),
-            //    Salt = Convert.ToBase64String(passwordHashAndSalt[1]),
-            //};
-
-            //await this.Context.Users.AddAsync(newUser);
-            //await this.Context.SaveChangesAsync();
-
-
-            //// After user has been created login the user (return token)
-            //LoginUserBindingModel loginBm = new LoginUserBindingModel()
-            //{
-            //    Email = bm.Email,
-            //    Password = bm.Password
-            //};
-
-            //return await LoginUser(loginBm);
-
-            AccountCredentialsViewModel viewModel = new AccountCredentialsViewModel()
+            User newUser = new User()
             {
-                UserId = Guid.NewGuid(),
-                Token = Guid.NewGuid().ToString(),
-                Name = "TEST",
-                Email = "test@abv.bg"
+                Name = bm.Name,
+                Email = bm.Email,
+                PasswordHash = Convert.ToBase64String(passwordHashAndSalt[0]),
+                Salt = Convert.ToBase64String(passwordHashAndSalt[1]),
             };
 
-            return viewModel;
+            await this.Context.Users.AddAsync(newUser);
+            await this.Context.SaveChangesAsync();
+
+
+            // After user has been created login the user (return token)
+            LoginUserBindingModel loginBm = new LoginUserBindingModel()
+            {
+                Email = bm.Email,
+                Password = bm.Password
+            };
+
+            return await LoginUser(loginBm);
         }
 
         public void DeleteUserToken(LogoutBindingModel bm)
@@ -129,7 +119,7 @@
             var name = user.Name;
             var email = user.Email;
 
-            var passwordHash = GenerateHashOfPassword(bm.Password, user.Salt);
+            var passwordHash =  await Task.Run(() => this.GenerateHashOfPassword(bm.Password, user.Salt));
 
             if (user.PasswordHash == passwordHash)
             {
@@ -141,8 +131,8 @@
                 };
                 newToken.User = user;
 
-                this.Context.Tokens.Add(newToken);
-                this.Context.SaveChanges();
+                await this.Context.Tokens.AddAsync(newToken);
+                await this.Context.SaveChangesAsync();
             }
             else
             {

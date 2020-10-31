@@ -5,13 +5,12 @@
     using MessageExchangeContract;
     using AuthAPI.Services.Interfaces;
     using AuthAPI.Models.BidingModels;
-    using AuthAPI.Models.ViewModels;
 
-    public class RegisterNewAccountConsumer : IConsumer<IRegisterAccountProfile>
+    public class RegisterAccountConsumer : IConsumer<IRegisterAccountProfile>
     {
         private readonly IAccountService service;
 
-        public RegisterNewAccountConsumer(IAccountService service)
+        public RegisterAccountConsumer(IAccountService service)
         {
             this.service = service;
         }
@@ -28,33 +27,20 @@
                 ConfirmPassword = message.ConfirmPassword
             };
 
-            //var userAlreadyExist = await this.service.CheckIfUserExist(bm);
-            //if (userAlreadyExist)
-            //{
-            //    await context.RespondAsync<IRegisterNewAccountRejection>(new
-            //    {
-            //        Value = "User with this email already exist!"
-            //    });
-            //}
+            var userAlreadyExist = await this.service.CheckIfUserExist(bm);
+            if (userAlreadyExist)
+            {
+                await context.RespondAsync<IRegisterAccountRejection>(new
+                {
+                    Value = "User with this email already exist!"
+                });
+            }
+            else
+            {
+                var userCredentials = await this.service.CreateNewUserAccount(bm); // User created, will return token(loged-in automaticaly)
 
-            //var userCredentials = await this.service.CreateNewUserAccount(bm); // User created, will return token(loged-in automaticaly)
-            //if (userCredentials.GetType().Equals(typeof(AccountCredentialsViewModel)))
-            //{
-            //    await context.RespondAsync<IAccountCredentialsMessage>(new
-            //    {
-            //        UserId = userCredentials.UserId,
-            //        Token = userCredentials.Token,
-            //        Name = userCredentials.Name,
-            //        Email = userCredentials.Email
-            //    });
-            //}
-            //else
-            //{
-            //    await context.RespondAsync<IRegisterNewAccountRejection>(new
-            //    {
-            //        Value = "Account register/login fail!"
-            //    });
-            //}
-        }
+                await context.RespondAsync<IAccountCredentials>(userCredentials);
+            }
+        }  
     }
 }
