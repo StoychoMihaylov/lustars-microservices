@@ -2485,7 +2485,8 @@
           "MassTransit": "7.0.6",
           "MassTransit.AspNetCore": "7.0.6",
           "MassTransit.RabbitMQ": "7.0.6",
-          "ProfileAPI.Models": "1.0.0"
+          "ProfileAPI.Models": "1.0.0",
+          "ProfileAPI.Services": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ProfileAPI.Messaging.dll": {}

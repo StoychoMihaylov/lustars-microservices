@@ -32,7 +32,7 @@
 
         [HttpGet]
         [Route("{id}/likes")]
-        public IActionResult GetWhyLikedMe(string id)
+        public IActionResult GetWhoLikedMe(string id)
         {
             var guidId = Guid.Parse(id);
 
@@ -73,18 +73,18 @@
             return StatusCode(200, allUsersInDistanceOf10km);
         }
 
-        [HttpPost]
-        [Route("create")]
-        public IActionResult CreateUserProfile(CreateUserProfileBindingModel bm)
-        {
-            var isCreated = this.profileService.CreateNewUserProfile(bm);
-            if (!isCreated)
-            {
-                return StatusCode(501); // Not Implemented!
-            }
+        //[HttpPost]
+        //[Route("create")]
+        //public IActionResult CreateUserProfile(CreateUserProfileBindingModel bm)
+        //{
+        //    var isCreated = this.profileService.CreateNewUserProfile(bm);
+        //    if (!isCreated)
+        //    {
+        //        return StatusCode(501); // Not Implemented!
+        //    }
 
-            return StatusCode(201); // Created!
-        }
+        //    return StatusCode(201); // Created!
+        //}
 
         [HttpPost]
         [Route("my-user-profile/edit")]
