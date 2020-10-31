@@ -11,34 +11,34 @@
     {
         private readonly IMapper mapper;
 
-        [Fact]
-        public void CreateNewUserProfile_ShouldCreateUserProfileAndReturnTrue()
-        {
-            // Arrange
-            var db = this.GetDatabase();
+        //[Fact]
+        //public void CreateNewUserProfile_ShouldCreateUserProfileAndReturnTrue()
+        //{
+        //    // Arrange
+        //    var db = this.GetDatabase();
 
-            var bm = new CreateUserProfileBindingModel() 
-            { 
-                Id = new Guid("e9166940-f14b-491c-99ba-cfc6cf13f662"),
-                Name = "TestName",
-                Email = "test@test.com"
-            };
+        //    var bm = new CreateUserProfileBindingModel() 
+        //    { 
+        //        Id = new Guid("e9166940-f14b-491c-99ba-cfc6cf13f662"),
+        //        Name = "TestName",
+        //        Email = "test@test.com"
+        //    };
 
-            var profileService = new ProfileService(db, this.mapper);
+        //    var profileService = new ProfileService(db, this.mapper);
 
-            // Act
-            var response = profileService.CreateNewUserProfile(bm);
+        //    // Act
+        //    var response = profileService.CreateNewUserProfile(bm);
 
-            var createdUserProfile = db.UserProfiles.Find(bm.Id);
+        //    var createdUserProfile = db.UserProfiles.Find(bm.Id);
 
-            // Assert
-            Assert.True(response);
-            Assert.NotNull(createdUserProfile);
-            Assert.IsType<UserProfile>(createdUserProfile);
-            Assert.Equal(bm.Id, createdUserProfile.Id);
-            Assert.Equal(bm.Name, createdUserProfile.Name);
-            Assert.Equal(bm.Email, createdUserProfile.Email);
-        }
+        //    // Assert
+        //    Assert.True(response);
+        //    Assert.NotNull(createdUserProfile);
+        //    Assert.IsType<UserProfile>(createdUserProfile);
+        //    Assert.Equal(bm.Id, createdUserProfile.Id);
+        //    Assert.Equal(bm.Name, createdUserProfile.Name);
+        //    Assert.Equal(bm.Email, createdUserProfile.Email);
+        //}
 
         [Fact]
         public void EditUserProfile_ShouldEditExistingUserProfile()
