@@ -1798,7 +1798,9 @@
         "dependencies": {
           "MassTransit": "7.0.4",
           "MassTransit.AspNetCore": "7.0.4",
-          "MassTransit.RabbitMQ": "7.0.4"
+          "MassTransit.RabbitMQ": "7.0.4",
+          "System.Threading.Tasks": "4.3.0",
+          "WebGateway.Models": "1.0.0"
         },
         "runtime": {
           "WebGateway.Messaging.dll": {}

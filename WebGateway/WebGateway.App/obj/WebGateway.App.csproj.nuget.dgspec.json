@@ -125,7 +125,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\WebGateway\\WebGateway.Models\\WebGateway.Models.csproj": {
+                "projectPath": "C:\\Users\\stmih\\source\\repos\\lustars-microservices\\WebGateway\\WebGateway.Models\\WebGateway.Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -148,6 +152,10 @@
             "MassTransit.RabbitMQ": {
               "target": "Package",
               "version": "[7.0.4, )"
+            },
+            "System.Threading.Tasks": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [

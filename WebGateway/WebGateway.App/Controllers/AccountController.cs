@@ -3,10 +3,10 @@
     using System;
     using MassTransit;
     using System.Threading.Tasks;
-    using MessageExchangeContract;
     using Microsoft.AspNetCore.Mvc;
     using WebGateway.App.Authorization;
     using WebGateway.Services.Interfaces;
+    using WebGateway.Messaging.Interfaces;
     using WebGateway.Models.BidingModels.Account;
 
     [ApiController]
@@ -15,12 +15,22 @@
     {
         private readonly IAccountService accountService;
         private readonly IProfileService profileService;
+        private readonly IAccountBusService accountBusService;
+        private readonly IProfileBusService profileBusService;
         private readonly IBus bus;
 
-        public AccountController(IAccountService accountService, IProfileService profileService, IBus bus)
+        public AccountController(
+            IAccountService accountService, 
+            IProfileService profileService,
+            IAccountBusService accountBusService,
+            IProfileBusService profileBusService,
+            IBus bus
+            )
         {
             this.accountService = accountService;
             this.profileService = profileService;
+            this.accountBusService = accountBusService;
+            this.profileBusService = profileBusService;
             this.bus = bus;
         }
 
@@ -39,74 +49,29 @@
                 return StatusCode(400, "Invalid credentials!"); // BadRequest!
             }
 
-            try
+            var (registerAccountResponse, registerAccountRejection) = await this.accountBusService.MessageAuthAPI_RegisterAccountProfile(bm);
+            if (registerAccountResponse.IsCompletedSuccessfully)
             {
-                //var endPoint = await this.bus.GetSendEndpoint(new Uri("queue:register-new-account"));
+                var credentials = await registerAccountResponse;
 
-                //await endPoint.Send<IRegisterNewAccountMessage>(bm);
-
-                //await this.bus.Publish<IRegisterNewAccountMessage>(bm);
-
-                var authAPI = this.bus.CreateRequestClient<IRegisterAccountProfile>(new Uri("queue:register-account-profile-queue"), TimeSpan.FromSeconds(30));
-                var profileAPI = this.bus.CreateRequestClient<ICreateUserProfile>(new Uri("queue:create-user-profile-queue"), TimeSpan.FromSeconds(30));
-
-                var (accountResponse, accountRejection) = await authAPI.GetResponse<IAccountCredentials, IRegisterAccountRejection>(bm);
-                if (accountResponse.IsCompletedSuccessfully)
+                var creteUserResponse = await this.profileBusService.MessageProfileAPI_CreateUserProfile(credentials, bm);
+                if (creteUserResponse.Message.IsCreated == true)
                 {
-                    var credentials = await accountResponse;
-
-                    var userResponse = await profileAPI.GetResponse<IUserProfileCreated>(new
-                    {
-                        Id = credentials.Message.UserId,
-                        Name = bm.Name,
-                        Gender = bm.Gender,
-                        Email = bm.Email,
-                    });
-
-                    if (userResponse.Message.IsCreated == true)
-                    {
-                        return StatusCode(200, credentials.Message);
-                    }
+                    return StatusCode(201, credentials.Message); // Account and User Created!
                 }
                 else
                 {
-                    var errMessage = await accountRejection;
+                    this.accountBusService.MessageAuthAPI_DeleteAccountProfile(credentials);
 
-                    return StatusCode(400, errMessage.Message.Value);
+                    return StatusCode(501, "Registration faild! Please try again!");
                 }
-
-                return StatusCode(501); // Not Implemented!
-
-                //var accountCredentials = await this.accountService.CallAuthAPI_AccountRegister(bm);
-                //if (accountCredentials == null)
-                //{
-                //    return StatusCode(400, "Email already exists or wrong credentials!"); // BadRequest!
-                //}
-
-                //var userProfileVm = new CreateUserProfileBindingModel()
-                //{
-                //    Id = accountCredentials.UserId,
-                //    Name = bm.Name,
-                //    Gender = bm.Gender,
-                //    Email = bm.Email
-                //};
-
-                //var isCreated = await this.profileService.CallProfileAPI_CreateUserProfile(userProfileVm); // Call to ProfileAPI
-
-                //if (!isCreated)
-                //{
-                //    this.accountService.CallAuthAPI_DeleteAccount(accountCredentials); // Revert account creation(delete it)
-                //    return StatusCode(503); // ServiceUnavailable!
-                //}
-
-                //return StatusCode(201, accountCredentials); // Created!
             }
-            catch (Exception ex)
-            {
-                // TO DO: log the exeption here
+            else
+            {       
+                var errMessage = await registerAccountRejection;
 
-                return StatusCode(503); // ServiceUnavailable!
-            }  
+                return StatusCode(400, errMessage.Message.Value);
+            }
         }
 
         // account/login

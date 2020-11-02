@@ -20,7 +20,11 @@
 
                     rmq.UseHealthCheck(provider);
 
+                    // AuthAPI
                     rmq.Message<IRegisterAccountProfile>(m => m.SetEntityName("register-account-profile-exchange"));
+                    rmq.Message<IDeleteAccountProfile>(m => m.SetEntityName("delete-account-profile-exchange"));
+
+                    // ProfileAPI
                     rmq.Message<ICreateUserProfile>(m => m.SetEntityName("create-user-profile-exchange"));
                 }));
             })
