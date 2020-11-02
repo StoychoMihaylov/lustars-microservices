@@ -1,6 +1,7 @@
 ﻿namespace AuthAPI.App.Controllers
 {
     using System;
+    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using AuthAPI.Models.ViewModels;
     using AuthAPI.Models.BidingModels;
@@ -17,27 +18,27 @@
             this.service = service;
         }
 
-        // account/register
-        //[HttpPost]
-        //[Route("register")]
-        //public IActionResult RegisterAndLogin([FromBody] RegisterUserBindingModel bm)
-        //{
-        //    var userAlreadyExist = this.service.CheckIfUserExist(bm);
+        // account/register | There is MassTransit consumer implementation as well
+        [HttpPost]
+        [Route("register")]
+        public async Task<IActionResult> RegisterAndLogin([FromBody] RegisterUserBindingModel bm)
+        {
+            var userAlreadyExist = await this.service.CheckIfUserExist(bm);
 
-        //    if (userAlreadyExist)
-        //    {
-        //        return StatusCode(400, "User with this email already exist!"); // BadRequest!
-        //    }
+            if (userAlreadyExist)
+            {
+                return StatusCode(400, "User with this email already exist!"); // BadRequest!
+            }
 
-        //    var userCredentials = this.service.CreateNewUserAccount(bm); // User created, will return token(loged-in automaticaly)
+            var userCredentials = await this.service.CreateNewUserAccount(bm); // User created, will return token(loged-in automaticaly)
 
-        //    if (userCredentials == null)
-        //    {
-        //        return StatusCode(501, "User Registered! Failed to log-in"); // Not Implemented!
-        //    }
+            if (userCredentials == null)
+            {
+                return StatusCode(501, "User Registered! Failed to log-in"); // Not Implemented!
+            }
 
-        //    return StatusCode(201, userCredentials); // Created!
-        //}
+            return StatusCode(201, userCredentials); // Created!
+        }
 
         // account/login
         [HttpPost]
@@ -86,6 +87,7 @@
             return StatusCode(200, userCredentials); // Ok!
         }
 
+        // There is MassTransit implementation as well
         [HttpPost]
         [Route("delete")]
         public IActionResult DeleteUser([FromBody] AccountCredentialsViewModel accountCredentialsVm)

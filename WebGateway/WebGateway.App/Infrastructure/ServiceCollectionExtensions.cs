@@ -4,6 +4,8 @@
     using WebGateway.Services.Common;
     using WebGateway.Services.Services;
     using WebGateway.Services.Interfaces;
+    using WebGateway.Messaging.Interfaces;
+    using WebGateway.Messaging.MessagingServices;
     using Microsoft.Extensions.DependencyInjection;
 
     public static class ServiceCollectionExtensions
@@ -14,6 +16,8 @@
             services.AddTransient<StringContentSerializer>();
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<IProfileService, ProfileService>();
+            services.AddTransient<IAccountBusService, AccountBusService>();
+            services.AddTransient<IProfileBusService, ProfileBusService>();
 
             return services; 
         }
