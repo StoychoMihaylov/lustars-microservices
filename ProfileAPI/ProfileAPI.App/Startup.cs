@@ -23,7 +23,7 @@ namespace ProfileAPI.App
             services.AddControllers();
             services.AddSwaggerDocument(); //Swagger
             services.AddPosgreSQLWithEntityFramework(Configuration);
-            services.AddDependanciInjectionResolver(); // DI
+            services.AddDependancyInjectionResolver(); // DI
             services.AddAutoMapper(typeof(Startup));
             services.AddMassTransitServiceBus(); // MassTransite Configuration
         }

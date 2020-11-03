@@ -17,7 +17,7 @@ namespace WebGateway.App
             services.AddSwaggerDocument(); // Swagger
             services.AddMemoryCache();
             services.AddCorsPolicy(apiCorsPolicy);
-            services.AddDependanciInjectionResolver(); // DI
+            services.AddDependancyInjectionResolver(); // DI
             services.AddMassTransitServiceBus(); // MassTransite Configuration
         }
 

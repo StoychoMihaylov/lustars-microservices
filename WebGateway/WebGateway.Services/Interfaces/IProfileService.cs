@@ -8,7 +8,6 @@
 
     public interface IProfileService
     {
-        Task<bool> CallProfileAPI_CreateUserProfile(CreateUserProfileBindingModel createUserProfileViewModel);
         Task<bool> CallProfileAPI_EditUserProfile(UserProfileBindingModel bm);
         Task<string> CallProfileAPI_GetCurrentUserProfile(Guid guidUserId);
         Task<string> CallProfileAPI_SaveAvatarImageURL(Guid userId, ImageUrlBindingModel url);

@@ -1,7 +1,6 @@
 ﻿namespace WebGateway.App.Controllers
 {
     using System;
-    using MassTransit;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using WebGateway.App.Authorization;
@@ -14,24 +13,18 @@
     public class AccountController : ControllerBase
     {
         private readonly IAccountService accountService;
-        private readonly IProfileService profileService;
         private readonly IAccountBusService accountBusService;
         private readonly IProfileBusService profileBusService;
-        private readonly IBus bus;
 
         public AccountController(
-            IAccountService accountService, 
-            IProfileService profileService,
+            IAccountService accountService,
             IAccountBusService accountBusService,
-            IProfileBusService profileBusService,
-            IBus bus
+            IProfileBusService profileBusService
             )
         {
             this.accountService = accountService;
-            this.profileService = profileService;
             this.accountBusService = accountBusService;
             this.profileBusService = profileBusService;
-            this.bus = bus;
         }
 
         // account/register

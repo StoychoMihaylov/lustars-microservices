@@ -48,24 +48,6 @@
             }
         }
 
-        public async Task<AccountCredentialsViewModel> CallAuthAPI_AccountRegister(RegisterUserBindingModel bm)
-        { 
-            var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(bm);
-            var response = await this.HttpClient.PostAsync(AuthAPIService.Endpoint + "account/register", stringContent);
-
-            if (response.StatusCode == HttpStatusCode.Created)
-            {
-                var accountCredentialsVm = JsonConvert
-                    .DeserializeObject<AccountCredentialsViewModel>(response.Content.ReadAsStringAsync().Result);
-
-                return accountCredentialsVm;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
         public async void CallAuthAPI_DeleteAccount(AccountCredentialsViewModel userProfile)
         {
             var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(userProfile);
