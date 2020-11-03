@@ -22,7 +22,7 @@ namespace AuthAPI.App
             services.AddControllers();
             services.AddSwaggerDocument(); //Swagger
             services.AddPosgreSQLWithEntityFramework(Configuration);
-            services.AddDependanciInjectionResolver(); // DI
+            services.AddDependancyInjectionResolver(); // DI
             services.AddMassTransitServiceBus(); // MassTransite Configuration
         }
 

@@ -18,28 +18,6 @@
             this.service = service;
         }
 
-        // account/register | There is MassTransit consumer implementation as well
-        [HttpPost]
-        [Route("register")]
-        public async Task<IActionResult> RegisterAndLogin([FromBody] RegisterUserBindingModel bm)
-        {
-            var userAlreadyExist = await this.service.CheckIfUserExist(bm);
-
-            if (userAlreadyExist)
-            {
-                return StatusCode(400, "User with this email already exist!"); // BadRequest!
-            }
-
-            var userCredentials = await this.service.CreateNewUserAccount(bm); // User created, will return token(loged-in automaticaly)
-
-            if (userCredentials == null)
-            {
-                return StatusCode(501, "User Registered! Failed to log-in"); // Not Implemented!
-            }
-
-            return StatusCode(201, userCredentials); // Created!
-        }
-
         // account/login
         [HttpPost]
         [Route("login")]

@@ -17,19 +17,6 @@
         public ProfileService(HttpClient httpClient, StringContentSerializer stringContentSerializer)
             : base(httpClient, stringContentSerializer) { }
 
-        public async Task<bool> CallProfileAPI_CreateUserProfile(CreateUserProfileBindingModel bindingModel)
-        {
-            var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(bindingModel);
-            var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + $"profile/create", stringContent);
-
-            if (response.StatusCode == HttpStatusCode.Created)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
         public async Task<bool> CallProfileAPI_EditUserProfile(UserProfileBindingModel bm)
         {
             var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(bm);
