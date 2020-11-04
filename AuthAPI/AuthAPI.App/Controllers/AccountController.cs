@@ -21,9 +21,9 @@
         // account/login
         [HttpPost]
         [Route("login")]
-        public IActionResult Login([FromBody] LoginUserBindingModel bm)
+        public async Task<IActionResult> Login([FromBody] LoginUserBindingModel bm)
         {
-            var userCredentials = this.service.LoginUser(bm);
+            var userCredentials = await this.service.LoginUser(bm);
 
             if (userCredentials == null)
             {
