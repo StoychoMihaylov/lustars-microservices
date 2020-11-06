@@ -18,11 +18,14 @@ namespace Notification.App
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSwaggerDocument(); // Swagger
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseRouting();
+            app.UseOpenApi(); //Swagger
+            app.UseSwaggerUi3(); // Swagger
             app.UseControllerEndpoints();
             app.UseExceptionHandling(env);
         }
