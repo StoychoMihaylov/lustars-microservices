@@ -64,6 +64,15 @@ services:
     depends_on:
       - lustar-profile-database
 
+  notifications:
+    container_name: ${NOTIFICATION_BACKEND_NAME}
+    build:
+      context: ./${NOTIFICATION_BACKEND_NAME}
+      dockerfile: Dockerfile
+    ports:
+      - '5004:80'
+    restart: on-failure
+
   image-backend:
     container_name: ${IMAGE_BACKEND_NAME}
     build:
