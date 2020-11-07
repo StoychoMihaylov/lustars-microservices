@@ -25,8 +25,8 @@ namespace WebGateway.App
         {
             app.UseCors(apiCorsPolicy);
             app.UseRouting();
-            app.UseOpenApi(); //Swagger
-            app.UseSwaggerUi3();
+            app.UseOpenApi(); // Swagger
+            app.UseSwaggerUi3(); // Swagger
             app.UseControllerEndpoints();
             app.UseExceptionHandling(env);
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
