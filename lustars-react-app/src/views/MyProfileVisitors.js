@@ -32,7 +32,7 @@ class MyProfileVisitors extends Component {
                                         src={ api.imageAPI + userProfile.avatarImage }
                                         alt=""
                                     />
-                                    <span className="who-visited-me-profile-camera-img-number">&#128247; { userProfile.countImages }</span>
+                                    <span className="who-visited-me-profile-camera-img-number"><span>&#128247;</span> { userProfile.countImages }</span>
                                     <div id={ userProfile.id } className="who-visited-me-profile-name-and-location">
                                     <div>{ userProfile.nameAndAge }</div>
                                     <div>{ userProfile.location }</div>

@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
-import { push, goBack } from "connected-react-router"
+import { push } from "connected-react-router"
 import { getPeopleNearby } from '../store/actions/peopleNearbyActions'
 import { api } from '../constants/endpoints'
 import '../styles/views/PeopleNearbyPage.css'
 
 class PeopleNearbyPage extends Component {
-  constructor(props) {
-    super(props)
-  }
-
+  
   componentDidMount() {
     this.props.getPeopleNearby()
   }

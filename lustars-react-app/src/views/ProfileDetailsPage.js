@@ -337,7 +337,7 @@ class ProfileDetailsPage extends Component {
                     closeCurrentOverlay={ () => this.closeImageSlider() }
                     />
                 {
-                    this.props.isLoading == false
+                    this.props.isLoading === false
                         ?   profile !== undefined && profile !== null
                                 ? displayProfile
                                 : null

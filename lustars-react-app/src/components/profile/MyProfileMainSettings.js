@@ -281,7 +281,6 @@ const mapDispatchToProps = dispatch => {
     return {
         editMyUserProfileDetails: (userProfileDetails) => dispatch(editMyUserProfileDetails(userProfileDetails)),
         updateUserProfileGeaolocation: (geolocation) => dispatch(updateUserProfileGeaolocation(geolocation)),
-        editMyUserProfileDetails: (details) => dispatch(editMyUserProfileDetails(details)),
         updateUserProfileBoleanField: (newValue) => dispatch(updateUserProfileBoleanField(newValue)),
         updateUserProfileTextField: (newValue) => dispatch(updateUserProfileTextField(newValue))
     }
