@@ -1,5 +1,7 @@
 namespace Notification.App
 {
+    using System;
+    using Notification.App.Hubs.Web;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Notification.App.Infrastructure;
@@ -19,8 +21,12 @@ namespace Notification.App
         {
             services.AddControllers();
             services.AddSwaggerDocument(); // Swagger
+            services.AddSignalR(s => 
+                s.EnableDetailedErrors = true
+            );
         }
 
+        [Obsolete]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseRouting();
@@ -28,6 +34,7 @@ namespace Notification.App
             app.UseSwaggerUi3(); // Swagger
             app.UseControllerEndpoints();
             app.UseExceptionHandling(env);
+            app.UseSignalR(routes => routes.MapHub<WebNotificationsHub>("/webnotificationhub")); // Obsolete
         }
     }
 }
