@@ -10,6 +10,8 @@ namespace Notification.App
 
     public class Startup
     {
+        private readonly string apiCorsPolicy = "ApiCorsPolicy";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -21,6 +23,7 @@ namespace Notification.App
         {
             services.AddControllers();
             services.AddSwaggerDocument(); // Swagger
+            services.AddCorsPolicy(apiCorsPolicy);
             services.AddSignalR(s => 
                 s.EnableDetailedErrors = true
             );
@@ -29,6 +32,7 @@ namespace Notification.App
         [Obsolete]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(apiCorsPolicy);
             app.UseRouting();
             app.UseOpenApi(); //Swagger
             app.UseSwaggerUi3(); // Swagger

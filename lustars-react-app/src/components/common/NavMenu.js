@@ -2,12 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { push, goBack } from "connected-react-router"
 import FormAccountLogout from '../authentication/FormAccountLogout'
+import EstablishNotificationConnection from './NotificationService'
 import '../../styles/components/common/NavMenu.css'
 
 
 class NavMenu extends React.Component {
-  constructor (props) {
-    super(props);
+
+  componentDidMount() {
+    EstablishNotificationConnection()
   }
 
   render () {

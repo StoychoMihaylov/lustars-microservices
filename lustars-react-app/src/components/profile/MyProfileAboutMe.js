@@ -251,11 +251,7 @@ class MyProfileAboutMe extends Component {
                 newState.howOftenSmoke = value
                 this.props.updateUserProfileTextField(newState)
                 return
-            case 'howOftenSmoke':
-                newState.howOftenDoSport = value
-                this.props.updateUserProfileTextField(newState)
-                return
-
+                
             default:
                 return
         }
