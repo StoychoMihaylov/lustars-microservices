@@ -4,6 +4,7 @@ namespace Notification.App
     using Notification.App.Hubs.Web;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Notification.App.Middlewares;
     using Notification.App.Infrastructure;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -21,9 +22,10 @@ namespace Notification.App
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddControllers();
             services.AddSwaggerDocument(); // Swagger
-            services.AddCorsPolicy(apiCorsPolicy);
+            //services.AddCorsPolicy(apiCorsPolicy);
             services.AddSignalR(s => 
                 s.EnableDetailedErrors = true
             );
@@ -32,7 +34,8 @@ namespace Notification.App
         [Obsolete]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseCors(apiCorsPolicy);
+            //app.UseCors(apiCorsPolicy);
+            app.UseCorsMiddleware();
             app.UseRouting();
             app.UseOpenApi(); //Swagger
             app.UseSwaggerUi3(); // Swagger
