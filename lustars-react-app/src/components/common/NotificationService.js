@@ -10,6 +10,7 @@ const EstablishNotificationConnection = () => {
     connection.start()
         .then(result => {
             console.log('Connected!');
+            console.log(result)
 
             connection.on('Notification', message => {
                 console.log("Notification:" + message)
