@@ -20,9 +20,18 @@
         [Route("test-me")]
         public async Task<IActionResult> GetME()
         {
-            await webNotificationHub.Clients.All.SendAsync("Notification", "Test");
+            await this.webNotificationHub.Clients.All.SendAsync("Notification", "Controller-Test");
 
             return StatusCode(200, ";)");
+        }
+
+        [HttpGet]
+        [Route("check-hub-conections")]
+        public async Task<IActionResult> ChechHubConections()
+        {
+            var result = WebNotificationsHub.UserHubConnections;
+
+            return StatusCode(200, result.Values);
         }
     }
 }
