@@ -1,4 +1,5 @@
 import { HubConnectionBuilder } from '@microsoft/signalr'
+import { NotificationManager } from 'react-notifications'
 
 const EstablishNotificationConnection = () => {
     var userId = localStorage.getItem('lustars_user_id')
@@ -24,13 +25,12 @@ const StartConnection = (userId) => {
                 console.error(err)
             })
 
-            connection.on('Notification', message => {
-                console.log("Notification:" + message)
+            connection.on('user-web-event-notification', message => {
+                console.log("user-web-event-notification:" + message)
+                NotificationManager.success(message, '', 3000)
             })
 
-            connection.on('PushNotification', message => {
-                console.log("PushNotification:" + message)
-            })
+            connection.invoke('PushWebEventNotification', userId, "BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM!")
         })
         .catch(err => console.log('Connection failed: ', err))
 }
