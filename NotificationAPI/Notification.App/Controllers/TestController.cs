@@ -1,21 +1,23 @@
 ﻿namespace Notification.App.Controllers
 {
     using System;
-    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Notification.App.Hubs.Web;
     using Microsoft.AspNetCore.SignalR;
+    using Notification.App.Hubs.Interfaces;
 
     [ApiController]
     [Route("notification")]
     public class TestController : ControllerBase
     {
         private readonly IHubContext<WebNotificationHub> webNotificationHub;
+        private readonly IWebEventNotification webEventNotification;
 
-        public TestController(IHubContext<WebNotificationHub> webNotificationHub)
+        public TestController(IHubContext<WebNotificationHub> webNotificationHub, IWebEventNotification webEventNotification)
         {
             this.webNotificationHub = webNotificationHub;
+            this.webEventNotification = webEventNotification;
         }
 
         [HttpGet]
@@ -31,20 +33,10 @@
                 "What's up man ?",
                 "No, no thanks man!"
             };
+
             var message = messages[generator.Next(0, 4)];
 
-            var connectionIds = WebNotificationHub
-                .UserAndConnectionIds
-                .FirstOrDefault(x => x.Key == userId)
-                .Value;
-
-            foreach (var id in connectionIds)
-            {
-                await this.webNotificationHub
-                    .Clients
-                    .Client(id)
-                    .SendAsync("user-web-event-notification", message);
-            }
+            await this.webEventNotification.PushWebEventNotification(userId, message);    
 
             return StatusCode(200, ";)");
         }

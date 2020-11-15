@@ -5,7 +5,9 @@ namespace Notification.App
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Notification.App.Middlewares;
+    using Notification.App.Hubs.HubRepos;
     using Notification.App.Infrastructure;
+    using Notification.App.Hubs.Interfaces;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
 
@@ -26,6 +28,9 @@ namespace Notification.App
             services.AddSignalR(s => 
                 s.EnableDetailedErrors = true
             );
+
+            // DI
+            services.AddSingleton<IWebEventNotification, WebEventNotification>();
         }
 
         [Obsolete]
