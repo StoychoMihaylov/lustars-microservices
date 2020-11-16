@@ -42,7 +42,7 @@ namespace Notification.App
             app.UseSwaggerUi3(); // Swagger
             app.UseControllerEndpoints();
             app.UseExceptionHandling(env);
-            app.UseSignalR(routes => routes.MapHub<WebNotificationHub>("/webnotificationhub")); // Obsolete
+            app.UseSignalR(routes => routes.MapHub<WebNotificationHub>("/hubs/web-event-notification")); // Obsolete
         }
     }
 }

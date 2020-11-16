@@ -31,7 +31,7 @@
                 await this.webNotificationHub
                     .Clients
                     .Client(id)
-                    .SendAsync("user-web-event-notification", message);
+                    .SendAsync("ServerEventNotification", message);
             };
         }
     }

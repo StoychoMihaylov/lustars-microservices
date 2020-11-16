@@ -50,15 +50,5 @@
                 UserAndConnectionIds[id].Add(this.Context.ConnectionId);
             }
         }
-
-        public async Task PushWebEventNotification(Guid userId, string message)
-        {
-            var connectionIds = UserAndConnectionIds.FirstOrDefault(x => x.Key == userId).Value;
-
-            foreach (var id in connectionIds)
-            {
-                await this.Clients.Client(id).SendAsync("user-web-event-notification", message);
-            }
-        }
     }
 }

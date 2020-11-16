@@ -10,6 +10,7 @@ import PeopleNearbyPage from './screens/UserProfile/NearBy/PeopleNearbyPage'
 import ProfileDetailsPage from './screens/UserProfile/Profile/ProfileDetailsPage'
 import WhoLikedMePage from './screens/UserProfile/WhoLikedMe/WhoLikedMePage'
 import MyProfileVisitors from './screens/UserProfile/Visitors/MyProfileVisitors'
+import NotificationService from './components/common/NotificationService/NotificationService'
 
 import 'react-notifications/lib/notifications.css'
 
@@ -27,6 +28,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 export default () => (
     <Layout>
       <NotificationContainer/>
+      <NotificationService />
       <Route exact path='/' component={ HomePage } />
       <Route exact path='/home' component={ HomePage } />
       <Route exact path='/account/login' component={ AccountLoginPage } />
