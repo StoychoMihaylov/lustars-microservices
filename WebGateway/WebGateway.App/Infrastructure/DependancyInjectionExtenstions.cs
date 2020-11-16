@@ -18,6 +18,7 @@
             services.AddTransient<IProfileService, ProfileService>();
             services.AddTransient<IAccountBusService, AccountBusService>();
             services.AddTransient<IProfileBusService, ProfileBusService>();
+            services.AddTransient<IUserImageService, UserImageService>();
 
             return services;
         }

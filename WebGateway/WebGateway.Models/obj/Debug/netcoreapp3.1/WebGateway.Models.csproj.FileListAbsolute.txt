@@ -23,3 +23,4 @@ C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.Models\o
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.Models\obj\Debug\netcoreapp3.1\WebGateway.Models.AssemblyInfo.cs
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.Models\obj\Debug\netcoreapp3.1\WebGateway.Models.dll
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.Models\obj\Debug\netcoreapp3.1\WebGateway.Models.pdb
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.Models\obj\Debug\netcoreapp3.1\WebGateway.Models.csproj.CoreCompileInputs.cache
