@@ -1,38 +1,45 @@
+import React from 'react'
 import { HubConnectionBuilder } from '@microsoft/signalr'
 import { NotificationManager } from 'react-notifications'
 
-const EstablishNotificationConnection = () => {
-    var userId = localStorage.getItem('lustars_user_id')
+class NotificationService extends React.Component {
 
-    if (userId !== null && userId !== undefined) {
-        StartConnection(userId)
+    componentDidMount() {
+        var userId = localStorage.getItem('lustars_user_id')
+
+        if (userId !== null && userId !== undefined) {
+            this.StartConnection(userId)
+        }
     }
-}
 
-const StartConnection = (userId) => {
-    const connection = new HubConnectionBuilder()
-        .withUrl('http://localhost:5004/webnotificationhub')
-        .withAutomaticReconnect()
-        .build()
+    StartConnection(userId) {
+        const connection = new HubConnectionBuilder()
+            .withUrl('http://localhost:5004/hubs/web-event-notification')
+            .withAutomaticReconnect([0, 1000, 2000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000])
+            .build()
 
         connection.start()
-        .then(result => {
-            console.log('SignalR Connected!');
+            .then(() => {
 
-            // Call the hub to save the userId
-            connection.invoke('SaveUserId', userId)
-            .catch(function (err) {
-                console.error(err)
+                // Call the hub to save the userId
+                connection.invoke('SaveUserId', userId)
+                .catch(function (err) {
+                    console.error(err)
+                })
+
+                connection.on('ServerEventNotification', message => {
+                    NotificationManager.success(message, '', 3000)
+                })
+
             })
-
-            connection.on('user-web-event-notification', message => {
-                console.log("user-web-event-notification:" + message)
-                NotificationManager.success(message, '', 3000)
+            .catch(err => {
+                console.log('Connection failed: ', err)
             })
+    }
 
-            connection.invoke('PushWebEventNotification', userId, "BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM!")
-        })
-        .catch(err => console.log('Connection failed: ', err))
+    render() {
+        return null
+     }
 }
 
-export default EstablishNotificationConnection;
+export default NotificationService

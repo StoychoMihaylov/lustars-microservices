@@ -42,19 +42,23 @@
                 return StatusCode(400, "Invalid credentials!"); // BadRequest!
             }
 
-            var (registerAccountResponse, registerAccountRejection) = await this.accountBusService.MessageAuthAPI_RegisterAccountProfile(bm);
+            // MassTransit Request/Response transaction for eventual consistancy between UserProfile and AccountProfile
+
+            var (registerAccountResponse, registerAccountRejection) = await this.accountBusService.MessageAuthAPI_RegisterAccountProfile(bm); // MassTransit Call
+
             if (registerAccountResponse.IsCompletedSuccessfully)
             {
                 var credentials = await registerAccountResponse;
 
-                var creteUserResponse = await this.profileBusService.MessageProfileAPI_CreateUserProfile(credentials, bm);
+                var creteUserResponse = await this.profileBusService.MessageProfileAPI_CreateUserProfile(credentials, bm); // MassTransit Call
+
                 if (creteUserResponse.Message.IsCreated == true)
                 {
                     return StatusCode(201, credentials.Message); // Account and User Created!
                 }
                 else
                 {
-                    this.accountBusService.MessageAuthAPI_DeleteAccountProfile(credentials);
+                    await this.accountBusService.MessageAuthAPI_DeleteAccountProfile(credentials); // MassTransit Call
 
                     return StatusCode(501, "Registration faild! Please try again!");
                 }

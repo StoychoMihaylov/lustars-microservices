@@ -22,7 +22,7 @@
 
             var endPoint = await this.bus.GetSendEndpoint(new Uri("queue:delete-account-profile-queue"));
 
-            endPoint.Send<IDeleteAccountProfile>(new { Id = userId });
+            await endPoint.Send<IDeleteAccountProfile>(new { Id = userId });
         }
 
         public async Task<(Task<Response<IAccountCredentials>>, Task<Response<IRegisterAccountRejection>>)> MessageAuthAPI_RegisterAccountProfile(RegisterUserBindingModel bm)

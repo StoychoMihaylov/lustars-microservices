@@ -79,7 +79,6 @@ C:/Users/stmih/Desktop/lustars-microservices/WebGateway/WebGateway.App/obj/Debug
 /app/WebGateway.App/obj/Debug/netcoreapp3.1/WebGateway.App.genruntimeconfig.cache
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\WebGateway.App.exe
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\WebGateway.App.deps.json
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\WebGateway.App.runtimeconfig.json
@@ -138,3 +137,6 @@ C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\obj\
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\obj\Debug\netcoreapp3.1\WebGateway.App.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\WebGateway.Messaging.dll
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\bin\Debug\netcoreapp3.1\WebGateway.Messaging.pdb
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\obj\Debug\netcoreapp3.1\WebGateway.App.csproj.CoreCompileInputs.cache
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\obj\Debug\netcoreapp3.1\scopedcss\bundle\WebGateway.App.styles.css
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.App\obj\Debug\netcoreapp3.1\WebGateway.App.genruntimeconfig.cache

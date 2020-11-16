@@ -186,3 +186,5 @@ C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.UnitTest
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.UnitTests\obj\Debug\netcoreapp3.1\WebGateway.UnitTests.csproj.CopyComplete
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.UnitTests\obj\Debug\netcoreapp3.1\WebGateway.UnitTests.dll
 C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.UnitTests\obj\Debug\netcoreapp3.1\WebGateway.UnitTests.pdb
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.UnitTests\obj\Debug\netcoreapp3.1\WebGateway.UnitTests.csproj.CoreCompileInputs.cache
+C:\Users\stmih\source\repos\lustars-microservices\WebGateway\WebGateway.UnitTests\obj\Debug\netcoreapp3.1\WebGateway.UnitTests.genruntimeconfig.cache
