@@ -74,30 +74,17 @@
         }
 
         //[HttpPost]
-        //[Route("create")]
-        //public IActionResult CreateUserProfile(CreateUserProfileBindingModel bm)
+        //[Route("my-user-profile/edit")]
+        //public IActionResult EditUserProfile([FromBody] EditUserProfileBindingModel bm)
         //{
-        //    var isCreated = this.profileService.CreateNewUserProfile(bm);
-        //    if (!isCreated)
+        //    var isUpdated = this.profileService.EditUserProfile(bm);
+        //    if (!isUpdated)
         //    {
         //        return StatusCode(501); // Not Implemented!
         //    }
 
-        //    return StatusCode(201); // Created!
+        //    return StatusCode(200); // Ok!
         //}
-
-        [HttpPost]
-        [Route("my-user-profile/edit")]
-        public IActionResult EditUserProfile([FromBody] EditUserProfileBindingModel bm)
-        {
-            var isUpdated = this.profileService.EditUserProfile(bm);
-            if (!isUpdated)
-            {
-                return StatusCode(501); // Not Implemented!
-            }
-
-            return StatusCode(200); // Ok!
-        }
 
         [HttpGet]
         [Route("my-user-profile/{userId}")]

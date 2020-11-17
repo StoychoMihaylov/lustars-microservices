@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
+    [Serializable]
     public class UserProfileViewModel
     {
         public Guid Id { get; set; }

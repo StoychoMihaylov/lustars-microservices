@@ -19,3 +19,4 @@ C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Services
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Services\obj\Debug\netcoreapp3.1\ProfileAPI.Services.csproj.CopyComplete
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Services\obj\Debug\netcoreapp3.1\ProfileAPI.Services.dll
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Services\obj\Debug\netcoreapp3.1\ProfileAPI.Services.pdb
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.Services\obj\Debug\netcoreapp3.1\ProfileAPI.Services.csproj.CoreCompileInputs.cache

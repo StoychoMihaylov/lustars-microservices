@@ -9,7 +9,7 @@
 
     public interface IProfileService
     {
-        bool EditUserProfile(EditUserProfileBindingModel userProfile);
+        Task<bool> EditUserProfile(EditUserProfileBindingModel userProfile);
         Task<bool> CreateNewUserProfile(UserProfile newProfile);
         UserProfileDetailedDataViewModel GetUserProfileDetailsById(Guid currentUserId, Guid userId);
         UserProfileDetailedDataViewModel GetCurrentUserProfileDetails(Guid userId);

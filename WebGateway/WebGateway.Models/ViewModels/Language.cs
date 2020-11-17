@@ -1,5 +1,8 @@
 ﻿namespace WebGateway.Models.ViewModels
 {
+    using System;
+
+    [Serializable]
     public class Language
     {
         public long Id { get; set; }

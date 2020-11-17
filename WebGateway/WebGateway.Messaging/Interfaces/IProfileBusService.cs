@@ -4,9 +4,11 @@
     using MessageExchangeContract;
     using System.Threading.Tasks;
     using WebGateway.Models.BidingModels.Account;
+    using WebGateway.Models.BidingModels.UserProfile;
 
     public interface IProfileBusService
     {
         Task<Response<IUserProfileCreated>> MessageProfileAPI_CreateUserProfile(Response<IAccountCredentials> credentials, RegisterUserBindingModel bm);
+        void MessageProfileAPI_UpdateUserProfile(UserProfileBindingModel bm);
     }
 }

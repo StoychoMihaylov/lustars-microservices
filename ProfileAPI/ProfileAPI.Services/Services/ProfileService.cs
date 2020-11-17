@@ -22,21 +22,21 @@
             this.mapper = mapper;
         }
 
-        public bool EditUserProfile(EditUserProfileBindingModel bm)
+        public async Task<bool> EditUserProfile(EditUserProfileBindingModel bm)
         {
-            var languages = GetUpdatedLanguages(bm);
+            //var languages = GetUpdatedLanguages(bm);
 
             try
             {
-                var userProfile = this.Context
+                var userProfile = await this.Context
                     .UserProfiles
-                    .Find(bm.Id);
+                    .FindAsync(bm.Id);
              
                 this.mapper.Map<EditUserProfileBindingModel, UserProfile>(bm, userProfile);
-                userProfile.Languages = languages;
+                //userProfile.Languages = languages;
 
                 this.Context.UserProfiles.Update(userProfile);
-                this.Context.SaveChanges();
+                await this.Context.SaveChangesAsync();
             }
             catch(Exception ex)
             {
@@ -56,7 +56,7 @@
                 .Where(l => l.UserProfile.Id == bm.Id)
                 .ToList();
 
-            // TO DO: Add logic that checks if the the db languages and bg languages are equaal whethe some language has been changed
+            // TO DO: Add logic that checks if the the db languages and bg languages are equaal, whether some language has been changed
 
             if (DBlanguages.Count() > bm.Languages.Count())
             {

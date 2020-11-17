@@ -5,6 +5,7 @@
     using WebGateway.Models.ViewModels;
     using System.ComponentModel.DataAnnotations;
 
+    [Serializable]
     public class UserProfileBindingModel
     {
         public Guid Id { get; set; }

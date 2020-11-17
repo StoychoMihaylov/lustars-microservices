@@ -4,21 +4,23 @@
     using System.Threading.Tasks;
     using WebGateway.Models.DTOs;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Http;
     using WebGateway.Services.Identity;
     using WebGateway.App.Authorization;
     using WebGateway.Services.Interfaces;
+    using WebGateway.Messaging.Interfaces;
     using WebGateway.Models.BidingModels.UserProfile;
 
     [ApiController]
     [Route("user-profile")]
     public class ProfileController : ControllerBase
     {
-        private IProfileService profileService;
+        private readonly IProfileService profileService;
+        private readonly IProfileBusService profileBusService;
 
-        public ProfileController(IProfileService profileService)
+        public ProfileController(IProfileService profileService, IProfileBusService profileBusService)
         {
             this.profileService = profileService;
+            this.profileBusService = profileBusService;
         }
 
         [HttpGet]
@@ -111,13 +113,11 @@
                 return StatusCode(400, "Model state is not valid!");
             }
 
-            var isUpdated = await this.profileService.CallProfileAPI_EditUserProfile(bm);
-            if (!isUpdated)
-            {
-                return StatusCode(501); // Not Implemented!
-            }
+            //var isUpdated = await this.profileService.CallProfileAPI_EditUserProfile(bm);
 
-            return StatusCode(200); // Ok!
+            profileBusService.MessageProfileAPI_UpdateUserProfile(bm);
+
+            return StatusCode(202); // Accepted!
         }
 
         [HttpGet]
