@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
+    [Serializable]
     public class EditUserProfileBindingModel
     {
         public Guid Id { get; set; }

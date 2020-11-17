@@ -12,7 +12,9 @@
         {
             return services.AddMassTransit(mt =>
             {
+                // Register Consumers
                 mt.AddConsumer<CreateUserProfileConsumer>();
+                mt.AddConsumer<UpdateUserProfileConsumer>();
 
                 mt.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(rmq =>
                 {
@@ -24,17 +26,25 @@
 
                     rmq.UseHealthCheck(provider);
 
+                    // Register Exhanges
                     rmq.Message<ICreateUserProfile>(m => m.SetEntityName("create-user-profile-exchange"));
+                    rmq.Message<IUpdateUserProfile>(m => m.SetEntityName("update-user-profile-exchange"));
 
+                    // Register Endpoints
                     rmq.ReceiveEndpoint("create-user-profile-queue", endpoint =>
                     {
                         endpoint.PrefetchCount = 20;
-
                         endpoint.UseMessageRetry(retry => retry.Interval(5, 200));
-
                         endpoint.Bind<ICreateUserProfile>();
-
                         endpoint.ConfigureConsumer<CreateUserProfileConsumer>(provider);
+                    });
+
+                    rmq.ReceiveEndpoint("update-user-profile-queue", endpoint =>
+                    {
+                        endpoint.PrefetchCount = 20;
+                        endpoint.UseMessageRetry(retry => retry.Interval(5, 200));
+                        endpoint.Bind<IUpdateUserProfile>();
+                        endpoint.ConfigureConsumer<UpdateUserProfileConsumer>(provider);
                     });
                 }));
             })

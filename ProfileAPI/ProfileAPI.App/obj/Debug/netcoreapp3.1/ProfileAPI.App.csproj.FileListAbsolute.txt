@@ -25,7 +25,6 @@ C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.App\obj\Debug
 C:\Users\stmih\Desktop\lustars-microservices\ProfileAPI\ProfileAPI.App\obj\Debug\netcoreapp3.1\ProfileAPI.App.pdb
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\ProfileAPI.App.exe
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\ProfileAPI.App.deps.json
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\ProfileAPI.App.runtimeconfig.json
@@ -99,3 +98,6 @@ C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\obj\
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\ProfileAPI.Messaging.dll
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\bin\Debug\netcoreapp3.1\ProfileAPI.Messaging.pdb
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\obj\Debug\netcoreapp3.1\ProfileAPI.App.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\obj\Debug\netcoreapp3.1\ProfileAPI.App.csproj.CoreCompileInputs.cache
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\obj\Debug\netcoreapp3.1\scopedcss\bundle\ProfileAPI.App.styles.css
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.App\obj\Debug\netcoreapp3.1\ProfileAPI.App.genruntimeconfig.cache
