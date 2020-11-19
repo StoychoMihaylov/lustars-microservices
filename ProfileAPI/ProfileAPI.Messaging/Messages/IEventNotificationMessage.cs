@@ -1,5 +1,7 @@
 ﻿namespace MessageExchangeContract
 {
+    using System;
+
     enum MessageType
     {
         Info = 1,
@@ -9,6 +11,8 @@
 
     public interface IEventNotificationMessage
     {
+        Guid UserId { get; set; }
+
         int MessageType { get; set; }
 
         string Message { get; set; }

@@ -28,6 +28,7 @@ class NotificationService extends React.Component {
                 })
 
                 connection.on('ServerEventNotification', message => {
+                    console.log(message)
                     NotificationManager.success(message, '', 3000)
                 })
 

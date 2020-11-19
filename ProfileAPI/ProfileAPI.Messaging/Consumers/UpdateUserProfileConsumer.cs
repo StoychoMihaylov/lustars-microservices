@@ -27,12 +27,12 @@
             {
                 var json = await message.Value;
 
-                var updateUserBm = JsonConvert.DeserializeObject<EditUserProfileBindingModel>(json);
+                var userBm = JsonConvert.DeserializeObject<EditUserProfileBindingModel>(json);
 
-                var isUpdated = await this.profileService.EditUserProfile(updateUserBm); // Languages update logic needs to be fixed
+                var isUpdated = await this.profileService.EditUserProfile(userBm); // Languages update logic needs to be fixed
                 if (isUpdated)
                 {
-                    this.notificationBusService.SendMessageToNotificationAPI("Profile updated successfully!");
+                    this.notificationBusService.SendMessageToNotificationAPI(userBm.Id, "Profile updated successfully!");
                 }
                 else
                 {

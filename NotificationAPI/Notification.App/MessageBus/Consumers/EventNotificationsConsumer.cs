@@ -1,4 +1,4 @@
-﻿namespace Notification.Messaging.Consumers
+﻿namespace Notification.App.MessageBus.Consumers
 {
     using MassTransit;
     using System.Threading.Tasks;
@@ -18,15 +18,19 @@
         {
             var message = context.Message;
 
-            if (message.MessageType.Equals(MessageType.Info))
+            System.Console.WriteLine(message.UserId);
+            System.Console.WriteLine(message.MessageType);
+            System.Console.WriteLine(message.Message);
+
+            if (message.MessageType == (int)MessageType.Info)
+            {
+                
+            }
+            else if (message.MessageType == (int)MessageType.Success)
             {
                 await this.webEventNotification.PushWebEventNotification(message.UserId, message.Message);
             }
-            else if (message.MessageType.Equals(MessageType.Success))
-            {
-
-            }
-            else if (message.MessageType.Equals(MessageType.Error))
+            else if (message.MessageType == (int)MessageType.Error)
             {
 
             }
