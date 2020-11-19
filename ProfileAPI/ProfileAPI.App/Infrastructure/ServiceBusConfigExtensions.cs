@@ -2,6 +2,7 @@
 {
     using GreenPipes;
     using MassTransit;
+    using MassTransit.MessageData;
     using MessageExchangeContract;
     using ProfileAPI.Messaging.Consumers;
     using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +26,7 @@
                     });
 
                     rmq.UseHealthCheck(provider);
+                    rmq.UseMessageData(new InMemoryMessageDataRepository());
 
                     // Register Exhanges
                     rmq.Message<ICreateUserProfile>(m => m.SetEntityName("create-user-profile-exchange"));
