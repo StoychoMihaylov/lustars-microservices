@@ -9,6 +9,9 @@
     using WebGateway.Models.BidingModels.Account;
     using WebGateway.Models.BidingModels.UserProfile;
     using System.Runtime.Serialization.Formatters.Binary;
+    using System.Net.Http;
+    using Newtonsoft.Json;
+    using System.Text;
 
     public class ProfileBusService : IProfileBusService
     {
@@ -36,24 +39,18 @@
 
         public async void MessageProfileAPI_UpdateUserProfile(UserProfileBindingModel bm)
         {
-            var byteArrayData = SerializeUserData(bm);
-
             var endpoint = await this.bus.GetSendEndpoint(new Uri("queue:update-user-profile-queue"));
             await endpoint.Send<IUpdateUserProfile>(new
             {
-                MessageData = byteArrayData
+                MessageData = SerializeObjectToStringContent(bm).ToString()
             });
         }
 
-        private byte[] SerializeUserData(UserProfileBindingModel obj)
+        private string SerializeObjectToStringContent(dynamic bm)
         {
-            BinaryFormatter bf = new BinaryFormatter();
-
-            using (MemoryStream ms = new MemoryStream())
-            {
-                bf.Serialize(ms, obj);
-                return ms.ToArray();
-            }
+            var dataJSON = JsonConvert.SerializeObject(bm);
+            
+            return dataJSON;
         }
     }
 }

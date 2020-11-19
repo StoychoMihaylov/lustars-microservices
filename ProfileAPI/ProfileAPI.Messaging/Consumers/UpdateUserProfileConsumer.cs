@@ -1,12 +1,12 @@
 ﻿namespace ProfileAPI.Messaging.Consumers
 {
-    using System.IO;
+    using System;
     using MassTransit;
+    using Newtonsoft.Json;
     using System.Threading.Tasks;
     using MessageExchangeContract;
     using ProfileAPI.Services.Interfaces;
     using ProfileAPI.Models.BidingModels;
-    using System.Runtime.Serialization.Formatters.Binary;
 
     public class UpdateUserProfileConsumer : IConsumer<IUpdateUserProfile>
     {
@@ -19,29 +19,36 @@
 
         public async Task Consume(ConsumeContext<IUpdateUserProfile> context)
         {
-            var message = context.Message;
-
-            var dataModel = DeserializeUserData(message.MessageData);
-
-            var isUpdated = await this.profileService.EditUserProfile(dataModel);
-
-            if (!isUpdated)
+            var message = context.Message.MessageData;
+            if (message.HasValue)
             {
-                // Message Notification Service Update failed!
+                var data = await message.Value;
+                Console.WriteLine(data);
+                var updateUserBm = DeserializeJSONtoObject(data);
+                var isUpdated = await this.profileService.EditUserProfile(updateUserBm); // Languages update logic needs to be fixed
+                if (isUpdated)
+                {
+                    Console.WriteLine("PROFILE UPDATED!");
+                    // Message Notification Service Update Success!
+                }
+                else
+                {
+                    Console.WriteLine("PROFILE FAILD TO UPDATE");
+                    
+                    // Message Notification Service Update failed!
+                }
             }
             else
             {
-                // Message Notification Service Update Success!
+                // Message Notification Service Update failed!
             }
         }
 
-        private EditUserProfileBindingModel DeserializeUserData(byte[] message)
+        private EditUserProfileBindingModel DeserializeJSONtoObject(dynamic json)
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            using (MemoryStream ms = new MemoryStream(message))
-            {
-                return (EditUserProfileBindingModel)bf.Deserialize(ms);
-            }
+            var obj = JsonConvert.DeserializeObject<EditUserProfileBindingModel>(json);
+
+            return obj;
         }
     }
 }

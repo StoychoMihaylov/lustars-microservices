@@ -46,33 +46,33 @@
         //    Assert.Equal(201, result.StatusCode);
         //}
 
-        [Fact]
-        public void Post_EditUserProfile_ShouldReturnStatusCode200Ok()
-        {
-            // Arrange
-            EditUserProfileBindingModel bm = new EditUserProfileBindingModel()
-            {
-                Name = "Goshko",
+        //[Fact]
+        //public void Post_EditUserProfile_ShouldReturnStatusCode200Ok()
+        //{
+        //    // Arrange
+        //    EditUserProfileBindingModel bm = new EditUserProfileBindingModel()
+        //    {
+        //        Name = "Goshko",
 
-                Gender = "man",
-                DateOfBirth = DateTime.UtcNow
-            }; 
+        //        Gender = "man",
+        //        DateOfBirth = DateTime.UtcNow
+        //    }; 
 
-            var profileService = new Mock<IProfileService>();
-            profileService
-                .Setup(p => p.EditUserProfile(bm))
-                .Returns(true);
+        //    var profileService = new Mock<IProfileService>();
+        //    profileService
+        //        .Setup(p => p.EditUserProfile(bm))
+        //        .Returns(true);
 
-            var profileController = new ProfileController(profileService.Object);
+        //    var profileController = new ProfileController(profileService.Object);
 
-            // Act
-            var response = profileController.EditUserProfile(bm);
+        //    // Act
+        //    var response = profileController.EditUserProfile(bm);
 
-            // Assert
-            Assert.NotNull(response);
-            var result = response as StatusCodeResult;
-            Assert.Equal(200, result.StatusCode);
-        }
+        //    // Assert
+        //    Assert.NotNull(response);
+        //    var result = response as StatusCodeResult;
+        //    Assert.Equal(200, result.StatusCode);
+        //}
 
         [Fact]
         public void Get_GetUserProfileById_ShouldReturnCurrentUserAndStatusCode200()

@@ -109,7 +109,6 @@ C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTest
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.AssemblyInfo.cs
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\ProfileAPI.App.exe
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\xunit.runner.reporters.netcoreapp10.dll
@@ -266,3 +265,4 @@ C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTest
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\ProfileAPI.Messaging.dll
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\bin\Debug\netcoreapp3.1\ProfileAPI.Messaging.pdb
 C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.csproj.CoreCompileInputs.cache
+C:\Users\stmih\source\repos\lustars-microservices\ProfileAPI\ProfileAPI.UnitTests\obj\Debug\netcoreapp3.1\ProfileAPI.UnitTests.genruntimeconfig.cache

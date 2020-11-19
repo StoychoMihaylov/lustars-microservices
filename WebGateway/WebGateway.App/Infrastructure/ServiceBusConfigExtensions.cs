@@ -1,6 +1,7 @@
 ﻿namespace WebGateway.App.Infrastructure
 {
     using MassTransit;
+    using MassTransit.MessageData;
     using MessageExchangeContract;
     using Microsoft.Extensions.DependencyInjection;
 
@@ -19,6 +20,7 @@
                     });
 
                     rmq.UseHealthCheck(provider);
+                    rmq.UseMessageData(new InMemoryMessageDataRepository());
 
                     // AuthAPI
                     rmq.Message<IRegisterAccountProfile>(m => m.SetEntityName("register-account-profile-exchange"));

@@ -40,41 +40,41 @@
         //    Assert.Equal(bm.Email, createdUserProfile.Email);
         //}
 
-        [Fact]
-        public void EditUserProfile_ShouldEditExistingUserProfile()
-        {
-            // Arrange
-            var existinUserProfile = new UserProfile() 
-            {
-                Id = new Guid("e9166940-f14b-491c-99ba-cfc6cf13f662"),
-                Name = "Pesho",
-                Gender = "man",
-                DateOfBirth = DateTime.UtcNow,
-            };
+        //[Fact]
+        //public void EditUserProfile_ShouldEditExistingUserProfile()
+        //{
+        //    // Arrange
+        //    var existinUserProfile = new UserProfile() 
+        //    {
+        //        Id = new Guid("e9166940-f14b-491c-99ba-cfc6cf13f662"),
+        //        Name = "Pesho",
+        //        Gender = "man",
+        //        DateOfBirth = DateTime.UtcNow,
+        //    };
 
-            var db = this.GetDatabase();
-            db.UserProfiles.Add(existinUserProfile);
-            db.SaveChanges();
+        //    var db = this.GetDatabase();
+        //    db.UserProfiles.Add(existinUserProfile);
+        //    db.SaveChanges();
 
-            var bm = new EditUserProfileBindingModel() 
-            {
-                Id = new Guid("e9166940-f14b-491c-99ba-cfc6cf13f662"),
-                Name = "Goshko",                     // Changed!!!
-                Gender = "man",
-                DateOfBirth = DateTime.UtcNow,
-            };
+        //    var bm = new EditUserProfileBindingModel() 
+        //    {
+        //        Id = new Guid("e9166940-f14b-491c-99ba-cfc6cf13f662"),
+        //        Name = "Goshko",                     // Changed!!!
+        //        Gender = "man",
+        //        DateOfBirth = DateTime.UtcNow,
+        //    };
 
-            var profileService = new ProfileService(db, this.mapper);
+        //    var profileService = new ProfileService(db, this.mapper);
 
-            // Act
-            var response = profileService.EditUserProfile(bm);
+        //    // Act
+        //    var response = profileService.EditUserProfile(bm);
 
-            var updatedUserProfile = db.UserProfiles.Find(bm.Id);
+        //    var updatedUserProfile = db.UserProfiles.Find(bm.Id);
 
-            // Assert
-            Assert.True(response);
-            Assert.Equal("Goshko", updatedUserProfile.Name);
-        }
+        //    // Assert
+        //    Assert.True(response);
+        //    Assert.Equal("Goshko", updatedUserProfile.Name);
+        //}
 
         [Fact]
         public void GetUserProfileById_ShouldReturnUserProfileVm()

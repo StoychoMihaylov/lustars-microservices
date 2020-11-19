@@ -1,7 +1,9 @@
 ﻿namespace MessageExchangeContract
 {
+    using MassTransit;
+
     public interface IUpdateUserProfile
     {
-        byte[] MessageData { get; set; }
+        MessageData<string> MessageData { get; set; }
     }
 }
