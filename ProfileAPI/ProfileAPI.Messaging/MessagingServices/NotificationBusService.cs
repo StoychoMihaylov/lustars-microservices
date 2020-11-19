@@ -14,12 +14,13 @@
             this.bus = bus;
         }
 
-        public async void SendMessageToNotificationAPI(string message)
+        public async void SendMessageToNotificationAPI(Guid userId, string message)
         {
             var endpoint = await this.bus.GetSendEndpoint(new Uri("queue:event-notification-queue"));
-            await endpoint.Send<EventNotificationMessage>(new 
+            await endpoint.Send<IEventNotificationMessage>(new 
             { 
-                MessageType = MessageType.Success,
+                UserId = userId,
+                MessageType = (int)MessageType.Success,
                 Message = message 
             });
         }

@@ -1,7 +1,9 @@
 ﻿namespace ProfileAPI.Messaging.Interfaces
 {
+    using System;
+
     public interface INotificationBusService
     {
-        void SendMessageToNotificationAPI(string message);
+        void SendMessageToNotificationAPI(Guid userId, string message);
     }
 }

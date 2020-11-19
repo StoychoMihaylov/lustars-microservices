@@ -31,6 +31,8 @@ namespace Notification.App
 
             // DI
             services.AddSingleton<IWebEventNotification, WebEventNotification>();
+
+            services.AddMassTransitServiceBus(); // MassTransite Configuration
         }
 
         [Obsolete]

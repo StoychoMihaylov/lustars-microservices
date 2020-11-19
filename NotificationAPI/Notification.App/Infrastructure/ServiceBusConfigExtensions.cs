@@ -1,10 +1,9 @@
-﻿namespace ProfileAPI.App.Infrastructure
+﻿namespace Notification.App.Infrastructure
 {
     using GreenPipes;
     using MassTransit;
-    using MassTransit.MessageData;
     using MessageExchangeContract;
-    using ProfileAPI.Messaging.Consumers;
+    using Notification.App.MessageBus.Consumers;
     using Microsoft.Extensions.DependencyInjection;
 
     public static class ServiceBusConfigExtensions
@@ -14,8 +13,8 @@
             return services.AddMassTransit(mt =>
             {
                 // Register Consumers
-                mt.AddConsumer<CreateUserProfileConsumer>();
-                mt.AddConsumer<UpdateUserProfileConsumer>();
+                mt.AddConsumer<EventNotificationsConsumer>();
+
 
                 mt.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(rmq =>
                 {
@@ -26,28 +25,17 @@
                     });
 
                     rmq.UseHealthCheck(provider);
-                    rmq.UseMessageData(new InMemoryMessageDataRepository());
 
                     // Register Exhanges
-                    rmq.Message<ICreateUserProfile>(m => m.SetEntityName("create-user-profile-exchange"));
-                    rmq.Message<IUpdateUserProfile>(m => m.SetEntityName("update-user-profile-exchange"));
                     rmq.Message<IEventNotificationMessage>(m => m.SetEntityName("event-notification-exchange"));
 
                     // Register Endpoints
-                    rmq.ReceiveEndpoint("create-user-profile-queue", endpoint =>
+                    rmq.ReceiveEndpoint("event-notification-queue", endpoint =>
                     {
                         endpoint.PrefetchCount = 20;
                         endpoint.UseMessageRetry(retry => retry.Interval(5, 200));
-                        endpoint.Bind<ICreateUserProfile>();
-                        endpoint.ConfigureConsumer<CreateUserProfileConsumer>(provider);
-                    });
-
-                    rmq.ReceiveEndpoint("update-user-profile-queue", endpoint =>
-                    {
-                        endpoint.PrefetchCount = 20;
-                        endpoint.UseMessageRetry(retry => retry.Interval(5, 200));
-                        endpoint.Bind<IUpdateUserProfile>();
-                        endpoint.ConfigureConsumer<UpdateUserProfileConsumer>(provider);
+                        endpoint.Bind<IEventNotificationMessage>();
+                        endpoint.ConfigureConsumer<EventNotificationsConsumer>(provider);
                     });
                 }));
             })
