@@ -7,14 +7,17 @@
     using MessageExchangeContract;
     using ProfileAPI.Services.Interfaces;
     using ProfileAPI.Models.BidingModels;
+    using ProfileAPI.Messaging.Interfaces;
 
     public class UpdateUserProfileConsumer : IConsumer<IUpdateUserProfile>
     {
-        private IProfileService profileService;
+        private readonly IProfileService profileService;
+        private readonly INotificationBusService notificationBusService;
 
-        public UpdateUserProfileConsumer(IProfileService profileService)
+        public UpdateUserProfileConsumer(IProfileService profileService, INotificationBusService notificationBusService)
         {
             this.profileService = profileService;
+            this.notificationBusService = notificationBusService;
         }
 
         public async Task Consume(ConsumeContext<IUpdateUserProfile> context)
@@ -22,14 +25,14 @@
             var message = context.Message.MessageData;
             if (message.HasValue)
             {
-                var data = await message.Value;
-                Console.WriteLine(data);
-                var updateUserBm = DeserializeJSONtoObject(data);
+                var json = await message.Value;
+
+                var updateUserBm = JsonConvert.DeserializeObject<EditUserProfileBindingModel>(json);
+
                 var isUpdated = await this.profileService.EditUserProfile(updateUserBm); // Languages update logic needs to be fixed
                 if (isUpdated)
                 {
-                    Console.WriteLine("PROFILE UPDATED!");
-                    // Message Notification Service Update Success!
+                    this.notificationBusService.SendMessageToNotificationAPI("Profile updated successfully!");
                 }
                 else
                 {
@@ -42,13 +45,6 @@
             {
                 // Message Notification Service Update failed!
             }
-        }
-
-        private EditUserProfileBindingModel DeserializeJSONtoObject(dynamic json)
-        {
-            var obj = JsonConvert.DeserializeObject<EditUserProfileBindingModel>(json);
-
-            return obj;
         }
     }
 }
