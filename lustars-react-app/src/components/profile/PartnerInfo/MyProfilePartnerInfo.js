@@ -23,8 +23,8 @@ class MyProfilePartnerInfo extends Component {
     updateUserProfile(field) {
         this.props.editMyUserProfileDetails(this.props.profile)
             .then(response => {
-                if (response.status === 200) {
-                    NotificationManager.success('Your profile has been updated successfully', 'Updated!', 3000)
+                if (response.status === 202) {
+                    NotificationManager.info('Updating you profile...', 'Processing data...', 3000)
                 } else {
                     NotificationManager.error('Something went wrong! Please check your connection!', 'Error!', 5000, () => {
                         alert('There is some problem! Please try again or check your network!');

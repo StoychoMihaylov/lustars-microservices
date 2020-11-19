@@ -24,7 +24,7 @@
 
         public async Task<bool> EditUserProfile(EditUserProfileBindingModel bm)
         {
-            //var languages = GetUpdatedLanguages(bm);
+            var languages = await GetUpdatedLanguages(bm);
 
             try
             {
@@ -33,7 +33,7 @@
                     .FindAsync(bm.Id);
              
                 this.mapper.Map<EditUserProfileBindingModel, UserProfile>(bm, userProfile);
-                //userProfile.Languages = languages;
+                userProfile.Languages = languages;
 
                 this.Context.UserProfiles.Update(userProfile);
                 await this.Context.SaveChangesAsync();
@@ -46,17 +46,15 @@
             return true;
         }
 
-        private List<Language> GetUpdatedLanguages(EditUserProfileBindingModel bm)
+        private async Task<List<Language>> GetUpdatedLanguages(EditUserProfileBindingModel bm)
         {
             var languagesToBeDeled = new List<Language>();
             var languagesToBeAdded = new List<Language>();
 
-            var DBlanguages = this.Context
+            var DBlanguages = await this.Context
                 .Languages
                 .Where(l => l.UserProfile.Id == bm.Id)
-                .ToList();
-
-            // TO DO: Add logic that checks if the the db languages and bg languages are equaal, whether some language has been changed
+                .ToListAsync();
 
             if (DBlanguages.Count() > bm.Languages.Count())
             {
