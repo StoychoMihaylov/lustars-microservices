@@ -12,9 +12,9 @@ import YesNoInputField from '../../common/YesNoInput/YesNoInputField'
 import NumbersField from '../../common/NumbersField/NumbersField'
 import Avatar from '../Avatar/Avatar'
 import { city_states } from '../../../constants/countriesAndCities'
-import './MyProfileMainSettings.css'
+import './ProfileInfo.css'
 
-class MyProfileMainSettings extends Component {
+class ProfileInfo extends Component {
     constructor(props) {
         super(props)
 
@@ -202,6 +202,7 @@ class MyProfileMainSettings extends Component {
                                     <span
                                         style={{ display:!this.state.editCountry ? "block" : "none" }}
                                         onClick={ () => this.setState({ editCountry: true })}>{ this.props.profile.fromCountry }
+                                        <span className="profile-info-edit-bttn">Edit</span>
                                     </span>
                                     <select
                                         id="from-country"
@@ -225,6 +226,7 @@ class MyProfileMainSettings extends Component {
                                     <span
                                         style={{ display:!this.state.editCity ? "block" : "none" }}
                                         onClick={ () => this.setState({ editCity: true })}>{ this.props.profile.fromCity }
+                                        <span className="profile-info-edit-bttn">Edit</span>
                                     </span>
                                     <select
                                         id="from-city"
@@ -286,4 +288,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(MyProfileMainSettings)
+export default connect(null, mapDispatchToProps)(ProfileInfo)

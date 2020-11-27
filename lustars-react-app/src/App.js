@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom'
 import { NotificationContainer } from 'react-notifications';
 import Layout from './screens/Layout/Layout'
 import HomePage from './screens/Home/HomePage'
-import MyProfileEditPage from './screens/UserProfile/EditMyProfile/MyProfileEditPage'
+import ProfileEditPage from './screens/UserProfile/EditMyProfile/ProfileEditPage'
 import AccountRegistrationPage from './screens/Account/Registration/AccountRegistrationPage'
 import AccountLoginPage from './screens/Account/Login/AccountLoginPage'
 import PeopleNearbyPage from './screens/UserProfile/NearBy/PeopleNearbyPage'
@@ -34,7 +34,7 @@ export default () => (
       <Route exact path='/account/login' component={ AccountLoginPage } />
       <Route exact path='/account/registration' component={ AccountRegistrationPage } />
 
-      <PrivateRoute exact path='/my-profile' component={ MyProfileEditPage } />
+      <PrivateRoute exact path='/my-profile' component={ ProfileEditPage } />
       <PrivateRoute exact path='/people-nearby' component={ PeopleNearbyPage } />
       <PrivateRoute exact path='/profile/:id' component={ ProfileDetailsPage } />
       <PrivateRoute exact path='/who-liked-me' component={ WhoLikedMePage } />

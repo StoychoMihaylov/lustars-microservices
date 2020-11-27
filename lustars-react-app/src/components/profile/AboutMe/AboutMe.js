@@ -13,9 +13,10 @@ import { NotificationManager } from 'react-notifications'
 import YesNoInputField from '../../common/YesNoInput/YesNoInputField'
 import NumberAdjusterInput from '../../common/NumberAdjusterInput/NumberAdjusterInput'
 import { countryLanguages } from '../../../constants/countryLanguages'
-import './MyProfileAboutMe.css'
+import { changeObjectBooleanField } from './utilities'
+import './AboutMe.css'
 
-class MyProfileAboutMe extends Component {
+class AboutMe extends Component {
     constructor(props) {
         super(props)
 
@@ -259,42 +260,11 @@ class MyProfileAboutMe extends Component {
 
     updateProfileBooleanField = async (field, newValue) => {
         let oldState = this.props.profile
-        let newState = Object.assign({}, oldState)
 
-        switch (field) {
-            case 'howOftenSmoke':
-                newState.doingSport = newValue
-                await this.props.updateUserProfileBoleanField(newState)
-                await this.updateUserProfile()
-                return
-            case 'haveKids':
-                newState.haveKids = newValue
-                await this.props.updateUserProfileBoleanField(newState)
-                await this.updateUserProfile()
-                return
-            case 'wantToHaveKids':
-                newState.wantKids = newValue
-                await this.props.updateUserProfileBoleanField(newState)
-                await this.updateUserProfile()
-                return
-            case 'drinkAlcohol':
-                newState.drinkAlcohol = newValue
-                await this.props.updateUserProfileBoleanField(newState)
-                await this.updateUserProfile()
-                return
-            case 'smoker':
-                newState.smoker = newValue
-                await this.props.updateUserProfileBoleanField(newState)
-                await this.updateUserProfile()
-                return
-            case 'doSport':
-                newState.doSport = newValue
-                await this.props.updateUserProfileBoleanField(newState)
-                await this.updateUserProfile()
-                return
-
-            default:
-                return
+        let newState = await changeObjectBooleanField(field, newValue, oldState)
+        if(newState !== null) {
+            await this.props.updateUserProfileBoleanField(newState)
+            await this.updateUserProfile()
         }
     }
 
@@ -310,6 +280,7 @@ class MyProfileAboutMe extends Component {
                                 <span
                                     style={{ display:!this.state.editFirstName ? "block" : "none" }}
                                     onClick={ () => this.setState({ editFirstName: true })}>{ this.props.profile.name }
+                                    <span className="about-me-edit-bttn">Edit</span>
                                 </span>
                                 <input
                                     id="first-name"
@@ -329,6 +300,7 @@ class MyProfileAboutMe extends Component {
                                 <span
                                     style={{ display:!this.state.editLastName ? "block" : "none" }}
                                     onClick={ () => this.setState({ editLastName: true })}>{ this.props.profile.lastName }
+                                    <span className="about-me-edit-bttn">Edit</span>
                                 </span>
                                 <input
                                     id="last-name"
@@ -348,6 +320,7 @@ class MyProfileAboutMe extends Component {
                                 <span
                                     style={{ display:!this.state.editMood ? "block" : "none" }}
                                     onClick={ () => this.setState({ editMood: true })}>{ this.props.profile.feelInMood }
+                                    <span className="about-me-edit-bttn">Edit</span>
                                 </span>
                                 <input
                                     id="mood"
@@ -395,6 +368,7 @@ class MyProfileAboutMe extends Component {
                                 <span
                                     style={{ display:!this.state.editGender ? "block" : "none" }}
                                     onClick={ () => this.setState({ editGender: true })}>{ this.props.profile.gender }
+                                    <span className="about-me-edit-bttn">Edit</span>
                                 </span>
                                 <select
                                     id="gender"
@@ -419,6 +393,7 @@ class MyProfileAboutMe extends Component {
                                 <span
                                     style={{ display:!this.state.editMeritalStatus ? "block" : "none" }}
                                     onClick={ () => this.setState({ editMeritalStatus: true })}>{ this.props.profile.meritalStatus }
+                                    <span className="about-me-edit-bttn">Edit</span>
                                 </span>
                                 <select
                                     id="merital-status"
@@ -445,6 +420,7 @@ class MyProfileAboutMe extends Component {
                                 <span
                                     style={{ display:!this.state.editLookingFor ? "block" : "none" }}
                                     onClick={ () => this.setState({ editLookingFor: true })}>{ this.props.profile.lookingFor }
+                                    <span className="about-me-edit-bttn">Edit</span>
                                 </span>
                                 <select
                                     id="looking-for"
@@ -524,6 +500,7 @@ class MyProfileAboutMe extends Component {
                                 <span
                                     style={{ display:!this.state.editEducationDegree ? "block" : "none" }}
                                     onClick={ () => this.setState({ editEducationDegree: true })}>{ this.props.profile.educationDegree }
+                                    <span className="about-me-edit-bttn">Edit</span>
                                 </span>
                                 <select
                                     id="education-degree"
@@ -550,6 +527,7 @@ class MyProfileAboutMe extends Component {
                                 <span
                                     style={{ display:!this.state.editUniversity ? "block" : "none" }}
                                     onClick={ () => this.setState({ editUniversity: true })}>{ this.props.profile.university }
+                                    <span className="about-me-edit-bttn">Edit</span>
                                 </span>
                                 <input
                                     id="university"
@@ -569,6 +547,7 @@ class MyProfileAboutMe extends Component {
                                 <span
                                     style={{ display:!this.state.editWork ? "block" : "none" }}
                                     onClick={ () => this.setState({ editWork: true })}>{ this.props.profile.work }
+                                    <span className="about-me-edit-bttn">Edit</span>
                                 </span>
                                 <input
                                     id="work"
@@ -588,6 +567,7 @@ class MyProfileAboutMe extends Component {
                                 <span
                                     style={{ display:!this.state.editBiography ? "block" : "none" }}
                                     onClick={ () => this.setState({ editBiography: true })}>{ this.props.profile.biographyAndInterests }
+                                    <span className="about-me-edit-bttn">Edit</span>
                                 </span>
                                 <textarea
                                     id="biography"
@@ -611,6 +591,7 @@ class MyProfileAboutMe extends Component {
                                 <span
                                     style={{ display:!this.state.editHeight ? "block" : "none" }}
                                     onClick={ () => this.setState({ editHeight: true })}>{ this.props.profile.height }
+                                    <span className="about-me-edit-bttn">Edit</span>
                                 </span>
                                 <span style={{ display:this.state.editHeight ? "block" : "none" }}>
                                         <NumberAdjusterInput
@@ -627,6 +608,7 @@ class MyProfileAboutMe extends Component {
                                 <span
                                     style={{ display:!this.state.editWeight ? "block" : "none" }}
                                     onClick={ () => this.setState({ editWeight: true })}>{ this.props.profile.weight }
+                                    <span className="about-me-edit-bttn">Edit</span>
                                 </span>
                                 <span style={{ display:this.state.editWeight ? "block" : "none" }}>
                                     <NumberAdjusterInput
@@ -643,6 +625,7 @@ class MyProfileAboutMe extends Component {
                                 <span
                                     style={{ display:!this.state.editFigure ? "block" : "none" }}
                                     onClick={ () => this.setState({ editFigure: true })}>{ this.props.profile.figure }
+                                    <span className="about-me-edit-bttn">Edit</span>
                                 </span>
                                 <select
                                     id="figure"
@@ -726,6 +709,7 @@ class MyProfileAboutMe extends Component {
                                                 <span
                                                     style={{ display:!this.state.editHowOftenDoSport ? "block" : "none" }}
                                                     onClick={ () => this.setState({ editHowOftenDoSport: true })}>{ this.props.profile.howOftenDoSport }
+                                                    <span className="about-me-edit-bttn">Edit</span>
                                                 </span>
                                                 <select
                                                     id="how-often-do-port"
@@ -756,6 +740,7 @@ class MyProfileAboutMe extends Component {
                                                 <span
                                                     style={{ display:!this.state.editHowOftenDrinkAlcohol ? "block" : "none" }}
                                                     onClick={ () => this.setState({ editHowOftenDrinkAlcohol: true })}>{ this.props.profile.howOftenDrinkAlcohol }
+                                                    <span className="about-me-edit-bttn">Edit</span>
                                                 </span>
                                                 <select
                                                     id="how-often-drin-alcohol"
@@ -787,6 +772,7 @@ class MyProfileAboutMe extends Component {
                                                 <span
                                                     style={{ display:!this.state.editHowOftenSmoke ? "block" : "none" }}
                                                     onClick={ () => this.setState({ editHowOftenSmoke: true })}>{ this.props.profile.howOftenSmoke }
+                                                    <span className="about-me-edit-bttn">Edit</span>
                                                 </span>
                                                 <select
                                                     id="how-often-smoke"
@@ -835,4 +821,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyProfileAboutMe)
+export default connect(mapStateToProps, mapDispatchToProps)(AboutMe)
