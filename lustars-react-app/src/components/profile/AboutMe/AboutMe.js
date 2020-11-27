@@ -23,25 +23,6 @@ class AboutMe extends Component {
         this.state = {
             isDatePickerClicked: false,
             timerIdentified: {},
-
-            // Show or hide fields
-            editFirstName: false,
-            editLastName: false,
-            editMood: false,
-            editGender: false,
-            editMeritalStatus: false,
-            editLookingFor: false,
-            editAddLanguage: false,
-            editEducationDegree: false,
-            editUniversity: false,
-            editWork: false,
-            editBiography: false,
-            editHeight: false,
-            editWeight: false,
-            editFigure: false,
-            editHowOftenDrinkAlcohol: false,
-            editHowOftenDoSport: false,
-            editHowOftenSmoke: false
         }
     }
 
@@ -277,16 +258,10 @@ class AboutMe extends Component {
                         <tr>
                             <th><label htmlFor="first-name">First name:</label></th>
                             <th>
-                                <span
-                                    style={{ display:!this.state.editFirstName ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editFirstName: true })}>{ this.props.profile.name }
-                                    <span className="about-me-edit-bttn">Edit</span>
-                                </span>
                                 <input
                                     id="first-name"
                                     type="text"
                                     placeholder="First Name"
-                                    style={{ display:this.state.editFirstName ? "block" : "none" }}
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.name }
                                     onChange={(e) => this.updateProfileTextField("name", e.target.value)}
@@ -297,16 +272,10 @@ class AboutMe extends Component {
                         <tr>
                             <td><label htmlFor="last-name">Last name:</label></td>
                             <td>
-                                <span
-                                    style={{ display:!this.state.editLastName ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editLastName: true })}>{ this.props.profile.lastName }
-                                    <span className="about-me-edit-bttn">Edit</span>
-                                </span>
                                 <input
                                     id="last-name"
                                     type="text"
                                     placeholder="Last Name"
-                                    style={{ display:this.state.editLastName ? "block" : "none" }}
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.lastName }
                                     onChange={(e) => this.updateProfileTextField("lastName", e.target.value)}
@@ -317,16 +286,10 @@ class AboutMe extends Component {
                         <tr>
                             <td><label htmlFor="mood">Mood:</label></td>
                             <td>
-                                <span
-                                    style={{ display:!this.state.editMood ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editMood: true })}>{ this.props.profile.feelInMood }
-                                    <span className="about-me-edit-bttn">Edit</span>
-                                </span>
                                 <input
                                     id="mood"
                                     type="text"
                                     placeholder="Type how you feel"
-                                    style={{ display:this.state.editMood ? "block" : "none" }}
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.feelInMood }
                                     onChange={(e) => this.updateProfileTextField("mood", e.target.value)}
@@ -365,14 +328,8 @@ class AboutMe extends Component {
                         <tr>
                             <td><label htmlFor="gender">Gender:</label></td>
                             <td>
-                                <span
-                                    style={{ display:!this.state.editGender ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editGender: true })}>{ this.props.profile.gender }
-                                    <span className="about-me-edit-bttn">Edit</span>
-                                </span>
                                 <select
                                     id="gender"
-                                    style={{ display:this.state.editGender ? "block" : "none" }}
                                     className="text-input-profile-about"
                                     value={ this.props.profile.gender }
                                     onChange={(e) => this.updateProfileTextField("gender", e.target.value)}
@@ -390,14 +347,8 @@ class AboutMe extends Component {
                         <tr>
                             <td><label htmlFor="merital-status">Merial status:</label></td>
                             <td>
-                                <span
-                                    style={{ display:!this.state.editMeritalStatus ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editMeritalStatus: true })}>{ this.props.profile.meritalStatus }
-                                    <span className="about-me-edit-bttn">Edit</span>
-                                </span>
                                 <select
                                     id="merital-status"
-                                    style={{ display:this.state.editMeritalStatus ? "block" : "none" }}
                                     className="text-input-profile-about"
                                     value={ this.props.profile.meritalStatus }
                                     onChange={(e) => this.updateProfileTextField("meritalStatus", e.target.value)}
@@ -417,14 +368,8 @@ class AboutMe extends Component {
                         <tr>
                             <td><label htmlFor="looking-for">Looking for:</label></td>
                             <td>
-                                <span
-                                    style={{ display:!this.state.editLookingFor ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editLookingFor: true })}>{ this.props.profile.lookingFor }
-                                    <span className="about-me-edit-bttn">Edit</span>
-                                </span>
                                 <select
                                     id="looking-for"
-                                    style={{ display:this.state.editLookingFor ? "block" : "none" }}
                                     className="text-input-profile-about"
                                     value={ this.props.profile.lookingFor }
                                     onChange={(e) => this.updateProfileTextField("lookingFor", e.target.value)}
@@ -497,15 +442,9 @@ class AboutMe extends Component {
                         <tr>
                             <td><label htmlFor="education-degree">Education degree:</label></td>
                             <td>
-                                <span
-                                    style={{ display:!this.state.editEducationDegree ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editEducationDegree: true })}>{ this.props.profile.educationDegree }
-                                    <span className="about-me-edit-bttn">Edit</span>
-                                </span>
                                 <select
                                     id="education-degree"
                                     className="text-input-profile-about"
-                                    style={{ display:this.state.editEducationDegree ? "block" : "none" }}
                                     value={ this.props.profile.educationDegree }
                                     onChange={(e) => this.updateProfileTextField("educationDegree", e.target.value)}
                                     onBlur={ () => this.updateUserProfile("educationDegree")}>
@@ -524,16 +463,10 @@ class AboutMe extends Component {
                         <tr>
                             <td><label htmlFor="university">University:</label></td>
                             <td>
-                                <span
-                                    style={{ display:!this.state.editUniversity ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editUniversity: true })}>{ this.props.profile.university }
-                                    <span className="about-me-edit-bttn">Edit</span>
-                                </span>
                                 <input
                                     id="university"
                                     type="text"
                                     placeholder="Name of University..."
-                                    style={{ display:this.state.editUniversity ? "block" : "none" }}
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.university }
                                     onChange={(e) => this.updateProfileTextField("university", e.target.value)}
@@ -544,16 +477,10 @@ class AboutMe extends Component {
                         <tr>
                             <td><label htmlFor="work">Work:</label></td>
                             <td>
-                                <span
-                                    style={{ display:!this.state.editWork ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editWork: true })}>{ this.props.profile.work }
-                                    <span className="about-me-edit-bttn">Edit</span>
-                                </span>
                                 <input
                                     id="work"
                                     type="text"
                                     placeholder="Work"
-                                    style={{ display:this.state.editWork ? "block" : "none" }}
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.work }
                                     onChange={(e) => this.updateProfileTextField("work", e.target.value)}
@@ -564,16 +491,10 @@ class AboutMe extends Component {
                         <tr>
                             <td><label htmlFor="biography">Few words about you and your interests:</label></td>
                             <td>
-                                <span
-                                    style={{ display:!this.state.editBiography ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editBiography: true })}>{ this.props.profile.biographyAndInterests }
-                                    <span className="about-me-edit-bttn">Edit</span>
-                                </span>
                                 <textarea
                                     id="biography"
                                     rows="4" cols="28"
                                     placeholder="Type something that describes you."
-                                    style={{ display:this.state.editBiography ? "block" : "none" }}
                                     className="text-input-profile-about"
                                     defaultValue={ this.props.profile.biographyAndInterests }
                                     onChange={(e) => this.updateProfileTextField("biography", e.target.value)}
@@ -588,29 +509,19 @@ class AboutMe extends Component {
                         <tr>
                             <td><label htmlFor="height">Height/sm:</label></td>
                             <td>
-                                <span
-                                    style={{ display:!this.state.editHeight ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editHeight: true })}>{ this.props.profile.height }
-                                    <span className="about-me-edit-bttn">Edit</span>
-                                </span>
-                                <span style={{ display:this.state.editHeight ? "block" : "none" }}>
-                                        <NumberAdjusterInput
-                                            id="height"
-                                            numberInput={ this.props.profile.height }
-                                            numberResult={ (value) => this.updateProfileTextField("height", value) }
-                                        />
+                                <span>
+                                    <NumberAdjusterInput
+                                        id="height"
+                                        numberInput={ this.props.profile.height }
+                                        numberResult={ (value) => this.updateProfileTextField("height", value) }
+                                    />
                                 </span>
                             </td>
                         </tr>
                         <tr>
                             <td><label htmlFor="weight">Weight/kg:</label></td>
                             <td>
-                                <span
-                                    style={{ display:!this.state.editWeight ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editWeight: true })}>{ this.props.profile.weight }
-                                    <span className="about-me-edit-bttn">Edit</span>
-                                </span>
-                                <span style={{ display:this.state.editWeight ? "block" : "none" }}>
+                                <span>
                                     <NumberAdjusterInput
                                         id="weight"
                                         numberInput={ this.props.profile.weight }
@@ -622,14 +533,8 @@ class AboutMe extends Component {
                         <tr>
                             <td><label htmlFor="figure">Figure:&nbsp;</label></td>
                             <td>
-                                <span
-                                    style={{ display:!this.state.editFigure ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editFigure: true })}>{ this.props.profile.figure }
-                                    <span className="about-me-edit-bttn">Edit</span>
-                                </span>
                                 <select
                                     id="figure"
-                                    style={{ display:this.state.editFigure ? "block" : "none" }}
                                     className="text-input-profile-about"
                                     value={ this.props.profile.figure }
                                     onChange={(e) => this.updateProfileTextField("figure", e.target.value)}
@@ -706,14 +611,8 @@ class AboutMe extends Component {
                                     ?   <tr>
                                             <td><label htmlFor="how-often-do-port">How often do sport:&nbsp;</label></td>
                                             <td>
-                                                <span
-                                                    style={{ display:!this.state.editHowOftenDoSport ? "block" : "none" }}
-                                                    onClick={ () => this.setState({ editHowOftenDoSport: true })}>{ this.props.profile.howOftenDoSport }
-                                                    <span className="about-me-edit-bttn">Edit</span>
-                                                </span>
                                                 <select
                                                     id="how-often-do-port"
-                                                    style={{ display:this.state.editHowOftenDoSport ? "block" : "none" }}
                                                     className="text-input-profile-about"
                                                     value={ this.props.profile.howOftenDoSport }
                                                     onChange={(e) => this.updateProfileTextField("howOftenDoSport", e.target.value)}
@@ -737,14 +636,8 @@ class AboutMe extends Component {
                                     ?   <tr>
                                             <td><label htmlFor="how-often-drin-alcohol">How often Drink:&nbsp;</label></td>
                                             <td>
-                                                <span
-                                                    style={{ display:!this.state.editHowOftenDrinkAlcohol ? "block" : "none" }}
-                                                    onClick={ () => this.setState({ editHowOftenDrinkAlcohol: true })}>{ this.props.profile.howOftenDrinkAlcohol }
-                                                    <span className="about-me-edit-bttn">Edit</span>
-                                                </span>
                                                 <select
                                                     id="how-often-drin-alcohol"
-                                                    style={{ display:this.state.editHowOftenDrinkAlcohol ? "block" : "none" }}
                                                     className="text-input-profile-about"
                                                     value={ this.props.profile.howOftenDrinkAlcohol }
                                                     onChange={(e) => this.updateProfileTextField("howOftenDrinkAlcohol", e.target.value)}
@@ -769,14 +662,8 @@ class AboutMe extends Component {
                                     ?   <tr>
                                             <td><label htmlFor="how-often-smoke">How often smoke:&nbsp;</label></td>
                                             <td>
-                                                <span
-                                                    style={{ display:!this.state.editHowOftenSmoke ? "block" : "none" }}
-                                                    onClick={ () => this.setState({ editHowOftenSmoke: true })}>{ this.props.profile.howOftenSmoke }
-                                                    <span className="about-me-edit-bttn">Edit</span>
-                                                </span>
                                                 <select
                                                     id="how-often-smoke"
-                                                    style={{ display:this.state.editHowOftenSmoke ? "block" : "none" }}
                                                     className="text-input-profile-about"
                                                     defaultValue={ this.props.profile.howOftenSmoke }
                                                     onChange={(e) => this.updateProfileTextField("howOftenSmoke", e.target.value)}

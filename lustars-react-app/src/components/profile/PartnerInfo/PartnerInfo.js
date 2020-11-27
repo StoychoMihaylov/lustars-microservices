@@ -140,12 +140,7 @@ class PartnerInfo extends Component {
                         <tr>
                             <td><label htmlFor="partner-age-range-from" >Age range from:</label></td>
                             <td>
-                                <span
-                                    style={{ display:!this.state.editPartnerAgeRangeFrom ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editPartnerAgeRangeFrom: true })}>{ this.props.profile.partnerAgeRangeFrom }
-                                    <span className="partner-info-edit-bttn">Edit</span>
-                                </span>
-                                <span style={{ display:this.state.editPartnerAgeRangeFrom ? "block" : "none" }}>
+                                <span>
                                         <NumberAdjusterInput
                                             id="partner-age-range-from"
                                             numberInput={ this.props.profile.partnerAgeRangeFrom }
@@ -157,12 +152,7 @@ class PartnerInfo extends Component {
                         <tr>
                             <td><label htmlFor="partner-age-range-to">Age range to:</label></td>
                             <td>
-                                <span
-                                    style={{ display:!this.state.editPartnerAgeRangeTo ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editPartnerAgeRangeTo: true })}>{ this.props.profile.partnerAgeRangeTo }
-                                    <span className="partner-info-edit-bttn">Edit</span>
-                                </span>
-                                <span style={{ display:this.state.editPartnerAgeRangeTo ? "block" : "none" }}>
+                                <span>
                                     <NumberAdjusterInput
                                         id="partner-age-range-to"
                                         numberInput={ this.props.profile.partnerAgeRangeTo }
@@ -174,14 +164,8 @@ class PartnerInfo extends Component {
                         <tr>
                             <td><label htmlFor="partner-figure">Figure:</label></td>
                             <td>
-                                <span
-                                    style={{ display:!this.state.editPartnerFigure ? "block" : "none" }}
-                                    onClick={ () => this.setState({ editPartnerFigure: true })}>{ this.props.profile.partnerFigure }
-                                    <span className="partner-info-edit-bttn">Edit</span>
-                                </span>
                                 <select
                                     id="partner-figure"
-                                    style={{ display:this.state.editPartnerFigure ? "block" : "none" }}
                                     className="text-input-profile-about"
                                     value={ this.props.profile.partnerFigure }
                                     onChange={(e) => this.updateProfileTextField("partnerFigure", e.target.value)}
