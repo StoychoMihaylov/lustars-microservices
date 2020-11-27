@@ -8,6 +8,11 @@
     border-radius: 5px;
     border: 1px solid lightgrey;
     border: none;
+    background-color: transparent;
+}
+
+.text-input-profile-about:focus {
+    background-color: lightgrey;
 }
 
 .text-input-profile-about:hover {
@@ -49,12 +54,4 @@
     border-radius: 20px;
     padding: 15px;
     background-color: rgb(245,245,245);
-}
-
-.about-me-edit-bttn {
-    cursor: pointer;
-    padding: 5px;
-    float: right;
-    border-radius: 5px;
-    background-color: lightblue;
 }

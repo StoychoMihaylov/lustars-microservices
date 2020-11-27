@@ -199,14 +199,8 @@ class ProfileInfo extends Component {
                             <tr>
                                 <td><label htmlFor="from-country">From Country:</label></td>
                                 <td>
-                                    <span
-                                        style={{ display:!this.state.editCountry ? "block" : "none" }}
-                                        onClick={ () => this.setState({ editCountry: true })}>{ this.props.profile.fromCountry }
-                                        <span className="profile-info-edit-bttn">Edit</span>
-                                    </span>
                                     <select
                                         id="from-country"
-                                        style={{ display:this.state.editCountry ? "block" : "none" }}
                                         className="text-input-profile-about"
                                         value={ this.props.profile.fromCountry }
                                         onChange={(e) => this.updateProfileTextField("country", e.target.value)}
@@ -223,14 +217,8 @@ class ProfileInfo extends Component {
                             <tr>
                             <td><label htmlFor="from-city">From City:</label></td>
                                 <td>
-                                    <span
-                                        style={{ display:!this.state.editCity ? "block" : "none" }}
-                                        onClick={ () => this.setState({ editCity: true })}>{ this.props.profile.fromCity }
-                                        <span className="profile-info-edit-bttn">Edit</span>
-                                    </span>
                                     <select
                                         id="from-city"
-                                        style={{ display:this.state.editCity ? "block" : "none" }}
                                         className="text-input-profile-about"
                                         value={ this.props.profile.fromCity }
                                         onChange={(e) => this.updateProfileTextField("city", e.target.value)}

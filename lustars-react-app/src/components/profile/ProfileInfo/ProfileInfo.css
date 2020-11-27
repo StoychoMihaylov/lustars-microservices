@@ -39,11 +39,3 @@
 .location-refresh-btn:active {
     color: rgba(255, 0, 102);
 }
-
-.profile-info-edit-bttn {
-    cursor: pointer;
-    padding: 5px;
-    float: right;
-    border-radius: 5px;
-    background-color: lightblue;
-}
