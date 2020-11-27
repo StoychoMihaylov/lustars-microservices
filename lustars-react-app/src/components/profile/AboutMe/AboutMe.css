@@ -50,3 +50,11 @@
     padding: 15px;
     background-color: rgb(245,245,245);
 }
+
+.about-me-edit-bttn {
+    cursor: pointer;
+    padding: 5px;
+    float: right;
+    border-radius: 5px;
+    background-color: lightblue;
+}

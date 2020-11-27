@@ -4,9 +4,9 @@ import { NotificationManager } from 'react-notifications'
 import { updateUserProfileTextField, editMyUserProfileDetails } from '../../../store/actions/myProfileActions'
 import YesNoInputField from '../../common/YesNoInput/YesNoInputField'
 import NumberAdjusterInput from '../../common/NumberAdjusterInput/NumberAdjusterInput'
-import './MyProfilePartnerInfo.css'
+import './PartnerInfo.css'
 
-class MyProfilePartnerInfo extends Component {
+class PartnerInfo extends Component {
     constructor(props) {
         super(props)
 
@@ -143,6 +143,7 @@ class MyProfilePartnerInfo extends Component {
                                 <span
                                     style={{ display:!this.state.editPartnerAgeRangeFrom ? "block" : "none" }}
                                     onClick={ () => this.setState({ editPartnerAgeRangeFrom: true })}>{ this.props.profile.partnerAgeRangeFrom }
+                                    <span className="partner-info-edit-bttn">Edit</span>
                                 </span>
                                 <span style={{ display:this.state.editPartnerAgeRangeFrom ? "block" : "none" }}>
                                         <NumberAdjusterInput
@@ -159,6 +160,7 @@ class MyProfilePartnerInfo extends Component {
                                 <span
                                     style={{ display:!this.state.editPartnerAgeRangeTo ? "block" : "none" }}
                                     onClick={ () => this.setState({ editPartnerAgeRangeTo: true })}>{ this.props.profile.partnerAgeRangeTo }
+                                    <span className="partner-info-edit-bttn">Edit</span>
                                 </span>
                                 <span style={{ display:this.state.editPartnerAgeRangeTo ? "block" : "none" }}>
                                     <NumberAdjusterInput
@@ -175,6 +177,7 @@ class MyProfilePartnerInfo extends Component {
                                 <span
                                     style={{ display:!this.state.editPartnerFigure ? "block" : "none" }}
                                     onClick={ () => this.setState({ editPartnerFigure: true })}>{ this.props.profile.partnerFigure }
+                                    <span className="partner-info-edit-bttn">Edit</span>
                                 </span>
                                 <select
                                     id="partner-figure"
@@ -254,4 +257,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(MyProfilePartnerInfo)
+export default connect(null, mapDispatchToProps)(PartnerInfo)

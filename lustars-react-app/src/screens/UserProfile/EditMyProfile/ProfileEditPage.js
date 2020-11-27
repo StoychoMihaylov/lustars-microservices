@@ -1,15 +1,15 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { push, goBack } from "connected-react-router"
-import MyProfileMainSettings from '../../../components/profile/AvatarInfo/MyProfileMainSettings'
-import MyProfileAboutMe from '../../../components/profile/AboutMe/MyProfileAboutMe'
-import MyProfilePartnerInfo from '../../../components/profile/PartnerInfo/MyProfilePartnerInfo'
+import ProfileInfo from '../../../components/profile/ProfileInfo/ProfileInfo'
+import AboutMe from '../../../components/profile/AboutMe/AboutMe'
+import PartnerInfo from '../../../components/profile/PartnerInfo/PartnerInfo'
 import MyProfileImagesContainer from '../../../components/profile/ImagesContainer/MyProfileImagesContainer'
 import MyProfileLustarsQuestions from '../../../components/profile/LustarsQuestions/MyProfileLustarsQuestions'
 import { getMyUserProfileDetails } from '../../../store/actions/myProfileActions'
-import './MyProfileEditPage.css'
+import './ProfileEditPage.css'
 
-class MyProfileEditPage extends Component {
+class ProfileEditPage extends Component {
     constructor(props) {
         super(props)
 
@@ -29,7 +29,7 @@ class MyProfileEditPage extends Component {
                 <div className="user-profile-container">
 
                     <div className="profile-settings">
-                        <MyProfileMainSettings profile={ isProfileDifined !== undefined ? this.props.profile : undefined } />
+                        <ProfileInfo profile={ isProfileDifined !== undefined ? this.props.profile : undefined } />
                         <br/>
                         <br/>
                         <MyProfileImagesContainer
@@ -40,12 +40,12 @@ class MyProfileEditPage extends Component {
                     </div>
 
                     <div className="user-profile-info-details">
-                        <MyProfileAboutMe
+                        <AboutMe
                             profile={ isProfileDifined !== undefined ? this.props.profile : undefined }
                         />
                         <br/>
                         <br/>
-                        <MyProfilePartnerInfo
+                        <PartnerInfo
                             profile={ isProfileDifined !== undefined ? this.props.profile : undefined }
                         />
                     </div>
@@ -74,4 +74,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyProfileEditPage)
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileEditPage)
