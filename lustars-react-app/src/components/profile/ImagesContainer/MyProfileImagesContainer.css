@@ -99,6 +99,9 @@
 
 .user-profile-images-container {
     padding-left: 30px;
+    border-radius: 20px;
+    padding: 15px;
+    background-color: rgb(245,245,245);
 }
 
 .user-profile-image-container {

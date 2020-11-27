@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import { connect } from "react-redux"
 import { Form } from 'reactstrap'
 import { NotificationManager} from 'react-notifications'
@@ -6,7 +6,7 @@ import { api } from '../../../constants/endpoints'
 import { uploadUserProfileImage, deleteUserProfileImage, getMyUserProfileDetails } from '../../../store/actions/myProfileActions'
 import './MyProfileImagesContainer.css'
 
-class MyProfileImagesContainer extends Component {
+class MyProfileImagesContainer extends React.PureComponent {
     constructor(props) {
         super(props)
 

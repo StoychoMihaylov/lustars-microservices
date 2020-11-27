@@ -27,7 +27,8 @@ class MyProfileEditPage extends Component {
         return (
             <div className="profile-edit-page">
                 <div className="user-profile-container">
-                    <div className="profile-main-settings">
+
+                    <div className="profile-settings">
                         <MyProfileMainSettings profile={ isProfileDifined !== undefined ? this.props.profile : undefined } />
                         <br/>
                         <br/>
@@ -48,6 +49,7 @@ class MyProfileEditPage extends Component {
                             profile={ isProfileDifined !== undefined ? this.props.profile : undefined }
                         />
                     </div>
+
                 </div>
             </div>
         )

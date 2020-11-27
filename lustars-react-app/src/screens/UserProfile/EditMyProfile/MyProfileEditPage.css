@@ -1,10 +1,10 @@
 .profile-edit-page {
-    background-color: rgb(245,245,245);
+    /* background-color: rgb(245,245,245); */
     padding-top: 60px;
     padding-bottom: 50px;
 }
 
-.profile-main-settings {
+.profile-settings {
     width: 400px;
     margin: 20px;
     vertical-align:top;

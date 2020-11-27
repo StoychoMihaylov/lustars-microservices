@@ -129,7 +129,7 @@ class MyProfilePartnerInfo extends Component {
 
     render() {
         return(
-            <div>
+            <div className="profile-partner-info-container">
                 <h2>Partner info</h2>
                 <table className="profile-partner-info-table">
                     <tbody>

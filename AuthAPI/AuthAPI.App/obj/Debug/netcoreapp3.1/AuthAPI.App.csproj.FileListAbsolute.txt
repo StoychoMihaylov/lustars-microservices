@@ -61,7 +61,6 @@ C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\obj\Debug\netco
 C:\Users\stmih\Desktop\lustars-microservices\AuthAPI\AuthAPI.App\obj\Debug\netcoreapp3.1\AuthAPI.App.pdb
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\AuthAPI.App.exe
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\AuthAPI.App.deps.json
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\AuthAPI.App.runtimeconfig.json
@@ -133,3 +132,6 @@ C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\AuthAPI.Messaging.dll
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\bin\Debug\netcoreapp3.1\AuthAPI.Messaging.pdb
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\obj\Debug\netcoreapp3.1\AuthAPI.App.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\obj\Debug\netcoreapp3.1\AuthAPI.App.csproj.CoreCompileInputs.cache
+C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\obj\Debug\netcoreapp3.1\scopedcss\bundle\AuthAPI.App.styles.css
+C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.App\obj\Debug\netcoreapp3.1\AuthAPI.App.genruntimeconfig.cache
