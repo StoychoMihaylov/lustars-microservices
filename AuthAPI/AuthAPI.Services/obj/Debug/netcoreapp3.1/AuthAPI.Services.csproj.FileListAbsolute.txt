@@ -24,3 +24,4 @@ C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.Services\obj\D
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.Services\obj\Debug\netcoreapp3.1\AuthAPI.Services.csproj.CopyComplete
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.Services\obj\Debug\netcoreapp3.1\AuthAPI.Services.dll
 C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.Services\obj\Debug\netcoreapp3.1\AuthAPI.Services.pdb
+C:\Users\stmih\source\repos\lustars-microservices\AuthAPI\AuthAPI.Services\obj\Debug\netcoreapp3.1\AuthAPI.Services.csproj.CoreCompileInputs.cache

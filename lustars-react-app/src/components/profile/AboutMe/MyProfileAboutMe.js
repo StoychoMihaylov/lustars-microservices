@@ -251,7 +251,7 @@ class MyProfileAboutMe extends Component {
                 newState.howOftenSmoke = value
                 this.props.updateUserProfileTextField(newState)
                 return
-                
+
             default:
                 return
         }
@@ -300,7 +300,7 @@ class MyProfileAboutMe extends Component {
 
     render() {
         return(
-            <div>
+            <div className="profile-aboutme-container">
                 <h2>About me</h2>
                 <table className="profile-about-me-table">
                     <tbody>
