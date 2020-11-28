@@ -8,6 +8,7 @@ import AccountRegistrationPage from './screens/Account/Registration/AccountRegis
 import AccountLoginPage from './screens/Account/Login/AccountLoginPage'
 import PeopleNearbyPage from './screens/UserProfile/NearBy/PeopleNearbyPage'
 import ProfileDetailsPage from './screens/UserProfile/Profile/ProfileDetailsPage'
+import WhoMatchedMe from './screens/UserProfile/Matches/WhoMatchedMe'
 import WhoLikedMePage from './screens/UserProfile/WhoLikedMe/WhoLikedMePage'
 import MyProfileVisitors from './screens/UserProfile/Visitors/MyProfileVisitors'
 import NotificationService from './components/common/NotificationService/NotificationService'
@@ -37,6 +38,7 @@ export default () => (
       <PrivateRoute exact path='/my-profile' component={ ProfileEditPage } />
       <PrivateRoute exact path='/people-nearby' component={ PeopleNearbyPage } />
       <PrivateRoute exact path='/profile/:id' component={ ProfileDetailsPage } />
+      <PrivateRoute exact path='/who-matched-me' component={ WhoMatchedMe } />
       <PrivateRoute exact path='/who-liked-me' component={ WhoLikedMePage } />
       <PrivateRoute exact path='/who-visited-me' component={ MyProfileVisitors } />
     </Layout>

@@ -4,7 +4,7 @@ import { push, goBack } from "connected-react-router"
 import FormAccountLogout from '../../../authentication/Logout/FormAccountLogout'
 import './NavMenu.css'
 
-class NavMenu extends React.Component {
+class NavMenu extends React.PureComponent {
 
   render () {
 
@@ -18,35 +18,35 @@ class NavMenu extends React.Component {
         <li>
           <div className="navbar-nav-attribute">
             <button onClick={() => this.props.push('/people-nearby') } className="cursor-pointer navbar-link">
-              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/nearby.PNG'} alt="" /></span> People nearby
+              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/nearby.PNG'} alt="" /></span> {/* People nearby */}
             </button>
           </div>
         </li>
         <li>
           <div className="navbar-nav-attribute">
             <button onClick={() => this.props.push('/people-nearby') } className="cursor-pointer navbar-link">
-              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/messages.PNG'} alt="" /></span> Messages
+              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/messages.PNG'} alt="" /></span> {/* Messages */}
             </button>
           </div>
         </li>
         <li>
           <div className="navbar-nav-attribute">
-            <button onClick={() => this.props.push('/people-nearby') } className="cursor-pointer navbar-link">
-              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/matched.PNG'} alt="" /></span>  Matched
+            <button onClick={() => this.props.push('/who-matched-me') } className="cursor-pointer navbar-link">
+              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/matched.PNG'} alt="" /></span>  {/* Matched */}
             </button>
           </div>
         </li>
         <li>
           <div className="navbar-nav-attribute">
             <button onClick={() => this.props.push('/who-liked-me') } className="cursor-pointer navbar-link">
-              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/likes.PNG'} alt="" /></span> Liked you
+              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/likes.PNG'} alt="" /></span> {/* Liked you */}
             </button>
           </div>
         </li>
         <li>
           <div className="navbar-nav-attribute">
             <button onClick={() => this.props.push('/who-visited-me') } className="cursor-pointer navbar-link">
-              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/visitors.PNG'} alt="" /></span> Visitors
+              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/visitors.PNG'} alt="" /></span> {/* Visitors */}
             </button>
           </div>
         </li>
