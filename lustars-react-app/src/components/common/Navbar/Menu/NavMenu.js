@@ -24,8 +24,8 @@ class NavMenu extends React.PureComponent {
         </li>
         <li>
           <div className="navbar-nav-attribute">
-            <button onClick={() => this.props.push('/people-nearby') } className="cursor-pointer navbar-link">
-              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/messages.PNG'} alt="" /></span> {/* Messages */}
+            <button onClick={() => this.props.push('/messages') } className="cursor-pointer navbar-link">
+              <span><img className="navbar-menu-icons" src={process.env.PUBLIC_URL + '/messages.PNG'} alt="" /></span> {/* Messages/Chat */}
             </button>
           </div>
         </li>
