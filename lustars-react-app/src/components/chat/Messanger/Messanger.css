@@ -1,0 +1,116 @@
+.messanger-scroll-bar-container {
+    height: 700px;
+    width: 650px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.messanger-message-scroll-bar {
+    display: flex;
+    height: 602px;
+}
+
+.messanger-text-typing-area {
+    width: 100%;
+    padding: 20px;
+    align-self: flex-end;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+}
+
+#input-typer {
+    width: 600px;
+    border-radius: 10px;
+    border-color: transparent;
+    background-color: lightgray;
+}
+
+.messanger-messages-container-box {
+    height: 627px;
+    width: 650px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    overflow: auto;
+    border-bottom: none;
+}
+
+/* my message */
+.messanger-my-message {
+    width: 70%;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+    background: aqua;
+    text-align: right;
+    min-width: 45%;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    float: right;
+    right: 20px;
+}
+
+.messanger-my-message::before {
+    content: '';
+    position: absolute;
+    visibility: visible;
+    top: -1px;
+    right: -10px;
+    border: 10px solid transparent;
+    border-top: 10px solid #ccc;
+}
+
+.messanger-my-message::after {
+    content: '';
+    position: absolute;
+    visibility: visible;
+    top: 0px;
+    right: -8px;
+    border: 10px solid transparent;
+    border-top: 10px solid aqua;
+    clear: both;
+}
+
+/*---------------------------------*/
+
+
+.messanger-collocutor-message {
+    width: 70%;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 30px;
+    position: relative;
+    background: blue;
+    text-align: left;
+    min-width: 45%;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    float: left;
+    right: 20px;
+    color: white;
+}
+
+.messanger-collocutor-message::before {
+    content: '';
+    position: absolute;
+    visibility: visible;
+    top: -1px;
+    right: -10px;
+    border: 10px solid transparent;
+    border-top: 10px solid #ccc;
+}
+
+.messanger-collocutor-message::after {
+    content: '';
+    position: absolute;
+    visibility: visible;
+    top: 0px;
+    right: -8px;
+    border: 10px solid transparent;
+    border-top: 10px solid blue;
+    clear: both;
+}
