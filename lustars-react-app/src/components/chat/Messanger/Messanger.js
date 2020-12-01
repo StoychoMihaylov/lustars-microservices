@@ -5,6 +5,12 @@ class Messanger extends React.PureComponent {
     render() {
         return (
             <div className="messanger-scroll-bar-container">
+
+                 <div className="messinger-active-conversation">
+                    <img src="https://placeimg.com/50/50/people?1" className="conversation-profile-img" />
+                    <span className="conversation-profile-name">Pesho</span>
+                </div>
+                
                 <div className= "messanger-message-scroll-bar">
                     <div className="messanger-messages-container-box">
                         <div className="messanger-my-message">
@@ -44,7 +50,8 @@ class Messanger extends React.PureComponent {
                 </div>
                 <br/>
                 <div className="messanger-text-typing-area" >
-                    <input id="input-typer" />
+                    <textarea id="input-typer" rows="1"/>
+                    <span id="messanger-message-send-bttn" >Send</span>
                 </div>
             </div>
         )

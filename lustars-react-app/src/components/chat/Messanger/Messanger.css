@@ -6,31 +6,54 @@
     overflow: hidden;
 }
 
+.messinger-active-conversation {
+    height: 70px;
+    padding: 10px;
+    width: 100%;
+    border: solid 1px #ccc;
+    border-radius: 5px 0px px 5px;
+}
+
 .messanger-message-scroll-bar {
     display: flex;
-    height: 602px;
+    height: 525px;
 }
 
 .messanger-text-typing-area {
     width: 100%;
     padding: 20px;
     align-self: flex-end;
-    border: solid 1px #ccc;
     border-radius: 5px;
+    border: 1px solid #ccc;
+    border-top: none;
 }
 
 #input-typer {
-    width: 600px;
-    border-radius: 10px;
+    width: 550px;
+    padding: 2px;
+    resize: none;
+    border-radius: 5px 0px 0px 5px;
     border-color: transparent;
     background-color: lightgray;
 }
 
+#messanger-message-send-bttn {
+    padding: 28px 5px 0px 5px;
+    border-radius: 0px 5px 5px 0px;
+    border: none;
+    background-color: rgb(255, 0, 102);
+    color: white;
+    cursor: pointer;
+}
+
+#messanger-message-send-bttn:hover {
+    border: 1px solid rgb(69, 163, 194);
+}
+
 .messanger-messages-container-box {
-    height: 627px;
+    height: 555px;
     width: 650px;
     border: solid 1px #ccc;
-    border-radius: 5px;
     overflow: auto;
     border-bottom: none;
 }
@@ -42,7 +65,7 @@
     padding: 10px;
     margin: 10px;
     position: relative;
-    background: aqua;
+    background: rgb(69, 163, 194);
     text-align: right;
     min-width: 45%;
     padding: 10px 15px;
@@ -69,7 +92,7 @@
     top: 0px;
     right: -8px;
     border: 10px solid transparent;
-    border-top: 10px solid aqua;
+    border-top: 10px solid rgb(69, 163, 194);
     clear: both;
 }
 
@@ -83,7 +106,7 @@
     margin: 10px;
     margin-left: 30px;
     position: relative;
-    background: blue;
+    background: rgb(163, 162, 162);
     text-align: left;
     min-width: 45%;
     padding: 10px 15px;
@@ -91,7 +114,6 @@
     border: 1px solid #ccc;
     float: left;
     right: 20px;
-    color: white;
 }
 
 .messanger-collocutor-message::before {
@@ -111,6 +133,6 @@
     top: 0px;
     right: -8px;
     border: 10px solid transparent;
-    border-top: 10px solid blue;
+    border-top: 10px solid rgb(163, 162, 162);
     clear: both;
 }

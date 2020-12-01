@@ -26,9 +26,14 @@
 }
 
 .individual-conversation-box {
+    cursor: pointer;
     padding: 20px;
     display: flex;
     border-bottom: solid 1px #ccc;
+}
+
+.individual-conversation-box:hover {
+    background-color: lightblue;
 }
 
 .conversation-profile-name {
