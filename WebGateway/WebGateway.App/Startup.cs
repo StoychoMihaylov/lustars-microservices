@@ -1,5 +1,7 @@
 namespace WebGateway.App
 {
+    using System;
+    using WebGateway.App.Hubs.Web;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using WebGateway.App.Infrastructure;
@@ -19,8 +21,10 @@ namespace WebGateway.App
             services.AddCorsPolicy(apiCorsPolicy);
             services.AddDependancyInjectionResolver(); // DI
             services.AddMassTransitServiceBus(); // MassTransite Configuration
+            services.AddSignalR(s => s.EnableDetailedErrors = true);
         }
 
+        [Obsolete]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors(apiCorsPolicy);
@@ -30,6 +34,7 @@ namespace WebGateway.App
             app.UseControllerEndpoints();
             app.UseExceptionHandling(env);
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseSignalR(routes => routes.MapHub<ChatHub>("/hubs/chat-messanger")); // Obsolete
         }
     }
 }
