@@ -27,7 +27,14 @@ namespace WebGateway.App
         [Obsolete]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseCors(apiCorsPolicy);
+            app.UseCors(builder =>
+            {
+                builder.WithOrigins("http://localhost:3001")
+                    .AllowAnyHeader()
+                    .WithMethods("GET", "POST")
+                    .AllowCredentials();
+            });
+            app.UseCors(apiCorsPolicy);   
             app.UseRouting();
             app.UseOpenApi(); // Swagger
             app.UseSwaggerUi3(); // Swagger

@@ -45,6 +45,27 @@ import { NotificationManager} from 'react-notifications'
 import { api } from '../../constants/endpoints'
 import axios from 'axios'
 
+//************************** Chech if both users like each other ****************
+
+export function checkIfBothUserLikeEachOther(id) {
+    let url = "users-like-each-other" + (id !== "" ? `?ID=${id}` : "")
+
+    return () => {
+        axios.get(api.domain + url, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+        .then(response => {
+            return response.data
+        })
+        .catch(err => {
+            NotificationManager.error('Connection problem...', '', 3000)
+        })
+    }
+}
+
 //*************************** Get my profile visitors ***************************
 
 export function getMyProfileVisitors() {

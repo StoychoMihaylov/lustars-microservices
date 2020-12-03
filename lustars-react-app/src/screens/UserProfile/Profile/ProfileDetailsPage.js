@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
 import { api } from '../../../constants/endpoints'
-import { getSomeUserProfileDetailsById, likeUserProfile } from '../../../store/actions/myProfileActions'
+import {
+    getSomeUserProfileDetailsById,
+    likeUserProfile,
+    checkIfBothUserLikeEachOther
+} from '../../../store/actions/myProfileActions'
 import { NotificationManager } from 'react-notifications'
 import ImageSlider from '../../../components/common/ImageSlider/ImageSlider'
 import './ProfileDetailsPage.css'
@@ -51,6 +55,14 @@ class ProfileDetailsPage extends Component {
         }
     }
 
+    startChatConversation() {
+        if(checkIfBothUserLikeEachOther(this.props.match.params.id)) {
+            // Open chat connection and move to the chat page
+            console.log("USERS LIKE EACH OTHER")
+        } else {
+            console.log("USERS DONT LIKE EACH OTHER")
+        }
+    }
 
     //Calculate how many images to show
     adjustHowManyImagesToShow() {
@@ -142,7 +154,12 @@ class ProfileDetailsPage extends Component {
                             disabled={ profile.disableLikeButton }
                             onClick={ this.likeThisUserProfile.bind(this) }>&#10084;
                         </button>
-                        <button className="profile-details-start-chating-bttn" ><span className="chat-box-icon">💬</span></button>
+                        <button
+                            className="profile-details-start-chating-bttn"
+                            onClick={ () => this.startChatConversation() }
+                            >
+                            <span className="chat-box-icon">💬</span>
+                        </button>
                     </div>
                 </div>
                 <hr/>
@@ -359,6 +376,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getSomeUserProfileDetailsById: (id) => dispatch(getSomeUserProfileDetailsById(id)),
+        checkIfBothUserLikeEachOther: (id) => dispatch(checkIfBothUserLikeEachOther(id)),
         likeUserProfile: (id) => dispatch(likeUserProfile(id))
     }
 }
