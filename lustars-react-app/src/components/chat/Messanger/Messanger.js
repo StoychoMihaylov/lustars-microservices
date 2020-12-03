@@ -1,7 +1,13 @@
 import React from 'react'
+import { startConversationConnection } from './SignalRChatConnection'
 import './Messanger.css'
 
 class Messanger extends React.PureComponent {
+
+    componentDidMount() {
+        startConversationConnection()
+    }
+
     render() {
         return (
             <div className="messanger-scroll-bar-container">
@@ -10,7 +16,7 @@ class Messanger extends React.PureComponent {
                     <img src="https://placeimg.com/50/50/people?1" className="conversation-profile-img" />
                     <span className="conversation-profile-name">Pesho</span>
                 </div>
-                
+
                 <div className= "messanger-message-scroll-bar">
                     <div className="messanger-messages-container-box">
                         <div className="messanger-my-message">
