@@ -17,7 +17,9 @@
 
         DbSet<Like> Likes { get; set; }
 
-        public DbSet<ProfileVisitor> ProfileVisitor { get; set; }
+        DbSet<ProfileVisitor> ProfileVisitor { get; set; }
+
+        DbSet<ChatConversation> ChatConversations { get; set; }
 
         int SaveChanges();
 

@@ -415,7 +415,7 @@
         {
             var userToLike = this.Context
                 .UserProfiles
-                .Include(u => u.Likes)
+                //.Include(u => u.Likes)
                 .Where(u => u.Id == like.LikeTo)
                 .FirstOrDefault();
 
@@ -430,7 +430,7 @@
 
             var currentUser = this.Context
                 .UserProfiles
-                .Include(u => u.WhoILiked)
+                //.Include(u => u.WhoILiked)
                 .Where(u => u.Id == like.LikeFrom)
                 .FirstOrDefault();
 
@@ -528,6 +528,54 @@
             }
 
             return visitors;
+        }
+
+        public bool CheckIfUsersLikeEachOther(ChatConversationBindingModel bm)
+        {
+            var doTheyLikeEachOther = this.Context
+                .Likes
+                .Where(like => 
+                    (like.LikeFromId == bm.CurrentUserID && like.LikeToId == bm.UserToStartConversationWithID) && 
+                    (like.LikeFromId == bm.UserToStartConversationWithID && like.LikeToId == bm.CurrentUserID)
+                ).FirstOrDefault();
+
+            if (doTheyLikeEachOther != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public void CreateChatConversation(ChatConversationBindingModel bm)
+        {
+            var invitedUser = this.Context
+                .UserProfiles
+                //.Include(u => u.ChatIvitations)
+                .Where(u => u.Id == bm.UserToStartConversationWithID)
+                .FirstOrDefault();
+
+            if (invitedUser == null) 
+                throw new Exception($"Chat invitaion faild because user with id:{bm.UserToStartConversationWithID} can't be found!");
+
+            var chatConversation = new ChatConversation()
+            {
+                ChatStarterUserId = bm.CurrentUserID,
+                InvitedUserId = bm.UserToStartConversationWithID,
+                StartedOn = DateTime.UtcNow
+            };
+
+            var currentUser = this.Context
+                .UserProfiles
+                //.Include(u => u.StartedChatConversations)
+                .Where(u => u.Id == bm.CurrentUserID)
+                .FirstOrDefault();
+
+            currentUser.StartedChatConversations.Add(chatConversation);
+            invitedUser.ChatIvitations.Add(chatConversation);
+
+            this.Context.UserProfiles.UpdateRange(invitedUser, currentUser);
+            this.Context.SaveChanges();
         }
     }
 }

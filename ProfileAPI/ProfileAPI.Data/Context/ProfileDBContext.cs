@@ -20,6 +20,8 @@
 
         public DbSet<ProfileVisitor> ProfileVisitor { get; set; }
 
+        public DbSet<ChatConversation> ChatConversations { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserProfile>()
@@ -36,6 +38,23 @@
                .HasMany(u => u.Languages)
                .WithOne(l => l.UserProfile)
                .OnDelete(DeleteBehavior.SetNull);
+
+            // Many to many Profile chat conversations self relation **********
+
+            modelBuilder.Entity<ChatConversation>()
+                .HasKey(c => new { c.ChatStarterUserId, c.InvitedUserId });
+
+            modelBuilder.Entity<ChatConversation>()
+                .HasOne(c => c.UserChatStarter)
+                .WithMany(c => c.StartedChatConversations)
+                .HasForeignKey(c => c.ChatStarterUserId);
+
+            modelBuilder.Entity<ChatConversation>()
+                .HasOne(c => c.InvitedUser)
+                .WithMany(c => c.ChatIvitations)
+                .HasForeignKey(c => c.InvitedUserId);
+
+            //*****************************************************
 
             // Many to many Profile likes self relation **********
 

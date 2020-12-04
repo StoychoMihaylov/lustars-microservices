@@ -19,5 +19,7 @@
         List<UserWhoLikedMeViewModel> GetUsersWhoLikedMe(Guid id);
         List<UserProfileInDistanceViewModel> GetAllUsersInDistance(Guid guidId, int v);
         bool AddUserProfileLike(UserProfileLikeBindingModel like);
+        bool CheckIfUsersLikeEachOther(ChatConversationBindingModel bm);
+        void CreateChatConversation(ChatConversationBindingModel bm);
     }
 }
