@@ -1,5 +1,6 @@
 ﻿namespace ChatAPI.App.Infrastructure
 {
+    using System.Diagnostics;
     using ChatAPI.Data.Context;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
@@ -13,8 +14,16 @@
                 .AddEntityFrameworkNpgsql()
                 .AddDbContext<ChatDBContext>((sp, opt) =>
                 {
-                    opt.UseNpgsql(configuration.GetConnectionString("LustarsChatDB"))
-                        .UseInternalServiceProvider(sp);
+                    if (Debugger.IsAttached)
+                    {
+                        opt.UseNpgsql(configuration.GetConnectionString("LustarsChatDBDebug")) // DB connection in VS debugging
+                            .UseInternalServiceProvider(sp);
+                    }
+                    else
+                    {
+                        opt.UseNpgsql(configuration.GetConnectionString("LustarsChatDBRelease")) // DB connection in docker-compose
+                            .UseInternalServiceProvider(sp);
+                    }
                 });
 
             return services;
