@@ -41,6 +41,8 @@
         public virtual ICollection<Like> Likes { get; set; }
         public virtual ICollection<ProfileVisitor> ProfileVisits { get; set; }
         public virtual ICollection<ProfileVisitor> VisitedProfiles { get; set; }
+        public virtual ICollection<ChatConversation> StartedChatConversations { get; set; }
+        public virtual ICollection<ChatConversation> ChatIvitations { get; set; }
 
         // Social status
         public ICollection<Language> Languages { get; set; }

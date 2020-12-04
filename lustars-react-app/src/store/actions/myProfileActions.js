@@ -47,8 +47,8 @@ import axios from 'axios'
 
 //************************** Chech if both users like each other ****************
 
-export function checkIfBothUserLikeEachOther(id) {
-    let url = "users-like-each-other" + (id !== "" ? `?ID=${id}` : "")
+export function openChatIfUsersLikeEachOther(id) {
+    let url = "/chat-messanger/open-conversation" + (id !== "" ? `?ID=${id}` : "")
 
     return () => {
         axios.get(api.domain + url, {

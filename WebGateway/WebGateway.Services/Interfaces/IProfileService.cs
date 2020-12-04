@@ -16,5 +16,6 @@
         Task<string> GetAllUserInDistance(Guid guidId);
         Task<bool> CallProfileAPI_LikeUserProfileById(UserProfileLikeDTO like);
         Task<string> CallProfileAPI_GetUserProfileById(Guid currentUserId, Guid userId);
+        Task<bool> CallProfileAPI_CreateConversationIfUsersLikeEachOther(Guid currentUserId, Guid secondUserId);
     }
 }

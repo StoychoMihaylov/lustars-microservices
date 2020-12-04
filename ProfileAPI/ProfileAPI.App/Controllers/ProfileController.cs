@@ -73,19 +73,6 @@
             return StatusCode(200, allUsersInDistanceOf10km);
         }
 
-        //[HttpPost]
-        //[Route("my-user-profile/edit")]
-        //public IActionResult EditUserProfile([FromBody] EditUserProfileBindingModel bm)
-        //{
-        //    var isUpdated = this.profileService.EditUserProfile(bm);
-        //    if (!isUpdated)
-        //    {
-        //        return StatusCode(501); // Not Implemented!
-        //    }
-
-        //    return StatusCode(200); // Ok!
-        //}
-
         [HttpGet]
         [Route("my-user-profile/{userId}")]
         public IActionResult GetCurrentUserProfile(string userId)
@@ -143,6 +130,21 @@
             }
 
             return StatusCode(200); // Ok
+        }
+
+        [HttpPost]
+        [Route("open-conversation")]
+        public IActionResult CreateChatConversation(ChatConversationBindingModel bm)
+        {
+            var like = this.profileService.CheckIfUsersLikeEachOther(bm);
+            if (like)
+            {
+                this.profileService.CreateChatConversation(bm);
+
+                return StatusCode(201); // Created!
+            }
+           
+            return StatusCode(501); // Not Implemented! 
         }
     }
 }

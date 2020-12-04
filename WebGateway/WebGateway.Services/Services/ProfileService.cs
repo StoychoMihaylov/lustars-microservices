@@ -8,6 +8,7 @@
     using WebGateway.Services.Common;
     using WebGateway.Services.Endpoints;
     using WebGateway.Services.Interfaces;
+    using WebGateway.Models.BidingModels.Chat;
     using WebGateway.Models.BidingModels.UserProfile;
 
     public class ProfileService : Service, IProfileService
@@ -135,6 +136,27 @@
             else
             {
                 return null;
+            }
+        }
+
+        public async Task<bool> CallProfileAPI_CreateConversationIfUsersLikeEachOther(Guid currentUserId, Guid secondUserId)
+        {
+            var chatConversation = new ChatConversationBm()
+            {
+                CurrentUserID = currentUserId,
+                UserToStartConversationWithID = secondUserId
+            };
+
+            var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(chatConversation);
+
+            var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + $"profile/open-conversation", stringContent);
+            if (response.StatusCode == HttpStatusCode.Created)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
