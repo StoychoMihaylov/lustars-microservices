@@ -82,6 +82,17 @@ services:
       - '5004:80'
     restart: on-failure
 
+  chat-backend:
+    container_name: ${CHAT_BACKEND_NAME}
+    build:
+      context: ./${CHAT_BACKEND_NAME}
+      dockerfile: Dockerfile
+    ports:
+      - '5005:80'
+    restart: on-failure
+    depends_on:
+      - lustar-chat-database
+
 #POSTGRESQL SERVERS AND DATABASES
 
   lustar-auth-database:
@@ -91,7 +102,7 @@ services:
     environment:
       - POSTGRES_USER=${PG_AUTH_USER}
       - POSTGRES_PASSWORD=${PG_AUTH_PASSWORD}
-      - POSTGRES_DB=${PG_AUTH_DB}
+    #  - POSTGRES_DB=${PG_AUTH_DB}
     ports:
       - 5432:5432
     volumes:
@@ -104,12 +115,26 @@ services:
     environment:
       - POSTGRES_USER=${PG_PROFILE_USER}
       - POSTGRES_PASSWORD=${PG_PROFILE_PASSWORD}
-      - POSTGRES_DB=${PG_PROFILE_DB}
+    #  - POSTGRES_DB=${PG_PROFILE_DB}
     ports:
       - 5433:5432
     volumes:
      -  lustar-profile-db:/var/lib/postgresql/data
 
+  lustar-chat-database:
+    container_name: pg-chat-srv
+    image: postgres:latest
+    restart: on-failure
+    environment:
+      - POSTGRES_USER=${PG_CHAT_USER}
+      - POSTGRES_PASSWORD=${PG_CHAT_PASSWORD}
+    #  - POSTGRES_DB=${PG_CHAT_DB}
+    ports:
+      - 5434:5432
+    volumes:
+     -  lustar-chat-db:/var/lib/postgresql/data
+
 volumes:
   lustar-auth-db:
   lustar-profile-db:
+  lustar-chat-db:
