@@ -4,7 +4,12 @@ import Messanger from '../../components/chat/Messanger/Messanger'
 import './ChatPage.css'
 
 class ChatPage extends React.PureComponent {
+
+
     render() {
+        console.log('---------------------------------------------')
+        console.log(this.props.location.state.activeConversation)
+        console.log('---------------------------------------------')
         return (
             <div className="chat-page-container">
                 <h1>My messages</h1>

@@ -139,9 +139,15 @@
             var like = this.profileService.CheckIfUsersLikeEachOther(bm);
             if (like)
             {
-                this.profileService.CreateChatConversation(bm);
+                var existedConversationId = this.profileService.ChechIfConversationBetweenThoseUsersAlreadyExist(bm);
+                if (existedConversationId != null)
+                {
+                    return StatusCode(201, existedConversationId);
+                }
 
-                return StatusCode(201); // Created!
+                var conversationId = this.profileService.CreateChatConversation(bm);
+
+                return StatusCode(201, conversationId); // Created!
             }
            
             return StatusCode(501); // Not Implemented! 

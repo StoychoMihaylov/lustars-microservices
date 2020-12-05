@@ -139,7 +139,7 @@
             }
         }
 
-        public async Task<bool> CallProfileAPI_CreateConversationIfUsersLikeEachOther(Guid currentUserId, Guid secondUserId)
+        public async Task<string> CallProfileAPI_CreateConversationIfUsersLikeEachOther(Guid currentUserId, Guid secondUserId)
         {
             var chatConversation = new ChatConversationBm()
             {
@@ -152,11 +152,11 @@
             var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + $"profile/open-conversation", stringContent);
             if (response.StatusCode == HttpStatusCode.Created)
             {
-                return true;
+                return response.Content.ReadAsStringAsync().Result;
             }
             else
             {
-                return false;
+                throw null;
             }
         }
     }
