@@ -48,20 +48,20 @@ import axios from 'axios'
 //************************** Chech if both users like each other ****************
 
 export function openChatIfUsersLikeEachOther(id) {
-    let url = "/chat-messanger/open-conversation" + (id !== "" ? `?ID=${id}` : "")
+    let url = "profile/open-conversation" + (id !== "" ? `?ID=${id}` : "")
 
     return () => {
-        axios.get(api.domain + url, {
+        return axios.post(api.domain + url, {}, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('lustars_token'),
                 'Access-Control-Allow-Origin': '*'
             }
         })
         .then(response => {
-            return response.data
+            return response
         })
         .catch(err => {
-            NotificationManager.error('Connection problem...', '', 3000)
+            return err
         })
     }
 }

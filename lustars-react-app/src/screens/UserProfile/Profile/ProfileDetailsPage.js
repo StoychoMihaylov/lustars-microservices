@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
+import { push } from "connected-react-router"
 import { api } from '../../../constants/endpoints'
 import {
     getSomeUserProfileDetailsById,
     likeUserProfile,
-    checkIfBothUserLikeEachOther
+    openChatIfUsersLikeEachOther
 } from '../../../store/actions/myProfileActions'
 import { NotificationManager } from 'react-notifications'
 import ImageSlider from '../../../components/common/ImageSlider/ImageSlider'
@@ -56,12 +57,17 @@ class ProfileDetailsPage extends Component {
     }
 
     startChatConversation() {
-        if(checkIfBothUserLikeEachOther(this.props.match.params.id)) {
-            // Open chat connection and move to the chat page
-            console.log("USERS LIKE EACH OTHER")
-        } else {
-            console.log("USERS DONT LIKE EACH OTHER")
-        }
+        this.props.openChatIfUsersLikeEachOther(this.props.match.params.id)
+            .then(response => {
+                if (response.status === 201) {
+                    this.props.history.push({
+                       pathname: "/messages",
+                       state: { activeConversation: response.data}
+                    })
+                } else {
+                    NotificationManager.error('Both need to like each other to be able to start a conversation', '!', 5000)
+                }
+            })
     }
 
     //Calculate how many images to show
@@ -108,7 +114,6 @@ class ProfileDetailsPage extends Component {
     }
 
     likeThisUserProfile() {
-
         this.props.likeUserProfile(this.props.match.params.id) // Id from url
             .then((response) => {
                 if(response.status === 200) {
@@ -376,8 +381,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getSomeUserProfileDetailsById: (id) => dispatch(getSomeUserProfileDetailsById(id)),
-        checkIfBothUserLikeEachOther: (id) => dispatch(checkIfBothUserLikeEachOther(id)),
-        likeUserProfile: (id) => dispatch(likeUserProfile(id))
+        openChatIfUsersLikeEachOther: (id) => dispatch(openChatIfUsersLikeEachOther(id)),
+        likeUserProfile: (id) => dispatch(likeUserProfile(id)),
+
+        // Navigation
+        push: (url) => dispatch(push(url))
     }
 }
 

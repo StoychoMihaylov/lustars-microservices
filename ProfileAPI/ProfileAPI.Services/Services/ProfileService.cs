@@ -415,7 +415,7 @@
         {
             var userToLike = this.Context
                 .UserProfiles
-                //.Include(u => u.Likes)
+                .Include(u => u.Likes)
                 .Where(u => u.Id == like.LikeTo)
                 .FirstOrDefault();
 
@@ -430,7 +430,7 @@
 
             var currentUser = this.Context
                 .UserProfiles
-                //.Include(u => u.WhoILiked)
+                .Include(u => u.WhoILiked)
                 .Where(u => u.Id == like.LikeFrom)
                 .FirstOrDefault();
 
@@ -535,11 +535,11 @@
             var doTheyLikeEachOther = this.Context
                 .Likes
                 .Where(like => 
-                    (like.LikeFromId == bm.CurrentUserID && like.LikeToId == bm.UserToStartConversationWithID) && 
+                    (like.LikeFromId == bm.CurrentUserID && like.LikeToId == bm.UserToStartConversationWithID) ||
                     (like.LikeFromId == bm.UserToStartConversationWithID && like.LikeToId == bm.CurrentUserID)
-                ).FirstOrDefault();
+                ).ToList();
 
-            if (doTheyLikeEachOther != null)
+            if (doTheyLikeEachOther.Count == 2) // Both users like each other
             {
                 return true;
             }
@@ -547,11 +547,11 @@
             return false;
         }
 
-        public void CreateChatConversation(ChatConversationBindingModel bm)
+        public Guid CreateChatConversation(ChatConversationBindingModel bm)
         {
             var invitedUser = this.Context
                 .UserProfiles
-                //.Include(u => u.ChatIvitations)
+                .Include(u => u.ChatIvitations)
                 .Where(u => u.Id == bm.UserToStartConversationWithID)
                 .FirstOrDefault();
 
@@ -560,6 +560,7 @@
 
             var chatConversation = new ChatConversation()
             {
+                Id = Guid.NewGuid(),
                 ChatStarterUserId = bm.CurrentUserID,
                 InvitedUserId = bm.UserToStartConversationWithID,
                 StartedOn = DateTime.UtcNow
@@ -567,7 +568,7 @@
 
             var currentUser = this.Context
                 .UserProfiles
-                //.Include(u => u.StartedChatConversations)
+                .Include(u => u.StartedChatConversations)
                 .Where(u => u.Id == bm.CurrentUserID)
                 .FirstOrDefault();
 
@@ -576,6 +577,25 @@
 
             this.Context.UserProfiles.UpdateRange(invitedUser, currentUser);
             this.Context.SaveChanges();
+
+            return chatConversation.Id;
+        }
+
+        public Guid? ChechIfConversationBetweenThoseUsersAlreadyExist(ChatConversationBindingModel bm)
+        {
+            var exist = this.Context
+                    .ChatConversations
+                    .Where(chat =>
+                        (chat.ChatStarterUserId == bm.CurrentUserID && chat.InvitedUserId == bm.UserToStartConversationWithID) ||
+                        (chat.InvitedUserId == bm.CurrentUserID && chat.ChatStarterUserId == bm.UserToStartConversationWithID)
+                    ).FirstOrDefault();
+
+            if (exist != null)
+            {
+                return exist.Id;
+            }
+
+            return null;
         }
     }
 }

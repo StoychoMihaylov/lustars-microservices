@@ -3,9 +3,9 @@
     using System;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
+    using WebGateway.App.Authorization;
     using WebGateway.Services.Identity;
     using WebGateway.Services.Interfaces;
-    using Microsoft.AspNetCore.Authorization;
 
     [ApiController]
     [Route("profile")]
@@ -21,7 +21,7 @@
         [HttpPost]
         [Authorize]
         [Route("open-conversation")]
-        public async Task<IActionResult> GetAllProfileVisitors(string id)
+        public async Task<IActionResult> CreateChatConversation(string id)
         {
             var currentUserId = IdentityManager.CurrentUserId;
 
@@ -33,12 +33,12 @@
             }
 
             var isConversationCreated = await this.profileService.CallProfileAPI_CreateConversationIfUsersLikeEachOther(currentUserId, secondUserId);
-            if (!isConversationCreated)
+            if (isConversationCreated == null)
             {
                 return StatusCode(400, "The users need to have liked each other to be able to start conversation");
             }
          
-            return StatusCode(201); // Accepted
+            return StatusCode(201, isConversationCreated); // Created
         }
     }
 }
