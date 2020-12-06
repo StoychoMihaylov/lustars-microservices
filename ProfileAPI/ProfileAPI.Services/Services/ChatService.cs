@@ -85,13 +85,22 @@
             return null;
         }
 
-        public List<ChatConversation> GetAllChatConversationsForUserById(Guid id)
+        public List<ChatConversationsViewModel> GetAllChatConversationsForUserById(Guid id)
         {
-            var chatConversations = new List<ChatConversation>();
+            var chatConversations = new List<ChatConversationsViewModel>();
 
             var userStartedConversations = this.Context
                 .ChatConversations
                 .Include(chat => chat.InvitedUser)
+                .Select(chat => new ChatConversationsViewModel()
+                {
+                    Id = id,
+                    ChatStarterUserId = chat.ChatStarterUserId,
+                    InvitedUserId = chat.InvitedUserId,
+                    StartedOn = chat.StartedOn,
+                    CorresponderAvatarImage = chat.InvitedUser.AvatarImage,
+                    CorresponderNames = $"{chat.InvitedUser.Name} {chat.InvitedUser.LastName}"
+                })
                 .Where(chat =>
                     chat.ChatStarterUserId == id
                 )
@@ -104,7 +113,12 @@
                 )
                 .Select(chat => new ChatConversationsViewModel() 
                 { 
-                    UserChatStarter = chat.UserChatStarter.AvatarImage
+                    Id = id,
+                    ChatStarterUserId = chat.ChatStarterUserId,
+                    InvitedUserId = chat.InvitedUserId,
+                    StartedOn = chat.StartedOn,
+                    CorresponderAvatarImage = chat.UserChatStarter.AvatarImage,
+                    CorresponderNames = $"{chat.UserChatStarter.Name} {chat.UserChatStarter.LastName}"
                 })
                 .Where(chat =>
                     chat.InvitedUserId == id
