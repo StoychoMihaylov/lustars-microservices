@@ -131,26 +131,5 @@
 
             return StatusCode(200); // Ok
         }
-
-        [HttpPost]
-        [Route("open-conversation")]
-        public IActionResult CreateChatConversation(ChatConversationBindingModel bm)
-        {
-            var like = this.profileService.CheckIfUsersLikeEachOther(bm);
-            if (like)
-            {
-                var existedConversationId = this.profileService.ChechIfConversationBetweenThoseUsersAlreadyExist(bm);
-                if (existedConversationId != null)
-                {
-                    return StatusCode(201, existedConversationId);
-                }
-
-                var conversationId = this.profileService.CreateChatConversation(bm);
-
-                return StatusCode(201, conversationId); // Created!
-            }
-           
-            return StatusCode(501); // Not Implemented! 
-        }
     }
 }

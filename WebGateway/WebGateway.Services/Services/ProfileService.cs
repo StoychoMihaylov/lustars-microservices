@@ -138,26 +138,5 @@
                 return null;
             }
         }
-
-        public async Task<string> CallProfileAPI_CreateConversationIfUsersLikeEachOther(Guid currentUserId, Guid secondUserId)
-        {
-            var chatConversation = new ChatConversationBm()
-            {
-                CurrentUserID = currentUserId,
-                UserToStartConversationWithID = secondUserId
-            };
-
-            var stringContent = this.StringContentSerializer.SerializeObjectToStringContent(chatConversation);
-
-            var response = await this.HttpClient.PostAsync(ProfileAPIService.Endpoint + $"profile/open-conversation", stringContent);
-            if (response.StatusCode == HttpStatusCode.Created)
-            {
-                return response.Content.ReadAsStringAsync().Result;
-            }
-            else
-            {
-                throw null;
-            }
-        }
     }
 }

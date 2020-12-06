@@ -9,6 +9,8 @@
         [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public Guid Id { get; set; }
 
+        public Guid ConversationId { get; set; } // Indexed in the model builder
+
         public Guid Sender { get; set; }
 
         public Guid Recipient { get; set; }
