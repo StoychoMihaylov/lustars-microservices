@@ -2,6 +2,7 @@
 {
     using GreenPipes;
     using MassTransit;
+    using System.Diagnostics;
     using MassTransit.MessageData;
     using MessageExchangeContract;
     using ProfileAPI.Messaging.Consumers;
@@ -19,11 +20,22 @@
 
                 mt.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(rmq =>
                 {
-                    rmq.Host("rabbitmq", host =>
+                    if (Debugger.IsAttached)
                     {
-                        host.Username("guest");
-                        host.Password("guest");
-                    });
+                        rmq.Host("localhost", "/", host =>
+                        {
+                            host.Username("guest");
+                            host.Password("guest");
+                        });
+                    }
+                    else
+                    {
+                        rmq.Host("rabbitmq", host =>
+                        {
+                            host.Username("guest");
+                            host.Password("guest");
+                        });
+                    }
 
                     rmq.UseHealthCheck(provider);
                     rmq.UseMessageData(new InMemoryMessageDataRepository());
