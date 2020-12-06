@@ -8,7 +8,7 @@ class ChatPage extends React.PureComponent {
 
     render() {
         console.log('---------------------------------------------')
-        console.log(this.props.location.state.activeConversation)
+        console.log(this.props.location.state != undefined ? this.props.location.state.activeConversation : null)
         console.log('---------------------------------------------')
         return (
             <div className="chat-page-container">

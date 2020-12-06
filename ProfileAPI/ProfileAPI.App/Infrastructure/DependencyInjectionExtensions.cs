@@ -16,6 +16,7 @@
             services.AddTransient<IProfileDBContext, ProfileDBContext>();
             services.AddTransient<IImageService, ImageService>();
             services.AddTransient<INotificationBusService, NotificationBusService>();
+            services.AddTransient<IChatService, ChatService>();
 
             return services;
         }

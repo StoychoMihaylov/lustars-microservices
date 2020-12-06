@@ -12,7 +12,8 @@
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<ChatMessage>()
+                .HasIndex(m => m.ConversationId);
         }
     }
 }
