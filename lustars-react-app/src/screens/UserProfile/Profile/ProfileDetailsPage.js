@@ -7,6 +7,7 @@ import {
     likeUserProfile,
     openChatIfUsersLikeEachOther
 } from '../../../store/actions/myProfileActions'
+import { setActiveChatConversation } from '../../../store/actions/chatMessangerActions'
 import { NotificationManager } from 'react-notifications'
 import ImageSlider from '../../../components/common/ImageSlider/ImageSlider'
 import './ProfileDetailsPage.css'
@@ -60,10 +61,8 @@ class ProfileDetailsPage extends Component {
         this.props.openChatIfUsersLikeEachOther(this.props.match.params.id)
             .then(response => {
                 if (response.status === 201) {
-                    this.props.history.push({
-                       pathname: "/messages",
-                       state: { activeConversation: response.data}
-                    })
+                    this.props.setActiveChatConversation(response.data)
+                    this.props.push("/messages")
                 } else {
                     NotificationManager.error('Both need to like each other to be able to start a conversation', '!', 5000)
                 }
@@ -383,6 +382,7 @@ const mapDispatchToProps = dispatch => {
         getSomeUserProfileDetailsById: (id) => dispatch(getSomeUserProfileDetailsById(id)),
         openChatIfUsersLikeEachOther: (id) => dispatch(openChatIfUsersLikeEachOther(id)),
         likeUserProfile: (id) => dispatch(likeUserProfile(id)),
+        setActiveChatConversation: (id) => dispatch(setActiveChatConversation(id)),
 
         // Navigation
         push: (url) => dispatch(push(url))

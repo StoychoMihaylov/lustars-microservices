@@ -6,6 +6,7 @@ import { connectRouter, routerMiddleware } from 'connected-react-router'
 import accountReducer from './reducers/accountReducer'
 import myProfileReducer from './reducers/myProfileReducer'
 import peopleNearbyReducer from './reducers/peopleNearbyReducer'
+import chatMessangerReducer from './reducers/chatMessangerReducer'
 
 
 export default function configureStore (history, initialState) {
@@ -13,7 +14,8 @@ export default function configureStore (history, initialState) {
   const reducers = {
     account: accountReducer,
     myProfile: myProfileReducer,
-    peopleNearby: peopleNearbyReducer
+    peopleNearby: peopleNearbyReducer,
+    chatMessanger: chatMessangerReducer
   }
 
   const middleware = [
