@@ -37,37 +37,38 @@ const accountReducer = (state, action) => {
                 ...state,
                 error: action.payload
             }
-            case REQUEST_ACCOUNT_LOGIN:
-                return {
-                    ...state,
-                    isLoading: true
-                }
-            case REQUEST_ACCOUNT_LOGIN_SUCCESS:
-                return {
-                    ...state,
-                    credentials: action.payload,
-                    isLoading: false,
-                }
-            case REQUEST_ACCOUNT_LOGIN_FAIL:
-                return {
-                    ...state,
-                    error: action.payload
-                }
-            case REQUEST_ACCOUNT_LOGOUT:
-                return {
-                    ...state,
-                    isLoading: true
-                }
-            case REQUEST_ACCOUNT_LOGOUT_SUCCESS:
-                return {
-                    ...state,
-                    isLoading: false,
-                }
-            case REQUEST_ACCOUNT_LOGOUT_FAIL:
-                return {
-                    ...state,
-                    error: action.payload
-                }
+        case REQUEST_ACCOUNT_LOGIN:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case REQUEST_ACCOUNT_LOGIN_SUCCESS:
+            return {
+                ...state,
+                credentials: action.payload,
+                isLoading: false,
+            }
+        case REQUEST_ACCOUNT_LOGIN_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
+        case REQUEST_ACCOUNT_LOGOUT:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case REQUEST_ACCOUNT_LOGOUT_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+            }
+        case REQUEST_ACCOUNT_LOGOUT_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
+            
         default:
             return state
     }
