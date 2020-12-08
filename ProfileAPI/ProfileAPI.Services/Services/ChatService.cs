@@ -94,7 +94,7 @@
                 .Include(chat => chat.InvitedUser)
                 .Select(chat => new ChatConversationsViewModel()
                 {
-                    Id = id,
+                    Id = chat.Id,
                     ChatStarterUserId = chat.ChatStarterUserId,
                     InvitedUserId = chat.InvitedUserId,
                     StartedOn = chat.StartedOn,
@@ -113,7 +113,7 @@
                 )
                 .Select(chat => new ChatConversationsViewModel() 
                 { 
-                    Id = id,
+                    Id = chat.Id,
                     ChatStarterUserId = chat.ChatStarterUserId,
                     InvitedUserId = chat.InvitedUserId,
                     StartedOn = chat.StartedOn,

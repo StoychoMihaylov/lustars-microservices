@@ -16,7 +16,7 @@
 
 .messanger-message-scroll-bar {
     display: flex;
-    height: 525px;
+    height: 500px;
 }
 
 .messanger-text-typing-area {
@@ -51,7 +51,7 @@
 }
 
 .messanger-messages-container-box {
-    height: 555px;
+    height: 535px;
     width: 650px;
     border: solid 1px #ccc;
     overflow: auto;
