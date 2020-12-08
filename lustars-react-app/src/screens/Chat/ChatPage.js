@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getAllUserConversations } from '../../store/actions/chatMessangerActions'
+import {
+    getAllUserConversations,
+    setActiveChatConversation
+} from '../../store/actions/chatMessangerActions'
 import ConversationsScrollBar from '../../components/chat/ConversationsScrollBar/ConversationsScrollBar'
 import Messanger from '../../components/chat/Messanger/Messanger'
 import './ChatPage.css'
@@ -30,6 +33,7 @@ class ChatPage extends React.PureComponent {
 const mapDispatchToProps = dispatch => {
     return {
         getAllUserConversations: () => dispatch(getAllUserConversations()),
+        setActiveChatConversation: (id) => dispatch(setActiveChatConversation(id)),
     }
 }
 
