@@ -6,7 +6,7 @@ import {
 } from '../../constants/actionTypes/chatMessangerTypes'
 
 const initialState = {
-    activeUserChatConversationId: "",
+    activeUserChatConversationId: null,
     chatConversations: [],
 
     isLoading: false,

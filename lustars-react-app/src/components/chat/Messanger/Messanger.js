@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { api } from '../../../constants/endpoints'
 import { startConversationConnection } from './SignalRChatConnection'
 import './Messanger.css'
 
@@ -8,14 +10,26 @@ class Messanger extends React.PureComponent {
         startConversationConnection()
     }
 
+    renderActiveChatCOnversation() {
+        if(this.props.activeUserChatConversationId !== null) {
+            let activeConversation = this.props.chatConversations.find(x => x.id === this.props.activeUserChatConversationId)
+
+            return(
+                <div className="individual-conversation-box">
+                    <img src={api.imageAPI + activeConversation.corresponderAvatarImage} className="conversation-profile-img" alt="" />
+                    <span className="conversation-profile-name">{ activeConversation.corresponderNames }</span>
+                </div>
+            )
+        }
+    }
+
     render() {
         return (
             <div className="messanger-scroll-bar-container">
 
-                 <div className="messinger-active-conversation">
-                    <img src="https://placeimg.com/50/50/people?1" className="conversation-profile-img" />
-                    <span className="conversation-profile-name">Pesho</span>
-                </div>
+                    {
+                        this.renderActiveChatCOnversation()
+                    }
 
                 <div className= "messanger-message-scroll-bar">
                     <div className="messanger-messages-container-box">
@@ -64,4 +78,17 @@ class Messanger extends React.PureComponent {
     }
 }
 
-export default Messanger
+const mapStateToProps = state => {
+    return {
+        activeUserChatConversationId: state.chatMessanger.activeUserChatConversationId,
+        chatConversations: state.chatMessanger.chatConversations
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Messanger)
