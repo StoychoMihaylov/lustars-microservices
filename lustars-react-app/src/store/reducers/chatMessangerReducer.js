@@ -8,6 +8,7 @@ import {
 const initialState = {
     activeUserChatConversationId: null,
     chatConversations: [],
+    chatMessages: [],
 
     isLoading: false,
     error: false

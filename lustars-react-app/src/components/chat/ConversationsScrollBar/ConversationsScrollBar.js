@@ -1,10 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { api } from '../../../constants/endpoints'
+import { startConversationConnection } from '../Messanger/SignalRChatConnection'
 import { setActiveChatConversation } from '../../../store/actions/chatMessangerActions'
 import './ConversationsScrollBar.css'
 
 class ConversationsScrollBar extends React.PureComponent {
+
+    setActiveConversationAndConnectToTheHub(id) {
+        startConversationConnection(id, null)
+        this.props.setActiveChatConversation(id)
+    }
+
     render() {
         return (
             <div className="conversations-scroll-bar-container" >
@@ -16,7 +23,7 @@ class ConversationsScrollBar extends React.PureComponent {
                                 <div
                                 id={index} className="individual-conversation-box"
                                 style={{ backgroundColor: conversation.id === this.props.activeUserChatConversationId ? "lightblue" : "" }}
-                                onClick={() => this.props.setActiveChatConversation(conversation.id)}
+                                onClick={() => this.setActiveConversationAndConnectToTheHub(conversation.id)}
                                 >
                                     <img src={api.imageAPI + conversation.corresponderAvatarImage} className="conversation-profile-img" alt="" />
                                     <span className="conversation-profile-name">{ conversation.corresponderNames }</span>

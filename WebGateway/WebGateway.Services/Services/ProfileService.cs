@@ -8,7 +8,6 @@
     using WebGateway.Services.Common;
     using WebGateway.Services.Endpoints;
     using WebGateway.Services.Interfaces;
-    using WebGateway.Models.BidingModels.Chat;
     using WebGateway.Models.BidingModels.UserProfile;
 
     public class ProfileService : Service, IProfileService
