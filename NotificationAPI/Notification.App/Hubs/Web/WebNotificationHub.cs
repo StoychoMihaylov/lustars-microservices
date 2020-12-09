@@ -8,6 +8,7 @@
 
     public class WebNotificationHub : Hub
     {
+        // one user can have many browser tabs(connection ids) opened
         public static Dictionary<Guid, List<string>> UserAndConnectionIds = new Dictionary<Guid, List<string>>();
 
         public override async Task OnDisconnectedAsync(Exception exception)
@@ -47,7 +48,8 @@
             else
             {
                 UserAndConnectionIds.Add(id, new List<string>());
-                UserAndConnectionIds[id].Add(this.Context.ConnectionId);
+                UserAndConnectionIds[id].Add(conectionId);
+                await this.Groups.AddToGroupAsync(conectionId, "user-web-event-notification");
             }
         }
     }

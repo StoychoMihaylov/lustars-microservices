@@ -8,25 +8,21 @@
 
     public class ChatHub : Hub
     {
-        public async Task OpenChatConversation(string connectionDataJSON) 
+        public async Task OpenChatConversation(string id) 
         {
-            // Save the IDs of the users and their connectionIDs (save connection data in memory)
-            // Create a group for them
-            // If one of the users reconect change his connectionID
+            var conversationId = Guid.Parse(id);
+            var conectionId = this.Context.ConnectionId;
 
-            var connectionData = JsonConvert.DeserializeObject<ConnectionDataModel>(connectionDataJSON);
+            await this.Groups.AddToGroupAsync(conectionId, conversationId.ToString());  
         }
 
-        public override async Task OnDisconnectedAsync(Exception exception)
+        public async Task SendMessageToTheHub(string messageDataJSON)
         {
-           // Check which user is disconected and delete its ID and connectionId
-           // If both users are disconnected delete the connection data from memory
-        }
+            var messageData = JsonConvert.DeserializeObject<MessageData>(messageDataJSON);
+            messageData.SendOn = DateTime.UtcNow;
+            await Clients.Group(messageData.ConversationId.ToString()).SendAsync("ReceiveMessage", messageData);
 
-        public async Task SendMessageToTheHub(string message)
-        {
-            // Receives message from React and sends the message to the collocutor
-            // Sends RabbitMQ message to the ChatService to save the message in MongoDB
+            // Send the message to the ChatAPI to save it in the DB
         }
     }
 }

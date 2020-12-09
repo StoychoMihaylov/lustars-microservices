@@ -5,13 +5,47 @@ import { startConversationConnection } from './SignalRChatConnection'
 import './Messanger.css'
 
 class Messanger extends React.PureComponent {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            message: '',
+        }
+    }
+
+    onKeyPressHandler(e) {
+        if(e.key === 'Enter' && !(e.key === 'Enter' && e.shiftKey)) {
+
+            let currentUserId = localStorage.getItem('lustars_user_id')
+            let activeConversation = this.props.chatConversations.find(x => x.id === this.props.activeUserChatConversationId)
+
+            let message = {
+                id: '',
+                conversationId: activeConversation.id,
+                sender: currentUserId,
+                recipient: currentUserId === activeConversation.chatStarterUserId ? currentUserId : activeConversation.invitedUserId,
+                Content: this.state.message
+            }
+
+            // Send Message
+            startConversationConnection(null, message)
+
+            this.setState({ message: ""})
+        }
+    }
+
+    updateMessageState(message) {
+        this.setState({ message:message })
+    }
 
     componentDidMount() {
-        startConversationConnection()
+        if(this.props.activeUserChatConversationId !== null) {
+            startConversationConnection(this.props.activeUserChatConversationId, null)
+        }
     }
 
     renderActiveChatCOnversation() {
-        if(this.props.activeUserChatConversationId !== null) {
+        if(this.props.activeUserChatConversationId !== null && this.props.chatConversations !== undefined) {
             let activeConversation = this.props.chatConversations.find(x => x.id === this.props.activeUserChatConversationId)
 
             return(
@@ -24,6 +58,7 @@ class Messanger extends React.PureComponent {
     }
 
     render() {
+        console.log(this.props.chatConversations)
         return (
             <div className="messanger-scroll-bar-container">
 
@@ -70,8 +105,18 @@ class Messanger extends React.PureComponent {
                 </div>
                 <br/>
                 <div className="messanger-text-typing-area" >
-                    <textarea id="input-typer" rows="1"/>
-                    <span id="messanger-message-send-bttn" >Send</span>
+                    <textarea
+                        id="input-typer"
+                        rows="1"
+                        value={ this.state.message }
+                        onKeyPress={(e) => this.onKeyPressHandler(e)}
+                        onChange={(e) => this.updateMessageState(e.target.value)}
+                    />
+                    <span
+                        id="messanger-message-send-bttn"
+                        onClick={() => this.sendMessage(this.state.message)}
+                        >Send
+                    </span>
                 </div>
             </div>
         )
