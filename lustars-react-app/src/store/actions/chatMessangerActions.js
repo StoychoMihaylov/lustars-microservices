@@ -2,7 +2,8 @@ import {
     REQUEST_USER_CHAT_CONVERSATIONS,
     REQUEST_USER_CHAT_CONVERSATIONS_SUCCESS,
     REQUEST_USER_CHAT_CONVERSATIONS_FAIL,
-    SET_ACTIVE_USER_CHAT_CONVERSATION_ID
+    SET_ACTIVE_USER_CHAT_CONVERSATION_ID,
+    ADD_NEW_MESSAGE_IN_CHAT
 } from '../../constants/actionTypes/chatMessangerTypes'
 import { api } from '../../constants/endpoints'
 import axios from 'axios'
@@ -62,3 +63,19 @@ export function updateActiveChatConversationId(id) {
         payload: id
     }
 }
+
+//************************** Update messanger ************************************
+
+export function addMessageInTheChat(message) {
+    return dispatch => {
+        dispatch(addNewReceiveMessage(message))
+    }
+}
+
+export function addNewReceiveMessage(message) {
+    return {
+        type: ADD_NEW_MESSAGE_IN_CHAT,
+        payload: message
+    }
+}
+
