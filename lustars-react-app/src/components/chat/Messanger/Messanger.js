@@ -34,10 +34,6 @@ class Messanger extends React.PureComponent {
         }
     }
 
-    updateMessageState(message) {
-        this.setState({ message:message })
-    }
-
     componentDidMount() {
         if(this.props.activeUserChatConversationId !== null) {
             startConversationConnection(this.props.activeUserChatConversationId, null)
@@ -47,6 +43,7 @@ class Messanger extends React.PureComponent {
     renderActiveChatCOnversation() {
         if(this.props.activeUserChatConversationId !== null && this.props.chatConversations !== undefined) {
             let activeConversation = this.props.chatConversations.find(x => x.id === this.props.activeUserChatConversationId)
+            if(activeConversation === undefined) return
 
             return(
                 <div className="individual-conversation-box">
@@ -58,7 +55,9 @@ class Messanger extends React.PureComponent {
     }
 
     render() {
-        console.log(this.props.chatConversations)
+        console.log('------------')
+        console.log(this.props.chatMesseges)
+        console.log('------------')
         return (
             <div className="messanger-scroll-bar-container">
 
@@ -110,7 +109,7 @@ class Messanger extends React.PureComponent {
                         rows="1"
                         value={ this.state.message }
                         onKeyPress={(e) => this.onKeyPressHandler(e)}
-                        onChange={(e) => this.updateMessageState(e.target.value)}
+                        onChange={(e) => this.setState({ message: e.target.value })}
                     />
                     <span
                         id="messanger-message-send-bttn"
@@ -126,7 +125,8 @@ class Messanger extends React.PureComponent {
 const mapStateToProps = state => {
     return {
         activeUserChatConversationId: state.chatMessanger.activeUserChatConversationId,
-        chatConversations: state.chatMessanger.chatConversations
+        chatConversations: state.chatMessanger.chatConversations,
+        chatMesseges: state.chatMessanger.chatMesseges
     }
 }
 

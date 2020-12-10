@@ -26,9 +26,10 @@ export function startConversationConnection(conversationId, message) {
                 })
             }
 
-            connection.on('ReceiveMessage', message => {
+            /* connection.on('ReceiveMessage', message => {
                 console.log(message)
-            })
+            }) */
+
         })
         .catch(err => {
             console.log('Connection failed: ', err)
