@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { api } from '../../../constants/endpoints'
-import { startConversationConnection } from './SignalRChatConnection'
+import { addMessageInTheChat } from '../../../store/actions/chatMessangerActions'
+import { HubConnectionBuilder } from '@microsoft/signalr'
 import './Messanger.css'
 
 class Messanger extends React.PureComponent {
@@ -10,13 +11,12 @@ class Messanger extends React.PureComponent {
 
         this.state = {
             message: '',
+            hubConnection: null,
         }
     }
 
-    onKeyPressHandler(e) {
-        if(e.key === 'Enter' && !(e.key === 'Enter' && e.shiftKey)) {
-
-            let currentUserId = localStorage.getItem('lustars_user_id')
+    sendMessage() {
+        let currentUserId = localStorage.getItem('lustars_user_id')
             let activeConversation = this.props.chatConversations.find(x => x.id === this.props.activeUserChatConversationId)
 
             let message = {
@@ -28,15 +28,45 @@ class Messanger extends React.PureComponent {
             }
 
             // Send Message
-            startConversationConnection(null, message)
+            this.state.hubConnection.invoke('SendMessageToTheHub', JSON.stringify(message))
+                .catch((err) => console.error(err))
 
             this.setState({ message: ""})
+    }
+
+    onKeyPressHandler(e) {
+        if(e.key === 'Enter' && !(e.key === 'Enter' && e.shiftKey)) {
+            this.sendMessage()
         }
     }
 
     componentDidMount() {
         if(this.props.activeUserChatConversationId !== null) {
-            startConversationConnection(this.props.activeUserChatConversationId, null)
+            let id = this.props.activeUserChatConversationId
+
+            const hubConnection = new HubConnectionBuilder()
+                .withUrl('http://localhost:5000/hubs/chat-messanger')
+                .withAutomaticReconnect([0, 1000, 2000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000])
+                .build()
+
+            this.setState({ hubConnection }, () => {
+                this.state.hubConnection
+                    .start()
+                    .then(() => {
+
+                        // Open hub conversation
+                        this.state.hubConnection.invoke('OpenChatConversation', id)
+                        .catch(function (err) {
+                            console.error(err)
+                        })
+
+                        // Receiveing messages
+                        this.state.hubConnection.on('ReceiveMessage', message => {
+                            this.props.addMessageInTheChat(message)
+                        })
+                    })
+                    .catch((err) => console.error(err))
+            })
         }
     }
 
@@ -55,51 +85,30 @@ class Messanger extends React.PureComponent {
     }
 
     render() {
-        console.log('------------')
-        console.log(this.props.chatMesseges)
-        console.log('------------')
         return (
-            <div className="messanger-scroll-bar-container">
+            <section className="messanger-scroll-bar-container">
 
-                    {
+                {
                         this.renderActiveChatCOnversation()
-                    }
+                }
 
                 <div className= "messanger-message-scroll-bar">
                     <div className="messanger-messages-container-box">
-                        <div className="messanger-my-message">
-                            <spam>Hey, how are you ?</spam>
-                        </div>
-                        <div className="messanger-collocutor-message">
-                            <spam>I'm fine thanks!</spam>
-                        </div>
-                        <div className="messanger-collocutor-message">
-                            <spam>And you ?</spam>
-                        </div>
-                        <div className="messanger-my-message">
-                            <spam>Me too! I'm great!</spam>
-                        </div>
-                        <div className="messanger-my-message">
-                            <spam>Let's meet today ?</spam>
-                        </div>
-                        <div className="messanger-collocutor-message">
-                            <spam>Ahhh, I have soo much to do... don't know if will have time today :(</spam>
-                        </div>
-                        <div className="messanger-collocutor-message">
-                            <spam>But wait, I think we can meet tomorrow and play something in at home ? Or watch some movie ?</spam>
-                        </div>
-                        <div className="messanger-my-message">
-                            <spam>Ah yeaaa! Sounds great, meybe can play some PC game ?</spam>
-                        </div>
-                        <div className="messanger-my-message">
-                            <spam>You know... you can teach me how to play dota!</spam>
-                        </div>
-                        <div className="messanger-my-message">
-                            <spam>I have played only dota 1 so far but wanna learn dota 2 as well!</spam>
-                        </div>
-                        <div className="messanger-collocutor-message">
-                            <spam>Yeaaa let's do it! Will be lot of fun!</spam>
-                        </div>
+                        {
+                            this.props.chatMesseges.map((message, index) => {
+                                return (
+                                    message.sender === localStorage.getItem('lustars_user_id')
+                                    ?
+                                    <div className="messanger-my-message">
+                                        <spam>{ message.content }</spam>
+                                    </div>
+                                    :
+                                    <div className="messanger-collocutor-message">
+                                        <spam>{ message.content }</spam>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
                 <br/>
@@ -117,7 +126,7 @@ class Messanger extends React.PureComponent {
                         >Send
                     </span>
                 </div>
-            </div>
+            </section>
         )
     }
 }
@@ -132,7 +141,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        addMessageInTheChat: (message) => dispatch(addMessageInTheChat(message))
     }
 }
 

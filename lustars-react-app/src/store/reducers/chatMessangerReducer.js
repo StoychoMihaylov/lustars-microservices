@@ -3,7 +3,7 @@ import {
     REQUEST_USER_CHAT_CONVERSATIONS_SUCCESS,
     REQUEST_USER_CHAT_CONVERSATIONS_FAIL,
     SET_ACTIVE_USER_CHAT_CONVERSATION_ID,
-    ADD_NEW_MESSAGE_IN_CHAT
+    ADD_NEW_MESSAGE_IN_THE_CHAT
 } from '../../constants/actionTypes/chatMessangerTypes'
 
 const initialState = {
@@ -19,10 +19,11 @@ const chatMessangerReducer = (state, action) => {
     state = state || initialState
 
     switch (action.type) {
-        case ADD_NEW_MESSAGE_IN_CHAT:
+        case ADD_NEW_MESSAGE_IN_THE_CHAT:
+
             return {
                 ...state,
-                chatMessages: action.payload
+                chatMesseges: state.chatMesseges.concat([action.payload])
             }
         case REQUEST_USER_CHAT_CONVERSATIONS:
             return {
