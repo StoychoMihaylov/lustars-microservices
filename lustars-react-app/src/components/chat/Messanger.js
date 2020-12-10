@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { api } from '../../../constants/endpoints'
-import { addMessageInTheChat, setActiveChatConversation } from '../../../store/actions/chatMessangerActions'
+import { api } from '../../constants/endpoints'
+import { addMessageInTheChat, setActiveChatConversation } from '../../store/actions/chatMessangerActions'
 import { HubConnectionBuilder } from '@microsoft/signalr'
 import './Messanger.css'
 
