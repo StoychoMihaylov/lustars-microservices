@@ -4,8 +4,7 @@ import {
     getAllUserConversations,
     setActiveChatConversation
 } from '../../store/actions/chatMessangerActions'
-import ConversationsScrollBar from '../../components/chat/ConversationsScrollBar/ConversationsScrollBar'
-import Messanger from '../../components/chat/Messanger/Messanger'
+import Messanger from '../../components/chat/Messanger'
 import './ChatPage.css'
 
 class ChatPage extends React.PureComponent {
@@ -17,14 +16,7 @@ class ChatPage extends React.PureComponent {
         return (
             <div className="chat-page-container">
                 <h1>My messages</h1>
-                <div className="converation-messanger-container">
-                    <div className="conversations">
-                        <ConversationsScrollBar />
-                    </div>
-                    <div className="messanger">
-                        <Messanger />
-                    </div>
-                </div>
+                <Messanger />
             </div>
         )
     }

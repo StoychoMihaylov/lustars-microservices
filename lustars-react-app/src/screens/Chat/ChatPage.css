@@ -3,15 +3,3 @@
     background-color: rgb(245,245,245);
     padding: 30px;
 }
-
-.converation-messanger-container {
-    display: flex;
-}
-
-.conversations {
-    float: 1;
-}
-
-.messanger {
-    flex: 2;
-}
