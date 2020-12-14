@@ -6,7 +6,7 @@
 
     public class ChatMessage
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
         public Guid Id { get; set; }
 
         public Guid ConversationId { get; set; } // Indexed in the model builder

@@ -41,6 +41,9 @@
                     // ProfileAPI
                     rmq.Message<ICreateUserProfile>(m => m.SetEntityName("create-user-profile-exchange"));
                     rmq.Message<IUpdateUserProfile>(m => m.SetEntityName("update-user-profile-exchange"));
+
+                    // ChatAPI
+                    rmq.Message<ISaveChatMessage>(m => m.SetEntityName("save-new-chat-message-exchange"));
                 }));
             })
             .AddMassTransitHostedService();

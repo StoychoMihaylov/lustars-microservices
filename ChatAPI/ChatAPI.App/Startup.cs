@@ -21,7 +21,9 @@ namespace ChatAPI.App
         {
             services.AddControllers();
             services.AddSwaggerDocument(); //Swagger
+            services.AddDependancyInjectionResolver(); // DI
             services.AddPosgreSQLWithEntityFramework(Configuration);
+            services.AddMassTransitServiceBus(); // MassTransite Configuration
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ChatDBContext context)
