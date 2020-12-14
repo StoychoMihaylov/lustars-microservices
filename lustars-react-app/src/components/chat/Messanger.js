@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { api } from '../../constants/endpoints'
-import { addMessageInTheChat, setActiveChatConversation } from '../../store/actions/chatMessangerActions'
+import { addMessageInTheChat, setActiveChatConversation, getAllConversationMessages } from '../../store/actions/chatMessangerActions'
 import { HubConnectionBuilder } from '@microsoft/signalr'
 import './Messanger.css'
 
@@ -17,21 +17,22 @@ class Messanger extends React.PureComponent {
 
     sendMessage() {
         let currentUserId = localStorage.getItem('lustars_user_id')
-            let activeConversation = this.props.chatConversations.find(x => x.id === this.props.activeUserChatConversationId)
+        let activeConversation = this.props.chatConversations.find(x => x.id === this.props.activeUserChatConversationId)
+        let recipiantId = activeConversation.chatStarterUserId === currentUserId ? activeConversation.invitedUserId : activeConversation.chatStarterUserId
 
-            let message = {
-                id: '',
-                conversationId: activeConversation.id,
-                sender: currentUserId,
-                recipient: currentUserId === activeConversation.chatStarterUserId ? currentUserId : activeConversation.invitedUserId,
-                Content: this.state.message
-            }
+        let message = {
+            id: '',
+            conversationId: activeConversation.id,
+            sender: currentUserId,
+            recipient: recipiantId,
+            Content: this.state.message
+        }
 
-            // Send Message
-            this.state.hubConnection.invoke('SendMessageToTheHub', JSON.stringify(message))
-                .catch((err) => console.error(err))
+        // Send Message
+        this.state.hubConnection.invoke('SendMessageToTheHub', JSON.stringify(message))
+            .catch((err) => console.error(err))
 
-            this.setState({ message: ""})
+        this.setState({ message: ""})
     }
 
     onKeyPressHandler(e) {
@@ -65,6 +66,7 @@ class Messanger extends React.PureComponent {
                 .catch((err) => console.error(err))
         })
 
+        this.props.getAllConversationMessages(id)
         this.props.setActiveChatConversation(id)
     }
 
@@ -181,6 +183,7 @@ const mapDispatchToProps = dispatch => {
     return {
         addMessageInTheChat: (message) => dispatch(addMessageInTheChat(message)),
         setActiveChatConversation: (id) => dispatch(setActiveChatConversation(id)),
+        getAllConversationMessages: (id) => dispatch(getAllConversationMessages(id))
     }
 }
 
