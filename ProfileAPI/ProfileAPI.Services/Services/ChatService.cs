@@ -5,10 +5,10 @@
     using ProfileAPI.Data.Entities;
     using System.Collections.Generic;
     using ProfileAPI.Data.Interfaces;
+    using ProfileAPI.Models.ViewModels;
     using Microsoft.EntityFrameworkCore;
     using ProfileAPI.Models.BidingModels;
     using ProfileAPI.Services.Interfaces;
-    using ProfileAPI.Models.ViewModels;
 
     public class ChatService : Service, IChatService
     {

@@ -12,10 +12,12 @@
     public class ChatController : ControllerBase
     {
         private readonly IChatMessangerService chatMessangerService;
+        private readonly IProfileService profileService;
 
-        public ChatController(IChatMessangerService chatMessangerService)
+        public ChatController(IChatMessangerService chatMessangerService, IProfileService profileService)
         {
             this.chatMessangerService = chatMessangerService;
+            this.profileService = profileService;
         }
 
         [HttpPost]
@@ -55,6 +57,29 @@
             }
 
             return StatusCode(200, conversations);
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("conversation-messages")]
+        public async Task<IActionResult> GetAllChatConversationMessages(string id)
+        {
+            var conversationId = new Guid();
+            var isIdValid = Guid.TryParse(id, out conversationId);
+            if (!isIdValid)
+            {
+                return StatusCode(400); // Bad Request
+            }
+
+            var currentUserId = IdentityManager.CurrentUserId;
+
+            var chatMessages = await this.chatMessangerService.CallChatAPI_GetAllConversationMessages(currentUserId, conversationId);
+            if (chatMessages != null)
+            {
+                return StatusCode(200, chatMessages);
+            }
+
+            return StatusCode(404);
         }
     }
 }

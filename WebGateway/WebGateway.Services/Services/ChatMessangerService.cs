@@ -14,6 +14,19 @@
         public ChatMessangerService(HttpClient httpClient, StringContentSerializer stringContentSerializer)
            : base(httpClient, stringContentSerializer) { }
 
+        public async Task<string> CallChatAPI_GetAllConversationMessages(Guid currentUserId, Guid conversationId)
+        {
+            var response = await this.HttpClient.GetAsync(ChatAPIService.Endpoint + $"chat/{currentUserId}/conversation/{conversationId}/messages");
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return response.Content.ReadAsStringAsync().Result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public async Task<string> CallProfileAPI_CreateConversationIfUsersLikeEachOther(Guid currentUserId, Guid secondUserId)
         {
             var chatConversation = new ChatConversationBm()
