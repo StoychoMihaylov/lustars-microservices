@@ -20,6 +20,7 @@
             services.AddTransient<IProfileBusService, ProfileBusService>();
             services.AddTransient<IUserImageService, UserImageService>();
             services.AddTransient<IChatMessangerService, ChatMessangerService>();
+            services.AddTransient<IChatBusService, ChatBusService>();
 
             return services;
         }

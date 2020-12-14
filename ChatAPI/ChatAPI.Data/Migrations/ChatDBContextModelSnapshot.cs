@@ -22,10 +22,14 @@ namespace ChatAPI.Data.Migrations
             modelBuilder.Entity("ChatAPI.Data.Entities.ChatMessage", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Content")
                         .HasColumnType("text");
+
+                    b.Property<Guid>("ConversationId")
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("Recipient")
                         .HasColumnType("uuid");
@@ -37,6 +41,8 @@ namespace ChatAPI.Data.Migrations
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ConversationId");
 
                     b.ToTable("ChatMessages");
                 });

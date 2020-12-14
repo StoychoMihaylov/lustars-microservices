@@ -5,9 +5,17 @@
     using System.Threading.Tasks;
     using WebGateway.Models.HubsModels;
     using Microsoft.AspNetCore.SignalR;
+    using WebGateway.Messaging.Interfaces;
 
     public class ChatHub : Hub
     {
+        private readonly IChatBusService chatBusService;
+
+        public ChatHub(IChatBusService chatBusService)
+        {
+            this.chatBusService = chatBusService;
+        }
+
         public async Task OpenChatConversation(string id) 
         {
             var conversationId = Guid.Parse(id);
@@ -22,7 +30,7 @@
             messageData.SendOn = DateTime.UtcNow;
             await Clients.Group(messageData.ConversationId.ToString()).SendAsync("ReceiveMessage", messageData);
 
-            // Send the message to the ChatAPI to save it in the DB
+            await this.chatBusService.MessageChatAPI_SaveChatConversationMessage(messageData);
         }
     }
 }

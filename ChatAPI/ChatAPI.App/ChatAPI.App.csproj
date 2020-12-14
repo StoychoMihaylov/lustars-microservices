@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit" Version="7.0.6" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.0.6" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="7.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -17,6 +20,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ChatAPI.Data\ChatAPI.Data.csproj" />
+    <ProjectReference Include="..\ChatAPI.Messaging\ChatAPI.Messaging.csproj" />
+    <ProjectReference Include="..\ChatAPI.Services\ChatAPI.Services.csproj" />
   </ItemGroup>
 
 
