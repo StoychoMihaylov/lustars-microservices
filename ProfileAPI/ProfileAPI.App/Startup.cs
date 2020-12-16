@@ -21,7 +21,7 @@ namespace ProfileAPI.App
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSwaggerDocument(); //Swagger
+            services.AddSwaggerDocument(); // Swagger
             services.AddPosgreSQLWithEntityFramework(Configuration);
             services.AddDependancyInjectionResolver(); // DI
             services.AddAutoMapper(typeof(Startup));
@@ -31,8 +31,8 @@ namespace ProfileAPI.App
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ProfileDBContext context)
         {
             app.UseRouting();
-            app.UseOpenApi(); //Swagger
-            app.UseSwaggerUi3();
+            app.UseOpenApi(); // Swagger
+            app.UseSwaggerUi3(); // Swagger
             app.UseControllerEndpoints();
             app.UseExceptionHandling(env);
 

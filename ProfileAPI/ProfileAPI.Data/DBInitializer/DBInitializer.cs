@@ -7,7 +7,6 @@
     {
         public static void SeedDb(ProfileDBContext context)
         {
-            //context.Database.EnsureCreated();
             context.Database.Migrate();
         }
     }
