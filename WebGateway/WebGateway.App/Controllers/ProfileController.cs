@@ -113,9 +113,7 @@
                 return StatusCode(400, "Model state is not valid!");
             }
 
-            //var isUpdated = await this.profileService.CallProfileAPI_EditUserProfile(bm);
-
-            profileBusService.MessageProfileAPI_UpdateUserProfile(bm);
+            this.profileBusService.MessageProfileAPI_UpdateUserProfile(bm);
 
             return StatusCode(202); // Accepted!
         }

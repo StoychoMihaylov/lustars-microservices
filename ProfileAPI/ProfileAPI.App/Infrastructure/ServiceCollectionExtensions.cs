@@ -21,7 +21,7 @@
                     }
                     else
                     {
-                        opt.UseNpgsql(configuration.GetConnectionString("LustarsProfileBRelease"))
+                        opt.UseNpgsql(configuration.GetConnectionString("LustarsProfileDBRelease"))
                            .UseInternalServiceProvider(sp);
                     }
                 });
